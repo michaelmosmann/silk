@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/overview.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,8 +16,8 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Silk</h1>
-        <p>3rd Generation Java Inversion of Control (IoC) / Dependency Injection (DI)</p>
+        <h1>Silk <small>Java<br/>IoC / DI</small></h1>
+        <p>The <b>3rd</b> Generation Java <i>Inversion of Control (IoC)</i> / <i>Dependency Injection (DI)</i> framework</p>
 
         <p class="view"><a href="https://github.com/jbee/silk">View the Project on GitHub <small>jbee/silk</small></a></p>
 
@@ -24,60 +25,92 @@
         <ul>
           <li><a href="https://github.com/jbee/silk/zipball/master">Download <strong>ZIP File</strong></a></li>
           <li><a href="https://github.com/jbee/silk/tarball/master">Download <strong>TAR Ball</strong></a></li>
+        </ul>
+        
+        <ul>
           <li><a href="https://github.com/jbee/silk">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
-        <h2>silk</h2>
 
-<h3>Java Dependency Injection</h3>
+<table class="overview">
+	<tr>
+		<th><h3>100%</h3></th>
+		<th><h3>Less <em>"Magic"</em></h3></th>
+	</tr>
+	<tr>
+		<td>
+			<ul>
+			<li><strong>Configuration by code</strong></li>
+			<li>
+			<strong>separated from <b>your application</b> code</strong> <br/><small>no dependency points to silk*</small></li>
+			<li>no further runtime dependencies</li>
+			</ul>		
+		</td>
+		<td>
+			<ul>
+			<li><b>No</b> XML</li>
+			<li><b>No</b> AOP</li>
+			<li><b>No</b> annotations <br/><small>easy to add but why would you want to ?</small></li>
+			<li><b>No</b> accessible mutable state</li>
+			<li><b>No</b> changing configuration</li>
+			</ul>		
+		</td>
+	</tr>
+</table>
+<table class="overview">
+	<tr>
+		<th><h3><code>if</code>-less Modularity</h3></th>
+		<th><h3>Robust</h3></th>
+	</tr>
+	<tr>
+		<td>
+			<ul>
+			<li>consider in isolation</li>
+			<li>bundles always just installed once<br/><small>multiple installs or circles are allowed</small></li> 
+			<li>uninstall bundles</li>
+			<li>configuration through editions, features and constant properties</li>
+			</ul>		
+		</td>
+		<td>
+			<ul>
+			<li>safe renaming</li>
+			<li>typesafe <br/><small>seldom just raw-type safety</small></li>
+			<li>excellent Unit-testability </li>
+			<li>pushes for immutability <br/><small>enforces constructor injection</small></li>
+			<li>data driven <br/><small>core uses mostly Value Objects</small></li>
+			</ul>
+		</td>
+	</tr>
+</table>
 
-<h4>100%</h4>
+<table class="overview">
+	<tr>
+		<th><h3>Features</h3></th>
+		<th></th>	
+	</tr>
+	<tr>
+		<td>
+			<ul>
+			<li>declarative dependency descriptions <br/><small>using a guice-like builder</small></li>
+			<li>multi-binds</li>
+			<li>full generic support</li>
+			<li>easy to extend <br/><small>e.g. with Set or List support</small></li>
+			</ul>
+		</td>	
+		<td>
+			<ul>
+			<li>fast bootsrap</li>
+			<li>about 120 KB jar archive</li>
+			</ul>		
+		</td>
+	</tr>
+</table>
 
-<ul>
-<li><strong>Configuration by code</strong></li>
-<li>
-<strong>separated from your application code</strong> (no dependency will ever point to silk except the configuration code itself)</li>
-<li>no further runtime dependencies (libraries) needed</li>
-<li>transparent (renaming refactorings cannot cause problems)</li>
-</ul><h4>Less <em>Magic</em>
-</h4>
-
-<ul>
-<li>no AOP</li>
-<li>no accessible mutable state</li>
-<li>no reconfiguration </li>
-<li>no annotations (easy to add but why would you want to ?)</li>
-</ul><h4>
-<code>if</code>-less Modularity</h4>
-
-<ul>
-<li>powerful modularisation with bundles and modules</li>
-<li>allows: repeated install of bundles (also circular), uninstall bundles</li>
-<li>configuration through editions, features and constant-properties</li>
-</ul><h4>Efficient</h4>
-
-<ul>
-<li>fast bootsrap</li>
-<li>declarative dependency descriptions (using a guice like binding-builder)</li>
-<li>about 120 KB jar archive</li>
-<li>does the right thing (see below)</li>
-</ul><h4>Further Characteristics</h4>
-
-<ul>
-<li>data driven (core uses a lot Value Objects)</li>
-<li>pushes for immutability: enforces Constructor-Injection</li>
-<li>multi-binds</li>
-<li>allows use of generics in managed instances without pain</li>
-<li>typesafe (not fully typesafe with generics)</li>
-<li>easy to extend (e.g. with Set or List support)</li>
-<li>decouples application layers through services</li>
-<li>Unit-testable </li>
-</ul>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/jbee">jbee</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        <p><small>Hosted on GitHub Pages &mdash; based on Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>

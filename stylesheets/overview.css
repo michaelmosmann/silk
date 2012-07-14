@@ -1,0 +1,67 @@
+h1 {
+	font-family: Garamond;
+	font-style: italic;
+	letter-spacing: 0.2em;
+}
+h2 {
+	color: Chocolate;
+	font-family: monospace;
+	background-color: #eee;
+	padding: 0.5em;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;	
+}
+
+table.overview {
+	width: 100%;
+	border-spacing: 10px 0;
+	border-collapse: separate;
+}
+
+table.overview tr td,table.overview tr th {
+	width: 50%;
+	border-width: 0;
+}
+
+table.overview tr th {
+	vertical-align: middle;
+	padding: 10px;
+}
+
+table.overview tr th h3 {
+	color: black;
+	padding: 0;
+	margin: 0;
+	letter-spacing: 0.1em;
+	font-size: 140%;
+	font-family: "Ubuntu";
+}
+
+table.overview tr td {
+	vertical-align: top;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+-webkit-border-top-right-radius: 5px;
+-moz-border-radius-topright: 5px;
+border-top-right-radius: 5px;	
+	padding-bottom: 5px;
+}
+table.overview ul {
+	padding-left: 20px;	
+	margin-bottom: 0;
+}
+table.overview li {
+	font-size: 105%;
+	list-style-type: circle;
+	color: #222;
+	font-family: "Ubuntu", Verdana, sans-serif;
+}	
+table.overview li strong {
+	font-weight: normal;
+	color: black;
+	font-size: 120%;
+}
+table.overview li small {
+	color: #777;
+}
