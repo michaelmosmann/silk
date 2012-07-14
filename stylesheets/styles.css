@@ -177,6 +177,7 @@ footer {
   float:left;
   position:fixed;
   bottom:50px;
+  color: #888;
 }
 
 @media print, screen and (max-width: 960px) {

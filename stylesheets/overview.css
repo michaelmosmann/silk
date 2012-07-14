@@ -2,6 +2,7 @@ h1 {
 	font-family: Garamond;
 	font-style: italic;
 	letter-spacing: 0.2em;
+	color: SaddleBrown;
 }
 h2 {
 	color: Chocolate;
@@ -30,30 +31,40 @@ table.overview tr th {
 }
 
 table.overview tr th h3 {
-	color: black;
+	color: Sienna;
 	padding: 0;
 	margin: 0;
 	letter-spacing: 0.1em;
-	font-size: 140%;
+	font-size: 130%;
 	font-family: "Ubuntu";
+	font-weight: normal;
 }
 
 table.overview tr td {
 	vertical-align: top;
-	border-top: 1px solid #ccc;
-	border-right: 1px solid #ccc;
+	border-top: 1px solid Tan;
 -webkit-border-top-right-radius: 5px;
 -moz-border-radius-topright: 5px;
 border-top-right-radius: 5px;	
+	padding: 0;
 	padding-bottom: 5px;
 }
 table.overview ul {
 	padding-left: 20px;	
 	margin-bottom: 0;
+	list-style-type: none;
+}
+.overview ul li:before {
+	content: "* ";
+	color: SaddleBrown;
+	position: absolute;
+	margin-left: -20px;
+	margin-top: 3px;
 }
 table.overview li {
+	list-style-type: none;
 	font-size: 105%;
-	list-style-type: circle;
+	margin-left: 10px;
 	color: #222;
 	font-family: "Ubuntu", Verdana, sans-serif;
 }	
@@ -64,4 +75,11 @@ table.overview li strong {
 }
 table.overview li small {
 	color: #777;
+}
+.overview p {
+	padding: 3px 10px;
+	margin: 0 0 5px 0;
+	font-style: italic;
+	font-family: Garamond;
+	color: #5A2000;
 }

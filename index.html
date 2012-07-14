@@ -40,6 +40,7 @@
 	</tr>
 	<tr>
 		<td>
+			<p>Silk allows DI without making your application depend on the DI framework!</p>
 			<ul>
 			<li><strong>Configuration by code</strong></li>
 			<li>
@@ -48,12 +49,14 @@
 			</ul>		
 		</td>
 		<td>
+			<p>Silk avoids techniques that are hard to understand, debug or maintain.</p>
 			<ul>
 			<li><b>No</b> XML</li>
 			<li><b>No</b> AOP</li>
 			<li><b>No</b> annotations <br/><small>easy to add but why would you want to ?</small></li>
 			<li><b>No</b> accessible mutable state</li>
 			<li><b>No</b> changing configuration</li>
+			<li><b>No</b> overrides</li>
 			</ul>		
 		</td>
 	</tr>
@@ -65,17 +68,18 @@
 	</tr>
 	<tr>
 		<td>
+			<p>Silk provides few concepts to customize your application in a predictable and maintainable way.</p>
 			<ul>
-			<li>consider in isolation</li>
-			<li>bundles always just installed once<br/><small>multiple installs or circles are allowed</small></li> 
+			<li>bundles always just installed once<br/><small>multiple install-calls or circles are allowed</small></li> 
 			<li>uninstall bundles</li>
-			<li>configuration through editions, features and constant properties</li>
+			<li>simple configuration <br/><small>through editions, features and constant properties</small></li>
 			</ul>		
 		</td>
 		<td>
+			<p>Silk is designed in a way that allows to forget about it during development without breaking your application.</p>
 			<ul>
 			<li>safe renaming</li>
-			<li>typesafe <br/><small>seldom just raw-type safety</small></li>
+			<li>type-safe <br/><small>seldom just raw-type safety</small></li>
 			<li>excellent Unit-testability </li>
 			<li>pushes for immutability <br/><small>enforces constructor injection</small></li>
 			<li>data driven <br/><small>core uses mostly Value Objects</small></li>
