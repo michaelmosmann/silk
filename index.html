@@ -36,7 +36,7 @@
 <table class="overview">
 	<tr>
 		<th><h3>100%</h3></th>
-		<th><h3>Less <em>"Magic"</em></h3></th>
+		<th><h3><code>if</code>-less Modularity</h3></th>
 	</tr>
 	<tr>
 		<td>
@@ -49,30 +49,31 @@
 			</ul>		
 		</td>
 		<td>
-			<p>Silk avoids techniques that are hard to understand, debug or maintain.</p>
-			<ul>
-			<li><b>No</b> XML</li>
-			<li><b>No</b> AOP</li>
-			<li><b>No</b> annotations <br/><small>easy to add but why would you want to ?</small></li>
-			<li><b>No</b> accessible mutable state</li>
-			<li><b>No</b> changing configuration</li>
-			<li><b>No</b> overrides</li>
-			</ul>		
-		</td>
-	</tr>
-</table>
-<table class="overview">
-	<tr>
-		<th><h3><code>if</code>-less Modularity</h3></th>
-		<th><h3>Robust</h3></th>
-	</tr>
-	<tr>
-		<td>
 			<p>Silk provides few concepts to customize your application in a predictable and maintainable way.</p>
 			<ul>
 			<li>bundles always just installed once<br/><small>multiple install-calls or circles are allowed</small></li> 
 			<li>uninstall bundles</li>
 			<li>simple configuration <br/><small>through editions, features and constant properties</small></li>
+			</ul>		
+		<td>
+		</td>
+	</tr>
+</table>
+<table class="overview">
+	<tr>
+		<th><h3>Less <em>"Magic"</em></h3></th>
+		<th><h3>Robust</h3></th>
+	</tr>
+	<tr>
+		<td>
+			<p>Silk avoids techniques that are hard to understand, debug or maintain.</p>
+			<ul>
+			<li><b>No</b> XML</li>
+			<li><b>No</b> AOP</li>
+			<li><b>No</b> annotations <br/><small>easy to add but why would you want to ?</small></li>
+			<li><b>No</b> accessible mutable state <br/><small>A configuration will never change during runtime</small></li>
+			<li><b>No</b> overrides</li>
+			<li><b>No</b> dependency cycles</li>
 			</ul>		
 		</td>
 		<td>
