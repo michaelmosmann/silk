@@ -4,47 +4,40 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Silk - Java IoC / DI</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <link rel="stylesheet" href="stylesheets/overview.css">
+    <link rel="stylesheet" href="css/silk.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Silk <small>Java<br/>IoC / DI</small></h1>
-        <p>The <b>3rd</b> Generation Java <i>Inversion of Control (IoC)</i> / <i>Dependency Injection (DI)</i> framework</p>
-
-        <p class="view"><a href="https://github.com/jbee/silk">View the Project on GitHub <small>jbee/silk</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/jbee/silk/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jbee/silk/tarball/master">Download <strong>TAR Ball</strong></a></li>
-        </ul>
-        
-        <ul>
-          <li><a href="https://github.com/jbee/silk">View On <strong>GitHub</strong></a></li>
-        </ul>
+    <div id="wrapper">
+      <header class="clearfix">
+        <div class="container clearfix">
+	        <h1><i>Silk <small>Java IoC / DI</small></i></h1>
+	        <ul class="top-nav">
+	          <li><a href="https://github.com/jbee/silk/zipball/master">Download <strong>ZIP File</strong></a></li>
+	          <li><a href="https://github.com/jbee/silk/tarball/master">Download <strong>TAR Ball</strong></a></li>
+	          <li><a href="https://github.com/jbee/silk">View On <strong>GitHub</strong></a></li>
+	        </ul>
+        </div>
       </header>
-      <section>
+      <div class="container">
+        <p class="headline">The <b>3rd</b> Generation Java <i>Inversion of Control (IoC)</i> / <i>Dependency Injection (DI)</i> framework</p>
+	</div>
+      <section class="container">
 
 <table class="overview">
 	<tr>
-		<th><h3>100%</h3></th>
+		<th><h3>100% Independence</h3></th>
 		<th><h3><code>if</code>-less Modularity</h3></th>
 	</tr>
 	<tr>
 		<td>
 			<p>Silk allows DI without making your application depend on the DI framework!</p>
 			<ul>
-			<li><strong>Configuration by code</strong></li>
-			<li>
-			<strong>separated from <b>your application</b> code</strong> <br/><small>no dependency points to silk*</small></li>
+			<li>Configuration by code</li>
+			<li>separated from your application code <br/><small>no dependency points to silk*</small></li>
 			<li>no further runtime dependencies</li>
 			</ul>		
 		</td>
@@ -61,7 +54,7 @@
 </table>
 <table class="overview">
 	<tr>
-		<th><h3>Less <em>"Magic"</em></h3></th>
+		<th><h3>Less "Magic"</h3></th>
 		<th><h3>Robust</h3></th>
 	</tr>
 	<tr>
@@ -100,11 +93,11 @@
 			<li>declarative dependency descriptions <br/><small>using a guice-like builder</small></li>
 			<li>multi-binds</li>
 			<li>full generic support</li>
-			<li>easy to extend <br/><small>e.g. with Set or List support</small></li>
 			</ul>
 		</td>	
 		<td>
 			<ul>
+			<li>easy to extend <br/><small>e.g. with Set or List support</small></li>
 			<li>fast bootsrap</li>
 			<li>about 120 KB jar archive</li>
 			</ul>		
@@ -113,10 +106,13 @@
 </table>
 
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/jbee">jbee</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; based on Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      <footer class="clearfix">
+	      <div class="container clearfix">
+		        <p style="float:right;"><small>Hosted on GitHub Pages</small></p>
+		        <p>This project is maintained by <a href="https://github.com/jbee"><img src="img/Octocat.png" width="24" height="24" /> jbee</a></p>
+	        </div>
       </footer>
+      <p>&nbsp;</p>
     </div>
     <script src="javascripts/scale.fix.js"></script>
     
