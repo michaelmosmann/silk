@@ -4,7 +4,8 @@ html,body {
 }
 
 body {
-	font-family: 'open sans', arial, sans-serif;
+	font-family: 'open sans', freesans, arial, sans-serif;
+	line-height: 1.35em;
 }
 
 #wrapper {
@@ -25,23 +26,26 @@ header {
 	border-bottom: 1px solid #CACACA;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px
 		rgba(0, 0, 0, 0.1);
-	height: 50px;
+	height: 37px;
+	padding: 5px 0;
 }
 
 h1 {
-	margin: 5px 0 0 0;
 	padding: 0;
-	font-weight: normal;
-	float: left;
+	display: inline;
+	color: #444;
+	line-height: normal;
+	font-family: Garamond;
 }
 
 .headline {
 	margin: 0;
 	padding: 2em 0;
-	text-align: center;	
+	width: 50%;
 }
 
 h3,h4,h5,h6 {
+	line-height: normal;
 	text-align: left;
 	margin: 0;
 	padding: 1em 0 0 0;
@@ -80,15 +84,21 @@ table tr th {
 table ul {
 	margin-left: 30px;
 }
+
 table.overview {
-	width: 100%;	
+	width: 100%;
 }
+
 table.overview tr td,table.overview tr th {
 	width: 50%;
 }
+table.overview tr td {
+	vertical-align: top;	
+}
 
 .top-nav {
-	font: 13px Helvetica, arial, freesans; float : left;
+	font: 13px Helvetica, arial, freesans;
+	float: left;
 	margin: 0 0 0 20px;
 	list-style: none;
 	line-height: 26px;
@@ -98,7 +108,7 @@ table.overview tr td,table.overview tr th {
 
 .top-nav li {
 	float: left;
-	margin: 0 30px 0 0;
+	margin: 0 15px 0 0;
 }
 
 .top-nav a {
@@ -124,6 +134,36 @@ footer {
 	font-size: 80%;
 	margin-top: 2em;
 }
+
 footer a {
 	color: black;
+}
+
+.minibutton {
+	position: relative;
+	display: inline-block;
+	padding: 0 10px 0 10px;
+	color: #333;
+	font-family: Helvetica, arial, freesans, clean, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 24px;
+	text-shadow: 0 1px 0 white;
+	white-space: nowrap;
+	border: 1px solid #D4D4D4;
+	border-bottom-color: #BCBCBC;
+	border-radius: 3px;
+	background: #FAFAFA;
+	background: -moz-linear-gradient(#FAFAFA, #EAEAEA);
+	background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);
+	-ms-filter:
+		"progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')"
+		;
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }

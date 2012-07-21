@@ -14,16 +14,18 @@
     <div id="wrapper">
       <header class="clearfix">
         <div class="container clearfix">
-	        <h1><i>Silk <small>Java IoC / DI</small></i></h1>
-	        <ul class="top-nav">
-	          <li><a href="https://github.com/jbee/silk/zipball/master">Download <strong>ZIP File</strong></a></li>
-	          <li><a href="https://github.com/jbee/silk/tarball/master">Download <strong>TAR Ball</strong></a></li>
-	          <li><a href="https://github.com/jbee/silk">View On <strong>GitHub</strong></a></li>
-	        </ul>
+	        <h1>Silk</h1> Java DI / IoC
         </div>
-      </header>
+     </header>
+      <div class="container clearfix">
+	      <ul class="top-nav">
+	        <li><a class="minibutton" href="https://github.com/jbee/silk/zipball/master">Download <strong>ZIP File</strong></a></li>
+	        <li><a class="minibutton" href="https://github.com/jbee/silk/tarball/master">Download <strong>TAR Ball</strong></a></li>
+	        <li><a class="minibutton" href="https://github.com/jbee/silk">View On <strong>GitHub</strong></a></li>
+	      </ul>
+      </div>
       <div class="container">
-        <p class="headline">The <b>3rd</b> Generation Java <i>Inversion of Control (IoC)</i> / <i>Dependency Injection (DI)</i> framework</p>
+        <p class="headline">The <b>3rd</b> Generation Java <i>Inversion of Control (IoC)</i> / <i>Dependency Injection (DI)</i> framework!</p>
 	</div>
       <section class="container">
 
@@ -37,16 +39,16 @@
 			<p>Silk allows DI without making your application depend on the DI framework!</p>
 			<ul>
 			<li>Configuration by code</li>
-			<li>separated from your application code <br/><small>no dependency points to silk*</small></li>
-			<li>no further runtime dependencies</li>
+			<li>Separated from your application code<sup>1</sup></li>
+			<li>No further runtime dependencies</li>
 			</ul>		
 		</td>
 		<td>
 			<p>Silk provides few concepts to customize your application in a predictable and maintainable way.</p>
 			<ul>
-			<li>bundles always just installed once<br/><small>multiple install-calls or circles are allowed</small></li> 
-			<li>uninstall bundles</li>
-			<li>simple configuration <br/><small>through editions, features and constant properties</small></li>
+			<li>Bundles always just installed once<br/><small>multiple install-calls or circles are allowed</small></li> 
+			<li>Uninstall bundles</li>
+			<li>Simple configuration <br/><small>through editions, features and constant properties</small></li>
 			</ul>		
 		<td>
 		</td>
@@ -63,7 +65,7 @@
 			<ul>
 			<li><b>No</b> XML</li>
 			<li><b>No</b> AOP</li>
-			<li><b>No</b> annotations <br/><small>easy to add but why would you want to ?</small></li>
+			<li><b>No</b> annotations<sup>2</sup></li>
 			<li><b>No</b> accessible mutable state <br/><small>A configuration will never change during runtime</small></li>
 			<li><b>No</b> overrides</li>
 			<li><b>No</b> dependency cycles</li>
@@ -72,11 +74,11 @@
 		<td>
 			<p>Silk is designed in a way that allows to forget about it during development without breaking your application.</p>
 			<ul>
-			<li>safe renaming</li>
-			<li>type-safe <br/><small>seldom just raw-type safety</small></li>
-			<li>excellent Unit-testability </li>
-			<li>pushes for immutability <br/><small>enforces constructor injection</small></li>
-			<li>data driven <br/><small>core uses mostly Value Objects</small></li>
+			<li>Safe renaming</li>
+			<li>Type-safe <br/><small>seldom just raw-type safety</small></li>
+			<li>Excellent Unit-testability </li>
+			<li>Pushes for immutability <br/><small>enforces constructor injection</small></li>
+			<li>Data driven <br/><small>core uses mostly Value Objects</small></li>
 			</ul>
 		</td>
 	</tr>
@@ -90,16 +92,16 @@
 	<tr>
 		<td>
 			<ul>
-			<li>declarative dependency descriptions <br/><small>using a guice-like builder</small></li>
-			<li>multi-binds</li>
-			<li>full generic support</li>
+			<li>Declarative dependency descriptions <br/><small>using a guice-like builder</small></li>
+			<li>Multi-binds</li>
+			<li>Full generic support</li>
 			</ul>
 		</td>	
 		<td>
 			<ul>
-			<li>easy to extend <br/><small>e.g. with Set or List support</small></li>
-			<li>fast bootsrap</li>
-			<li>about 120 KB jar archive</li>
+			<li>Easy to extend <br/><small>e.g. with Set or List support</small></li>
+			<li>Fast bootstrap</li>
+			<li>Lightweight: about 120 KB jar archive</li>
 			</ul>		
 		</td>
 	</tr>
