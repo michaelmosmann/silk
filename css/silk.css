@@ -5,7 +5,7 @@ html,body {
 
 body {
 	font-family: Bitter, 'open sans', freesans, arial, sans-serif;
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.35em;
 }
 
@@ -29,6 +29,7 @@ header {
 		rgba(0, 0, 0, 0.1);
 	height: 37px;
 	padding: 5px 0;
+	display: none;
 }
 
 h1 {
@@ -52,6 +53,7 @@ h3,h4,h5,h6 {
 h3 {
 	font-size: 16px;
 	line-height: 1.56;
+	color: #807A33;
 }
 
 i,em {
@@ -65,7 +67,7 @@ i,em {
 }
 
 .clearfix {
-	display: block;
+	display: block; 
 }
 
 table p {
@@ -76,7 +78,7 @@ table p {
 }
 
 table tr th {
-	border-top: 1px solid #ddd;
+	border-top: 1px solid Thistle;
 }
 
 table ul {
@@ -95,12 +97,10 @@ table.overview tr td {
 }
 
 .top-nav {
-	font: 13px Helvetica, arial, freesans;
 	float: left;
 	margin: 0 0 0 20px;
 	list-style: none;
 	line-height: 26px;
-	margin-top: 15px;
 	float: right;
 }
 
@@ -110,12 +110,7 @@ table.overview tr td {
 }
 
 .top-nav a {
-	font-weight: bold;
-	color: #222;
-	-moz-transition: color .15s ease-in 0;
-	-webkit-transition: color .15s ease-in 0;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 li small {
@@ -125,11 +120,10 @@ li small {
 footer {
 	min-height: 80px;
 	overflow: hidden;
-	border-top: 1px solid #E0E0E0;
+	border-top: 1px solid Thistle;
 	border-bottom: 1px solid #E0E0E0;
 	box-shadow: inset 0 -1px 0 white;
-	background-color: #F8F8F8;
-	font-size: 80%;
+	background-color: LightGoldenrodYellow;
 	margin-top: 2em;
 }
 
@@ -141,22 +135,10 @@ footer a {
 	position: relative;
 	display: inline-block;
 	padding: 0 10px 0 10px;
-	color: #333;
-	font-family: Helvetica, arial, freesans, clean, sans-serif;
-	font-size: 13px;
-	font-weight: bold;
+	color: #4E2A8E;
+	font-size: 16px;
 	line-height: 24px;
-	text-shadow: 0 1px 0 white;
 	white-space: nowrap;
-	border: 1px solid #D4D4D4;
-	border-bottom-color: #BCBCBC;
-	border-radius: 3px;
-	background: #FAFAFA;
-	background: -moz-linear-gradient(#FAFAFA, #EAEAEA);
-	background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);
-	-ms-filter:
-		"progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')"
-		;
 	cursor: pointer;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
