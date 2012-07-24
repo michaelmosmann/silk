@@ -4,7 +4,8 @@ html,body {
 }
 
 body {
-	font-family: 'open sans', freesans, arial, sans-serif;
+	font-family: Bitter, 'open sans', freesans, arial, sans-serif;
+	font-size: 14px;
 	line-height: 1.35em;
 }
 
@@ -31,11 +32,8 @@ header {
 }
 
 h1 {
-	padding: 0;
-	display: inline;
 	color: #444;
 	line-height: normal;
-	font-family: Garamond;
 }
 
 .headline {
@@ -72,7 +70,7 @@ i,em {
 
 table p {
 	padding: 0;
-	margin: 0 50px;
+	margin: 0 30px;
 	font-family: Garamond, serif;
 	font-style: italic;
 }
@@ -82,7 +80,7 @@ table tr th {
 }
 
 table ul {
-	margin-left: 30px;
+	margin-left: 10px;
 }
 
 table.overview {
