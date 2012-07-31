@@ -4,8 +4,8 @@ html,body {
 }
 
 body {
-	font-family: Bitter, 'open sans', freesans, arial, sans-serif;
-	font-size: 13px;
+	font-family: 'Lato', Bitter, 'open sans', freesans, arial, sans-serif;
+	font-size: 14px;
 	line-height: 1.35em;
 }
 
@@ -18,18 +18,10 @@ body {
 }
 
 header {
-	background: #FAFAFA;
-	background: -moz-linear-gradient(#FAFAFA, #EAEAEA);
-	background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);
-	-ms-filter:
-		"progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')"
-		;
+	background: black;
 	border-bottom: 1px solid #CACACA;
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px
-		rgba(0, 0, 0, 0.1);
 	height: 37px;
 	padding: 5px 0;
-	display: none;
 }
 
 h1 {
@@ -40,7 +32,6 @@ h1 {
 .headline {
 	margin: 0;
 	padding: 2em 0;
-	width: 50%;
 }
 
 h3,h4,h5,h6 {
@@ -53,7 +44,8 @@ h3,h4,h5,h6 {
 h3 {
 	font-size: 16px;
 	line-height: 1.56;
-	color: #807A33;
+	color:#665847;
+	font-weight: normal;
 }
 
 i,em {
@@ -118,17 +110,15 @@ li small {
 }
 
 footer {
-	min-height: 80px;
+	min-height: 60px;
 	overflow: hidden;
-	border-top: 1px solid Thistle;
-	border-bottom: 1px solid #E0E0E0;
-	box-shadow: inset 0 -1px 0 white;
-	background-color: LightGoldenrodYellow;
+	background-color: #807A33;
 	margin-top: 2em;
+	color: white;
 }
 
 footer a {
-	color: black;
+	color: white;
 }
 
 .minibutton {

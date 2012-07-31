@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Silk - Java IoC / DI</title>
-    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>    
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>    
     <link rel="stylesheet" href="css/silk.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -21,7 +21,7 @@
 	      </ul>
       </div>
         <div class="container clearfix">
-	        <h1>Silk</h1> Java DI / IoC
+	        <h1>silk</h1> Java DI / IoC
         </div>
       <div class="container">
         <p class="headline">The <b>3rd</b> Generation Java <i>Inversion of Control (IoC)</i> / <i>Dependency Injection (DI)</i> framework!</p>
@@ -64,6 +64,7 @@
 			<ul>
 			<li><b>No</b> XML</li>
 			<li><b>No</b> AOP</li>
+			<li><b>No</b> proxy magic</li>
 			<li><b>No</b> annotations<sup>2</sup></li>
 			<li><b>No</b> accessible mutable state <br/><small>A configuration will never change during runtime</small></li>
 			<li><b>No</b> overrides</li>
@@ -73,7 +74,8 @@
 		<td>
 			<p>Silk is designed in a way that allows to forget about it during development without breaking your application.</p>
 			<ul>
-			<li>Safe renaming</li>
+			<li><b>No</b> importance to sequence of definition</li>
+			<li><b>No</b> string matching! <br/><small>Allows safe renaming</small></li>
 			<li>Type-safe <br/><small>seldom just raw-type safety</small></li>
 			<li>Excellent Unit-testability </li>
 			<li>Pushes for immutability <br/><small>enforces constructor injection</small></li>
