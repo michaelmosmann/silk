@@ -18,7 +18,7 @@ body {
 }
 #logo {
 	margin: 20px;
-	margin-top: 10px;
+	margin-top: 20px;
 	margin-left: 0;
 	float: left;	
 }
@@ -32,10 +32,35 @@ body {
 }
 
 header {
-	background: black;
-	border-bottom: 1px solid #CACACA;
-	height: 37px;
-	padding: 5px 0;
+
+}
+nav {
+	float: right;	
+}
+nav dl {
+	border-left: 1px solid Thistle;
+	margin: 0;
+	padding: 0 20px;
+	margin-left: 20px;
+	float: left;
+	min-width: 100px;
+}
+nav dd {
+	margin: 0 0 0.3em 0;	
+}
+nav dt {
+	padding: 2em 0;
+	text-transform: lowercase;
+	color: #704826;
+	font-size: 1.2em;	
+	font-weight: 300;
+	font-style: italic;
+}
+nav a {
+	color: black;	
+}
+nav a:VISITED {
+	color: #9966CC;
 }
 
 h1 {
@@ -44,9 +69,9 @@ h1 {
 	background-image: url("../img/silk.png");
 	height: 80px;
 	width: 140px;
-	margin: 10px;
-	margin-top: 30px;
-	margin-left: 170px;
+	margin: 20px 10px 10px 10px;
+	width: 140px;
+	display: inline-block;
 }
 h1 span {
 	visibility: hidden;	
