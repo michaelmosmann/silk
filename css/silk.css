@@ -38,26 +38,33 @@ nav {
 	float: right;	
 }
 nav dl {
-	border-left: 1px solid Thistle;
+	border-left: 1px solid Thistle; 
 	margin: 0;
-	padding: 0 10px 0 20px;
+	padding: 0 10px 10px 20px;
 	margin-left: 30px;
 	float: left;
 	letter-spacing: 0.1em;
 	word-spacing: 0.4em;
+	border-bottom-left-radius: 10px;
 }
 nav dd {
 	margin: 0 0 0.3em 0;	
 }
 nav dt {
-	padding: 2em 0;
+	margin: 2em 0;
+	padding: 0;
 	color: #704826;
-	font-size: 1.2em;	
-	font-weight: 300;
-	font-style: italic;
+	font-size: 1.1em;
+	text-transform: lowercase;
+	/*background-color: #f3efa0;*/
+}
+a {
+	background-color: #f9f7ca;	
 }
 nav a {
-	color: #807A33;
+	color: black;
+	background-color: transparent;
+	text-decoration: none;
 }
 nav a:VISITED {
 	color: #9966CC;
