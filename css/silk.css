@@ -16,6 +16,20 @@ body {
 	margin: 0;
 	margin-bottom: -350px;
 }
+#logo {
+	margin: 20px;
+	margin-top: 10px;
+	margin-left: 0;
+	float: left;	
+}
+#subline {
+	color: #704826;	
+	margin: 0;
+	padding: 0;
+	font-style: italic;
+	font-weight: 300;
+	font-size: 1.2em;
+}
 
 header {
 	background: black;
@@ -27,6 +41,15 @@ header {
 h1 {
 	color: #444;
 	line-height: normal;
+	background-image: url("../img/silk.png");
+	height: 80px;
+	width: 140px;
+	margin: 10px;
+	margin-top: 30px;
+	margin-left: 170px;
+}
+h1 span {
+	visibility: hidden;	
 }
 
 .headline {
@@ -50,7 +73,7 @@ h3 {
 
 i,em {
 	font-style: italic;
-	font-family: Garamond, serif;
+	font-weight: 300;
 }
 
 .container {
