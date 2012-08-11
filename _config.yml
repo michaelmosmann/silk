@@ -1,0 +1,20 @@
+# Base URL for the web site
+baseUrl    : http://jbee.github.com/silk
+path       : /
+cssPath    : /assets/css
+imgPath    : /assets/img
+
+# Site attributes
+authorName : "Jan Bernitt"
+authorFullName : "Jan Bernitt"
+siteName   : "Silk Java IoC / DI"
+siteDesc   : "The Silk Project Page"
+
+# The Markdown engine
+markdown   : kramdown
+
+# Enable Syntax highlighting
+pygments   : true
+
+# Custom files
+exclude    : [ "README.md" ]
