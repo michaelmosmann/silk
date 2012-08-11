@@ -5,7 +5,8 @@ title : Silk Sandbox
 # Sandbox
 
 Here is some Java code:
-```
+
+{% highlight java %}
 static class AutobindBindsModule
 		extends BinderModule {
 
@@ -15,4 +16,4 @@ static class AutobindBindsModule
 	}
 
 }
-```
+{% endhighlight %}
