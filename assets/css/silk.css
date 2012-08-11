@@ -34,6 +34,9 @@ body {
 header {
 
 }
+section {
+	min-height: 50%;	
+}
 nav {
 	float: right;	
 }
@@ -56,7 +59,7 @@ nav dt {
 	font-size: 1.1em;
 	text-transform: lowercase;
 }
-a {
+section a {
 	background-color: #f9f7ca;	
 }
 nav a {
