@@ -1,8 +1,8 @@
 ---
 layout : default
+title : About Silk
+categories : [general]
 ---
-### Will this be processed ?
+# About
 
-* lets see
-
-This is about silk.
+Silk is a dependency injection (DI) framework for Java. It is used to gain inversion of control (IoC).
