@@ -1,8 +1,8 @@
 # Base URL for the web site
 baseUrl    : http://jbee.github.com/silk
 path       : /
-cssPath    : /css
-imgPath    : /img
+cssPath    : /assets/css
+imgPath    : /assets/img
 
 # Site attributes
 authorName : "Jan Bernitt"
