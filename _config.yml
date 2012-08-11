@@ -1,6 +1,6 @@
 # Base URL for the web site
 baseUrl    : http://jbee.github.com/silk
-path       : /
+path       : /silk
 cssPath    : /assets/css
 imgPath    : /assets/img
 
