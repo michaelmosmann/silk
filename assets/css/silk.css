@@ -90,7 +90,10 @@ header h1 span {
 	padding: 2em 0;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1 {
+	color:#665847;
+}
+h2,h3,h4,h5,h6 {
 	line-height: normal;
 	text-align: left;
 	margin: 0;
