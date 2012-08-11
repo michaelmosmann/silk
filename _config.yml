@@ -5,7 +5,7 @@ server:      false
 source:      .
 destination: ./_site
 
-baseUrl    : http://jbee.github.com/
+baseUrl    : http://jbee.github.com/silk/
 path       : /
 cssPath    : /assets/css
 imgPath    : /assets/img
