@@ -1,3 +1,7 @@
+---
+layout : default
+title : Silk Sandbox
+---
 # Sandbox
 
 Here is some Java code:
