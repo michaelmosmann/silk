@@ -4,7 +4,7 @@ title : Bindings
 ---
 # Bindings
 
-## Understand Bindings 
+## Concept
 In Silk bindings are just a convenient way to create `Suppliable`s (we don't need to know that those are now). 
 Think of them as a util. All different kinds of bindings described below are themselves just a 
 convenient way to produce calls to the `Bindings#add`-method that we see below:
@@ -16,11 +16,11 @@ public interface Bindings {
 }
 {% endhighlight %}
 
-A `Binding` is a 4-tuple consisting of
+So a `Binding` is noting more than a 4-tuple consisting of
 
 - `Resource` : Describes when (for which `Dependency`) to use the `Supplier`
 - `Supplier` : Describes how to supply (resolve/create) an instance
-- `Scope` : Describes how often a new instance is created and how many exist beside each other
+- `Scope` : Describes how created instances are managed (how often new instances are created and how many exist beside each other)
 - `Source` : Describes the origin of the binding (the `Module` that defined it) and the binding-type (_multi_, _auto_, ...)
 
 Again: all the different bindings described below just result in such a 4-tuple. Some will create 
@@ -39,7 +39,7 @@ When matching a `Resource` to a `Dependency` this is the sequence of importance 
 	1. `Type` is more precise
 	2. `Name` is more precise
 3. `Target` is more precise
-	1. `Packages` are more precise
+	1. `Packages` are more precise (smaller set)
 	2. `Instance` (receiver) is more precise (has again `Type` and `Name`)
 
 Following this rules there can be just **one** binding that is the one chosen because bindings have to be unambiguous. 
@@ -64,7 +64,7 @@ A `multibind` is used to create collections of instances that should be injected
 When using a `multibind` we explicitly want multiple instances to coexist for the same resource because the resource models a collection of something.
 Notice that you cannot combine this with any other kind of `bind` because there we want all resources to be unambiguous.
 
-Let's assume we have a service that depends on some settings. Those can emerge from different sources. Each represented by a instance of type `Settings`. One is reading the from a `File` and the other one receives them remotely.  
+Let's assume we have a service that depends on some settings that can emerge from different sources. Each represented by a instance of type `Settings`. One is reading the from a `File` and the other one receives them remotely.  
 {% highlight java %}
 protected void declare() {
 	multibind(Settings.class).to(FileSettings.class);
@@ -72,20 +72,20 @@ protected void declare() {
 }
 {% endhighlight %}
 
-The consumer of this `Settings` can asked for them by simply asking for the array type `Settings[]`. (This is a build in functionality that you get out of the box. For all types you declared any bind (also normal ones) you can ask for the array type as well. 
+The consumer of this `Settings` can asked for them by simply asking for the array type `Settings[]`. This is a build in functionality that you get out of the box. For all types you declared any bind (also normal ones) you can ask for the array type as well. 
 {% highlight java %}
 class SettingDependentService {
   SettingDependentService(Settings[] settings) { /*...*/  }
 }
 {% endhighlight %}
 
-Often the usage of `List`s is preferred. I don't see a real advantage using them here but in case we want them anyway we once `install` the a `Bundle` that makes `List`s available in general. Now we can use `List<X>` as a replacement for `X[]` everywhere. 
+Often the usage of `List` is preferred. I don't see a real advantage using them here but in case we want them anyway we once `install` a `Bundle` that makes `List`s available in general. Now we can use `List<X>` as a replacement for `X[]` everywhere. 
 {% highlight java %}
 protected void bootstrap() {
 	install( BuildinBundle.LIST );
 }
 {% endhighlight %}
- 
+Like `List`s here we could also add `Set<X>`s as equivalent to `X[]`. This kind of _bridges_ from an array-type to any kind of collection can be added easily to Silk with a _one-liner_ by extending the `ArrayBridgeSupplier`.  
 
 ## Star-Bindings
 
@@ -95,6 +95,9 @@ protected void bootstrap() {
 ## Targeting Bindings
 All of the above forms of bindings can be made more specific by describing the `Target` it should be used for.
 This narrows the cases in which it matches a dependency but also makes it more suitable. 
+
+The `Target` describes the `Instance` in which something should be injected as well as the `Packages` in which the binding is valid. 
+Both techniques can be used to make a binding very precise and therefore more significant in all cases where it matches.
 
 ### Localised Bindings
 Bindings can be made more specific by narrowing down the packages where the binding applies. The less 
@@ -119,11 +122,12 @@ Description from the most to the least specific binding given above:
 - Line `2` has no localisation
 
 All bindings above can coexist because of their different precision. When supplying a `Dependency` 
-the most specific in that respective case will be used.
+the most specific in that respective case will be used. This are different ones in different cases.
 
 ### Parent Dependent Bindings
 Beside the `Packages` where a binding can be used it is also possible to target a specific `Instance`. 
 The _Robot-Legs-Problem_ (shown in `TestRobotLegsProblemBinds`) is a good example of where such instance specific bindings can be useful.
+
 A robot has 2 legs, both quite similar but the left `Leg` should get the left `Foot` while the right `Leg` gets another instance - the right `Foot`.
 In Silk this could be described like so:
 {% highlight java %}
