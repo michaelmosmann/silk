@@ -100,8 +100,8 @@ section h1 {
 	color:#704826;
 	font-size: 42px;
 	margin-top: 3em;
-	border-top: 1px solid Thistle;
 	line-height: normal;
+	border-top: 1px solid Thistle;
 }
 h2,h3,h4,h5,h6 {
 	line-height: normal;
@@ -111,7 +111,11 @@ h2,h3,h4,h5,h6 {
 	color:#665847;
 	color:#704826;	
 }
-
+section h2 {
+	border-bottom: 1px solid Thistle;
+	padding-top: 2em;
+	font-size: 26px;
+}
 h3 {
 	font-size: 1.3em;
 	line-height: 1.56;
