@@ -158,6 +158,9 @@ section > p + p {
 section code {
 	padding: 0 0.4em;	
 }
+section pre code {
+	padding: inherit;	
+}
 
 table tr th {
 	border-top: 1px solid Thistle;
