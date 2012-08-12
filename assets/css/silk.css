@@ -1,6 +1,8 @@
 html,body {
 	margin: 0;
 	padding: 0;
+	height: 100%;
+	min-height: 100%;
 }
 
 body {
@@ -14,7 +16,6 @@ body {
 	height: auto !important;
 	height: 100%;
 	margin: 0;
-	margin-bottom: -350px;
 }
 #logo {
 	margin: 20px;
@@ -35,7 +36,7 @@ header {
 
 }
 section {
-	min-height: 50%;	
+	min-height: 400px;
 }
 nav {
 	float: right;	
@@ -83,6 +84,7 @@ header h1 {
 	margin: 20px 10px 10px 10px;
 	width: 140px;
 	display: inline-block;
+	font-size: 28px;
 }
 header h1 span {
 	visibility: hidden;	
@@ -94,7 +96,9 @@ header h1 span {
 }
 
 h1 {
-	color:#665847;
+	color:#704826;
+	font-size: 42px;
+	margin-top: 2em;
 }
 h2,h3,h4,h5,h6 {
 	line-height: normal;
@@ -102,6 +106,7 @@ h2,h3,h4,h5,h6 {
 	margin: 0;
 	padding: 1em 0 0 0;
 	color:#665847;
+	color:#704826;	
 }
 
 h3 {
@@ -131,6 +136,19 @@ table p {
 	margin: 0 0;
 	font-style: italic;
 	font-weight: 300;
+}
+
+section > p {
+	text-align: justify;
+	font-size: 1.1em;
+}
+
+section > p + p {
+	text-indent: 1em;
+}
+
+section p code {
+	padding: 0 0.6em;	
 }
 
 table tr th {
