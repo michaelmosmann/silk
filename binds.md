@@ -56,7 +56,37 @@ during the bootstrapping process.
 
 
 ## Array-Bindings
- 
+There is a build in support in Silk that when binding something to a class `X` the 1-dimensional array type `X[]` is implicitly defined as well.
+The array contains all known `X` instances. There can be more than one because for type `X` `multibind`s (see below) have been used 
+or it's those are instances with different precision so they normally apply to different injections.
+
+So as soon as we do a usual bind like this: 
+{% highlight java %}
+protected void declare() {
+	bind( Integer.class ).to(42);
+}
+{% endhighlight %}
+We can inject `Integer` as well as `Integer[]`. With just this above definition alone that array would be equal to `new Integer[]{42}`.
+This behaviour works on the raw-type. Currently there is no support for something similar with generic types. 
+But it is possible to bind directly to a generic array type and define all the members. Of cause this can also be used to explicitly
+define what elements should be contained in e.g. `Integer[]`
+{% highlight java %}
+protected void declare() {
+	bind( Integer[].class ).toElements( 4, 2 );
+}
+{% endhighlight %}
+When this binding can be used (matches) to inject a dependency of type `Integer[]` just the defined 
+elements `4` and `2` will be contained independent of any of the binds done for `Integer`. Together 
+with targeting (see below) this can be used to _replace_ the meaning of `Integer[]` just for special
+situations. 
+
+Together with _bridge_-`Supplier`s (see `BuildinBundle`) the build in array-support can be used to also easily get `List`s,
+`Set`s or your custom collection type injected containing all the elements from the binds on the 
+element type or a special bind for the array type. Note that even though you receive the collection
+as `List` (or something else) the binds are defined like above binding to the array type. This keeps
+them independently from the different forms of collection asked for by different receivers. We don't
+need to explicitly define a bind to `List<Integer>` (even though this would work as well what can be 
+used to replace a general behaviour in some cases).
 
 ## Multi-Bindings
 A `multibind` is used to create collections of instances that should be injected together. All of them are bound to the same super-type.
