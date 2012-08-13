@@ -175,11 +175,13 @@ Like `List`s here we could also add `Set<X>`s as equivalent to `X[]`. This kind 
 ## Star-Bindings
 Like `autobind` a `starbind` is just a convenient method on top of the `bind` API.
 It models a _wildcard_-binding and is nothing more than the below (from `Binder`):
+
 {% highlight java %}
 public <T> TypedBinder<T> starbind( Class<T> type ) {
 	return bind( Instance.anyOf( Type.raw( type ) ) );
 }
 {% endhighlight %}
+
 Wildcard bindings are used when a bind should explicitly match any dependency that
 has the raw `type` given (also any `Name` is matched).
 
@@ -190,7 +192,7 @@ that builds the _bridge_ to the type provided by it. The declaration in the `Pro
 protected void declare() {
 	per( DEPENDENCY_TYPE ).starbind( Provider.class ).to( SuppliedBy.PROVIDER_BRIDGE );
 }
-{% highlight java %}
+{% endhighlight %}
 
 Even though the `starbind` doesn't provide that much functionality it is a slightly
 different intention to use one in comparison to a `bind`. Beside the `Provider` 
