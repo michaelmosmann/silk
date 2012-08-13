@@ -171,9 +171,42 @@ protected void bootstrap() {
 {% endhighlight %}
 Like `List`s here we could also add `Set<X>`s as equivalent to `X[]`. This kind of _bridges_ from an array-type to any kind of collection can be added easily to Silk with a _one-liner_ by extending the `ArrayBridgeSupplier`.  
 
+
 ## Star-Bindings
 
+
 ## Auto-Bindings
+A `autobind` is a convenient helper method on top of normal `bind`s. 
+It is nothing else than binding the same class (from `to`-clause) to all its 
+super-types and -interfaces (that would be the `bind`-clause).
+
+Think of a design where one class (instance of that) serves as implementation 
+for a hole suite of interfaces. A general setting service could look like this: 
+{% highlight java %}
+class SettingService 
+	implements UserSettings, AdminSettings, EmailSettings { /* ... */ } 
+{% endhighlight %}
+Now a single `autobind` is done:
+{% highlight java %}
+protected void declare() {
+	autobind( SettingService.class ).toConstructor();
+}
+{% endhighlight %}
+What is the same as doing:
+{% highlight java %}
+protected void declare() {
+	bind( SettingService.class ).toConstructor();
+	bind( UserSettings.class).to( SettingService.class );
+	bind( AdminSettings.class).to( SettingService.class );
+	bind( EmailSettings.class).to( SettingService.class );
+}
+{% endhighlight %}
+In some cases this could become quite messy. Therefore the `autobind` is 
+provided even though it might be useful quite seldom. 
+
+Right now there is no support for super-types with generics like for `Integer`
+the `Compareable<Integer>` will not be bound automatically. It is planed to
+implement this at some point.
 
 
 ## Targeting Bindings
