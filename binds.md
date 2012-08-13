@@ -53,7 +53,61 @@ If Silk encounters 2 or more bindings having the exact same `Resource` this will
 during the bootstrapping process.
 
 ## Simple Bindings
+The most common and simple form of binding describes pairs of what implementation should be used for a particular interface. Here is an example:
 
+{% highlight java %}
+protected void declare() {
+	bind( Interface.class ).to ( Implementation.class );
+}
+{% endhighlight %}
+
+This tells Silk to use `Implementation` whenever a dependency of type `Interface` is encountered. 
+In case we don't have such an abstraction we could also advice to directly construct our `Implementation`.
+
+{% highlight java %}
+protected void declare() {
+	construct( Implementation.class );
+}
+{% endhighlight %}
+
+What is just another shortcut for this declaration:
+
+{% highlight java %}
+protected void declare() {
+	bind( Implementation.class ).toConstructor();
+}
+{% endhighlight %}
+
+In both cases we don't (need to) provide any additional information how Silk should construct the instance.
+The bootstrapper will ask the `InjectionStrategy` to pick the `Constructor` to use for our `Implementation`.
+All dependencies needed to instanciate it are resolved in the same way.
+
+In some cases we want a special instance injected into the constructor selected. Therefore we can add additional 
+_hints_ so Silk knows what to do. Generally we have 2 options to achieve this:
+
+- Use targeting (see end of page)
+- Add `Parameter`s to the `toConstructor` call
+
+Lets have a look at the latter solution. Assuming our `Implementation` needs a instance of `Foo` as constructor
+argument and we want to get a special named `Foo` for it we can describe this like that:
+
+{% highlight java %}
+protected void declare() {
+	Instance<Foo> foo = instance( named( "specialOne" ), raw( Foo.class ) );
+	bind( Implementation.class ).toConstructor( foo );
+}
+{% endhighlight %}
+
+We refer to this special `Foo` instance using a `Instance` descriptor that we pass as argument to `toConstructor` call.
+Now Silk knows what should be resolved here. To make this run some module has to bind `Foo` so it becomes constructable as well (e.g. by using `construct( foo )`). 
+
+**Note that the `Parameter`s (like an `Instance`) do not describe the signature of the constructor!**
+
+The are used to help out when needed. All dependencies that are resolved correctly without such a _hint_ don't have to be added.
+Therefore sequence also don't play a role. It just becomes important in case a `Parameter` given matches more than one constructor dependency.
+Than the first parameter is used for the first matching, the second for the second and so on.
+
+See also `TestConstructorParameterBinds` and `TestDependencyParameterBinds` for more detailed examples.
 
 ## Array-Bindings
 There is a build in support in Silk that when binding something to a class `X` the 1-dimensional array type `X[]` is implicitly defined as well.
