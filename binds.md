@@ -284,3 +284,18 @@ Here `left` and `right` are instances of `Name`s that are used to point out what
 We use the same names for the `Leg`s and `Feet`s but could also have chosen different ones like `leftFoot`, `leftLeg` and so forth.
 
 The `injectingInto`-method describes what parent we are targeting with the `bind` that is called subsequently.  
+
+### Instance Of Dependent Bindings
+When using parent dependent bindings (see above) it is also possible to use a interface as the parent's `Instance`-`Type`. 
+Of cause a parent cannot be a interface since there are no instances of the interface types itself. 
+So when using interface types it means the parent should be a _instance of_ the interface provided.
+
+	protected void declare() {
+		injectingInto( Serializable.class ).bind( Integer.class ).to( 42 );
+	}
+
+Using the above declaration a dependency of type `Integer` would be injected as `42` into all parents that are `Serializable`.
+This is a very powerful tool. Use it with caution! Otherwise it becomes hard to foresee what will be injected. 
+Especially don't follow this example and use it with something that generic and wide spread like the `Serializable` type.
+
+See also `TestTargetedBinds` for another example.   
