@@ -78,7 +78,8 @@ protected void declare() {
 }
 {% endhighlight %}
 
-In both cases we don't (need to) provide any additional information how Silk should construct the instance.
+### Adding Constructor Parameter Descriptions
+Usually we don't (need to) provide any additional information how Silk should construct the instance.
 The bootstrapper will ask the `InjectionStrategy` to pick the `Constructor` to use for our `Implementation`.
 All dependencies needed to instanciate it are resolved in the same way.
 
@@ -108,6 +109,21 @@ Therefore sequence also don't play a role. It just becomes important in case a `
 Than the first parameter is used for the first matching, the second for the second and so on.
 
 See also `TestConstructorParameterBinds` and `TestDependencyParameterBinds` for more detailed examples.
+
+### The `to`-Clause / Suppliers
+We have already see a few different `to`-clauses in the above examples. The `TypedBinder` has about a dozen of different ones.
+The most common are:
+
+- Binding to a `Class` or `Instance` (link or create to an instance of it)
+- Binding to a `Constructor` (use it to construct an instance)
+- Binding to a `Factory` (a simplified `Supplier` interface)  
+- Binding to a constant value `T` (just uses the supplied instance)
+
+All of them are just convenient methods to construct a appropriate `Supplier`. 
+The utility class `SuppliedBy` contains most of the implementations used in the `Binder`.
+Unlike other frameworks in Silk all `bind`-declarations need a `to`-clause in order to construct a binding.
+As seen above the method `construct` is a shortcut to the common case that we want to bind to the constructor that is found automatically. 
+  
 
 ## <a id="array"></a>Array-Bindings
 There is a build in support in Silk that when binding something to a class `X` the 1-dimensional array type `X[]` is implicitly defined as well.
@@ -290,12 +306,32 @@ When using parent dependent bindings (see above) it is also possible to use a in
 Of cause a parent cannot be a interface since there are no instances of the interface types itself. 
 So when using interface types it means the parent should be a _instance of_ the interface provided.
 
+{% highlight java %}
 	protected void declare() {
 		injectingInto( Serializable.class ).bind( Integer.class ).to( 42 );
 	}
+{% endhighlight %}	
 
 Using the above declaration a dependency of type `Integer` would be injected as `42` into all parents that are `Serializable`.
 This is a very powerful tool. Use it with caution! Otherwise it becomes hard to foresee what will be injected. 
 Especially don't follow this example and use it with something that generic and wide spread like the `Serializable` type.
 
 See also `TestTargetedBinds` for another example.   
+
+## The Binder
+In Silk almost everything tends to be immutable. The binder itself is another example. 
+When using the fluent interface we can always assign an intermediate partial declaration to a 
+variable and finish it with different ends. Here is a simple example:
+
+{% highlight java %}
+protected void declare() {
+	TargetedBinder binder = injectingInto( Serializable.class );
+	binder.bind( Foo.class ).to( FOO_IN_SERIALIZABLE );
+	binder.bind( Bar.class ).to( BAR_IN_SERIALIZABLE );
+	}
+{% endhighlight %}
+ 
+ The above declaration will create 2 bindings both targeted to `Serializable`. 
+ They cannot effect each other and thereby cause conflicts or unforeseen behaviour.
+ The complete `Binder`-API can be used like this. So we could have assigned after a `bind` as well.
+ The result would just be another type of binder (here bound to a type already).  
