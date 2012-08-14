@@ -109,7 +109,7 @@ Than the first parameter is used for the first matching, the second for the seco
 
 See also `TestConstructorParameterBinds` and `TestDependencyParameterBinds` for more detailed examples.
 
-## Array-Bindings
+## <a id="array"></a>Array-Bindings
 There is a build in support in Silk that when binding something to a class `X` the 1-dimensional array type `X[]` is implicitly defined as well.
 The array contains all known `X` instances. There can be more than one because for type `X` `multibind`s (see below) have been used 
 or it's those are instances with different precision so they normally apply to different injections.
@@ -142,7 +142,7 @@ them independently from the different forms of collection asked for by different
 need to explicitly define a bind to `List<Integer>` (even though this would work as well what can be 
 used to replace a general behaviour in some cases).
 
-## Multi-Bindings
+## <a id="multi"></a>Multi-Bindings
 A `multibind` is used to create collections of instances that should be injected together. All of them are bound to the same super-type.
 
 When using a `multibind` we explicitly want multiple instances to coexist for the same resource because the resource models a collection of something.
@@ -172,7 +172,7 @@ protected void bootstrap() {
 Like `List`s here we could also add `Set<X>`s as equivalent to `X[]`. This kind of _bridges_ from an array-type to any kind of collection can be added easily to Silk with a _one-liner_ by extending the `ArrayBridgeSupplier`.  
 
 
-## Star-Bindings
+## <a id="star"></a>Star-Bindings
 Like `autobind` a `starbind` is just a convenient method on top of the `bind` API.
 It models a _wildcard_-binding and is nothing more than the below (from `Binder`):
 
@@ -200,7 +200,7 @@ all other kinds of _bridges_ like `List`s and `Set`s, `ServiceMethod`s or your c
 make use of one `starbind` declaration.
 
 
-## Auto-Bindings
+## <a id="auto"></a>Auto-Bindings
 A `autobind` is a convenient helper method on top of normal `bind`s. 
 It is nothing else than binding the same class (from `to`-clause) to all its 
 super-types and -interfaces (that would be the `bind`-clause).
@@ -234,7 +234,7 @@ the `Compareable<Integer>` will not be bound automatically. It is planed to
 implement this at some point.
 
 
-## Targeting Bindings
+## <a id="targeting"></a>Targeting Bindings
 All of the above forms of bindings can be made more specific by describing the `Target` it should be used for.
 This narrows the cases in which it matches a dependency but also makes it more suitable. 
 
