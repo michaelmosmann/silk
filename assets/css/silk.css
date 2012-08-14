@@ -172,6 +172,9 @@ table.toc th {
 	padding-right: 1em;
 	width: 50%;
 }
+table.toc th:FIRST-LETTER {
+	color: Thistle;
+}
 table.toc th a {
 	color: blue;
 	font-weight: normal;
@@ -215,6 +218,19 @@ table.overview tr td {
 	text-decoration: underline;
 }
 
+a.next {
+	display: block;
+	text-align: center;	
+	background-color: #f9f7ca;
+	width: 50%;
+	margin: 2em auto;
+	padding: 0.5em 0;
+	border: 1px solid Thistle;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;	
+}
+
 li small {
 	color: #444;
 }
@@ -223,7 +239,7 @@ footer {
 	min-height: 60px;
 	overflow: hidden;
 	background-color: #807A33;
-	margin-top: 2em;
+	margin-top: 5em;
 	color: white;
 }
 

@@ -5,13 +5,13 @@ title : Bindings
 # Bindings
 
 <table class='toc'>
-	<tr><th><a href="#basics">Basics</a></th><td>The basics of <code>bind(...)</code> and <code>to(...)</code>.</td></tr>
-	<tr><th><a href="#array">Array-Bindings</a></th><td>The role of array types and how to bind arrays and elements.</td></tr>
-	<tr><th><a href="#multi">Multi-Bindings</a></th><td>How to create collections of instances with the same base-type.</td></tr>
-	<tr><th><a href="#auto">Auto-Bindings</a></th><td>Binding all implemented types of a class automatically.</td></tr>
-	<tr><th><a href="#star">Star-Bindings</a></th><td>Wildcard binds and what they are good for.</td></tr>
-	<tr><th><a href="#targeting">Targeting</a></th><td>How to make binds just apply in some (special) cases.</td></tr>
-	<tr><th><a href="#binder">Binder API</a></th><td>General concepts of the fluent binder interface.</td></tr>
+	<tr><th>#<a href="#basics">Basics</a></th><td>The basics of <code>bind(...)</code> and <code>to(...)</code>.</td></tr>
+	<tr><th>#<a href="#array">Array-Bindings</a></th><td>The role of array types and how to bind arrays and elements.</td></tr>
+	<tr><th>#<a href="#multi">Multi-Bindings</a></th><td>How to create collections of instances with the same base-type.</td></tr>
+	<tr><th>#<a href="#auto">Auto-Bindings</a></th><td>Binding all implemented types of a class automatically.</td></tr>
+	<tr><th>#<a href="#star">Star-Bindings</a></th><td>Wildcard binds and what they are good for.</td></tr>
+	<tr><th>#<a href="#targeting">Targeting</a></th><td>How to make binds just apply in some (special) cases.</td></tr>
+	<tr><th>#<a href="#binder">Binder API</a></th><td>General concepts of the fluent binder interface.</td></tr>
 </table>
 
 ## Concept
@@ -348,9 +348,11 @@ protected void declare() {
  
  To benefit from this feature the sequence in which the parts of a binding can or has to be defined is slightly different from other frameworks with similar fluent binder APIs. It is:
  
- 	[(per) Scope] -> [Target.Instance] -> [(in) Target.Packages] -> (bind) Resource -> (to) Supplier 
+ 	[(per) Scope] -> [Target.Instance] -> [(in) Target.Packages] -> (bind) Instance -> (to) Supplier 
 
  The first 3 parts in square brackets are optional and can be left out. This are the defaults use:
  
  - `Scope` : Singleton per application
  - `Target` (`Instance` + `Packages`) : _any_ instance in all packages  
+ 
+ <a class='next' href="data.html">Continue with Data-Types --&gt;</a>
