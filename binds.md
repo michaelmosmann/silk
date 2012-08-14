@@ -334,4 +334,13 @@ protected void declare() {
  The above declaration will create 2 bindings both targeted to `Serializable`. 
  They cannot effect each other and thereby cause conflicts or unforeseen behaviour.
  The complete `Binder`-API can be used like this. So we could have assigned after a `bind` as well.
- The result would just be another type of binder (here bound to a type already).  
+ The result would just be another type of binder (here bound to a type already).
+ 
+ To benefit from this feature the sequence in which the parts of a binding can or has to be defined is slightly different from other frameworks with similar binders. It is:
+ 
+ 	[(per) SCOPE] -> [TARGET (Instance)] -> [(in) TARGET (Packages)] -> (bind) RESOURCE -> (to) SUPPLIER 
+
+ The first 3 parts in square brackets are optional and can be left out. This are the defaults use:
+ 
+ - `Scope` : Singleton per application
+ - `Target` (`Instance` + `Packages`) : _any_ instance in all packages  
