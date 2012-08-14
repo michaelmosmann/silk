@@ -4,6 +4,16 @@ title : Bindings
 ---
 # Bindings
 
+<table class='toc'>
+	<tr><th><a href="#basics">Basics</a></th><td>The basics of <code>bind(...)</code> and <code>to(...)</code>.</td></tr>
+	<tr><th><a href="#array">Array-Bindings</a></th><td>The role of array types and how to bind arrays and elements.</td></tr>
+	<tr><th><a href="#multi">Multi-Bindings</a></th><td>How to create collections of instances with the same base-type.</td></tr>
+	<tr><th><a href="#auto">Auto-Bindings</a></th><td>Binding all implemented types of a class automatically.</td></tr>
+	<tr><th><a href="#star">Star-Bindings</a></th><td>Wildcard binds and what they are good for.</td></tr>
+	<tr><th><a href="#targeting">Targeting</a></th><td>How to make binds just apply in some (special) cases.</td></tr>
+	<tr><th><a href="#binder">Binder API</a></th><td>General concepts of the fluent binder interface.</td></tr>
+</table>
+
 ## Concept
 In Silk bindings are just a convenient way to create `Suppliable`s (we don't need to know that those are now). 
 Think of them as a util. All different kinds of bindings described below are themselves just a 
@@ -52,7 +62,7 @@ that is the same `Instance` within the same `Target` (see below how targeting ma
 If Silk encounters 2 or more bindings having the exact same `Resource` this will raise an exception 
 during the bootstrapping process.
 
-## Simple Bindings
+## <a id="basics"></a>Simple Bindings
 The most common and simple form of binding describes pairs of what implementation should be used for a particular interface. Here is an example:
 
 {% highlight java %}
@@ -318,7 +328,7 @@ Especially don't follow this example and use it with something that generic and 
 
 See also `TestTargetedBinds` for another example.   
 
-## The Binder
+## <a id="binder"></a>Fluent-Binder-Interface
 In Silk almost everything tends to be immutable. The binder itself is another example. 
 When using the fluent interface we can always assign an intermediate partial declaration to a 
 variable and finish it with different ends. Here is a simple example:
@@ -328,7 +338,7 @@ protected void declare() {
 	TargetedBinder binder = injectingInto( Serializable.class );
 	binder.bind( Foo.class ).to( FOO_IN_SERIALIZABLE );
 	binder.bind( Bar.class ).to( BAR_IN_SERIALIZABLE );
-	}
+}
 {% endhighlight %}
  
  The above declaration will create 2 bindings both targeted to `Serializable`. 
@@ -336,9 +346,9 @@ protected void declare() {
  The complete `Binder`-API can be used like this. So we could have assigned after a `bind` as well.
  The result would just be another type of binder (here bound to a type already).
  
- To benefit from this feature the sequence in which the parts of a binding can or has to be defined is slightly different from other frameworks with similar binders. It is:
+ To benefit from this feature the sequence in which the parts of a binding can or has to be defined is slightly different from other frameworks with similar fluent binder APIs. It is:
  
- 	[(per) SCOPE] -> [TARGET (Instance)] -> [(in) TARGET (Packages)] -> (bind) RESOURCE -> (to) SUPPLIER 
+ 	[(per) Scope] -> [Target.Instance] -> [(in) Target.Packages] -> (bind) Resource -> (to) Supplier 
 
  The first 3 parts in square brackets are optional and can be left out. This are the defaults use:
  

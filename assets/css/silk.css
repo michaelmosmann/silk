@@ -62,7 +62,7 @@ nav dt {
 	font-weight: bold;
 }
 section a {
-	background-color: #f9f7ca;	
+	/* background-color: #f9f7ca; */	
 }
 nav a {
 	color: black;
@@ -162,11 +162,27 @@ section pre code {
 	padding: inherit;	
 }
 
-table tr th {
+table.toc {
+	border-top: 1px solid Thistle;
+	font-size: 1.1em;
+	width: 100%;
+}
+table.toc th {
+	text-align: right;
+	padding-right: 1em;
+	width: 50%;
+}
+table.toc th a {
+	color: blue;
+	font-weight: normal;
+	text-decoration: none;	
+}
+
+table.overview tr th {
 	border-top: 1px solid Thistle;
 }
 
-table ul {
+table.overview ul {
 	margin-left: 20px;
 	padding: 0px;
 }
