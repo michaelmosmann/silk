@@ -56,6 +56,8 @@ In such cases it is guaranteed that the instanced injected will be the `DEFAULT`
 Of cause there can be just one or more explicitly `named` instances. In such case the most precise one not considering the name will be used.  
 
 ## <a id="Type"></a>Types
+A is a generic variant of a `Class`. Hence it has type parameters that themselves are generic `Type`s. Types are used to describe 
+
 ## <a id="Instance"></a>Instances
 ## <a id="Resource"></a>Resources
 ## <a id="Dependency"></a>Dependencies
