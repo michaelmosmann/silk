@@ -80,7 +80,7 @@ protected void declare() {
 }
 {% endhighlight %}
 
-What is just another shortcut for this declaration:
+What is just a shortcut for this declaration:
 
 {% highlight java %}
 protected void declare() {
@@ -89,18 +89,18 @@ protected void declare() {
 {% endhighlight %}
 
 ### Adding Constructor Parameter Descriptions
-Usually we don't (need to) provide any additional information how Silk should construct the instance.
+Usually we don't (need to) provide any additional information how Silk should construct an instance.
 The bootstrapper will ask the `InjectionStrategy` to pick the `Constructor` to use for our `Implementation`.
 All dependencies needed to instanciate it are resolved in the same way.
 
 In some cases we want a special instance injected into the constructor selected. Therefore we can add additional 
 _hints_ so Silk knows what to do. Generally we have 2 options to achieve this:
 
-- Use targeting (see end of page)
+- Use targeting (see <a href="#targeting">end of page</a>)
 - Add `Parameter`s to the `toConstructor` call
 
 Lets have a look at the latter solution. Assuming our `Implementation` needs a instance of `Foo` as constructor
-argument and we want to get a special named `Foo` for it we can describe this like that:
+argument and a special instance of `Foo` should be used this can be described like below:
 
 {% highlight java %}
 protected void declare() {
@@ -114,7 +114,7 @@ Now Silk knows what should be resolved here. To make this run some module has to
 
 **Note that the `Parameter`s (like an `Instance`) do not describe the signature of the constructor!**
 
-The are used to help out when needed. All dependencies that are resolved correctly without such a _hint_ don't have to be added.
+`Parameter`s are used to help out when needed. All dependencies that are resolved correctly without such a _hint_ don't have to be added.
 Therefore sequence also don't play a role. It just becomes important in case a `Parameter` given matches more than one constructor dependency.
 Than the first parameter is used for the first matching, the second for the second and so on.
 
@@ -157,7 +157,7 @@ protected void declare() {
 {% endhighlight %}
 When this binding can be used (matches) to inject a dependency of type `Integer[]` just the defined 
 elements `4` and `2` will be contained independent of any of the binds done for `Integer`. Together 
-with targeting (see below) this can be used to _replace_ the meaning of `Integer[]` just for special
+with targeting (<a href="#targeting">see below</a>) this can be used to _replace_ the meaning of `Integer[]` just for special
 situations. 
 
 Together with _bridge_-`Supplier`s (see `BuildinBundle`) the build in array-support can be used to also easily get `List`s,
@@ -317,9 +317,9 @@ Of cause a parent cannot be a interface since there are no instances of the inte
 So when using interface types it means the parent should be a _instance of_ the interface provided.
 
 {% highlight java %}
-	protected void declare() {
-		injectingInto( Serializable.class ).bind( Integer.class ).to( 42 );
-	}
+protected void declare() {
+	injectingInto( Serializable.class ).bind( Integer.class ).to( 42 );
+}
 {% endhighlight %}	
 
 Using the above declaration a dependency of type `Integer` would be injected as `42` into all parents that are `Serializable`.

@@ -163,14 +163,22 @@ section pre code {
 }
 
 table.toc {
-	border-top: 1px solid Thistle;
 	font-size: 1.1em;
 	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
 }
 table.toc th {
+	border-right: 1px solid Thistle;
 	text-align: right;
 	padding-right: 1em;
 	width: 50%;
+}
+table.toc th, table.toc td {
+	padding-top: 0.2em;
+}
+table.toc tr:FIRST-CHILD th {
+	border-top: 1px solid Thistle;
 }
 table.toc th:FIRST-LETTER {
 	color: Thistle;
@@ -179,6 +187,9 @@ table.toc th a {
 	color: blue;
 	font-weight: normal;
 	text-decoration: none;	
+}
+table.toc td {
+	padding-left: 1em;	
 }
 
 table.overview tr th {
