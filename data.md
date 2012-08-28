@@ -1,6 +1,6 @@
 ---
 layout : default
-title : Bindings
+title : Data
 ---
 # Data
 

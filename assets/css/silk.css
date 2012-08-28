@@ -259,3 +259,20 @@ footer a {
 	text-decoration: none;
 	padding: 0 1em;
 }
+
+a.javadoc {
+	text-decoration: none;
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 14px;
+	margin-left: 5px;
+}
+a.javadoc.C {
+	background-image: url("../img/class_obj.gif");
+}
+a.javadoc.I {
+	background-image: url("../img/int_obj.gif");
+}
+a.javadoc.E {
+	background-image: url("../img/enum_obj.gif");
+}
