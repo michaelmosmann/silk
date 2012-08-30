@@ -32,11 +32,10 @@ body {
 	font-size: 1.2em;
 }
 
-header {
-
-}
 section {
+	padding-top: 2em;
 	min-height: 400px;
+	clear: both;
 }
 nav {
 	float: right;	
@@ -73,7 +72,9 @@ nav a:HOVER {
 	text-decoration: underline;
 }
 nav a:VISITED {
+	text-decoration: underline;
 	color: #9966CC;
+	color: #444;
 }
 
 header h1 {
@@ -99,7 +100,7 @@ header h1 span {
 section h1 {
 	color:#704826;
 	font-size: 42px;
-	margin-top: 3em;
+	margin: 0 0 0.3em 0;
 	line-height: normal;
 }
 h2,h3,h4,h5,h6 {
@@ -107,7 +108,6 @@ h2,h3,h4,h5,h6 {
 	text-align: left;
 	margin: 0;
 	padding: 1em 0 0 0;
-	color:#665847;
 	color:#704826;	
 }
 section h2 {
@@ -118,7 +118,7 @@ section h2 {
 h3 {
 	font-size: 1.3em;
 	line-height: 1.56;
-	font-weight: normal;
+	color: #704826;
 }
 
 i,em {
@@ -140,11 +140,20 @@ pre {
 	display: block; 
 }
 
-table p {
+.teaser p {
 	padding: 0;
 	margin: 0 0;
 	font-style: italic;
 	font-weight: 300;
+}
+.teaser h3 {
+	border-top: 1px solid Thistle;
+	font-size: 110%;	
+}
+.teaser h3:FIRST-CHILD {
+	margin-top: 0;
+	padding-top: 0;	
+	border-top-width: 0;
 }
 
 section > p {
@@ -192,24 +201,25 @@ table.toc td {
 	padding-left: 1em;	
 }
 
-table.overview tr th {
-	border-top: 1px solid Thistle;
-}
-
-table.overview ul {
+.teaser ul {
 	margin-left: 20px;
 	padding: 0px;
 }
 
-table.overview {
-	width: 100%;
+.teaser {
+	width: 36%;
+	padding-left: 4%;
+	display: inline-block;
+	float: right;
+	clear: both;
+	margin-bottom: 1em;
 }
 
-table.overview tr td,table.overview tr th {
-	width: 50%;
-}
-table.overview tr td {
-	vertical-align: top;	
+.teaser + * {
+	width: 38%;
+	float: right;
+	margin-left: 2em;
+	overflow: hidden;	
 }
 
 .top-nav {
@@ -252,6 +262,7 @@ footer {
 	background-color: #807A33;
 	margin-top: 5em;
 	color: white;
+	clear: both;
 }
 
 footer a {
