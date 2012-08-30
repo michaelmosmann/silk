@@ -63,9 +63,9 @@ The <b>3rd</b> Generation Java <br/><i>Inversion of Control (IoC)</i> / <i>Depen
 
 With Silk your code is no longer cluttered by annotations to guide the dependency injection. Everything is described in external declarations provided through a fluent interface.  
 
-Silk prevents absolutely that your application code gets dependent on the DI-framework and vigorously encourages the use of constructor injection so that your code works perfect autonomously what also achieves an application design that can be tested gracefully with unit tests (which shoudn't contain the complexity of frameworks).
+Silk absolutely prevents your application code from getting dependent on the DI-framework and vigorously encourages the use of constructor injection so that your code works perfect autonomously what also achieves an application design that can be tested gracefully with unit tests without the complexity of frameworks.
 
-Silk helps to decouple your application elegant and provides a well-considered small set of techniques to mobilise and configure you programs without if (or other) conditions. 
+Silk helps to decouple your application elegant and provides a well-considered small set of techniques to modularise and configure you programs without if (or other) conditions. 
 ### Highlights
 
 soon...
