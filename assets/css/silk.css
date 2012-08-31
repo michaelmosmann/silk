@@ -216,7 +216,7 @@ table.toc td {
 }
 
 .teaser + * {
-	width: 38%;
+	width: 40%;
 	float: right;
 	margin-left: 2em;
 	overflow: hidden;	
