@@ -2,36 +2,44 @@
 layout : default
 ---
 
-The lightweight <nobr><b>3rd</b> Generation Java</nobr> <i>Dependency Injection (DI)</i> framework.
+<p style="width:60%; display: inline-block;">The lightweight <nobr><b>3rd</b> Generation Java</nobr> <i>Dependency Injection (DI)</i> framework.</p>
 
 <div class="teaser">
+	<div>
 	<h3>100% Independence</h3></th>
 	<p>Silk allows DI without making your application depend on the DI framework!</p>
 	<ul>
 	<li>Configuration by code</li>
-	<li>Separated from your application code<sup>1</sup></li>
+	<li>Separated from your application code</li>
 	<li>No further runtime dependencies</li>
-	</ul>		
+	</ul>
+	</div>		
 
-	<h3>if-less Modularity</h3>
-	<p>Silk provides few concepts to customize your application in a predictable and maintainable way.</p>
-	<ul>
-	<li>Bundles always just installed once<br/><small>multiple install-calls or circles are allowed</small></li> 
-	<li>Uninstall bundles</li>
-	<li>Simple configuration <br/><small>through editions, features and constant properties</small></li>
-	</ul>		
-
+	<div>
 	<h3>Less "Magic"</h3>
 	<p>Silk avoids techniques that are hard to understand, debug or maintain.</p>
 	<ul>
 	<li><b>No</b> XML</li>
 	<li><b>No</b> AOP</li>
 	<li><b>No</b> proxy magic</li>
-	<li><b>No</b> annotations<sup>2</sup></li>
-	<li><b>No</b> accessible mutable state <br/><small>A configuration will never change during runtime</small></li>
+	<li><b>No</b> annotations</li>
 	<li><b>No</b> overrides</li>
 	<li><b>No</b> dependency cycles</li>
-	</ul>		
+	<li><b>No</b> accessible mutable state <br/><small>A configuration will never change during runtime</small></li>
+	</ul>
+	</div>
+
+	<div>
+	<h3>if-less Modularity</h3>
+	<p>Silk provides few concepts to customize your application in a predictable and maintainable way.</p>
+	<ul>
+	<li>Bundles always just installed once<br/><small>multiple install-calls or circles are allowed</small></li> 
+	<li>Uninstall bundles</li>
+	<li>Simple configuration <br/><small>through editions, features and constant properties</small></li>
+	</ul>
+	</div>		
+	
+	<div>
 	<h3>Robust</h3>
 	<p>Silk is designed in a way that allows to forget about it during development without breaking your application.</p>
 	<ul>
@@ -42,8 +50,9 @@ The lightweight <nobr><b>3rd</b> Generation Java</nobr> <i>Dependency Injection 
 	<li>Pushes for immutability <br/><small>enforces constructor injection</small></li>
 	<li>Data driven <br/><small>core uses mostly Value Objects</small></li>
 	</ul>
+	</div>
 
-
+	<div>
 	<h3>Features</h3>
 	<ul>
 	<li>Declarative dependency descriptions <br/><small>using a guice-like builder</small></li>
@@ -52,7 +61,8 @@ The lightweight <nobr><b>3rd</b> Generation Java</nobr> <i>Dependency Injection 
 	<li>Easy to extend <br/><small>e.g. with Set or List support</small></li>
 	<li>Fast bootstrap</li>
 	<li>Lightweight: about 120 KB jar archive</li>
-	</ul>		
+	</ul>
+	</div>
 </div>
 
 {% highlight java %}
