@@ -1,5 +1,6 @@
 source:      .
 destination: ./_site
+include:[userguide]
 auto: true
 server: true
 baseurl: /silk/
