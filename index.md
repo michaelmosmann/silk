@@ -49,7 +49,7 @@ layout : default
 	<li>Largely Type-safe</li>
 	<li>Excellent Unit-testability </li>
 	<li>Pushes for immutability</li>
-	<li>Data driven with Value Objects</li>
+	<li><a href="/silk/userguide/data.html">Data driven</a> with Value Objects</li>
 	<li>A configuration never changes at runtime</li>
 	</ul>
 	</div>
@@ -57,8 +57,8 @@ layout : default
 	<div>
 	<h3>Further Features</h3>
 	<ul>
-	<li>Declarative dependency/injection descriptions (fluent interface)</li>
-	<li>Multi-binds</li>
+	<li><a href="/silk/userguide/binds.html">Declarative dependency/injection descriptions</a> <a href="/silk/userguide/binds.html#binder">(fluent interface)</a></li>
+	<li><a href="/silk/userguide/binds.html#multi">Multi-binds</a></li>
 	<li>Generic support</li>
 	<li>Easy to utilise or extend</li>
 	<li>Fast bootstrap</li>

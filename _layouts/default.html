@@ -13,10 +13,10 @@
     <script type="text/javascript">
 	var typeURLs = [];
 	$(document).ready(function() {
-    		$.getJSON('assets/javadoc/types.json', function(data) {
+    		$.getJSON('/silk/assets/javadoc/types.json', function(data) {
     			$.each(data['types'], function(index, value) { 
 				if (value != null) {
-    					typeURLs[value.name]={type: value.type,url: "assets/javadoc/"+value['package'].replace(/\./g, '/')+"/"+value.name+".html"};
+    					typeURLs[value.name]={type: value.type,url: "/silk/assets/javadoc/"+value['package'].replace(/\./g, '/')+"/"+value.name+".html"};
 				}
     			});
 	    		$('code').wrap(function() { 
@@ -34,28 +34,29 @@
     		<nav>
 			<dl>
 				<dt><a href="/silk/userguide">User Guide</a></dt>
-				<dd><a href="/silk/userguide/motivation.html">Motivation</a></dd>
-			      <dd><a href="/silk/userguide/intro.html">Quick Tour</a></dd>
+			      <dd><a href="/silk/userguide/intro.html">Introduction</a></dd>
 			      <dd><a href="/silk/userguide/binds.html">Bindings</a></dd>
-			      <dd><a href="/silk/userguide/data.html">Data-Types</a></dd>
 			      <dd><a href="/silk/userguide/scopes.html">Scopes</a></dd>
 			      <dd><a href="/silk/userguide/services.html">Services</a></dd>
+			      <dd><a href="/silk/userguide/data.html">Data-Types</a></dd>
+
+			      <dd><a href="/silk/assets/javadoc/">Javadoc</a></dd>
 			</dl>
     			<dl>
-    				<dt>Developers</dt>
-			      <dd><a href="/silk/assets/javadoc/">Javadoc</a></dd>
-			      <dd>&nbsp;</dd>
-			      <dd>&nbsp;</dd>
+    				<dt><a href="/silk/developers">Developers</a></dt>
+			      <dd><a href="/silk/developers/downloads.html">Downloads</a></dd>
+			      <dd><a href="/silk/developers/install.html">Installation</a></dd>
 			      <dd>&nbsp;</dd>
 			      <dd><a href="https://github.com/jbee/silk/issues">Issues</a></dd>
-			      <dd><a href="https://github.com/jbee/silk">Sources</a> (<a href="https://github.com/jbee/silk/zipball/master">.zip</a>|<a href="https://github.com/jbee/silk/tarball/master">.tar</a>)</dd>
+			      <dd>&nbsp;</dd>
+			      <dd><a href="https://github.com/jbee/silk">Sources</a></dd>
     			</dl>
     			<dl>
     				<dt><a href="/silk/help/" >Help</a></dt>
     				<dd><a href="/silk/help/about.html" >About</a></dd>
+				<dd><a href="/silk/help/motivation.html">Motivation</a></dd>
 			      <dd>&nbsp;</dd>
-			      <dd>&nbsp;</dd>
-			      <dd>&nbsp;</dd>
+			      <dd><a href="/silk/help/license.html">License</a></dd>
 			      <dd>&nbsp;</dd>
     				<dd><a href="/silk/help/contact.html" >Contact</a></dd>
     			</dl>

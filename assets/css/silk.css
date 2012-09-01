@@ -228,7 +228,9 @@ table.toc td {
 	margin-bottom: 1em;
 	margin-top: -2em;
 }
-
+.teaser a { 
+	text-decoration: none;	
+}
 .teaser + * {
 	width: 40%;
 	float: right;

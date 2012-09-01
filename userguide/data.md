@@ -70,4 +70,4 @@ A is a generic variant of a `Class`. Hence it has type parameters that themselve
 ## <a id="Source"></a>Source
 ## <a id="Suppliable"></a>Suppliable
 
- <a class='next' href="scopes.html">Continue with Scopes --&gt;</a>
+ <a class='next' href="/silk/userguide/">Back to Overview</a>
