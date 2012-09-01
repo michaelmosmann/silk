@@ -303,3 +303,8 @@ a.javadoc.I {
 a.javadoc.E {
 	background-image: url("../img/enum_obj.gif");
 }
+pre code.java a.javadoc {
+	background-image: none;
+	margin: 0;
+	padding: 0;
+}

@@ -23,6 +23,10 @@
 				var type = typeURLs[$(this).text()];
 	        		if (type) { return "<a href='"+type.url+"' class='javadoc "+type.type+"'></a>" } else { return ""}
 	        	});
+	    		$('pre code.java span.n, pre code.java span.nc').wrap(function() { 
+					var type = typeURLs[$(this).text()];
+		        		if (type) { return "<a href='"+type.url+"' class='javadoc "+type.type+"'></a>" } else { return ""}
+	        	});
     		});
     	});
     </script>
