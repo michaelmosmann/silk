@@ -60,6 +60,9 @@ nav dt {
 	text-transform: lowercase;
 	font-weight: bold;
 }
+nav dt a, nav dt a:VISITED {
+	color: #704826;
+}
 section a {
 	/* background-color: #f9f7ca; */	
 }
@@ -203,9 +206,10 @@ table.toc td {
 	padding: 0px;
 }
 .teaser > div {
-	background-color: #f3efa0;
+	background-color: #F5F1AB;
 	padding: 5px 1em 1px 1em;
 	margin-bottom: 1em;
+	border-radius: 6px;
 }
 
 .teaser {
@@ -245,14 +249,11 @@ table.toc td {
 a.next {
 	display: block;
 	text-align: center;	
-	background-color: #f9f7ca;
+	background-color: #F5F1AB;
 	width: 50%;
 	margin: 2em auto;
 	padding: 0.5em 0;
-	border: 1px solid Thistle;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;	
+	border-radius: 6px;	
 }
 
 li small {

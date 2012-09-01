@@ -13,7 +13,7 @@ layout : default
 	<li>Separated from your application code</li>
 	<li>No further runtime dependencies</li>
 	</ul>
-	</div>		
+	</div>
 
 	<div>
 	<h3>Less "Magic"</h3>
