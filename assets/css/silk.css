@@ -255,7 +255,7 @@ table.toc td {
 	text-decoration: underline;
 }
 
-a.next {
+a.next, a.next:VISITED {
 	display: block;
 	text-align: center;	
 	background-color: #F5F1AB;
@@ -263,6 +263,9 @@ a.next {
 	margin: 2em auto;
 	padding: 0.5em 0;
 	border-radius: 6px;	
+	color: #704826;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 li small {

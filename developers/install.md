@@ -5,10 +5,11 @@ title: Installation
 
 # Installation
 
-## In 5 Steps
-* <a href="downloads.html">Download</a> the `jar`-file and add it to your project's classpath.
+## Get It
+<a href="downloads.html">Download</a> the `jar`-file and add it to your project's classpath.
 
-* Define a first `Module` (e.g. by extending `BinderModule`)
+## Use It
+Define a first `Module` (e.g. by extending `BinderModule`)
 {% highlight java %}
 class FirstModule extends BinderModule {
 
@@ -18,7 +19,7 @@ class FirstModule extends BinderModule {
 	}
 }{% endhighlight %}
 
-* Define a root `Bundle` that installs your first `Module`
+Define a root `Bundle` that installs your first `Module`
 {% highlight java %}
 class RootBundle extends BootstrapperBundle {
 
@@ -28,11 +29,11 @@ class RootBundle extends BootstrapperBundle {
 	}
 }	{% endhighlight %}
 
-* Use the `Bootstrap` util to create an `Injector` from your root `Bundle`
+Use the `Bootstrap` util to create an `Injector` from your root `Bundle`
 {% highlight java %}
 Injector injector = Bootstrap.injector( RootBundle.class );	{% endhighlight %}
 	
-* Create a `Dependency` and resolve it using the created `Injector` to construct your application's root instance (here our example `SomeInterface.class`)
+Create a `Dependency` and resolve it using the created `Injector` to construct your application's root instance (in above example it is `SomeInterface.class`)
 {% highlight java %}
 Dependency<SomeInterface> dependency = Dependency.dependency(SomeInterface.class); 
 SomeInterface instance = injector.resolve(dependency);	{% endhighlight %}

@@ -355,4 +355,4 @@ protected void declare() {
  - `Scope` : Singleton per application
  - `Target` (`Instance` + `Packages`) : _any_ instance in all packages  
  
- <a class='next' href="scopes.html">Continue with Scopes --&gt;</a>
+ <a class='next' href="scopes.html">Continue with Scopes...</a>
