@@ -2,14 +2,14 @@
 layout : default
 ---
 
-<p style="width:60%; display: inline-block;">The lightweight <nobr><b>3rd</b> Generation Java</nobr> <i>Dependency Injection (DI)</i> framework.</p>
+<p style="width:60%; display: inline-block;">The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection</b> (DI) framework.</p>
 
 <div class="teaser">
 	<div>
 	<h3>100% Independence</h3></th>
 	<p>Silk allows DI without making your application depend on the DI framework!</p>
 	<ul>
-	<li>Configuration by code</li>
+	<li>Configuration by pure Java code</li>
 	<li>Separated from your application code</li>
 	<li>No further runtime dependencies</li>
 	</ul>
@@ -25,7 +25,7 @@ layout : default
 	<li><b>No</b> annotations</li>
 	<li><b>No</b> overrides</li>
 	<li><b>No</b> dependency cycles</li>
-	<li><b>No</b> accessible mutable state <br/><small>A configuration will never change during runtime</small></li>
+	<li><b>No</b> accessible mutable state</li>
 	</ul>
 	</div>
 
@@ -33,9 +33,10 @@ layout : default
 	<h3>if-less Modularity</h3>
 	<p>Silk provides few concepts to customize your application in a predictable and maintainable way.</p>
 	<ul>
-	<li>Bundles always just installed once<br/><small>multiple install-calls or circles are allowed</small></li> 
-	<li>Uninstall bundles</li>
-	<li>Simple configuration <br/><small>through editions, features and constant properties</small></li>
+	<li>Sequence of declarations is irrelevant</li> 
+	<li>Each part can be considered in isolation</li>
+	<li>Simple predictable configuration concepts</li>
+	<li>It is easy to remove what you don't like</li>
 	</ul>
 	</div>		
 	
@@ -44,23 +45,25 @@ layout : default
 	<p>Silk is designed in a way that allows to forget about it during development without breaking your application.</p>
 	<ul>
 	<li><b>No</b> importance to sequence of definition</li>
-	<li><b>No</b> string matching! <br/><small>Allows safe renaming</small></li>
-	<li>Type-safe <br/><small>seldom just raw-type safety</small></li>
+	<li><b>No</b> string matching!</li>
+	<li>Largely Type-safe</li>
 	<li>Excellent Unit-testability </li>
-	<li>Pushes for immutability <br/><small>enforces constructor injection</small></li>
-	<li>Data driven <br/><small>core uses mostly Value Objects</small></li>
+	<li>Pushes for immutability</li>
+	<li>Data driven with Value Objects</li>
+	<li>A configuration never changes at runtime</li>
 	</ul>
 	</div>
 
 	<div>
-	<h3>Features</h3>
+	<h3>Further Features</h3>
 	<ul>
-	<li>Declarative dependency descriptions <br/><small>using a guice-like builder</small></li>
+	<li>Declarative dependency/injection descriptions (fluent interface)</li>
 	<li>Multi-binds</li>
-	<li>Full generic support</li>
-	<li>Easy to extend <br/><small>e.g. with Set or List support</small></li>
+	<li>Generic support</li>
+	<li>Easy to utilise or extend</li>
 	<li>Fast bootstrap</li>
 	<li>Lightweight: about 120 KB jar archive</li>
+	<li>Safe renaming (e.g. classes or instance names)</li>
 	</ul>
 	</div>
 </div>
@@ -86,15 +89,19 @@ It helps to decouple your application with elegance by providing a well-consider
 techniques to modularise and configure your programs without conditional declarations. 
 Together with Silk's immutability this brings a functional nature to it wherein the sequence of declarations becomes irrelevant! 
 
-Most of all Silk aims to allow easy long term development that comes with no surprises so it vehemently avoids any kind of _magic_ and guides you with helpful error messages.
+Most of all Silk aims to allow easy long term development that comes with no surprises so it vehemently avoids any kind of _\*magic\*_ and guides you with helpful error messages.
 Above all it allows to consider small components separately whereby even large, highly configurable systems become manageable without pain. 
 
 The absence of any further runtime dependencies and its slim footprint of 120K makes Silk a fine 
 choice for small projects although at heart Silk is a graceful mighty butterfly waiting to breathe life into huge applications.
 
-With its revolutionary service concept Silk simplifies to decouple your application and allows a 
-cross-functional programming without the pixie dust of meta programming approaches.
+Through its revolutionary service concept Silk decouples your application and prevents dependency cycles by concept. 
+Further it allows to tackle cross-functional concerns without pure Java free of meta programming approaches.
 
-### Highlights
+<h2 class="home">Highlights</h2>
 
-soon...
+### Pure Java
+### Application code stays independent 
+### Sequence of declaration is irrelevant
+### No dependency cycles by concept with services
+

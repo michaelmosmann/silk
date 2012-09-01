@@ -1,6 +1,6 @@
 ---
 layout : default
-title : About Silk
+title : About
 categories : [general]
 ---
 # About
