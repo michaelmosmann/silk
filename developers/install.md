@@ -5,9 +5,10 @@ title: Installation
 
 # Installation
 
+## In 5 Steps
 * <a href="downloads.html">Download</a> the `jar`-file and add it to your project's classpath.
 
-* Define a first `Module`	
+* Define a first `Module` (e.g. by extending `BinderModule`)
 {% highlight java %}
 class FirstModule extends BinderModule {
 
