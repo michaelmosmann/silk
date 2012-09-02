@@ -84,7 +84,7 @@ Silk absolutely prevents your application code from getting dependent on the DI-
 vigorously encourages the use of constructor injection so that your code works just as well autonomously. 
 As a result an application design is driven that can be tested nicely selfcontained by unit tests without the complexity of frameworks.
 
-Silks is small flexible core that is easy to utilise and extend. 
+Silks is a small flexible core that is easy to utilise and extend. 
 It helps to decouple your application with elegance by providing a well-considered handful of 
 techniques to modularise and configure your programs without conditional declarations. 
 Together with Silk's immutability this brings a functional nature to it wherein the sequence of declarations becomes irrelevant! 
@@ -96,7 +96,7 @@ The absence of any further runtime dependencies and its slim footprint of 120K m
 choice for small projects although at heart Silk is a graceful mighty butterfly waiting to breathe life into huge applications.
 
 Through its revolutionary service concept Silk decouples your application and prevents dependency cycles by concept. 
-Further it allows to tackle cross-functional concerns without pure Java free of meta programming approaches.
+Further it allows to tackle cross-functional concerns with pure Java free of meta programming approaches.
 
 <h2 class="home">Highlights</h2>
 

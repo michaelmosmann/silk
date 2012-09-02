@@ -15,15 +15,15 @@ Typical scopes are:
 * one instance per exact `Type` (of the receiving/parent instance)
 * ...
 
-The `Scope` takes the role of a factory that creates `Repositories`. Each `Injector` has a single `Repository` per `Scope`. 
+The `Scope` takes the role of a factory that creates `Repository`s. Each `Injector` has a single `Repository` per `Scope`. 
 So scopes are stateless and should be JVM singletons (constants). All state is held inside the repositories - once per injector. 
 It is up to a `Repository` to manage the instances (the state) in the way that is appropiate for the `Scope` they have been created from.
 
 ## Overview
 All `Scope`s that come with the framework are contained in the `Scoped` util class. 
 
-## Bindings
-When binding the `Scope` is the first statement given by `per(Scope)`. Most of the time the part is left out whereby the default - one instance per application - is used.
+## Scoping of Bindings
+In a binding declaration the `Scope` is the first statement given by `per(Scope)`. Most of the time the part is left out whereby the default - one instance per application - is used.
 When used you can make blocks of all binds in the same scope like in the below example:
 
 {% highlight java %}
@@ -55,7 +55,9 @@ In most cases all of the bindings in a `Module` are in the same scope. Here it i
 			construct( Bar.class );
 		} 
 {% endhighlight %}
+But the explicit constructor is just necessary in case another scope than `Scoped``.APPLICATION` should be used.
 
+## Expiry of Scopes
 
 ## Repositories
 A `Repository` contains and manages the already created instances. 
