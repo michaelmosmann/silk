@@ -59,6 +59,8 @@ But the explicit constructor is just necessary in case another scope than `Scope
 
 ## Expiry of Scopes
 
+## Snapshots
+
 ## Repositories
 A `Repository` contains and manages the already created instances. 
 How many there are and the conditions to ask the `Injectable` for a new one differ from implementation to implementation.

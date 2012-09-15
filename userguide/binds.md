@@ -90,7 +90,7 @@ protected void declare() {
 
 ### Adding Constructor Parameter Descriptions
 Usually we don't (need to) provide any additional information how Silk should construct an instance.
-The bootstrapper will ask the `InjectionStrategy` to pick the `Constructor` to use for our `Implementation`.
+The bootstrapper will ask the `ConstructionStrategy` to pick the `Constructor` to use for our `Implementation`.
 All dependencies needed to instanciate it are resolved in the same way.
 
 In some cases we want a special instance injected into the constructor selected. Therefore we can add additional 

@@ -1,8 +1,8 @@
 ---
-layout : default
+layout : teaser
 ---
 
-<p style="width:60%; display: inline-block;">The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection</b> (DI) framework.</p>
+The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection</b> (DI) framework.
 
 <div class="teaser">
 	<div>
@@ -93,12 +93,12 @@ Most of all Silk aims to allow easy long term development that comes with no sur
 Above all it allows to consider small components separately whereby even large, highly configurable systems become manageable without pain. 
 
 The absence of any further runtime dependencies and its slim footprint of 120K makes Silk a fine 
-choice for small projects although at heart Silk is a graceful mighty butterfly waiting to breathe life into huge applications.
+choice for small projects although at heart Silk is a graceful butterfly waiting to breathe life into huge applications.
 
-Through its revolutionary service concept Silk decouples your application and prevents dependency cycles by concept. 
-Further it allows to tackle cross-functional concerns with pure Java free of meta programming approaches.
+Through its revolutionary service concept Silk decouples the application and prevents dependency cycles by concept. 
+Further it allows to tackle cross-functional concerns with pure Java what avoids the complexity of conventional meta programming approaches.
 
-<h2 class="home">Highlights</h2>
+##Highlights
 
 ### Pure Java
 ### Application code stays independent 
