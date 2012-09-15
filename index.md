@@ -77,31 +77,37 @@ protected void declare() {
 }
 {% endhighlight %}
 
+
 With Silk your code is no longer cluttered by annotations to guide the dependency injection. 
 Everything is described in external pure Java declarations provided through a fluent interface.
 
+##Highlights
+
+### Application code stays independent 
 Silk absolutely prevents your application code from getting dependent on the DI-framework and 
 vigorously encourages the use of constructor injection so that your code works just as well autonomously. 
-As a result an application design is driven that can be tested nicely selfcontained by unit tests without the complexity of frameworks.
+As a result an application design is driven that can be tested nicely selfcontained by unit tests without the complexity of a DI framework.
 
+### Pure Java
 Silks is a small flexible core that is easy to utilise and extend. 
 It helps to decouple your application with elegance by providing a well-considered handful of 
 techniques to modularise and configure your programs without conditional declarations. 
-Together with Silk's immutability this brings a functional nature to it wherein the sequence of declarations becomes irrelevant! 
 
+### Sequence of declaration is irrelevant
+Together with Silk's immutability the absence of conditions brings a functional nature to Silk wherein the sequence of declarations becomes irrelevant!
+ The implications of this are a huge simplification when considering the composition of your application. 
+
+### Says NO to magic and pain
 Most of all Silk aims to allow easy long term development that comes with no surprises so it vehemently avoids any kind of _\*magic\*_ and guides you with helpful error messages.
 Above all it allows to consider small components separately whereby even large, highly configurable systems become manageable without pain. 
 
+### Lightweight
 The absence of any further runtime dependencies and its slim footprint of 120K makes Silk a fine 
 choice for small projects although at heart Silk is a graceful butterfly waiting to breathe life into huge applications.
 
+### No dependency cycles by concept + cross-functional programming
 Through its revolutionary service concept Silk decouples the application and prevents dependency cycles by concept. 
 Further it allows to tackle cross-functional concerns with pure Java what avoids the complexity of conventional meta programming approaches.
 
-##Highlights
 
-### Pure Java
-### Application code stays independent 
-### Sequence of declaration is irrelevant
-### No dependency cycles by concept with services
 
