@@ -7,15 +7,21 @@ html,body {
 
 body {
 	font-family: 'Lato', 'open sans', freesans, arial, sans-serif;
-	font-size: 14px;
-	line-height: 1.35em;
+	font-size: 11pt;
+	line-height: 1.45em;
+	word-spacing: 0.17em;
+	background-color: #F5F5FF;
 }
 
 #wrapper {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin: 0;
+	width: 940px; 
+	margin: 0 auto 0 0;
+	padding: 0 30px;
+	background-color: white;
+	border-right: 1px solid #e5e5ee;
 }
 #logo {
 	margin: 20px;
@@ -102,21 +108,23 @@ header h1 span {
 
 section h1 {
 	color:#704826;
-	font-size: 42px;
+	font-size: 38px;
 	margin: 0 0 0.3em 0;
 	line-height: normal;
+	color: #222;
 }
 h2,h3,h4,h5,h6 {
 	line-height: normal;
 	text-align: left;
 	margin: 0;
 	padding: 1em 0 0 0;
-	color:#704826;	
+	color:#704826;
+	color: #222;	
 }
 section h2 {
 	border-bottom: 1px solid Thistle;
 	padding-top: 2em;
-	font-size: 26px;
+	font-size: 24px;
 }
 section .main h2 {
 	border-top: 1px solid Thistle; 
@@ -127,7 +135,6 @@ section .main h2 {
 h3 {
 	font-size: 1.3em;
 	line-height: 1.56;
-	color: #444;
 	position: relative;
 	padding-top: 2em;
 }
@@ -149,14 +156,15 @@ i,em {
 	font-weight: 300;
 }
 pre {
-	background-color: #f1f1f1;	
+	background-color: #eeeeee;
+	font-size: 14px;
+	padding: 2px;
 }
 .lineno {
 	background-color: #e6e6e6;	
 }
 .container {
-	width: 920px;
-	margin: 0 auto;
+	margin: 0 20px;
 }
 
 .clearfix {
@@ -226,13 +234,12 @@ table.toc td {
 	padding: 0px;
 }
 .teaser > div {
-	border-left: 1px solid lightgray;
 	padding: 5px 1em 1px 1em;
 	margin-bottom: 1em;
 }
 
 .main {
-	padding-right: 40%;	
+	padding-right: 38%;	
 }
 
 .teaser {
@@ -291,9 +298,8 @@ li small {
 footer {
 	min-height: 60px;
 	overflow: hidden;
-	background-color: #807A33;
+	border-top: 1px solid #e5e5ee;
 	margin-top: 5em;
-	color: white;
 	clear: both;
 }
 
