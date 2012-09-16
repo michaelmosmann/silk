@@ -14,7 +14,7 @@ title : Bindings
 	<tr><th>#<a href="#binder">Binder API</a></th><td>General concepts of the fluent binder interface.</td></tr>
 </table>
 
-## Concept
+## A\. Concept
 In Silk bindings are just a convenient way to create `Suppliable`s (we don't need to know that those are now). 
 Think of them as a util. All different kinds of bindings described below are themselves just a 
 convenient way to produce calls to the `Bindings#add`-method that we see below:
@@ -62,7 +62,7 @@ that is the same `Instance` within the same `Target` (see below how targeting ma
 If Silk encounters 2 or more bindings having the exact same `Resource` this will raise an exception 
 during the bootstrapping process.
 
-## <a id="basics"></a>Simple Bindings
+## <a id="basics"></a>1\. Simple Bindings
 The most common and simple form of binding describes pairs of what implementation should be used for a particular interface. Here is an example:
 
 {% highlight java %}
@@ -135,7 +135,7 @@ Unlike other frameworks in Silk all `bind`-declarations need a `to`-clause in or
 As seen above the method `construct` is a shortcut to the common case that we want to bind to the constructor that is found automatically. 
   
 
-## <a id="array"></a>Array-Bindings
+## <a id="array"></a>2\. Array-Bindings
 There is a build in support in Silk that when binding something to a class `X` the 1-dimensional array type `X[]` is implicitly defined as well.
 The array contains all known `X` instances. There can be more than one because for type `X` `multibind`s (see below) have been used 
 or it's those are instances with different precision so they normally apply to different injections.
@@ -168,7 +168,7 @@ them independently from the different forms of collection asked for by different
 need to explicitly define a bind to `List<Integer>` (even though this would work as well what can be 
 used to replace a general behaviour in some cases).
 
-## <a id="multi"></a>Multi-Bindings
+## <a id="multi"></a>3\. Multi-Bindings
 A `multibind` is used to create collections of instances that should be injected together. All of them are bound to the same super-type.
 
 When using a `multibind` we explicitly want multiple instances to coexist for the same resource because the resource models a collection of something.
@@ -198,7 +198,7 @@ protected void bootstrap() {
 Like `List`s here we could also add `Set<X>`s as equivalent to `X[]`. This kind of _bridges_ from an array-type to any kind of collection can be added easily to Silk with a _one-liner_ by extending the `ArrayBridgeSupplier`.  
 
 
-## <a id="star"></a>Star-Bindings
+## <a id="star"></a>4\. Star-Bindings
 Like `autobind` a `starbind` is just a convenient method on top of the `bind` API.
 It models a _wildcard_-binding and is nothing more than the below (from `Binder`):
 
@@ -226,7 +226,7 @@ all other kinds of _bridges_ like `List`s and `Set`s, `ServiceMethod`s or your c
 make use of one `starbind` declaration.
 
 
-## <a id="auto"></a>Auto-Bindings
+## <a id="auto"></a>5\. Auto-Bindings
 A `autobind` is a convenient helper method on top of normal `bind`s. 
 It is nothing else than binding the same class (from `to`-clause) to all its 
 super-types and -interfaces (that would be the `bind`-clause).
@@ -260,7 +260,7 @@ the `Compareable<Integer>` will not be bound automatically. It is planed to
 implement this at some point.
 
 
-## <a id="targeting"></a>Targeting Bindings
+## <a id="targeting"></a>6\. Targeting Bindings
 All of the above forms of bindings can be made more specific by describing the `Target` it should be used for.
 This narrows the cases in which it matches a dependency but also makes it more suitable. 
 
@@ -328,7 +328,7 @@ Especially don't follow this example and use it with something that generic and 
 
 See also `TestTargetedBinds` for another example.   
 
-## <a id="binder"></a>Fluent-Binder-Interface
+## <a id="binder"></a>7\. Fluent-Binder-Interface
 In Silk almost everything tends to be immutable. The binder itself is another example. 
 When using the fluent interface we can always assign an intermediate partial declaration to a 
 variable and finish it with different ends. Here is a simple example:
