@@ -169,6 +169,26 @@ pre {
 	display: block; 
 }
 
+.teaser {
+	width: 60%;
+	display: inline-block;
+	float: right;
+	margin-right:-65%;
+	clear: both;
+	margin-bottom: 1em;
+	margin-top: -2em;
+	font-family: 'Lato';
+}
+.teaser a { 
+	text-decoration: none;	
+}
+.teaser + * {
+	width: 67%;
+	float: right;
+	margin-left: 2em;
+	overflow: hidden;	
+}
+
 .teaser p {
 	padding: 5px 0 0 0;
 	margin: 0 0;
@@ -234,25 +254,6 @@ table.toc td {
 
 .main {
 	padding-right: 38%;	
-}
-
-.teaser {
-	width: 60%;
-	display: inline-block;
-	float: right;
-	margin-right:-65%;
-	clear: both;
-	margin-bottom: 1em;
-	margin-top: 0em;
-}
-.teaser a { 
-	text-decoration: none;	
-}
-.teaser + * {
-	width: 67%;
-	float: right;
-	margin-left: 2em;
-	overflow: hidden;	
 }
 
 .top-nav {
