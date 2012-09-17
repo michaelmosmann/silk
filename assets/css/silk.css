@@ -18,10 +18,11 @@ body {
 	height: auto !important;
 	height: 100%;
 	width: 940px; 
-	margin: 0 auto 0 0;
+	margin: 0 auto;
 	padding: 0 30px;
 	background-color: white;
 	border-right: 1px solid #e5e5ee;
+	border-left: 1px solid #e5e5ee;
 }
 #logo {
 	margin: 20px;
