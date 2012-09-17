@@ -39,7 +39,7 @@ body {
 }
 
 section {
-	padding-top: 2em;
+	padding-top: 1em;
 	min-height: 400px;
 	clear: both;
 }
@@ -57,24 +57,23 @@ nav dl {
 	word-spacing: 0.4em;
 }
 nav dd {
-	margin: 0 0 0.3em 0;	
+	margin: 0 0 0.3em 0;
 }
 nav dt {
-	margin: 2em 0;
+	margin: 1em 0;
 	padding: 0;
-	color: #704826;
 	font-size: 1.1em;
 	text-transform: lowercase;
 	font-weight: bold;
 }
 nav dt a, nav dt a:VISITED {
-	color: #704826;
+	color: black;
 }
 section a {
 	/* background-color: #f9f7ca; */	
 }
 nav a {
-	color: black;
+	color: #704826;
 	background-color: transparent;
 	text-decoration: none;
 }
@@ -85,6 +84,7 @@ nav a:VISITED {
 	text-decoration: underline;
 	color: #9966CC;
 	color: #444;
+	color: #704826;
 }
 
 header h1 {

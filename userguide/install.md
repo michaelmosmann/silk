@@ -39,3 +39,8 @@ Dependency<SomeInterface> dependency = Dependency.dependency(SomeInterface.class
 SomeInterface instance = injector.resolve(dependency);	{% endhighlight %}
 
 Thats it! We are done!
+
+While you need to use `Dependency` for the root instance of your application of cause no further `Dependency` has to be created manually further on. 
+All the dependencies will just be injected as you told Silk with the `Module`s and `Bundles`. 
+
+ <a class='next' href="/silk/userguide">Continue with the User Guide...</a>

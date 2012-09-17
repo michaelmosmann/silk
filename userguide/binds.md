@@ -255,9 +255,7 @@ protected void declare() {
 In some cases this could become quite messy. Therefore the `autobind` is 
 provided even though it might be useful quite seldom. 
 
-Right now there is no support for super-types with generics like for `Integer`
-the `Compareable<Integer>` will not be bound automatically. It is planed to
-implement this at some point.
+Note that `autobind` will also bind parametized supertypes like `Compareable<Integer>` for `Integer`.
 
 
 ## <a id="targeting"></a>6\. Targeting Bindings
