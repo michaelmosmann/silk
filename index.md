@@ -78,7 +78,7 @@ protected void declare() {
 {% endhighlight %}
 
 
-With Silk your code is no longer cluttered by annotations to guide the dependency injection. 
+With Silk your code is no longer cluttered by <s>`@annotations`</s> to guide the dependency injection. 
 Everything is described in external pure Java declarations provided through a fluent interface.
 
 ##Highlights
