@@ -7,7 +7,6 @@
     <title>{% if page.title %} {{ page.title }} - {% endif %} Silk</title>
     <link rel="shortcut icon" href="http://jbee.github.com/silk/favicon.png" type="image/png">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Tinos:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/silk/assets/css/silk.css">
     <link rel="stylesheet" href="/silk/assets/css/pygment_trac.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -66,10 +65,11 @@
 		<a href="http://jbee.github.com/silk/" style="text-decoration: none;"><img src="/silk/assets/img/logo.png" id="logo" border="0" /></a>
 		<h1><span>silk</span></h1>
 		<h4 id="subline">Java DI / IoC</h4>
+		<div style="clear: both;"></div>
 	</div>
     	</header>
 	  
-      <section>{{ content }}</section>
+      <section class="container">{{ content }}</section>
 
       <footer class="clearfix">
 	      <div class="container clearfix">

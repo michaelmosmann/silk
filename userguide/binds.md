@@ -348,6 +348,7 @@ protected void declare() {
  
  	[(per) Scope] -> [Target.Instance] -> [(in) Target.Packages] -> (bind) Instance -> (to) Supplier 
 
+### Defaults
  The first 3 parts in square brackets are optional and can be left out. This are the defaults use:
  
  - `Scope` : Singleton per application

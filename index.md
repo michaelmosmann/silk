@@ -106,8 +106,10 @@ The absence of any further runtime dependencies and its slim footprint of 120K m
 choice for small projects although at heart Silk is a graceful butterfly waiting to breathe life into huge applications.
 
 ### No dependency cycles by concept + cross-functional programming
-Through its revolutionary service concept Silk decouples the application and prevents dependency cycles by concept. 
+Through its revolutionary <a href="/silk/userguide/services.html">service</a> concept Silk decouples the application and prevents dependency cycles by concept. 
 Further it allows to tackle cross-functional concerns with pure Java what avoids the complexity of conventional meta programming approaches.
 
-
+### Injectorns
+An `Injectron` is a _first class_ access object abstraction of a _singletons_ `Resource` within an `Injector` context. 
+This implies they can be injected like the _resources_ themselves what allows pre-resolution dependencies within add-ons on top of the core like the service concept.  
 
