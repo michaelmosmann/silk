@@ -37,15 +37,18 @@ body {
 	font-size: 1.2em;
 }
 header {
-	background-color: DarkKhaki;
-	padding-bottom: 1em;
+	background-color: Beige;
+	border-bottom: 1px solid Lavender;
+	font-family: 'Lato', sans-serif;
+}
+header .container {
+	border-bottom: 30px solid Beige ;
 }
 section {
 	width: 940px; 
 	margin: 0 auto;
-	padding: 1em 30px;
+	padding: 20px 30px;
 	min-height: 400px;
-	clear: both;
 }
 nav {
 	float: right;
@@ -111,9 +114,15 @@ section h1 {
 	color:#704826;
 	font-size: 38px;
 	margin: 0 0 0.3em 0;
-	line-height: normal;
+	line-height: 60px;
 	color: #222;
 	font-family: 'Lato', sans-serif;
+	position: absolute;
+	background-color: white;
+	padding: 0 0.5em;
+	margin-top: -81px;
+	border: 1px solid #eee;
+	border-bottom-width: 0;
 }
 h2,h3,h4,h5,h6 {
 	line-height: normal;
@@ -163,7 +172,7 @@ pre {
 }
 .container {
 	margin: 0 auto;
-	width: 940px; 
+	width: 920px; 
 }
 
 .clearfix {
@@ -279,7 +288,7 @@ table.toc td {
 a.next, a.next:VISITED {
 	display: block;
 	text-align: center;	
-	background-color: #F5F1AB;
+	background-color: Beige;
 	width: 50%;
 	margin: 2em auto;
 	padding: 0.5em 0;
