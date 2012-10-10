@@ -97,6 +97,8 @@ techniques to modularise and configure your programs without conditional declara
 Together with Silk's immutability the absence of conditions brings a functional nature to Silk wherein the sequence of declarations becomes irrelevant!
  The implications of this are a huge simplification when considering the composition of your application. 
 
+----
+
 ### Says NO to magic and pain
 Most of all Silk aims to allow easy long term development that comes with no surprises so it vehemently avoids any kind of _\*magic\*_ and guides you with helpful error messages.
 Above all it allows to consider small components separately whereby even large, highly configurable systems become manageable without pain. 
