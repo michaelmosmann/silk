@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700);
+
 html,body {
 	margin: 0;
 	padding: 0;
@@ -6,7 +8,7 @@ html,body {
 }
 
 body {
-	font-family: 'Lato', Georgia, serif;
+	font-family: 'Lato', serif;
 	font-size: 11pt;
 	line-height: 1.45em;
 	word-spacing: 0.17em;
@@ -14,9 +16,12 @@ body {
 hr {
 	height: 0;
 	border-width: 0;
-	border-top: 3px solid Lavender;
+	border-top: 2px solid Thistle;
 	margin: 3px 0;
 	padding: 0;
+}
+nav + hr {
+	border-top-width: 1px;	
 }
 #wrapper {
 	min-height: 100%;
@@ -36,9 +41,6 @@ hr {
 #silk {
 	height: 40px;	
 }
-header {
-	font-family: 'Lato', sans-serif;
-}
 section {
 	margin: 20px auto;
 	padding: 0 20px;
@@ -48,12 +50,14 @@ section {
 }
 nav {
 	background-color: beige;
+	color: #888;
 	padding: 3px 1em;
 	font-weight: bold;
 	text-align: right;
 }
 nav a, nav a:VISITED, .menu a, .menu a:VISITED {
-	color: blue;	
+	color: blue;
+	text-decoration: none;
 }
 nav dl {
 	display: none;
@@ -61,16 +65,17 @@ nav dl {
 .menu {
 	background-color: beige;
 	padding: 2px 1em;	
+	color: #444;
 }
 header h1 {
 	color: #444;
 	line-height: normal;
-	margin: 20px 10px 10px 10px;
+	margin: 10px 10px 10px 10px;
 	display: inline-block;
-	font-size: 28px;
-}
-header h1 span {
-	visibility: hidden;	
+	font-family: 'Source Code Pro', sans-serif;
+	font-size: 40px;
+	line-height: 40px;
+	font-weight: 300;
 }
 
 .headline {
@@ -80,7 +85,7 @@ header h1 span {
 
 section h1 {
 	font-size: 38px;
-	margin: 0 0 0.3em 0;
+	margin: 1em 0 0.3em 0;
 	color: #222;
 	font-family: 'Lato', sans-serif;
 }
@@ -94,7 +99,7 @@ h2,h3,h4,h5,h6 {
 }
 section h2 {
 	font-family: 'Lato', sans-serif;	
-	border-bottom: 3px solid thistle;
+	border-bottom: 3px solid Lavender;
 	margin-top: 2em;
 	padding: 0.25em 0;
 	font-size: 20pt;
@@ -134,10 +139,10 @@ pre {
 }
 
 .teaser {
-	width: 55%;
+	width: 50%;
 	display: inline-block;
 	float: right;
-	margin-right:-60%;
+	margin-right:-56%;
 	clear: both;
 	margin-bottom: 1em;
 	margin-top: -2em;
@@ -173,9 +178,10 @@ section > p + p, .main > p + p {
 
 section code {
 	padding: 0 0.4em;	
+	font-family: 'Source Code Pro', monospace;
 }
 section pre code {
-	padding: inherit;	
+	padding: inherit;
 }
 
 table.toc {
@@ -220,21 +226,17 @@ table.toc td {
 .main {
 	margin-right: 34%;
 	padding-right: 2%;
-	border-right: 3px solid lavender;	
 }
 
 a.next, a.next:VISITED {
 	display: block;
 	text-align: center;	
-	background-color: Beige;
 	width: 50%;
 	margin: 2em auto;
 	padding: 0.5em 0;
-	border-radius: 6px;	
-	color: #704826;
 	font-weight: bold;
 	text-decoration: none;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Source Code Pro', sans-serif;
 }
 
 li small {

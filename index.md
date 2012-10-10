@@ -14,7 +14,7 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 	<li>No further runtime dependencies</li>
 	</ul>
 	</div>
-
+	<hr/>
 	<div>
 	<h3>Less "Magic"</h3>
 	<p>Silk avoids techniques that are hard to understand, debug or maintain.</p>
@@ -28,7 +28,7 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 	<li><b>No</b> accessible mutable state</li>
 	</ul>
 	</div>
-
+	<hr/>
 	<div>
 	<h3>if-less Modularity</h3>
 	<p>Silk provides few concepts to customize your application in a predictable and maintainable way.</p>
@@ -39,7 +39,7 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 	<li>It is easy to remove what you don't like</li>
 	</ul>
 	</div>		
-	
+	<hr/>
 	<div>
 	<h3>Robust</h3>
 	<p>Silk is designed in a way that allows to forget about it during development without breaking your application.</p>
@@ -53,7 +53,7 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 	<li>A configuration never changes at runtime</li>
 	</ul>
 	</div>
-
+	<hr/>
 	<div>
 	<h3>Further Features</h3>
 	<ul>
