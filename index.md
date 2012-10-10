@@ -62,7 +62,7 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 	<li>Generic support</li>
 	<li>Easy to utilise or extend</li>
 	<li>Fast bootstrap</li>
-	<li>Lightweight: about 120 KB jar archive</li>
+	<li>Lightweight: about 130 KB jar archive</li>
 	<li>Safe renaming (e.g. classes or instance names)</li>
 	</ul>
 	</div>
@@ -91,7 +91,7 @@ As a result an application design is driven that can be tested nicely selfcontai
 ### Pure Java
 Silks is a small flexible core that is easy to utilise and extend. 
 It helps to decouple your application with elegance by providing a well-considered handful of 
-techniques to modularise and configure your programs without conditional declarations. 
+techniques to modularise and configure your programs without conditional declarations with solely pure Java code. 
 
 ### Sequence of declaration is irrelevant
 Together with Silk's immutability the absence of conditions brings a functional nature to Silk wherein the sequence of declarations becomes irrelevant!
@@ -104,14 +104,14 @@ Most of all Silk aims to allow easy long term development that comes with no sur
 Above all it allows to consider small components separately whereby even large, highly configurable systems become manageable without pain. 
 
 ### Lightweight
-The absence of any further runtime dependencies and its slim footprint of 120K makes Silk a fine 
-choice for small projects although at heart Silk is a graceful butterfly waiting to breathe life into huge applications.
+The absence of any further runtime dependencies and its slim footprint of 130K makes Silk a fine 
+choice for small projects although at heart Silk is waiting to breathe life into huge applications.
 
 ### No dependency cycles by concept + cross-functional programming
 Through its revolutionary <a href="/silk/userguide/services.html">service</a> concept Silk decouples the application and prevents dependency cycles by concept. 
 Further it allows to tackle cross-functional concerns with pure Java what avoids the complexity of conventional meta programming approaches.
 
 ### Injectorns
-An `Injectron` is a _first class_ access object abstraction of a _singletons_ `Resource` within an `Injector` context. 
-This implies they can be injected like the _resources_ themselves what allows pre-resolution dependencies within add-ons on top of the core like the service concept.  
+Silk invented the `Injectron`, a _first class_ access object abstraction of a _singleton's_ `Resource` within an `Injector` context. 
+This implies they can be injected like the _resources_ themselves what allows to pre-resolve dependencies within extensions (on top of the core) like the service concept.  
 
