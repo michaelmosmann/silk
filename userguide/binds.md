@@ -16,7 +16,7 @@ title : Bindings
 
 ## A\. Concept
 In Silk bindings are just a convenient way to create `Suppliable`s (we don't need to know that those are now). 
-Think of them as a util. All different kinds of bindings described below are themselves just a 
+Think of them as the minimal data record needed to describe a _injectable resource_. All different kinds of bindings described below are themselves just a 
 convenient way to produce calls to the `Bindings#add`-method that we see below:
 
 {% highlight java %}
@@ -46,8 +46,8 @@ Such a bind is therefore more specific or precise. The following order is chosen
 When matching a `Resource` to a `Dependency` this is the sequence of importance (strongest to weakest): 
 
 1. `Instance` (injected) is more precise
-	1. `Type` is more precise
-	2. `Name` is more precise
+	1. `Type` is more precise (e.g. `ArrayList` is more precise than `List`)
+	2. `Name` is more precise (e.g. `foo` is more precise than `fo*`)
 3. `Target` is more precise
 	1. `Packages` are more precise (smaller set)
 	2. `Instance` (receiver) is more precise (has again `Type` and `Name`)
@@ -62,7 +62,7 @@ that is the same `Instance` within the same `Target` (see below how targeting ma
 If Silk encounters 2 or more bindings having the exact same `Resource` this will raise an exception 
 during the bootstrapping process.
 
-## <a id="basics"></a>1\. Simple Bindings
+## <a id="basics"></a>1\. Interface-Implementation Bindings
 The most common and simple form of binding describes pairs of what implementation should be used for a particular interface. Here is an example:
 
 {% highlight java %}
@@ -100,7 +100,7 @@ _hints_ so Silk knows what to do. Generally we have 2 options to achieve this:
 - Add `Parameter`s to the `toConstructor` call
 
 Lets have a look at the latter solution. Assuming our `Implementation` needs a instance of `Foo` as constructor
-argument and a special instance of `Foo` should be used this can be described like below:
+argument and a special instance of `Foo` should be used. This can be described like below:
 
 {% highlight java %}
 protected void declare() {
@@ -138,7 +138,7 @@ As seen above the method `construct` is a shortcut to the common case that we wa
 ## <a id="array"></a>2\. Array-Bindings
 There is a build in support in Silk that when binding something to a class `X` the 1-dimensional array type `X[]` is implicitly defined as well.
 The array contains all known `X` instances. There can be more than one because for type `X` `multibind`s (see below) have been used 
-or it's those are instances with different precision so they normally apply to different injections.
+or those are instances with different precision so they normally apply to different injections.
 
 So as soon as we do a usual bind like this: 
 {% highlight java %}
@@ -146,7 +146,7 @@ protected void declare() {
 	bind( Integer.class ).to(42);
 }
 {% endhighlight %}
-We can inject `Integer` as well as `Integer[]`. With just this above definition alone that array would be equal to `new Integer[]{42}`.
+We can inject `Integer` as well as `Integer[]`. With just this above definition alone the injected array would be equal to `new Integer[]{42}`.
 This behaviour works on the raw-type. Currently there is no support for something similar with generic types. 
 But it is possible to bind directly to a generic array type and define all the members. Of cause this can also be used to explicitly
 define what elements should be contained in e.g. `Integer[]`
@@ -169,7 +169,7 @@ need to explicitly define a bind to `List<Integer>` (even though this would work
 used to replace a general behaviour in some cases).
 
 ## <a id="multi"></a>3\. Multi-Bindings
-A `multibind` is used to create collections of instances that should be injected together. All of them are bound to the same super-type.
+A `multibind` is used to create collections of instances that should be injected together. All of them are bound to the same super-type they all have in common.
 
 When using a `multibind` we explicitly want multiple instances to coexist for the same resource because the resource models a collection of something.
 Notice that you cannot combine this with any other kind of `bind` because there we want all resources to be unambiguous.

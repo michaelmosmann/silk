@@ -24,10 +24,7 @@ nav + hr {
 	border-top-width: 1px;	
 }
 #wrapper {
-	min-height: 100%;
 	width: 900px;
-	height: auto !important;
-	height: 100%;
 	margin: 0 auto 20px auto;
 	padding: 0 15px;
 	border-right: 3px solid Lavender; 
@@ -245,7 +242,7 @@ li small {
 
 footer {
 	color: #888;
-	padding-bottom: 40px;
+	padding-bottom: 10px;
 }
 footer p {
 	margin: 0;
