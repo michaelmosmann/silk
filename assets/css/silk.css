@@ -43,7 +43,7 @@ nav + hr {
 	height: 40px;	
 }
 section {
-	margin: 20px auto;
+	margin: 0 auto;
 	padding: 0;
 	padding-left: 0;
 	min-height: 400px;

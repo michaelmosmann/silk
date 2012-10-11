@@ -1,5 +1,5 @@
 ---
-layout : default
+layout : userguide
 title : Data
 ---
 # Data
