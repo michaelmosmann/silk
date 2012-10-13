@@ -20,8 +20,16 @@
 				}
     			});
 	    		$('code').wrap(function() { 
-				var type = typeURLs[$(this).text()];
-	        		if (type) { return "<a href='"+type.url+"' class='javadoc "+type.type+"'></a>" } else { return ""}
+				var name = $(this).text();
+				var type = typeURLs[name];
+	        		if (type) { 
+		        		return "<a href='"+type.url+"' class='javadoc "+type.type+"'></a>"; 
+	        		} else { 
+	        			if (name.match("^Test") && name.match("Binds$")) {
+	        				return "<a href='https://github.com/jbee/silk/tree/master/test/de/jbee/inject/bind/"+name+".java' class='test source C'></a>"; 
+	        			}
+		        		return "";
+		        	}
 	        	});
 	    		$('pre code.java span.n, pre code.java span.nc').wrap(function() { 
 					var type = typeURLs[$(this).text()];
@@ -45,7 +53,7 @@
     		</nav>
     		<hr/>
 		<a href="/silk/" style="text-decoration: none;"><img src="/silk/assets/img/logo.png" id="logo" border="0" /></a>
-		<h1><b>Silk</b> - Java DI</h1>
+		<h1><b>Silk</b> / Java DI</h1>
 		<div class="menu">
 		Docs: <a href="/silk/userguide/install.html">Installation</a> / <a href="/silk/userguide">User Guide</a> / <a href="/silk/howto/">How To</a> / <a href="/silk/underthecovers/">Under The Covers</a> / <a href="/silk/assets/javadoc/">Javadoc</a> / <a href="https://github.com/jbee/silk">Sources</a> / <a href="https://github.com/jbee/silk/issues">Issues</a>
 		</div>

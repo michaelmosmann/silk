@@ -16,12 +16,12 @@ body {
 hr {
 	height: 0;
 	border-width: 0;
-	border-top: 3px solid Thistle;
-	margin: 3px 0;
+	border-top: 4px solid Thistle;
+	margin: 4px 0;
 	padding: 0;
 }
 nav + hr {
-	border-top-width: 1px;	
+	border-color: Lavender;
 }
 #wrapper {
 	width: 900px;
@@ -73,6 +73,9 @@ header h1 {
 	font-size: 40px;
 	line-height: 40px;
 	font-weight: 300;
+}
+header h1 b {
+	letter-spacing: -6px;
 }
 
 .headline {
@@ -254,7 +257,7 @@ footer a {
 	padding: 0 1em;
 }
 
-a.javadoc {
+a.javadoc, a.source {
 	text-decoration: none;
 	background-position: left center;
 	background-repeat: no-repeat;
@@ -269,6 +272,12 @@ a.javadoc.I {
 }
 a.javadoc.E {
 	background-image: url("../img/enum_obj.gif");
+}
+a.source {
+	background-image: url("../img/source.gif");
+}
+a.source.test {
+	background-image: url("../img/test.gif");
 }
 pre code.java a.javadoc {
 	background-image: none;
