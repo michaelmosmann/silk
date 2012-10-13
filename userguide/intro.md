@@ -108,8 +108,7 @@ per( Scoped.DEPENDENCY_TYPE ).starbind( MyList.class ).to( MyListSupplier.class 
 {% endhighlight %}
 Here we meet the `Supplier` again. Such a _bridge_ is very simple to add by extending the `ArrayBridgeSupplier`:
 {% highlight java %}
-class MyListSupplier
-		extends ArrayBridgeSupplier<MyList<?>> {
+class MyListSupplier extends ArrayBridgeSupplier<MyList<?>> {
 	@Override
 	<E> MyList<E> bridge( E[] elements ) {
 		return new MyListImpl<E>( elements ); // assuming there is a constructor that takes an array 
@@ -133,6 +132,56 @@ Also when binding array-types we can inject them as any of the installed collect
 By default **none** is installed so that you can explicitly pick what you want - and this is very easy to do. 
 
 ## Scopes
+One of the main advantages of DI is that instance creation is moved away from processing code. 
+Many instances are created and _manged_ by the DI framework. So the lifecycle of objects is one of its tasks. 
+A `Scope`s is a description of an object lifecycle and the diversity of instances for each `Resource` in that scope.
+
+While the task of scopes is quite complicated the usage is very simple. 
+The instances involved in a `bind` can be scoped by starting with the `per` clause:
+{% highlight java %}
+per( Scoped.APPLICATION ).bind( Foo.class ).to( ... );
+per( Scoped.INJECTION ).bind( Bar.class ).to( ... );
+{% endhighlight %}
+The 1st line _tells_ Silk to create a _application singleton_ which means there will be just one instance throughout the application (or more precise within one `Injector`) what is also the default behavior if the `per` clause is omitted.
+The 2nd line is somewhat the opposite of the 1st. One instance per injection creates a new instance whenever one is injected into another object. So effectively all objects will have their very own `Bar` instance.
+
+All the `Scope`s shipped with Silk are contained in the `Scoped` utility class and can be used like that. 
+You'll not find the very common _REQUEST_ and _SESSION_ scopes since such scopes are directly dependent on the servlet container and frontend framework used.
+This is not a problem at all since it is very simple to write such scopes yourself in 10-30 lines of code.
+Silk is much easier to extend with new scopes than other DI frameworks through clear separation of concerns.
+The `Scope` is a singleton that acts as a factory for a `Repository`. This keeps track of the instances and picks the instance to use.
+But it is not burdened with the creation. The `Injectable` provides new instances when needed to fulfill the `Demand`:
+{% highlight java %}
+public interface Repository {
+
+	<T> T serve( Demand<T> demand, Injectable<T> injectable );
+}       
+{% endhighlight %}
+We had a closer look into this to understand that scopes are very flexible in Silk. 
+There are 2 such flexible `Scope`s that are not possible to build in other DI frameworks at all:
+
+* `Scoped.DEPENDENCY_TYPE` : creates one instance for each full generic `Type` of a `Dependency` (the type of the instance to inject into an object). 
+	We have seen this in use earlier when talking about _bridges_. 
+	Another example is the `Provider`. This scope makes it very easy to build any kind of wrapper or indirection within the resolution of instances.
+* `Scoped.TARGET_INSTANCE` : creates one instance for each full generic `Type` of the receive of a `Dependency`. 
+	This allows to easily get the correct `Logger` injected into each class or solve the problems like the _robot two legs problem_ where you have quite similar compounds with just a few differences.       
+
+### Achieving Consistency with Snapshot Scopes
+Another unique feature of Silk are snapshot scopes. 
+They allow to synchronize the observable _view of the world_ and kept a snapshot of it as long as need while the reality is changing below.
+This sounds very theoretical so lets have a look to an example. Say you have a `Settings` interface and multiple implementations.
+One is based on files, another one is static code, a third one backed by a database. You added a `FileScope` and a `DatabaseScope` so that in general your state is updating when changed. 
+But the change itself is beyond your control. Still you'd wish you could have a consistent view where you don't have to deal with strange failure caused by asynchronous changes.
+In the example the `Settings` could be used in a web application. During a request you read a setting (without knowing or wanting to know where it is from).
+It could happen very well that in between 2 reads in the same request this setting changes. Most of the time we get away with that but sometimes this might cause big trouble.
+This trouble has an end. You snapshot both of these _asynchronous_ scopes into your _REQUEST_ scope so that within a request you'll find a consistent world not changing while you are computing the response.
+{% highlight java %}
+	Scope consistentFileScope = Scoped.asSnapshot(MyScopes.FILE, MyScopes.REQUEST); 
+{% endhighlight %}
+Instead of your `MyScopes.FILE` scope you'll just use the snapshot version in the `per` clause.
+
+## Injection
+... mention providers..
 
 ## Modularity
 

@@ -180,6 +180,9 @@ section code {
 	padding: 0 0.4em;	
 	font-family: 'Source Code Pro', monospace;
 }
+section p > code, section li > code {
+	background-color: #eee;	
+}
 section pre code {
 	padding: 0;
 }
