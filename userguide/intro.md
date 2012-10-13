@@ -143,13 +143,16 @@ per( Scoped.APPLICATION ).bind( Foo.class ).to( ... );
 per( Scoped.INJECTION ).bind( Bar.class ).to( ... );
 {% endhighlight %}
 The 1st line _tells_ Silk to create a _application singleton_ which means there will be just one instance throughout the application (or more precise within one `Injector`) what is also the default behavior if the `per` clause is omitted.
+
 The 2nd line is somewhat the opposite of the 1st. One instance per injection creates a new instance whenever one is injected into another object. So effectively all objects will have their very own `Bar` instance.
 
+### Custom Scopes
 All the `Scope`s shipped with Silk are contained in the `Scoped` utility class and can be used like that. 
 You'll not find the very common _REQUEST_ and _SESSION_ scopes since such scopes are directly dependent on the servlet container and frontend framework used.
-This is not a problem at all since it is very simple to write such scopes yourself in 10-30 lines of code.
+This is not a problem at all since it is very simple to write such scopes yourself in several lines of code.
+
 Silk is much easier to extend with new scopes than other DI frameworks through clear separation of concerns.
-The `Scope` is a singleton that acts as a factory for a `Repository`. This keeps track of the instances and picks the instance to use.
+The `Scope` is a singleton that acts as a factory for a `Repository`. This keeps track of the instances and picks the instance to use in a particular injection case.
 But it is not burdened with the creation. The `Injectable` provides new instances when needed to fulfill the `Demand`:
 {% highlight java %}
 public interface Repository {
@@ -163,22 +166,33 @@ There are 2 such flexible `Scope`s that are not possible to build in other DI fr
 * `Scoped.DEPENDENCY_TYPE` : creates one instance for each full generic `Type` of a `Dependency` (the type of the instance to inject into an object). 
 	We have seen this in use earlier when talking about _bridges_. 
 	Another example is the `Provider`. This scope makes it very easy to build any kind of wrapper or indirection within the resolution of instances.
-* `Scoped.TARGET_INSTANCE` : creates one instance for each full generic `Type` of the receive of a `Dependency`. 
-	This allows to easily get the correct `Logger` injected into each class or solve the problems like the _robot two legs problem_ where you have quite similar compounds with just a few differences.       
+* `Scoped.TARGET_INSTANCE` : creates one instance for each full generic `Type` of the receiver of a `Dependency`. 
+	This allows to easily get the correct `Logger` injected into each class or solve problems like the _robot two legs problem_ where you have quite similar compounds with just a few differences.       
 
 ### Achieving Consistency with Snapshot Scopes
 Another unique feature of Silk are snapshot scopes. 
-They allow to synchronize the observable _view of the world_ and kept a snapshot of it as long as need while the reality is changing below.
-This sounds very theoretical so lets have a look to an example. Say you have a `Settings` interface and multiple implementations.
+They deliver a consistent _view of the world_ kept in a snapshot while the reality changes asynchronous to the _observer_.
+This sounds very theoretical so lets have a look to an example. 
+
+Say you have a `Settings` interface and multiple implementations.
 One is based on files, another one is static code, a third one backed by a database. You added a `FileScope` and a `DatabaseScope` so that in general your state is updating when changed. 
-But the change itself is beyond your control. Still you'd wish you could have a consistent view where you don't have to deal with strange failure caused by asynchronous changes.
+But the change itself is beyond your control. Still you'd wish you could have a consistent view where you don't have to deal with strange failures caused by asynchronous changes.
 In the example the `Settings` could be used in a web application. During a request you read a setting (without knowing or wanting to know where it is from).
 It could happen very well that in between 2 reads in the same request this setting changes. Most of the time we get away with that but sometimes this might cause big trouble.
-This trouble has an end. You snapshot both of these _asynchronous_ scopes into your _REQUEST_ scope so that within a request you'll find a consistent world not changing while you are computing the response.
+This trouble has an end. You snapshot both of these _asynchronous_ scopes into your _REQUEST_ scope (the one from which you want to have a consistent view) so that within a request you'll find a consistent world that doesn't change while you are computing the response.
 {% highlight java %}
 	Scope consistentFileScope = Scoped.asSnapshot(MyScopes.FILE, MyScopes.REQUEST); 
 {% endhighlight %}
-Instead of your `MyScopes.FILE` scope you'll just use the snapshot version in the `per` clause.
+The above creates a scope that _synchonizes_ the _FILE_ scope into the _REQUEST_ scope. Instead of your `MyScopes.FILE` scope you'll just use the snapshot version in the `per(...)` clause.
+
+### Expiration of Instances
+With the power of different lifecycles (scopes) comes the burden of possible misconfiguration when instances with a shorter lifecycle are injected into more durable ones. 
+A common mistake when using _google guice_ is such a case where a _session_ or _request_ scoped instance is injected into an _application singleton_. The worst is,
+that such a mistake doesn't show up as a problem until the referenced shorter living object actually is expired. In _guice_ this is overcome by using a _provider_ 
+so that the actual instance worked with is updating as it changes. But this just helps when the problem has been detected.
+
+Silk will throw an exception in the moment you try to inject a shorter living object into a longer living one and point out that this will not work out later on.
+This is achieved by assigning an `Expiry` to each `Scope` during setup. During the injection Silk is aware of the different expires combined so it can encounter problems directly.    
 
 ## Injection
 ... mention providers..
