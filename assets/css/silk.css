@@ -26,7 +26,7 @@ nav + hr {
 #wrapper {
 	width: 900px;
 	margin: 0 auto 20px auto;
-	padding: 0 15px;
+	padding: 0 20px;
 	border-right: 3px solid Lavender; 
 }
 #logo {
@@ -181,7 +181,7 @@ section code {
 	font-family: 'Source Code Pro', monospace;
 }
 section pre code {
-	padding: inherit;
+	padding: 0;
 }
 
 table.toc {
