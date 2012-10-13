@@ -10,6 +10,10 @@ Those can be read as a tour starting with <a href="binds.html">bindings</a> and 
 All pages of the tour are linked to the next tour page at the bottom of the page. You can also use the above menu bar _User Guide_ to navigate through the tour. 
 I recommend to read about the details in the sequence given an skip the pages explaining concepts that are familiar for you. 
 
+This introduction will explain the general features and concepts. The details and more advanced features will be described later on.
+There are a lot of noteworthy characteristics - like Silks general immutability - that will not be mentioned here since this introduction 
+tries to give you a good overview in the usage of Silk. With a deeper understanding you'll get into the implications of all it's characteristics bit by bit.    
+
 ## Bindings
 To _bind_ means to associate a type (usually an interface) with a _strategy_  to create an instance that can be used when a dependency of the bound type is encountered. 
 These _bindings_ are defined using a fluent interface, the `Binder`. A basic binding form of such a binding has a `bind` and a `to` clause like this:
@@ -104,7 +108,7 @@ per( Scoped.DEPENDENCY_TYPE ).starbind( MyList.class ).to( MyListSupplier.class 
 {% endhighlight %}
 Here we meet the `Supplier` again. Such a _bridge_ is very simple to add by extending the `ArrayBridgeSupplier`:
 {% highlight java %}
-class ArrayToMyListBridgeSupplier
+class MyListSupplier
 		extends ArrayBridgeSupplier<MyList<?>> {
 	@Override
 	<E> MyList<E> bridge( E[] elements ) {
@@ -112,7 +116,6 @@ class ArrayToMyListBridgeSupplier
 	}
 }
 {% endhighlight %}
-
 Now the `Mixer` constructor could look like:
 {% highlight java %}
 public Mixer(List<Fruit> fruits) {
