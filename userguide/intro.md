@@ -195,16 +195,27 @@ Silk will throw a `MoreFrequentExpiryException` in the moment you try to inject 
 This is achieved by assigning an `Expiry` to each `Scope` during setup. During the injection Silk is aware of the different expires combined so it can encounter problems directly.    
 
 ## Injection
-The usual case is to create a single `Injector` for your application that serves as context. Once created from a root `Bundle`
+The usual case is to create a single `Injector` for your application that serves as context. Once created from a root `Bundle` a `Injector` is immutable.
 {% highlight java %}
 Injector injector = Bootstrap.injector( YourRootBundle.class );
 {% endhighlight %}
-a `Injector` is immutable. The injection itself is initialized by asking for your root object (usually the _application_):
+The injection itself is initialized by asking for your root object (usually the _application_):
 {% highlight java %}
 MyApplication app = injector.resolve( Dependency.dependency( MyApplication.class ) );
 {% endhighlight %}
-In order to fulfill the dependencies of your root object this indirectly creates your object graph. No further `Dependency`s should be created ad resolved manually.
+In order to fulfill the dependencies of your root object this indirectly creates your object graph. No further `Dependency`s should be created and/or90ßß87654321 resolved manually.
 If your application has different setups the bootstrapping gets additional arguments that will be shown later when talking about modularity. 
+
+### Constructor Injection
+Silk is focused on constructor injection since this keeps your code independent and testable as well as it asserts a final injection state for all injected objects.
+The `Constructor` used is thereby picked by a `ConstructionStrategy` that picks the *one* constructor for each `Class` that should be used. You can customize this to use your own strategy. 
+By default the constructor with no parameters is selected (if available) or the 1st (in sequence of definition within the class) with any parameters.
+
+There is no build in support for field injection since this is considered harmful as internal state could be changed unforeseeable. 
+If fields have a dynamic this should be made explicit by using e.g. `Provider`s or any other _indirection_. 
+This makes it much more obvious that state is about to change during execution. There are ways to add field injection but I highly recommend to not dig into this.
+
+Anyway if you don't see a way to make a class constructible you always have the option to construct it yourself during the bootstrapping process. 
 
 ### Providers
 A _provider_ is an indirect access to an injected instance that is e.g. used to be able to inject a _reference_ to a dynamically changing object into more statically ones that can _fetch_ the current value for each call. 
