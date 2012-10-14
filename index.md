@@ -5,6 +5,8 @@ layout : teaser
 The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection</b> (DI) framework.
 
 <div class="teaser">
+	<a href="userguide/intro.html" class="next">Read the introduction...</a>
+	<hr/>
 	<div>
 	<h3>100% Independence</h3></th>
 	<p>Silk allows DI without making your application depend on the DI framework!</p>

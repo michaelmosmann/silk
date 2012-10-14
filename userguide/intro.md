@@ -189,13 +189,42 @@ The above creates a scope that _synchonizes_ the _FILE_ scope into the _REQUEST_
 With the power of different lifecycles (scopes) comes the burden of possible misconfiguration when instances with a shorter lifecycle are injected into more durable ones. 
 A common mistake when using _google guice_ is such a case where a _session_ or _request_ scoped instance is injected into an _application singleton_. The worst is,
 that such a mistake doesn't show up as a problem until the referenced shorter living object actually is expired. In _guice_ this is overcome by using a _provider_ 
-so that the actual instance worked with is updating as it changes. But this just helps when the problem has been detected.
+so that the actual instance worked with is updating as it changes. But this just helps when the problem has been detected and clutters your code with DI problem solutions. 
 
-Silk will throw an exception in the moment you try to inject a shorter living object into a longer living one and point out that this will not work out later on.
+Silk will throw a `MoreFrequentExpiryException` in the moment you try to inject a shorter living object into a longer living one and point out that this will not work out later on.
 This is achieved by assigning an `Expiry` to each `Scope` during setup. During the injection Silk is aware of the different expires combined so it can encounter problems directly.    
 
 ## Injection
-... mention providers..
+The usual case is to create a single `Injector` for your application that serves as context. Once created from a root `Bundle`
+{% highlight java %}
+Injector injector = Bootstrap.injector( YourRootBundle.class );
+{% endhighlight %}
+a `Injector` is immutable. The injection itself is initialized by asking for your root object (usually the _application_):
+{% highlight java %}
+MyApplication app = injector.resolve( Dependency.dependency( MyApplication.class ) );
+{% endhighlight %}
+In order to fulfill the dependencies of your root object this indirectly creates your object graph. No further `Dependency`s should be created ad resolved manually.
+If your application has different setups the bootstrapping gets additional arguments that will be shown later when talking about modularity. 
+
+### Providers
+A _provider_ is an indirect access to an injected instance that is e.g. used to be able to inject a _reference_ to a dynamically changing object into more statically ones that can _fetch_ the current value for each call. 
+Silk's `Provider` looks like all the others used in various DI frameworks, except that its access method is named `provide` instead of `get`:
+{% highlight java %}
+public interface Provider<T> {
+
+	T provide();
+}
+{% endhighlight %}
+The more important difference is, that _providers_ are no core concept in Silk. By default you cannot ask for a `Provider` of the instances you have bound.
+This has a very simple reason: Providers usually appear within your application code what would make your code depend on the DI framework what is exactly what Silk aims to avoid. 
+So if you really need _providers_ (services are an alternative) you should use your own interface so the dependency goes in the right direction. 
+You can easily add it in less than 10 lines of code. Have a look at Silk's own `Provider` implementation as a template. 
+Another alternative is to just wrap Silk's `Provider` within our own. Therefore you install it using:
+{% highlight java %}
+install( BuildinBundle.PROVIDER );
+{% endhighlight %}
+Now you can ask for any `Provider<T>` for all bound types `T`.
+   
 
 ## Modularity
 
