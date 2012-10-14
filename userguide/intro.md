@@ -131,6 +131,50 @@ bind( Fruit[].class ).toElements( Apple.class, Orange.class );
 Also when binding array-types we can inject them as any of the installed collection types. 
 By default **none** is installed so that you can explicitly pick what you want - and this is very easy to do. 
 
+
+## Injection
+The usual case is to create a single `Injector` for your application that serves as context. Once created from a root `Bundle` a `Injector` is immutable.
+{% highlight java %}
+Injector injector = Bootstrap.injector( YourRootBundle.class );
+{% endhighlight %}
+The injection itself is initialized by asking for your root object (usually the _application_):
+{% highlight java %}
+MyApplication app = injector.resolve( Dependency.dependency( MyApplication.class ) );
+{% endhighlight %}
+In order to fulfill the dependencies of your root object this indirectly creates your object graph. No further `Dependency`s should be created and/or resolved manually.
+If your application has different setups the bootstrapping gets additional arguments that will be shown later when talking about modularity. 
+
+### Make Classes Constructible 
+Silk is focused on constructor injection since this keeps your code independent and testable as well as it asserts a final injection state for all injected objects.
+The `Constructor` used (if not specified) is automatically picked by a `ConstructionStrategy` that selects one constructor to use for each `Class`. You can customize this to use your own strategy. 
+By default the constructor with no parameters is selected (if available) or the 1st (in sequence of definition within the class) with any parameters.
+
+There is no build in support for field injection since this is considered harmful as internal state could be changed unforeseeable. 
+If fields have a dynamic nature this should be made explicit by using e.g. a `Provider` or any other _indirection_. 
+This makes it much more obvious that state is about to change during execution. There are ways to add field injection but I highly recommend to not dig into this.
+
+Anyway if you don't see a way to make a class _constructible_ you always have the option to construct it yourself during the bootstrapping process or use a custom `Supplier` that takes care of the construction. 
+
+### Usage Of Providers
+A _provider_ is an indirect access to an injected instance that is e.g. used to be able to inject a _reference_ to a dynamically changing object into more statically ones that can _fetch_ the current value for each call. 
+Silk's `Provider` looks like all the others used in various DI frameworks, except that its access method is named `provide` instead of `get`:
+{% highlight java %}
+public interface Provider<T> {
+
+	T provide();
+}
+{% endhighlight %}
+The more important difference is, that _providers_ are no core concept in Silk. By default you cannot ask for a `Provider` of the instances you have bound.
+This has a very simple reason: Providers usually appear within your application code what would make your code depend on the DI framework what is exactly what Silk aims to avoid. 
+So if you really need _providers_ (services are an alternative) you should use your own interface so the dependency goes in the right direction. 
+You can easily add it in less than 10 lines of code. Have a look at Silk's own `Provider` implementation as a template. 
+Another alternative is to just wrap Silk's `Provider` within our own. Therefore you install it using:
+{% highlight java %}
+install( BuildinBundle.PROVIDER );
+{% endhighlight %}
+Now you can ask for any `Provider<T>` for all bound types `T`.
+   
+
 ## Scopes
 One of the main advantages of DI is that instance creation is moved away from processing code. 
 Many instances are created and _manged_ by the DI framework. So the lifecycle of objects is one of its tasks. 
@@ -146,7 +190,7 @@ The 1st line _tells_ Silk to create a _application singleton_ which means there 
 
 The 2nd line is somewhat the opposite of the 1st. One instance per injection creates a new instance whenever one is injected into another object. So effectively all objects will have their very own `Bar` instance.
 
-### Custom Scopes
+### Add Custom Scopes
 All the `Scope`s shipped with Silk are contained in the `Scoped` utility class and can be used like that. 
 You'll not find the very common _REQUEST_ and _SESSION_ scopes since such scopes are directly dependent on the servlet container and frontend framework used.
 This is not a problem at all since it is very simple to write such scopes yourself in several lines of code.
@@ -189,55 +233,27 @@ The above creates a scope that _synchonizes_ the _FILE_ scope into the _REQUEST_
 With the power of different lifecycles (scopes) comes the burden of possible misconfiguration when instances with a shorter lifecycle are injected into more durable ones. 
 A common mistake when using _google guice_ is such a case where a _session_ or _request_ scoped instance is injected into an _application singleton_. The worst is,
 that such a mistake doesn't show up as a problem until the referenced shorter living object actually is expired. In _guice_ this is overcome by using a _provider_ 
-so that the actual instance worked with is updating as it changes. But this just helps when the problem has been detected and clutters your code with DI problem solutions. 
+so that the actual instance worked with is updating as it changes. But this just helps when the problem has been detected  - and it clutters your code with DI problem solutions. 
 
 Silk will throw a `MoreFrequentExpiryException` in the moment you try to inject a shorter living object into a longer living one and point out that this will not work out later on.
 This is achieved by assigning an `Expiry` to each `Scope` during setup. During the injection Silk is aware of the different expires combined so it can encounter problems directly.    
 
-## Injection
-The usual case is to create a single `Injector` for your application that serves as context. Once created from a root `Bundle` a `Injector` is immutable.
-{% highlight java %}
-Injector injector = Bootstrap.injector( YourRootBundle.class );
-{% endhighlight %}
-The injection itself is initialized by asking for your root object (usually the _application_):
-{% highlight java %}
-MyApplication app = injector.resolve( Dependency.dependency( MyApplication.class ) );
-{% endhighlight %}
-In order to fulfill the dependencies of your root object this indirectly creates your object graph. No further `Dependency`s should be created and/or90ßß87654321 resolved manually.
-If your application has different setups the bootstrapping gets additional arguments that will be shown later when talking about modularity. 
-
-### Constructor Injection
-Silk is focused on constructor injection since this keeps your code independent and testable as well as it asserts a final injection state for all injected objects.
-The `Constructor` used is thereby picked by a `ConstructionStrategy` that picks the *one* constructor for each `Class` that should be used. You can customize this to use your own strategy. 
-By default the constructor with no parameters is selected (if available) or the 1st (in sequence of definition within the class) with any parameters.
-
-There is no build in support for field injection since this is considered harmful as internal state could be changed unforeseeable. 
-If fields have a dynamic this should be made explicit by using e.g. `Provider`s or any other _indirection_. 
-This makes it much more obvious that state is about to change during execution. There are ways to add field injection but I highly recommend to not dig into this.
-
-Anyway if you don't see a way to make a class constructible you always have the option to construct it yourself during the bootstrapping process. 
-
-### Providers
-A _provider_ is an indirect access to an injected instance that is e.g. used to be able to inject a _reference_ to a dynamically changing object into more statically ones that can _fetch_ the current value for each call. 
-Silk's `Provider` looks like all the others used in various DI frameworks, except that its access method is named `provide` instead of `get`:
-{% highlight java %}
-public interface Provider<T> {
-
-	T provide();
-}
-{% endhighlight %}
-The more important difference is, that _providers_ are no core concept in Silk. By default you cannot ask for a `Provider` of the instances you have bound.
-This has a very simple reason: Providers usually appear within your application code what would make your code depend on the DI framework what is exactly what Silk aims to avoid. 
-So if you really need _providers_ (services are an alternative) you should use your own interface so the dependency goes in the right direction. 
-You can easily add it in less than 10 lines of code. Have a look at Silk's own `Provider` implementation as a template. 
-Another alternative is to just wrap Silk's `Provider` within our own. Therefore you install it using:
-{% highlight java %}
-install( BuildinBundle.PROVIDER );
-{% endhighlight %}
-Now you can ask for any `Provider<T>` for all bound types `T`.
-   
 
 ## Modularity
+
+### Composition
+The composition of an application is described on 2 levels:
+
+* `Bundle`s: The composite. It bundles other `Bundle`s and `Module`s as a unit. They are `install`ed within.
+* `Module`s: The leafs. They do the `Bindings` using one or more `bind`-`to` expressions.
+
+So _grouping_ and _binding_ is strictly separated in Silk. 
+While _modules_ can be constructed by the user (e.g. `new ...`) the construction of _bundles_ is dedicated to the `Bootstrapper`.
+To `install` a `Bundle` it is stated by its `.class`, a `Module` is installed by an instance. Often _modules_ are also installed using the `.class` reference what is a convenience way to let the bootstrapper also take care of the module construction when there are no arguments to pass to a constructor.
+
+The bootstrapping process starts with a `Bundle` that should be the root of the graph to install. All _bundles_ and _modules_ reachable (installed) from that root will be contained in that configuration's graph.      
+
+
 
 ## Services
 
