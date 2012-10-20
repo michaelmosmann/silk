@@ -4,8 +4,8 @@ title : Introduction
 ---
 # Introduction
 
-The introduction will give you a quick overview about the concepts of the Silk framework. 
-Each concept is further described in detail on a separate page. 
+The introduction will give you a overview about the concepts of the Silk framework deep enough to use well. 
+Each concept is further described in detail on a separate page.
 Those can be read as a tour starting with <a href="binds.html">bindings</a> and finishing with Silk's <a href="data.html">data types</a>.
 All pages of the tour are linked to the next tour page at the bottom of the page. You can also use the above menu bar _User Guide_ to navigate through the tour. 
 I recommend to read about the details in the sequence given an skip the pages explaining concepts that are familiar for you. 
@@ -13,6 +13,10 @@ I recommend to read about the details in the sequence given an skip the pages ex
 This introduction will explain the general features and concepts. The details and more advanced features will be described later on.
 There are a lot of noteworthy characteristics - like Silks general immutability - that will not be mentioned here since this introduction 
 tries to give you a good overview in the usage of Silk. With a deeper understanding you'll get into the implications of all it's characteristics bit by bit.    
+
+**Note!**
+The examples given will make use of the `BinderModule` and `BootstrapperBundle` base classes for `Module`s and `Bundle`s. 
+Implementing the interfaces directly would result in code that looks a little different, less fluent.
 
 ## Bindings
 To _bind_ means to associate a type (usually an interface) with a _strategy_  to create an instance that can be used when a dependency of the bound type is encountered. 
@@ -22,7 +26,7 @@ These _bindings_ are defined using a fluent interface, the `Binder`. A basic bin
 {% endhighlight %}
 For both, the `bind` and the `to` clause different arguments can be used to vary meaning and behaviour.   
 All bindings are declared separated from your application code in so called `Module` classes (see modularity below).
-There will be no `@annotations` within your code to guide the dependency injection! This is a key concept in Silk that makes it very different from other frameworks.
+There will be **no `@annotations`** within your code to guide the dependency injection! This is a key concept in Silk that makes it very different from other frameworks.
 
 ### Supplying instances (the `to` clause)
 Out of the box there are a handful of different ways to use the `to` clause.
@@ -44,7 +48,7 @@ But is important to understand that those additional informations **do not descr
 They are just added in exception cases when special specific instances are needed to make Silk understand what you want. 
 The usual case is to **not** add `Parameter` _hints_.   
 
-#### Dynamically supplied instances
+#### Supply dynamic instances
 In a few cases the instance itself is yield somewhat dynamically. It is produced or chosen by a custom strategy. 
 Silk offers three different abstractions on different levels of details that can be used:  
 {% highlight java %}
@@ -129,7 +133,7 @@ Another way to define the elements of a collection is to directly bind the array
 bind( Fruit[].class ).toElements( Apple.class, Orange.class );
 {% endhighlight %}
 Also when binding array-types we can inject them as any of the installed collection types. 
-By default **none** is installed so that you can explicitly pick what you want - and this is very easy to do. 
+By default **none** is installed so that you can explicitly pick what you want - and this is very easily done in on `install` as we have seen above. 
 
 
 ## Injection
@@ -155,7 +159,7 @@ This makes it much more obvious that state is about to change during execution. 
 
 Anyway if you don't see a way to make a class _constructible_ you always have the option to construct it yourself during the bootstrapping process or use a custom `Supplier` that takes care of the construction. 
 
-### Usage Of Providers
+### Inject _dynamic_ into _static_
 A _provider_ is an indirect access to an injected instance that is e.g. used to be able to inject a _reference_ to a dynamically changing object into more statically ones that can _fetch_ the current value for each call. 
 Silk's `Provider` looks like all the others used in various DI frameworks, except that its access method is named `provide` instead of `get`:
 {% highlight java %}
@@ -190,7 +194,7 @@ The 1st line _tells_ Silk to create a _application singleton_ which means there 
 
 The 2nd line is somewhat the opposite of the 1st. One instance per injection creates a new instance whenever one is injected into another object. So effectively all objects will have their very own `Bar` instance.
 
-### Add Custom Scopes
+### _Session_ Or _Request_ Scopes (and others)
 All the `Scope`s shipped with Silk are contained in the `Scoped` utility class and can be used like that. 
 You'll not find the very common _REQUEST_ and _SESSION_ scopes since such scopes are directly dependent on the servlet container and frontend framework used.
 This is not a problem at all since it is very simple to write such scopes yourself in several lines of code.
@@ -229,7 +233,7 @@ This trouble has an end. You snapshot both of these _asynchronous_ scopes into y
 {% endhighlight %}
 The above creates a scope that _synchonizes_ the _FILE_ scope into the _REQUEST_ scope. Instead of your `MyScopes.FILE` scope you'll just use the snapshot version in the `per(...)` clause.
 
-### Expiration of Instances
+### Arrange Object Lifecycles Among Each Other
 With the power of different lifecycles (scopes) comes the burden of possible misconfiguration when instances with a shorter lifecycle are injected into more durable ones. 
 A common mistake when using _google guice_ is such a case where a _session_ or _request_ scoped instance is injected into an _application singleton_. The worst is,
 that such a mistake doesn't show up as a problem until the referenced shorter living object actually is expired. In _guice_ this is overcome by using a _provider_ 
@@ -242,7 +246,7 @@ This is achieved by assigning an `Expiry` to each `Scope` during setup. During t
 ## Modularity
 
 ### Composition
-The composition of an application is described on 2 levels:
+The composition of an application is composed on 2 levels:
 
 * `Bundle`s: The composite. It bundles other `Bundle`s and `Module`s as a unit. They are `install`ed within.
 * `Module`s: The leafs. They do the `Bindings` using one or more `bind`-`to` expressions.
