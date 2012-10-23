@@ -228,17 +228,6 @@ table.toc td {
 	padding-right: 2%;
 }
 
-a.next, a.next:VISITED {
-	display: block;
-	text-align: center;	
-	width: 50%;
-	margin: 2em auto;
-	padding: 0.5em 0;
-	font-weight: bold;
-	text-decoration: none;
-	font-family: 'Source Code Pro', sans-serif;
-}
-
 li small {
 	color: #444;
 }
@@ -283,4 +272,41 @@ pre code.java a.javadoc {
 	background-image: none;
 	margin: 0;
 	padding: 0;
+}
+
+a.next {
+	display: inline-block;
+	text-align: center;	
+	margin: 1em;
+	padding: 0.4em 2em;
+	font-weight: bold;
+	text-decoration: none;
+	font-family: 'Source Code Pro', sans-serif;
+	border-radius: 2px;
+	border: 1px solid #3079ED  ;
+	color: white  ;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.1)  ;
+	text-transform: uppercase;
+	background-color: #4D90FE  ;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe  ),to(#4787ed  ));
+	background-image: -webkit-linear-gradient(top,#4d90fe  ,#4787ed  );
+	background-image: -moz-linear-gradient(top,#4d90fe  ,#4787ed  );
+	background-image: -ms-linear-gradient(top,#4d90fe  ,#4787ed  );
+	background-image: -o-linear-gradient(top,#4d90fe  ,#4787ed  );
+	background-image: linear-gradient(top,#4d90fe  ,#4787ed  );
+}
+a.next:hover {
+	border: 1px solid #2F5BB7  ;
+	color: white  ;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3)  ;
+	background-color: #357AE8  ;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe  ),to(#357ae8  ));
+	background-image: -webkit-linear-gradient(top,#4d90fe  ,#357ae8  );
+	background-image: -moz-linear-gradient(top,#4d90fe  ,#357ae8  );
+	background-image: -ms-linear-gradient(top,#4d90fe  ,#357ae8  );
+	background-image: -o-linear-gradient(top,#4d90fe  ,#357ae8  );
+	background-image: linear-gradient(top,#4d90fe  ,#357ae8  );
+}
+section p a.next {
+	margin-left: 50%;
 }

@@ -64,7 +64,7 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 	<li>Generic support</li>
 	<li>Easy to utilise or extend</li>
 	<li>Fast bootstrap</li>
-	<li>Lightweight: about 130 KB jar archive</li>
+	<li>Lightweight: less than 150 KB jar archive</li>
 	<li>Safe renaming (e.g. classes or instance names)</li>
 	</ul>
 	</div>
@@ -106,7 +106,7 @@ Most of all Silk aims to allow easy long term development that comes with no sur
 Above all it allows to consider small components separately whereby even large, highly configurable systems become manageable without pain. 
 
 ### Lightweight
-The absence of any further runtime dependencies and its slim footprint of 130K makes Silk a fine 
+The absence of any further runtime dependencies and its slim footprint of less than 150K makes Silk a fine 
 choice for small projects although at heart Silk is waiting to breathe life into huge applications.
 
 ### No dependency cycles by concept + cross-functional programming
