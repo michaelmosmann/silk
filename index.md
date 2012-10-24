@@ -6,6 +6,7 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 
 <div class="teaser">
 	<a href="userguide/intro.html" class="next">Read the introduction...</a>
+	<a class="next" href="userguide/snippets.html">Show me some code...</a>
 	<hr/>
 	<div>
 	<h3>100% Independence</h3></th>
