@@ -39,7 +39,7 @@
 	}
 	  
 	$(document).ready(function() {
-    		$.getJSON('/silk/assets/javadoc/types.json', function(data) {
+    		$.getJSON('/assets/javadoc/types.json', function(data) {
     			$.each(data['types'], function(index, value) { 
 				if (value != null) {
     					typeURLs[java+value.name]={type: value.kind,url: "/assets/javadoc/"+value['package'].replace(/\./g, '/')+"/"+value.fullName+".html"};
@@ -113,7 +113,7 @@
 	    		<a href="/help/">Help</a> /
 	    		<a href="/help/about.html" >About</a>
     		</nav>
-		<a href="" style="text-decoration: none;"><img src="/assets/img/logo.png" id="logo" border="0" /></a>
+		<a href="/" style="text-decoration: none;"><img src="/assets/img/logo.png" id="logo" border="0" /></a>
 		<h1><b>Silk</b> Java Dependency Injection</h1>
 		<div class="menu">
 		Docs: <a href="/userguide/install.html">Installation</a> / <a href="/userguide/">User Guide</a> / <a href="/howto/">How To</a> / <a href="/underthecovers/">Under The Covers</a> / <a href="/assets/javadoc/">Javadoc</a> / <a href="https://github.com/jbee/silk">Sources</a> / <a href="https://github.com/jbee/silk/issues">Issues</a>
