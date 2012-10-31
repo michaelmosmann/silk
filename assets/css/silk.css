@@ -268,10 +268,11 @@ a.source {
 a.source.test {
 	background-image: url("../img/test.gif");
 }
-pre code.java a.javadoc {
+pre code.java a.javadoc, a.javadoc.method, pre code.java a.source {
 	background-image: none;
 	margin: 0;
 	padding: 0;
+	color: inherit;
 }
 
 a.next {
