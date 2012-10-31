@@ -7,8 +7,8 @@
     <title>{% if page.title %} {{ page.title }} - {% endif %} Silk</title>
     <link rel="shortcut icon" href="http://jbee.github.com/silk/favicon.png" type="image/png">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/silk/assets/css/silk.css">
-    <link rel="stylesheet" href="/silk/assets/css/pygment_trac.css">
+    <link rel="stylesheet" href="/assets/css/silk.css">
+    <link rel="stylesheet" href="/assets/css/pygment_trac.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript">
 	var typeURLs = [];
@@ -42,7 +42,7 @@
     		$.getJSON('/silk/assets/javadoc/types.json', function(data) {
     			$.each(data['types'], function(index, value) { 
 				if (value != null) {
-    					typeURLs[java+value.name]={type: value.kind,url: "/silk/assets/javadoc/"+value['package'].replace(/\./g, '/')+"/"+value.fullName+".html"};
+    					typeURLs[java+value.name]={type: value.kind,url: "/assets/javadoc/"+value['package'].replace(/\./g, '/')+"/"+value.fullName+".html"};
 				}
     			});
     			var methodNames = [];
@@ -105,18 +105,18 @@
     <div id="wrapper">
     	<header>
     		<nav>
-	    		<a href="/silk/downloads/">Releases</a> /
-	    		<a href="/silk/userguide/">Docs</a> /
-	    		<a href="/silk/downloads/">Downloads</a> /
-	    		<a href="/silk/help/contact.html" >Contact</a> /
-	    		<a href="/silk/help/license.html">License</a> /
-	    		<a href="/silk/help/">Help</a> /
-	    		<a href="/silk/help/about.html" >About</a>
+	    		<a href="/downloads/">Releases</a> /
+	    		<a href="/userguide/">Docs</a> /
+	    		<a href="/downloads/">Downloads</a> /
+	    		<a href="/help/contact.html" >Contact</a> /
+	    		<a href="/help/license.html">License</a> /
+	    		<a href="/help/">Help</a> /
+	    		<a href="/help/about.html" >About</a>
     		</nav>
-		<a href="/silk/" style="text-decoration: none;"><img src="/silk/assets/img/logo.png" id="logo" border="0" /></a>
+		<a href="" style="text-decoration: none;"><img src="/assets/img/logo.png" id="logo" border="0" /></a>
 		<h1><b>Silk</b> Java Dependency Injection</h1>
 		<div class="menu">
-		Docs: <a href="/silk/userguide/install.html">Installation</a> / <a href="/silk/userguide">User Guide</a> / <a href="/silk/howto/">How To</a> / <a href="/silk/underthecovers/">Under The Covers</a> / <a href="/silk/assets/javadoc/">Javadoc</a> / <a href="https://github.com/jbee/silk">Sources</a> / <a href="https://github.com/jbee/silk/issues">Issues</a>
+		Docs: <a href="/userguide/install.html">Installation</a> / <a href="/userguide/">User Guide</a> / <a href="/howto/">How To</a> / <a href="/underthecovers/">Under The Covers</a> / <a href="/assets/javadoc/">Javadoc</a> / <a href="https://github.com/jbee/silk">Sources</a> / <a href="https://github.com/jbee/silk/issues">Issues</a>
 		</div>
 		<hr/>
     	</header>
@@ -124,7 +124,7 @@
 	<hr style="clear: both;"/>
       <footer class="clearfix">
         <p style="float:right;">Hosted on GitHub Pages</p>
-        <p>This project is maintained by <a href="https://github.com/jbee"><img src="/silk/assets/img/Octocat.png" width="24" height="24" /> jbee</a></p>
+        <p>This project is maintained by <a href="https://github.com/jbee"><img src="/assets/img/Octocat.png" width="24" height="24" /> jbee</a></p>
       </footer>
     </div>
   </body>

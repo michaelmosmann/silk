@@ -52,7 +52,7 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 	<li>Largely Type-safe</li>
 	<li>Excellent Unit-testability </li>
 	<li>Pushes for immutability</li>
-	<li><a href="/silk/userguide/data.html">Data driven</a> with Value Objects</li>
+	<li><a href="userguide/data.html">Data driven</a> with Value Objects</li>
 	<li>A configuration never changes at runtime</li>
 	</ul>
 	</div>
@@ -60,8 +60,8 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 	<div>
 	<h3>Further Features</h3>
 	<ul>
-	<li><a href="/silk/userguide/binds.html">Declarative dependency/injection descriptions</a> <a href="/silk/userguide/binds.html#binder">(fluent interface)</a></li>
-	<li><a href="/silk/userguide/binds.html#multi">Multi-binds</a></li>
+	<li><a href="userguide/binds.html">Declarative dependency/injection descriptions</a> <a href="userguide/binds.html#binder">(fluent interface)</a></li>
+	<li><a href="userguide/binds.html#multi">Multi-binds</a></li>
 	<li>Generic support</li>
 	<li>Easy to utilise or extend</li>
 	<li>Fast bootstrap</li>
@@ -111,7 +111,7 @@ The absence of any further runtime dependencies and its slim footprint of less t
 choice for small projects although at heart Silk is waiting to breathe life into huge applications.
 
 ### No dependency cycles by concept + cross-functional programming
-Through its revolutionary <a href="/silk/userguide/services.html">service</a> concept Silk decouples the application and prevents dependency cycles by concept. 
+Through its revolutionary <a href="userguide/services.html">service</a> concept Silk decouples the application and prevents dependency cycles by concept. 
 Further it allows to tackle cross-functional concerns with pure Java what avoids the complexity of conventional meta programming approaches.
 
 ### Injectorns

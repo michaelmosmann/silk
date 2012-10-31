@@ -2,7 +2,7 @@ source:      .
 destination: ./_site
 auto:        true
 server:      true
-baseurl:     /silk/
+baseurl:     /
 
 markdown:    rdiscount
 pygments:    true
