@@ -5,8 +5,31 @@ title: Installation
 
 # Installation
 
+Since there are no further dependencies the installation of Silk is really simple.
+
 ## Get It
-<a href="/downloads/">Download</a> the `jar`-file and add it to your project's classpath.
+### Download
+<a href="/downloads/">Download</a> the latest `jar`-file and add it to your project's classpath.
+
+### Maven
+{% highlight xml %}
+ 	<dependency>
+		<groupId>se.jbee</groupId>
+		<artifactId>silk-di</artifactId>
+		<version>0.1</version>
+	</dependency>
+{% endhighlight %}
+
+### Ivy
+{% highlight xml %}
+	<dependency org="se.jbee" name="silk-di" rev="0.1"/>
+{% endhighlight %}
+
+### Gradle
+{% highlight java %}
+	'se.jbee:silk-di:0.1'
+{% endhighlight %}
+
 
 ## Use It
 Define a first `Module` (e.g. by extending `BinderModule`)

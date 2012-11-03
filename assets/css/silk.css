@@ -28,10 +28,12 @@ hr {
 }
 #logo {
 	margin: 0px;
-	margin-top: 10px;
-	margin-left: 0;
+	margin-top: -5px;
 	float: left;	
-	height: 40px;
+	width: 60px;
+	padding: 10px 0 20px 0; 
+	background-image: url("../img/circle.png");
+	background-repeat: no-repeat;
 }
 #silk {
 	height: 40px;	
@@ -67,7 +69,7 @@ header h1 {
 	margin: 10px 10px 10px 10px;
 	display: inline-block;
 	font-family: 'Source Code Pro', sans-serif;
-	font-size: 40px;
+	font-size: 30px;
 	line-height: 40px;
 	font-weight: 300;
 }
@@ -276,7 +278,7 @@ pre code.java a.javadoc, a.javadoc.method, pre code.java a.source {
 }
 
 a.next {
-	display: inline-block;
+	display: block;
 	text-align: center;	
 	margin: 1em;
 	padding: 0.4em 2em;
@@ -308,5 +310,6 @@ a.next:hover {
 	background-image: linear-gradient(top,#4d90fe  ,#357ae8  );
 }
 section p a.next {
+	display: inline-block;
 	margin-left: 50%;
 }
