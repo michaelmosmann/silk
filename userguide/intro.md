@@ -179,6 +179,108 @@ install( BuildinBundle.PROVIDER );
 Now you can ask for any `Provider<T>` for all bound types `T`.
    
 
+
+## Modularity
+
+### Composition
+The composition of an application is composed on 2 levels:
+
+* `Bundle`s: The composite. It bundles other `Bundle`s and `Module`s as a unit. They are `install`ed within.
+* `Module`s: The leafs. They do the `Bindings` using one or more `bind`-`to` expressions.
+
+So _grouping_ and _binding_ is strictly separated in Silk. 
+While _modules_ can be constructed by the user (e.g. `new ...`) the construction of _bundles_ is dedicated to the `Bootstrapper`.
+To `install` a `Bundle` it is stated by its `.class`, a `Module` is installed by an instance. 
+Often _modules_ are also installed using the `.class` reference what is a convenience way to let the 
+bootstrapper also take care of the module construction when there are no arguments to pass to a constructor.
+
+The bootstrapping process starts with a `Bundle` that should be the root of the graph to install.
+All _bundles_ and _modules_ reachable (installed) from that root will be contained in that configuration's graph.      
+
+#### Remove what you don't like (from a bundle-tree)
+Now we know how to compose larger trees of `Bundle`s and `Module`s. But what if we would like to use an existing bundle that contains something we do not want ?
+We just go and uninstall the parts we don't like:
+{% highlight java %}
+protected void bootstrap() {
+	install( WhatWeAlmostWantBundle.class );
+	uninstall( PartOfAboveBundleThatWeDoNotWantBundle.class );
+} 
+{% endhighlight %}
+Such `uninstall`s can appear wherever you like. You can bundle them in a separate bundle or like show above directly when installing something.
+Literally a bundle could be `uninstall`ed before it is even installed. Remember that the sequence of installations does not matter. 
+
+It might not seam like it but there is a very big difference between _overrides_ and _uninstall_. 
+You will notice this when maintaining a larger project. While _overrides_ requires you to know and consider *all* involves parts _uninstall_ just requires to consider the uninstalled bundle itself what is way simpler.  
+
+### Adapt an Application to slightly Different Setups/Configurations
+Often the same application is sold to customers in slightly different configurations depending on the customer needs. 
+Sometimes there is a fix set of _editions_ a customer could chose from. Such kind of requirements we can model with ease using `Editon`s.
+
+They allow to decide on a _per class_ base what `Bundle`s and `Module`s to include in an edition. 
+The bundles itself do not contain any conditions like `if-else` blocks or such. 
+Instead the `Edition` is passed as an argument to the bootstrapping process:
+{% highlight java %}
+Injector injector = Bootstrap.injector( RootBundle.class, edition );
+{% endhighlight %}
+A simple edition that _contains_ the core of your application based on the packages could look like this:
+{% highlight java %}
+Edition core = new PackagesEdition(Packages.packageAndSubPackagesOf(CoreBundle.class);
+Injector injector = Bootstrap.injector( RootBundle.class, core );
+{% endhighlight %}
+The conditions that control if you want an edition or not are in one place where you bootstrap your `Injector`.
+There you have the full control so you can load this from a properties file, a database, command line argusment or such.
+
+#### Allow to Pick Single Features
+Editions give you a good control but in some business areas it is common so sell individual features to a customer. 
+You could model this with editions but they do not really fit the problem. Silk gives you this finer control with `Feature`s.
+They utilize a `enum` to model the set of available features with the enum constants. Each constant is a separate feature.
+When bootstrapping you decide that features to include:
+{% highlight java %}
+Edition edition = Bootstrap.edition( MyFeature.BAR, MyFeature.BAZ )
+Injector injector = Bootstrap.injector( RootBundle.class, edition );
+{% endhighlight %}
+The `edition` method creates an `Edition` from the chosen features `BAR` and `BAZ` of your `Feature`-`enum` `MyFeature`.
+
+The test `TestEditionFeatureBinds` shows how to create your own feature annotation so you could annotate `Module`s and `Bundle` with the features they represent. 
+But this is just one way. you can implement other strategies to determine the features in a few lines of code. 
+
+### Run different Modes like PROD or DEV
+Beside the economically driven slices there is a hole bunch of technical configurations. 
+While this can be modeled with the above techniques it might not fit well to use them since they are another dimension beside the one of editions or features.
+Most likely you want to have a _DEV_ mode for all _editions_ or _features_ and a lot of other switches that can be summed up as a applications configuration.
+
+Silk helps you modeling this using configuration `Constants` that are passed to the bootstrapping as well:
+{% highlight java %}
+Injector injector = Bootstrap.injector( RootBundle.class, Edition.FULL, constants );       
+{% endhighlight %}
+They are named _constants_ since once defined they are immutable and cannot change over runtime.
+Each constant property is again modeled by an `enum` to make sure all possible values can be covered when deciding what should be installed.
+{% highlight java %}
+Constants constants = Constants.NONE.def( RunMode.PROD );
+// define more...
+{% endhighlight %}
+First we define the current value `PROD` of the property `RunMode`. 
+The `constants` are later passed to the `Bootstrap.injector` as seen above.
+When working with `Constants` we use them together with `ModularBundle`s. 
+Those allow to `install` other bundles and modules dependent on constant values. So we define:
+{% highlight java %}
+private static class RunModeDependentBundle extends ModularBootstrapperBundle<RunMode> {
+
+	@Override
+	protected void bootstrap() {
+		install( ProductionBundle.class, RunMode.PROD );
+		install( DevelopmentBundle.class, RunMode.DEV );
+		install( ProductionBundle.class, null );
+	}
+}
+{% endhighlight %}
+Now we have build a switch so that `ProductionBundle` is installed when our property `RunMode` has the value `PROD` and another bundle `DevelopmentBundle` when it is `DEV`.
+And we have defined that `ProductionBundle` is also used as fallback when the property has no value, hence it is `null`. Have a look to `TestConstantModularBinds` for another example.
+
+Of cause `ModularBundle`s can also be used without `Constants`. The `BuildinBundle` is an example of this kind of usage. 
+There we have different options a user could pick from. We have seen such a installation before when adding `List`s or `Provider`s.
+
+
 ## Scopes
 One of the main advantages of DI is that instance creation is moved away from processing code. 
 Many instances are created and _manged_ by the DI framework. So the lifecycle of objects is one of its tasks. 
@@ -241,22 +343,6 @@ so that the actual instance worked with is updating as it changes. But this just
 
 Silk will throw a `MoreFrequentExpiryException` in the moment you try to inject a shorter living object into a longer living one and point out that this will not work out later on.
 This is achieved by assigning an `Expiry` to each `Scope` during setup. During the injection Silk is aware of the different expires combined so it can encounter problems directly.    
-
-
-## Modularity
-
-### Composition
-The composition of an application is composed on 2 levels:
-
-* `Bundle`s: The composite. It bundles other `Bundle`s and `Module`s as a unit. They are `install`ed within.
-* `Module`s: The leafs. They do the `Bindings` using one or more `bind`-`to` expressions.
-
-So _grouping_ and _binding_ is strictly separated in Silk. 
-While _modules_ can be constructed by the user (e.g. `new ...`) the construction of _bundles_ is dedicated to the `Bootstrapper`.
-To `install` a `Bundle` it is stated by its `.class`, a `Module` is installed by an instance. Often _modules_ are also installed using the `.class` reference what is a convenience way to let the bootstrapper also take care of the module construction when there are no arguments to pass to a constructor.
-
-The bootstrapping process starts with a `Bundle` that should be the root of the graph to install. All _bundles_ and _modules_ reachable (installed) from that root will be contained in that configuration's graph.      
-
 
 
 ## Services
