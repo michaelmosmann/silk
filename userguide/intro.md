@@ -352,7 +352,7 @@ Of cause real life services have more than one input value. Silk turns this into
 All arguments are passed as a record containing all values. Hence we create one class per service that is this record. 
 Thereby each _service_ is unique by just its parameter `Type`. This allows to automatically identify the method that is the implementation body of a service since just one single known service method will have the exact parameter type.
 
-A typical example is a login process. Within our application code we create the `LoginParameters`:
+A typical example is a login process. Within the application code the class `LoginParameters` is created:
 {% highlight java %}
 class LoginParameters {
   final String name;
@@ -360,7 +360,7 @@ class LoginParameters {
   // ... constructor
 }
 {% endhighlight %}
-We have a `UserServices` implementation that is responsible for various user related services.
+There is a `UserServices` implementation that is responsible for various user related services:
 {% highlight java %}
 class UserServices {
   
@@ -381,8 +381,10 @@ private static class MyServicesModule extends ServiceModule {
 	}
 }
 {% endhighlight %}
-But instead of exposing our `UserServices` directly we use `Service`s. For example the UI login form has to delegate the request to the service.
-Therefore we inject the service.
+Which methods are `ServiceMethod`s (Silk's internal abstraction) is customizable through the `ServiceStrategy`.
+
+When using the login the `UserServices` are not exposed completely. Instead the `Service` abstraction is used for the one function needed here. 
+For example the UI login form has to delegate the request to the service. Therefore we inject the service.
 {% highlight java %}
 class LoginForm {
 
@@ -391,7 +393,7 @@ class LoginForm {
 	}
 }
 {% endhighlight %}
-Note that the `Service` interface mentioned about is not defined by Silk (this would make your code depend on it). 
+Note that the `Service` interface mentioned here is not defined by Silk (this would make your code depend on it). 
 It is an application interface that gets connected to Silk's low level representation `ServiceMethod` with a adapter bind. 
 The test `TestServiceBinds` shows how to do it for an interface just like in this example.
 
@@ -420,12 +422,12 @@ That makes it much simpler to determine all the code that has to be removed when
 ### Say Goodbye to Scope Issues
 When dependencies are injected directly in the service method the problems arising from different `Scope`s just disappear since 
 all dependency instances are just used for the single invocation. Another invocation might use other instances because of scopes
-but the implementation does have to care at all about all that.
+but the implementation doesn't have to care at all about that. It becomes transparent.
 
 The overhead caused through the additional injections is automatically kept minimal. 
 Silk preresolves all dependencies that are stable (application singletons) so their injection comes at no additional costs for resolving them for each invocation.
-Also dynamic dependencies are partially resolved to the `Injectorn` to use. This is actually faster than using `Provider`s that would be necessary without service methods.
-Last but not least the costs of the service interface and `ServiceMethod` interface invocation are mono-polymorphic so they are very fast.
+Also dynamic dependencies are partially resolved to the `Injectron` to use. This is actually faster than using `Provider`s that would be necessary without service methods.
+Last but not least the costs of the service interface and `ServiceMethod` interface invocation are monomorphic so they might even be inlined by JVMs what makes them very fast.
 
     
 
