@@ -346,6 +346,89 @@ This is achieved by assigning an `Expiry` to each `Scope` during setup. During t
 
 
 ## Services
+While _services_ are very common pattern Silk's services are radically different. 
+The core idea is that every service function can be described in a uniform way with an interface having a single parameter and return type as generic: `Service<Parameter,Result>`.
+Of cause real life services have more than one input value. Silk turns this into an advantage by making it explicit. 
+All arguments are passed as a record containing all values. Hence we create one class per service that is this record. 
+Thereby each _service_ is unique by just its parameter `Type`. This allows to automatically identify the method that is the implementation body of a service since just one single known service method will have the exact parameter type.
+
+A typical example is a login process. Within our application code we create the `LoginParameters`:
+{% highlight java %}
+class LoginParameters {
+  final String name;
+  final String password;
+  // ... constructor
+}
+{% endhighlight %}
+We have a `UserServices` implementation that is responsible for various user related services.
+{% highlight java %}
+class UserServices {
+  
+  public Success login(LoginParameters params) { 
+  	// ...whatever to do
+  }
+  // more service methods
+}
+{% endhighlight %}
+Now we tell Silk that when looking for service methods it will find some in `UserServices` by creating a `ServiceModule`
+{% highlight java %}
+private static class MyServicesModule extends ServiceModule {
+
+	@Override
+	protected void declare() {
+		bindServiceMethodsIn( UserServices.class );
+		// ... others
+	}
+}
+{% endhighlight %}
+But instead of exposing our `UserServices` directly we use `Service`s. For example the UI login form has to delegate the request to the service.
+Therefore we inject the service.
+{% highlight java %}
+class LoginForm {
+
+	LoginForm(Service<LoginParameters,Success> login) {
+		// here we have the login without creating any dependency to the implementor whatsoever!
+	}
+}
+{% endhighlight %}
+Note that the `Service` interface mentioned about is not defined by Silk (this would make your code depend on it). 
+It is an application interface that gets connected to Silk's low level representation `ServiceMethod` with a adapter bind. 
+The test `TestServiceBinds` shows how to do it for an interface just like in this example.
+
+### Say Goodbye to Dependency Cycles  
+
+Effectively all dependencies point to the chosen service interface and the record classes that act as parameter container. 
+Thereby services can be wired in any network without causing any dependency cycles whatsoever. 
+There are no proxies, bytecode enhancements or other hard magic! 
+Still there can be usage cycles between services and/or service providers like the `UserServices`.
+It also makes the service methods more readable, more stable to change (just the record class is changing) and also allows to use the _parameters_ class as UI-bean.
+
+### Easy Long Term Maintenance
+When using service methods all dependencies can be injected into the service method directly. 
+In case the `login` methods makes use of a `Session` object to track the login state and some access to check the password this dependencies can be inject too:
+{% highlight java %}
+  public Success login(LoginParameters params, Session session, 
+  	Service<PasswordValidParameters,Boolean> passwordChecker) { 
+  	// ...use session and checker to login 
+  }
+{% endhighlight %}
+Thereby the sequence of parameters or the method name doesn't play any role. They can be renamed or refactored without breaking anything.
+Through this all dependencies become directly visible and coupling is reduced. 
+The `UserServices` itself don't need to have any field for dependencies. All comes with the service method.
+That makes it much simpler to determine all the code that has to be removed when a system function (service method) is no longer needed.
+
+### Say Goodbye to Scope Issues
+When dependencies are injected directly in the service method the problems arising from different `Scope`s just disappear since 
+all dependency instances are just used for the single invocation. Another invocation might use other instances because of scopes
+but the implementation does have to care at all about all that.
+
+The overhead caused through the additional injections is automatically kept minimal. 
+Silk preresolves all dependencies that are stable (application singletons) so their injection comes at no additional costs for resolving them for each invocation.
+Also dynamic dependencies are partially resolved to the `Injectorn` to use. This is actually faster than using `Provider`s that would be necessary without service methods.
+Last but not least the costs of the service interface and `ServiceMethod` interface invocation are mono-polymorphic so they are very fast.
+
+    
+
 
 ## Data Types
 
