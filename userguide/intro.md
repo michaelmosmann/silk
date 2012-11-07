@@ -429,7 +429,11 @@ Silk preresolves all dependencies that are stable (application singletons) so th
 Also dynamic dependencies are partially resolved to the `Injectron` to use. This is actually faster than using `Provider`s that would be necessary without service methods.
 Last but not least the costs of the service interface and `ServiceMethod` interface invocation are monomorphic so they might even be inlined by JVMs what makes them very fast.
 
-    
+### Adding Cross-Functional Behavior
+The uniformity of service methods also allows to add behaviors to all of them that usually done with AOP. 
+For example logging can be added before and/or after all invocation of `ServiceMethod`s. 
+
+The test `TestServiceInvocationBinds` shows a complete example.  
 
 
 ## Data Types
