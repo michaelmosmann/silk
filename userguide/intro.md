@@ -437,5 +437,89 @@ The test `TestServiceInvocationBinds` shows a complete example.
 
 
 ## Data Types
+Silk is a data driven framework. All data is modeled as immutable value objects. 
+
+### Represent Any Type Uniform
+The most important one is `Type` that is a generic form of `Class`. It is used to construct all type descriptions. Here some examples:
+{% highlight java %}
+Type.raw(Integer.class); // corresponds to Class<Integer> 
+Type.raw( Number.class ).asLowerBound(); // corresponds to Class<? extends Number> 
+Type.raw( List.class ).parametized( Number.class ); // corresponds to Class<List<Number>>
+Type.raw( List.class ).parametized( Number.class ).parametizedAsLowerBounds() // Class<List<? extends Number>>
+{% endhighlight %}
+Due to limitations in java generics the `Type` instance itself will not reflect the type parametrisation so ot becomes _visible_ for the compiler. 
+But the `Typecast` util allows to create full reflected types for severeal common parametized types like `List`, `Set`, `Collection`, `Factory`, `Injectron`, `Provider`:  
+{% highlight java %}
+Type<List> raw = Type.raw( List.class ).parametized( Number.class );
+Type<? extends List<Number>> parametized = Typecast.listTypeOf( Number.class );
+{% endhighlight %}
+Thereby the nessessary cast is kept in one place. This type-system workaround can be adapted to also have the same convenience for application specific generic types.
+
+### Describe Instances
+Dependency injection is instance based in Silk. Hence multiple instances of the same `Type` (full generic) are distinguished by their `Name` as well.
+The `Instance` value object models this combination of `Type` and `Name`. When binding the _name_ can be omitted but internally this uses the `Name.DEFAULT` for those binds.
+
+
+## Customise the Binding Process
+Out of the box Silk uses simple robust strategies to draw the connection between bindings and the application classes.
+
+### Customise Object Creation
+A `ConstructionStrategy` is used to decide which `Constructor` is used to create instances of a type and what `Method` implements a particular `Factory` method.
+Espeially when changing to Silk from e.g. an annotation based DI framework it could be useful to customise this strategies. 
+All that needs to be done is to create a own implementation of the `ConstructionStrategy` as in this example:
+{% highlight java %}
+public class AnnotationConstructionStrategy implements ConstructionStrategy {
+
+	@Override
+	public <T> Constructor<T> constructorFor( Class<T> type ) {
+		for (Constructor<?> c : type.getDeclaredConstructors()) { 
+			if (c.isAnnotationPresent( MyConstructorAnnotation.class )) {
+				return (Constructor<T>) c;
+			}
+		}
+		return TypeReflector.defaultConstructor( type );
+	}
+
+	@Override
+	public <T> Method factoryFor( Type<T> returnType, Name name, Class<?> implementor ) {
+		for ( Method m : implementor.getDeclaredMethods() ) {
+			if (m.isAnnotationPresent( MyFactoryAnnotation.class ) 
+				&& Type.returnType( m ).isAssignableTo( returnType ) ) {
+				return m;
+			}
+		}
+		return TypeReflector.methodReturns( returnType, implementor );
+	}
+}   
+{% endhighlight %}
+The `TypeReflector` util can be used to have a _fallback_ to Silks own behaviour in case the annoations have been removed. 
+That way a smoth change becomes possible. Once created the customer strategy is passed to the bootstrapping process as an additional argument:
+{% highlight java %}
+ConstructionStrategy strategy = new AnnotationConstructionStrategy();
+Injector injector = Bootstrap.injector( RootBundle.class, Edition.FULL,	Constants.NONE, strategy );
+{% endhighlight %}
+
+### Customise Service Method Selection
+The second strategy that can be customerised is the `ServiceStrategy`. It is responsible for selecting the methods that implement `ServiceMethod`s.
+The below example shows how to utilise annoations to do the job:
+{% highlight java %}
+class AnnoationServiceStrategy implements ServiceStrategy {
+
+	@Override
+	public Method[] serviceMethodsIn( Class<?> serviceClass ) {
+		List<Method> serviceMethods = new ArrayList<Method>();
+		for (Method m : serviceClass.getDeclaredMethods()) {
+			if (m.isAnnotationPresent( MyServiceAnnotation.class )) {
+				serviceMethods.add( m );
+			}
+		}
+		return serviceMethods.toArray( new Method[0] );
+	}
+
+}
+{% endhighlight %}
+
+#### Note
+While the above examples show how to bring back annotations I highly recommend to just see this as a way to switch the framework an change smothly to an annotation free implementation.
 
 <a class='next' href="binds.html">Start the tour with Bindings...</a>
