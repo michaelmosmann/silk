@@ -29,6 +29,7 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 	<li><b>No</b> overrides</li>
 	<li><b>No</b> dependency cycles</li>
 	<li><b>No</b> accessible mutable state</li>
+	<li><b>No</b> code generation</li>
 	</ul>
 	</div>
 	<hr/>
@@ -114,7 +115,7 @@ choice for small projects although at heart Silk is waiting to breathe life into
 Through its revolutionary <a href="userguide/services.html">service</a> concept Silk decouples the application and prevents dependency cycles by concept. 
 Further it allows to tackle cross-functional concerns with pure Java what avoids the complexity of conventional meta programming approaches.
 
-### Injectorns
+### Injectrons
 Silk invented the `Injectron`, a _first class_ access object abstraction of a _singleton's_ `Resource` within an `Injector` context. 
 This implies they can be injected like the _resources_ themselves what allows to pre-resolve dependencies within extensions (on top of the core) like the service concept.  
 
