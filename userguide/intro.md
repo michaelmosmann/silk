@@ -4,6 +4,16 @@ title : Introduction
 ---
 # Introduction
 
+<table class='toc'>
+	<tr><th>#<a href="#binds">Bindings</a></th><td></td></tr>
+	<tr><th>#<a href="#inject">Injection</a></th><td></td></tr>
+	<tr><th>#<a href="#modularity">Modularity</a></th><td></td></tr>
+	<tr><th>#<a href="#scopes">Scopes</a></th><td></td></tr>
+	<tr><th>#<a href="#services">Services</a></th><td></td></tr>
+	<tr><th>#<a href="#data">Data Types</a></th><td></td></tr>
+	<tr><th>#<a href="#customise">Customization</a></th><td></td></tr>
+</table>
+
 The introduction will give you a overview about the concepts of the Silk framework deep enough to use well. 
 Each concept is further described in detail on a separate page.
 Those can be read as a tour starting with <a href="binds.html">bindings</a> and finishing with Silk's <a href="data.html">data types</a>.
@@ -18,7 +28,7 @@ tries to give you a good overview in the usage of Silk. With a deeper understand
 The examples given will make use of the `BinderModule` and `BootstrapperBundle` base classes for `Module`s and `Bundle`s. 
 Implementing the interfaces directly would result in code that looks a little different, less fluent.
 
-## Bindings
+## <a id="binds"></a> Bindings
 To _bind_ means to associate a type (usually an interface) with a _strategy_  to create an instance that can be used when a dependency of the bound type is encountered. 
 These _bindings_ are defined using a fluent interface, the `Binder`. A basic binding form of such a binding has a `bind` and a `to` clause like this:
 {% highlight java %}
@@ -136,7 +146,7 @@ Also when binding array-types we can inject them as any of the installed collect
 By default **none** is installed so that you can explicitly pick what you want - and this is very easily done in on `install` as we have seen above. 
 
 
-## Injection
+## <a id="inject"></a>Injection
 The usual case is to create a single `Injector` for your application that serves as context. Once created from a root `Bundle` a `Injector` is immutable.
 {% highlight java %}
 Injector injector = Bootstrap.injector( YourRootBundle.class );
@@ -180,7 +190,7 @@ Now you can ask for any `Provider<T>` for all bound types `T`.
    
 
 
-## Modularity
+## <a id="modularity"></a>Modularity
 
 ### Composition
 The composition of an application is composed on 2 levels:
@@ -281,7 +291,7 @@ Of cause `ModularBundle`s can also be used without `Constants`. The `BuildinBund
 There we have different options a user could pick from. We have seen such a installation before when adding `List`s or `Provider`s.
 
 
-## Scopes
+## <a id="scopes"></a>Scopes
 One of the main advantages of DI is that instance creation is moved away from processing code. 
 Many instances are created and _manged_ by the DI framework. So the lifecycle of objects is one of its tasks. 
 A `Scope`s is a description of an object lifecycle and the diversity of instances for each `Resource` in that scope.
@@ -345,7 +355,7 @@ Silk will throw a `MoreFrequentExpiryException` in the moment you try to inject 
 This is achieved by assigning an `Expiry` to each `Scope` during setup. During the injection Silk is aware of the different expires combined so it can encounter problems directly.    
 
 
-## Services
+## <a id="services"></a>Services
 While _services_ are very common pattern Silk's services are radically different. 
 The core idea is that every service function can be described in a uniform way with an interface having a single parameter and return type as generic: `Service<Parameter,Result>`.
 Of cause real life services have more than one input value. Silk turns this into an advantage by making it explicit. 
@@ -436,7 +446,7 @@ For example logging can be added before and/or after all invocation of `ServiceM
 The test `TestServiceInvocationBinds` shows a complete example.  
 
 
-## Data Types
+## <a id="data"></a>Data Types
 Silk is a data driven framework. All data is modeled as immutable value objects. 
 
 ### Represent Any Type Uniform
@@ -460,7 +470,7 @@ Dependency injection is instance based in Silk. Hence multiple instances of the 
 The `Instance` value object models this combination of `Type` and `Name`. When binding the _name_ can be omitted but internally this uses the `Name.DEFAULT` for those binds.
 
 
-## Customise the Binding Process
+## <a id="customise"></a>Customise the Binding Process
 Out of the box Silk uses simple robust strategies to draw the connection between bindings and the application classes.
 
 ### Customise Object Creation
