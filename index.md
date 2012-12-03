@@ -5,8 +5,8 @@ layout : teaser
 The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection</b> (DI) framework.
 
 <div class="teaser">
-	<a href="userguide/intro.html" class="next">Read the introduction...</a>
-	<a class="next" href="userguide/snippets.html">Show me some code...</a>
+	<a href="userguide/intro.html" class="next">Read the introduction &gt;</a>
+	<a class="next" href="userguide/snippets.html">Show me some code &gt;</a>
 	<hr/>
 	<div>
 	<h3>100% Independence</h3></th>
@@ -66,7 +66,7 @@ The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection<
 	<li>Generic support</li>
 	<li>Easy to utilise or extend</li>
 	<li>Fast bootstrap</li>
-	<li>Lightweight: less than 150 KB jar archive</li>
+	<li>Lightweight: less than 120 KB jar archive</li>
 	<li>Safe renaming (e.g. classes or instance names)</li>
 	</ul>
 	</div>
@@ -99,7 +99,7 @@ techniques to modularise and configure your programs without conditional declara
 
 ### Sequence of declaration is irrelevant
 Together with Silk's immutability the absence of conditions brings a functional nature to Silk wherein the sequence of declarations becomes irrelevant!
- The implications of this are a huge simplification when considering the composition of your application. 
+ This is a huge simplification when considering the composition of an application. 
 
 ----
 
@@ -108,8 +108,8 @@ Most of all Silk aims to allow easy long term development that comes with no sur
 Above all it allows to consider small components separately whereby even large, highly configurable systems become manageable without pain. 
 
 ### Lightweight
-The absence of any further runtime dependencies and its slim footprint of less than 150K makes Silk a fine 
-choice for small projects although at heart Silk is waiting to breathe life into huge applications.
+The absence of any further runtime dependencies and its slim footprint of less than 120K makes Silk a fine 
+choice for small projects although at heart Silk is especially designed to scale in the large.
 
 ### No dependency cycles by concept + cross-functional programming
 Through its revolutionary <a href="userguide/services.html">service</a> concept Silk decouples the application and prevents dependency cycles by concept. 
