@@ -6,9 +6,9 @@
     <meta name="author" content="{{ site.authorName }}" />    
     <title>{% if page.title %} {{ page.title }} - {% endif %} Silk</title>
     <link rel="shortcut icon" href="http://jbee.github.com/silk/favicon.png" type="image/png">
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/assets/css/silk.css">
     <link rel="stylesheet" href="/assets/css/pygment_trac.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript">
 	var typeURLs = [];
@@ -102,8 +102,8 @@
     </script>
   </head>
   <body>
-    <div id="wrapper">
     	<header>
+    	<div class="wrapper">
     		<nav>
 	    		<a href="/downloads/">Releases</a> /
 	    		<a href="/userguide/">Docs</a> /
@@ -118,13 +118,13 @@
 		<div class="menu">
 		Docs: <a href="/userguide/install.html">Installation</a> / <a href="/userguide/">User Guide</a> / <a href="/howto/">How To</a> / <a href="/underthecovers/">Under The Covers</a> / <a href="/assets/javadoc/">Javadoc</a> / <a href="https://github.com/jbee/silk">Sources</a> / <a href="https://github.com/jbee/silk/issues">Issues</a>
 		</div>
+	</div>
     	</header>
-      <section>{{ content }}</section>
+      <section class="wrapper">{{ content }}</section>
 	<hr style="clear: both;"/>
-      <footer class="clearfix">
+      <footer class="clearfix wrapper">
         <p style="float:right;">Hosted on GitHub Pages</p>
         <p>This project is maintained by <a href="https://github.com/jbee"><img src="/assets/img/Octocat.png" width="24" height="24" /> jbee</a></p>
       </footer>
-    </div>
   </body>
 </html>

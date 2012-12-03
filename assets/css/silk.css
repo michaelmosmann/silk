@@ -16,15 +16,14 @@ body {
 hr {
 	height: 0;
 	border-width: 0;
-	border-top: 4px solid PaleGoldenrod;
+	border-top: 1px solid #ddd;
 	margin: 4px 0;
 	padding: 0;
 }
-#wrapper {
+.wrapper {
 	width: 900px;
-	margin: 0 auto 20px auto;
+	margin: 0 auto;
 	padding: 0 20px;
-	border-right: 3px solid Lavender; 
 }
 #logo {
 	margin: 0px;
@@ -50,28 +49,33 @@ nav {
 	text-align: right;
 }
 nav a, nav a:VISITED {
-	color: white;
+	color: #444;
 	text-decoration: none;
 }
 .menu a, .menu a:VISITED {
-	color: blue;
+	color: #308AB0;
 	text-decoration: none;
 }
 nav dl {
 	display: none;
 }
 .menu {
-	background-color: beige;
-	padding: 2px 1em;	
 	color: #444;
 }
+.menu .selected {
+	background-color: #ddd;
+	display: inline-block;
+	padding: 2px 1em;
+	font-weight: bold;	
+}
 header {
-	background-color: black;
+	background-color: #eee;
 	color: white;
-	padding-bottom: 3px;	
+	padding-bottom: 3px;
+	border-bottom: 1px solid #ddd;
 }
 header h1 {
-	color: #ccc;
+	color: #444;
 	line-height: normal;
 	margin: 10px 10px 10px 10px;
 	display: inline-block;
@@ -82,6 +86,7 @@ header h1 {
 }
 header h1 b {
 	letter-spacing: -6px;
+	color: #236480;
 }
 
 .headline {
@@ -105,7 +110,7 @@ h2,h3,h4,h5,h6 {
 }
 section h2 {
 	font-family: 'Lato', sans-serif;	
-	border-bottom: 3px solid Lavender;
+	border-bottom: 1px solid #aaa;
 	margin-top: 2em;
 	padding: 0.25em 0;
 	font-size: 20pt;
@@ -200,7 +205,7 @@ table.toc {
 	border-collapse: collapse;
 }
 table.toc th {
-	border-right: 1px solid Thistle;
+	border-right: 1px solid #7AB4CC;
 	text-align: right;
 	padding-right: 1em;
 	width: 50%;
@@ -209,10 +214,10 @@ table.toc th, table.toc td {
 	padding-top: 0.2em;
 }
 table.toc tr:FIRST-CHILD th {
-	border-top: 1px solid Thistle;
+	border-top: 1px solid #7AB4CC;
 }
 table.toc th:FIRST-LETTER {
-	color: Thistle;
+	color: #7AB4CC;
 }
 table.toc th a {
 	color: blue;
@@ -293,28 +298,16 @@ a.next {
 	text-decoration: none;
 	font-family: 'Source Code Pro', sans-serif;
 	border-radius: 2px;
-	border: 1px solid #3079ED  ;
+	border: 1px solid #2A7899  ;
 	color: white  ;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.1)  ;
-	background-color: #4D90FE  ;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe  ),to(#4787ed  ));
-	background-image: -webkit-linear-gradient(top,#4d90fe  ,#4787ed  );
-	background-image: -moz-linear-gradient(top,#4d90fe  ,#4787ed  );
-	background-image: -ms-linear-gradient(top,#4d90fe  ,#4787ed  );
-	background-image: -o-linear-gradient(top,#4d90fe  ,#4787ed  );
-	background-image: linear-gradient(top,#4d90fe  ,#4787ed  );
+	background-color: #308AB0  ;
 }
 a.next:hover {
-	border: 1px solid #2F5BB7  ;
+	border: 1px solid #308AB0  ;
 	color: white  ;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.3)  ;
-	background-color: #357AE8  ;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe  ),to(#357ae8  ));
-	background-image: -webkit-linear-gradient(top,#4d90fe  ,#357ae8  );
-	background-image: -moz-linear-gradient(top,#4d90fe  ,#357ae8  );
-	background-image: -ms-linear-gradient(top,#4d90fe  ,#357ae8  );
-	background-image: -o-linear-gradient(top,#4d90fe  ,#357ae8  );
-	background-image: linear-gradient(top,#4d90fe  ,#357ae8  );
+	background-color: #3496BF  ;
 }
 section p a.next {
 	display: inline-block;
