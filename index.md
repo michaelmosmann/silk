@@ -2,7 +2,7 @@
 layout : teaser
 ---
 
-The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr> Dependency Injection</b> (DI) framework.
+<big class="info">The lightweight <nobr><b>3rd</b> Generation <b>Java</nobr><br/> Dependency Injection</b> (DI) framework.</big>
 
 <div class="teaser">
 	<div>
@@ -82,7 +82,7 @@ protected void declare() {
 {% endhighlight %}
 
 
-With Silk your code is no longer cluttered by <s>`@annotations`</s> to guide the dependency injection. 
+With **Silk** your code is no longer cluttered by <s>`@annotations`</s> to guide the dependency injection. 
 Everything is described in external pure Java declarations provided through a fluent interface.
 
 ##Highlights

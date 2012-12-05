@@ -5,10 +5,15 @@ title: Installation
 
 # Installation
 
+<table class='toc'>
+	<tr><th>#<a href="#get">Get It</a></th><td>How to integrate the library in a build</td></tr>
+	<tr><th>#<a href="#use">Use It</a></th><td>How to include the library in a project</td></tr>
+</table>
+
 Since there are no further dependencies the installation of Silk is really simple.
 
-## Get It
-### Download
+## <a id="get"></a>Get It
+### Manually (Download)
 <a href="/downloads/">Download</a> the latest `jar`-file and add it to your project's classpath.
 
 ### Maven
@@ -31,7 +36,7 @@ Since there are no further dependencies the installation of Silk is really simpl
 {% endhighlight %}
 
 
-## Use It
+## <a id="use"></a>Use It
 Define a first `Module` (e.g. by extending `BinderModule`)
 {% highlight java %}
 class FirstModule extends BinderModule {

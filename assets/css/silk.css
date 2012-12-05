@@ -55,7 +55,7 @@ nav {
 	text-align: right;
 }
 nav a, nav a:VISITED {
-	color: #444;
+	color: #666;
 	text-decoration: none;
 }
 .menu a, .menu a:VISITED {
@@ -110,9 +110,14 @@ header h1 a, header h1 a:VISITED {
 	color: #444;
 }
 
-.headline {
-	margin: 0;
-	padding: 2em 0;
+.info {
+	background-color: CornflowerBlue;
+	color: white;
+	display: block;
+	text-align: right;
+	padding: 5px 1em;
+	margin-left: 50%;
+	border-radius: 5px;
 }
 
 section h1 {
