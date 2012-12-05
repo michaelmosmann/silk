@@ -82,6 +82,15 @@ injectingInto( RadiusCalculation.class ).bind( float.class ).to( named("pi"), fl
 Thereby `RadiusCalculation` itself doesn't need to point out what `float` is needed. 
 It is also allowed to use interfaces in the `injectingInto` clause. Than this binding applies whenever the injected type is an `instanceof` the interface type given in the clause.  
 
+#### ...within different owners
+Sometimes there is more than one receiving instance and even though all have the same type they should get a specific instance each for one of their dependencies.
+Or the dependency depends on the hierarchy of instances. In such cases the `winthin` clause can be used:
+{% highlight java %}
+injectingInto( Child.class ).within( Parent.class ).bind( X.class ).to( SpecialX.class );
+injectingInto( named("a"), Child.class ).within( named("b"), Parent.class ).bind( X.class ).to( AxInB.class );
+{% endhighlight %}
+(The test `TestParentTargetBinds` shows more detailed examples)
+
 #### ...in different packages
 In case there already is a binding for a specific type but within your implementation you want to bind and use another instance. 
 A good way to solve this is to make a _package localised_ binding:

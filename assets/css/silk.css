@@ -59,17 +59,21 @@ nav a, nav a:VISITED {
 	text-decoration: none;
 }
 .menu a, .menu a:VISITED {
-	color: #308AB0;
+	color: #222;
 	text-decoration: none;
+	padding: 0 0.3em;
 }
-.menu a:HOVER {
-	background-color: white;
+.menu a:HOVER, nav a:HOVER {
+	color: black;
 }
 nav dl {
 	display: none;
 }
 .menu {
-	color: #444;
+	color: CornflowerBlue;
+	font-weight: bold;
+	font-size: 16px;
+	padding-bottom: 4px;
 }
 .menu .selected {
 	background-color: #ddd;
@@ -78,7 +82,7 @@ nav dl {
 	font-weight: bold;	
 }
 header {
-	background-color: #eee;
+	background-color: #F5F5F1;
 	color: white;
 	padding-bottom: 3px;
 	border-bottom: 1px solid #ddd;
@@ -89,9 +93,18 @@ header h1 {
 	margin: 10px 0;
 	display: inline-block;
 	font-family: 'Source Code Pro', sans-serif;
-	font-size: 30px;
 	line-height: 40px;
 	font-weight: 300;
+	font-size: 24px;
+}
+header h1 b {
+	color: black;
+	font-size: 30px;
+}
+header h1 em {
+	color: CornflowerBlue;
+	font-style: normal;
+	font-weight: bold;	
 }
 header h1 a, header h1 a:VISITED {
 	color: #444;
@@ -213,7 +226,7 @@ table.toc {
 	border-collapse: collapse;
 }
 table.toc th {
-	border-right: 1px solid #7AB4CC;
+	border-right: 1px solid CornflowerBlue;
 	text-align: right;
 	padding-right: 1em;
 	width: 50%;
@@ -222,10 +235,10 @@ table.toc th, table.toc td {
 	padding-top: 0.2em;
 }
 table.toc tr:FIRST-CHILD th {
-	border-top: 1px solid #7AB4CC;
+	border-top: 1px solid CornflowerBlue;
 }
 table.toc th:FIRST-LETTER {
-	color: #7AB4CC;
+	color: CornflowerBlue;
 }
 table.toc th a {
 	color: blue;
@@ -305,17 +318,16 @@ a.next {
 	font-weight: bold;
 	text-decoration: none;
 	font-family: 'Source Code Pro', sans-serif;
-	border-radius: 2px;
-	border: 1px solid #2A7899  ;
+	border-radius: 3px;
+	border: 1px solid LightSlateGray;
 	color: white  ;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.1)  ;
-	background-color: #308AB0  ;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+	background-color: CornflowerBlue;
 }
 a.next:hover {
-	border: 1px solid #308AB0  ;
-	color: white  ;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.3)  ;
-	background-color: #3496BF  ;
+	color: white;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	background-color: RoyalBlue;
 }
 section p a.next {
 	display: inline-block;
