@@ -27,20 +27,4 @@ For development a local Jekyll is used. Here is the `_config.yaml`:
 A lot of Java type names are linked to the javadoc of that type (example: `Binder`). Those links are not contained in the page source. There they are a `<code></code>` block created by the normal markup for inline-code.
 The below <a href="http://jquery.com/">jQuery</a> script fetches a JSON description of known types created by a Java-Doclet and transforms the blocks into the links you see.
 
-{% highlight javascript %}
-var typeURLs = [];
-$(document).ready(function() {
-	$.getJSON('/silk/assets/javadoc/types.json', function(data) {
-    		$.each(data['types'], function(index, value) { 
-			if (value != null) {
-    				typeURLs[value.name]={type: value.type,url: "/silk/assets/javadoc/"
-    					+value['package'].replace(/\./g, '/')+"/"+value.name+".html"};
-			}
-		});
-		$('code').wrap(function() { 
-			var type = typeURLs[$(this).text()];
-			if (type) { return "<a href='"+type.url+"' class='javadoc "+type.type+"'></a>" } else { return ""}
-		});
-	});
-});
-{% endhighlight %}
+The full script can be viewed <a href="/assets/js/autolink.js">here</a>.

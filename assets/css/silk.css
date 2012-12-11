@@ -54,6 +54,7 @@ nav {
 	padding: 4px 0;
 	font-weight: bold;
 	text-align: right;
+	height: 28px;
 }
 nav a, nav a:VISITED {
 	color: #ddd;
@@ -95,7 +96,6 @@ header h1 {
 	color: #444;
 	line-height: normal;
 	margin: 10px 0;
-	display: inline-block;
 	font-family: 'Source Code Pro', sans-serif;
 	line-height: 40px;
 	font-weight: 300;
@@ -281,8 +281,10 @@ li small {
 }
 
 footer {
-	color: #888;
+	color: #666;
 	padding-bottom: 10px;
+	background-color: #f1f1f1;
+	border-top: 1px solid #ddd;
 }
 footer p {
 	margin: 0;
