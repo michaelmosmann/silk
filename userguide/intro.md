@@ -229,10 +229,10 @@ Such `uninstall`s can appear wherever you like. You can bundle them in a separat
 Literally a bundle could be `uninstall`ed before it is even installed. Remember that the sequence of installations does not matter. 
 
 It might not seam like it but there is a very big difference between _overrides_ and _uninstall_. 
-You will notice this when maintaining a larger project. While _overrides_ requires you to know and consider *all* involves parts _uninstall_ just requires to consider the uninstalled bundle itself what is way simpler.  
+You will notice this when maintaining a larger project. While _overrides_ requires you to know and consider *all* involved parts _uninstall_ just requires to consider the uninstalled bundle itself what is way simpler.  
 
 ### Adapt an Application to slightly Different Setups/Configurations
-Often the same application is sold to customers in slightly different configurations depending on the customer needs. 
+Often the same application is sold to customers in slightly different configurations depending on the customer's needs. 
 Sometimes there is a fix set of _editions_ a customer could chose from. Such kind of requirements we can model with ease using `Editon`s.
 
 They allow to decide on a _per class_ base what `Bundle`s and `Module`s to include in an edition. 
@@ -243,17 +243,17 @@ Injector injector = Bootstrap.injector( RootBundle.class, edition );
 {% endhighlight %}
 A simple edition that _contains_ the core of your application based on the packages could look like this:
 {% highlight java %}
-Edition core = new PackagesEdition(Packages.packageAndSubPackagesOf(CoreBundle.class);
+Edition core = Bootstrap.edition(Packages.packageAndSubPackagesOf(CoreBundle.class));
 Injector injector = Bootstrap.injector( RootBundle.class, core );
 {% endhighlight %}
 The conditions that control if you want an edition or not are in one place where you bootstrap your `Injector`.
-There you have the full control so you can load this from a properties file, a database, command line argusment or such.
+There you have the full control so you can load this from a properties file, a database, command line arguments or such.
 
-#### Allow to Pick Single Features
+#### Pick Single Features
 Editions give you a good control but in some business areas it is common so sell individual features to a customer. 
 You could model this with editions but they do not really fit the problem. Silk gives you this finer control with `Feature`s.
 They utilize a `enum` to model the set of available features with the enum constants. Each constant is a separate feature.
-When bootstrapping you decide that features to include:
+When bootstrapping you decide what features to include:
 {% highlight java %}
 Edition edition = Bootstrap.edition( MyFeature.BAR, MyFeature.BAZ )
 Injector injector = Bootstrap.injector( RootBundle.class, edition );
@@ -261,7 +261,7 @@ Injector injector = Bootstrap.injector( RootBundle.class, edition );
 The `edition` method creates an `Edition` from the chosen features `BAR` and `BAZ` of your `Feature`-`enum` `MyFeature`.
 
 The test `TestEditionFeatureBinds` shows how to create your own feature annotation so you could annotate `Module`s and `Bundle` with the features they represent. 
-But this is just one way. you can implement other strategies to determine the features in a few lines of code. 
+But this is just one way. You can implement other strategies to determine the features in a few lines of code. 
 
 ### Run different Modes like PROD or DEV
 Beside the economically driven slices there is a hole bunch of technical configurations. 
