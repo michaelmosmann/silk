@@ -49,16 +49,17 @@ section:before {
 } 
 
 nav {
-	background-color: black;
-	color: #aaa;
-	padding: 4px 0;
-	font-weight: bold;
-	text-align: right;
+	background-color: #2C2C2C;
+	color: white;
+	padding: 6px 0;
 	height: 28px;
+	font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;	
 }
 nav a, nav a:VISITED {
 	color: #ddd;
 	text-decoration: none;
+	margin-right: 15px;
 }
  nav a:HOVER {
  	color: white;
@@ -87,7 +88,7 @@ nav dl {
 	font-weight: bold;	
 }
 header {
-	background-color: #F5F5F1;
+	background-color: #eee;
 	color: white;
 	padding-bottom: 3px;
 	border-bottom: 1px solid #ddd;
@@ -281,10 +282,12 @@ li small {
 }
 
 footer {
+	clear: both;
 	color: #666;
 	padding-bottom: 10px;
-	background-color: #f1f1f1;
-	border-top: 1px solid #ddd;
+	background-color: #EFEFEF;
+	border-top: 1px solid #CECECE;
+	padding: 30px 0;
 }
 footer p {
 	margin: 0;
