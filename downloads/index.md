@@ -3,9 +3,9 @@ layout : default
 title: Downloads
 ---
 
-# Downloads
+# <i class="icon-download-alt"></i> Downloads
 
-## Current Release
+## <i class="icon-tag"></i> Current Release
 
 The latest release of Silk is version <i>0.3</i>, released on 3rd December 2012.
 Please remind that Silk is quite young. There are no known problems but you might encounter the first. 

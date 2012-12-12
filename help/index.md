@@ -2,7 +2,7 @@
 layout : default
 title : Help
 ---
-# Help
+# <i class="icon-question-sign"></i> Help
 
 ### License
 Apache License 2.0, see <a href="license.html">license</a> for details.

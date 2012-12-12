@@ -39,13 +39,14 @@ section:before {
 	height: 200px;
 	top: 0;
 	margin-left: -120px;
+	margin-top: 50px;
     z-index: -1;  
     background: url("../img/logo.png") 0 0 no-repeat;  
-    -webkit-transform: rotate(-150deg);  
-    -moz-transform: rotate(-150deg);  
-    -ms-transform: rotate(-150deg);  
-    -o-transform: rotate(-150deg);  
-    transform: rotate(-150deg);  
+    -webkit-transform: rotate(-130deg);  
+    -moz-transform: rotate(-130deg);  
+    -ms-transform: rotate(-130deg);  
+    -o-transform: rotate(-130deg);  
+    transform: rotate(-130deg);  
 } 
 
 nav {
