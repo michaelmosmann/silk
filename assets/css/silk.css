@@ -60,7 +60,7 @@ nav {
 nav a, nav a:VISITED {
 	color: #ddd;
 	text-decoration: none;
-	margin-right: 15px;
+	margin-right: 25px;
 }
  nav a:HOVER {
  	color: white;
@@ -122,7 +122,6 @@ header h1 a, header h1 a:VISITED {
 	display: block;
 	text-align: right;
 	padding: 5px 1em;
-	margin-left: 50%;
 	border-radius: 5px;
 }
 
@@ -193,7 +192,6 @@ pre {
 	margin-right:-56%;
 	clear: both;
 	margin-bottom: 1em;
-	margin-top: -2em;
 	font-family: 'Lato';
 	font-size: 90%;
 }
