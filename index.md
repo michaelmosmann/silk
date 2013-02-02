@@ -1,24 +1,25 @@
 ---
 layout : teaser
 ---
-
+<tour>
+&nbsp;<br/>Silk DI<br/><em>a lightweight</em> <br/>Java<br/><em>Dependency Injection</em></br> tool
+</tour>
 
 <div class="teaser">
-	<big class="info">A lightweight <nobr><b>3rd</b> Generation <b>Java</nobr><br/> Dependency Injection</b> (DI) tool.</big>
-	<div>
-	<h3>100% Independence</h3></th>
-	<p>Silk allows DI without making your application depend on the DI framework!</p>
-	<ul>
-	<li>Configuration by pure Java code</li>
-	<li>Separated from your application code</li>
-	<li>No further runtime dependencies</li>
-	</ul>
-	</div>
-	<hr/>
-	<a href="userguide/intro.html" class="next">Read the introduction &gt;</a>
-	<a class="next" href="userguide/snippets.html">Show me some code &gt;</a>
-	<hr/>
-	<div>
+	<brief>
+		<h3>100% Independence</h3></th>
+		<p>Silk allows DI without making your application depend on the DI framework!</p>
+		<ul>
+		<li>Configuration by pure Java code</li>
+		<li>Separated from your application code</li>
+		<li>No further runtime dependencies</li>
+		</ul>
+	</brief>
+
+<a href="userguide/intro.html" class="next"><span class="icon-chevron-right"> </span> Read the introduction</a>
+<a class="next" href="userguide/snippets.html"><span class="icon-reorder"> </span> Show me some code</a>
+
+	<brief>
 	<h3>Less "Magic"</h3>
 	<p>Silk avoids techniques that are hard to understand, debug or maintain.</p>
 	<ul>
@@ -31,9 +32,9 @@ layout : teaser
 	<li><b>No</b> accessible mutable state</li>
 	<li><b>No</b> code generation</li>
 	</ul>
-	</div>
-	<hr/>
-	<div>
+	</brief>
+	
+	<brief>
 	<h3>if-less Modularity</h3>
 	<p>Silk provides few concepts to customize your application in a predictable and maintainable way.</p>
 	<ul>
@@ -42,9 +43,9 @@ layout : teaser
 	<li>Simple predictable configuration concepts</li>
 	<li>It is easy to remove what you don't like</li>
 	</ul>
-	</div>		
-	<hr/>
-	<div>
+	</brief>
+
+	<brief>
 	<h3>Robust</h3>
 	<p>Silk is designed in a way that allows to forget about it during development without breaking your application.</p>
 	<ul>
@@ -56,9 +57,9 @@ layout : teaser
 	<li><a href="userguide/data.html">Data driven</a> with Value Objects</li>
 	<li>A configuration never changes at runtime</li>
 	</ul>
-	</div>
-	<hr/>
-	<div>
+	</brief>
+
+	<brief>
 	<h3>Further Features</h3>
 	<ul>
 	<li><a href="userguide/binds.html">Declarative dependency/injection descriptions</a> <a href="userguide/binds.html#binder">(fluent interface)</a></li>
@@ -69,7 +70,7 @@ layout : teaser
 	<li>Lightweight: less than 120 KB jar archive</li>
 	<li>Safe renaming (e.g. classes or instance names)</li>
 	</ul>
-	</div>
+	</brief>
 </div>
 
 {% highlight java %}

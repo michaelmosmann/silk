@@ -3,7 +3,7 @@ layout : default
 title: Downloads
 ---
 
-# <i class="icon-download-alt"></i> Downloads
+# Downloads
 
 ## <i class="icon-tag"></i> Current Release
 

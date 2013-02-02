@@ -12,6 +12,7 @@ title : Bindings
 	<tr><th>#<a href="#star">Star-Bindings</a></th><td>Wildcard binds and what they are good for.</td></tr>
 	<tr><th>#<a href="#targeting">Targeting</a></th><td>How to make binds just apply in some (special) cases.</td></tr>
 	<tr><th>#<a href="#binder">Binder API</a></th><td>General concepts of the fluent binder interface.</td></tr>
+	<tr><th>#<a href="#inspect">Semi-Automate Bindings</a></th><td>How to advice the binder to inspect classes and derive binds from it semi-automatically.</td></tr>
 </table>
 
 ## A\. Concept
@@ -353,5 +354,36 @@ protected void declare() {
  
  - `Scope` : Singleton per application
  - `Target` (`Instance` + `Packages`) : _any_ instance in all packages  
+ 
+ 
+## <a id="inspect"></a>7\. Semi-Automate Bindings through Inspections
+Silk encourages making bindings explicit using the different options described above. But in some
+cases (most of all allowing to shift progressive from an annotation based DI framework) it might make 
+sense to partially automate the binding process. But there have to be limits otherwise automation 
+turns into pain of not knowing or understanding what is going on. So this still has to be very clear
+to the programmer, just that there is a tool making a _obvious connection_ more convenient to express 
+when using the fluent binder interface.   
+
+The `Inspector` interface is the abstraction for such a tool. It allows to use custom strategies that 
+_derive_ the constructor to use or the methods that act as _factory methods_ (like guice's `@Provides` annotation).
+
+The `Inspected` `Inspector` that comes with Silk offers different common ways to select 
+`Constructor`s or `Method`s that can be combined using a own fluent interface. In general inspection
+ binds have the form
+ 
+    bind(Inspector).in(Class)
+   
+where `Class` can be one or more implementation classes.
+
+{% highlight java %}
+protected void declare() {
+	//TODO
+}
+{% endhighlight %}
+See `TestInspectorBinds` for more examples.
+
+Through this it is possible to integrate _legacy_ code from a previously used framework changing it
+smoothly bit by bit while new code can benefit from Silk directly. So a migration from Guice or Spring 
+does not require doing a lot of changes up-front. 
  
  <a class='next' href="scopes.html">Continue with Scopes...</a>

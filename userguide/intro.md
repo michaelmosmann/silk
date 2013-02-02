@@ -14,11 +14,11 @@ title : Introduction
 	<tr><th>#<a href="#customise">Customization</a></th><td></td></tr>
 </table>
 
-The introduction will give you a overview about the concepts of the Silk framework deep enough to use well. 
+The introduction will give you an overview about the concepts of the Silk framework deep enough to use it well. 
 Each concept is further described in detail on a separate page.
 Those can be read as a tour starting with <a href="binds.html">bindings</a> and finishing with Silk's <a href="data.html">data types</a>.
 All pages of the tour are linked to the next tour page at the bottom of the page. You can also use the above menu bar _User Guide_ to navigate through the tour. 
-I recommend to read about the details in the sequence given an skip the pages explaining concepts that are familiar for you. 
+I recommend to read about the details in the sequence given and skip the pages explaining concepts that are familiar to you. 
 
 This introduction will explain the general features and concepts. The details and more advanced features will be described later on.
 There are a lot of noteworthy characteristics - like Silks general immutability - that will not be mentioned here since this introduction 
@@ -499,16 +499,6 @@ public class AnnotationConstructionStrategy implements ConstructionStrategy {
 		return TypeReflector.defaultConstructor( type );
 	}
 
-	@Override
-	public <T> Method factoryFor( Type<T> returnType, Name name, Class<?> implementor ) {
-		for ( Method m : implementor.getDeclaredMethods() ) {
-			if (m.isAnnotationPresent( MyFactoryAnnotation.class ) 
-				&& Type.returnType( m ).isAssignableTo( returnType ) ) {
-				return m;
-			}
-		}
-		return TypeReflector.methodReturns( returnType, implementor );
-	}
 }   
 {% endhighlight %}
 The `TypeReflector` util can be used to have a _fallback_ to Silks own behaviour in case the annoations have been removed. 

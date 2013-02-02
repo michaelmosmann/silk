@@ -3,7 +3,7 @@ layout : default
 title: License
 ---
 
-# PROJECT LICENSE
+# Project License
 
 Silk is released under the Apache License 2.0 that is shown below. 
 

@@ -2,7 +2,13 @@
 layout : default
 title : Help
 ---
-# <i class="icon-question-sign"></i> Help
+<tour>
+Help
+<a href="license.html">License</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</tour>
+# Help
 
 ### License
 Apache License 2.0, see <a href="license.html">license</a> for details.

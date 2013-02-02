@@ -50,20 +50,9 @@ section:before {
 } 
 
 nav {
-	background-color: #2C2C2C;
-	color: white;
-	padding: 6px 0;
-	height: 28px;
-	font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 14px;	
-}
-nav a, nav a:VISITED {
-	color: #ddd;
-	text-decoration: none;
-	margin-right: 25px;
-}
- nav a:HOVER {
- 	color: white;
+	padding: 15px 0;
+	border-bottom: 1px solid #ccc;
+	margin-left: 200px;
 }
 .menu a, .menu a:VISITED {
 	color: #222;
@@ -72,9 +61,6 @@ nav a, nav a:VISITED {
 }
 .menu a:HOVER {
 	color: black;
-}
-nav dl {
-	display: none;
 }
 .menu {
 	color: CornflowerBlue;
@@ -89,47 +75,44 @@ nav dl {
 	font-weight: bold;	
 }
 header {
-	background-color: #eee;
-	color: white;
-	padding-bottom: 3px;
-	border-bottom: 1px solid #ddd;
+	padding-bottom: 50px;
 }
 header h1 {
-	color: #444;
+	color: #666;
 	line-height: normal;
-	margin: 10px 0;
-	font-family: 'Source Code Pro', sans-serif;
+	margin: 15px 0 0 0;
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 	line-height: 40px;
 	font-weight: 300;
 	font-size: 24px;
+	height: 55px;
+	border-bottom: 1px solid #ccc;
+	
 }
+header h1:FIRST-LETTER {
+	font-size: 150%;
+}	
 header h1 b {
 	color: black;
 	font-size: 30px;
+	letter-spacing: 2px;
 }
 header h1 em {
-	color: CornflowerBlue;
+	color: black;
+	font-size: 120%;
 	font-style: normal;
 	font-weight: bold;	
 }
 header h1 a, header h1 a:VISITED {
-	color: #444;
-}
-
-.info {
-	background-color: CornflowerBlue;
-	color: white;
-	display: block;
-	text-align: right;
-	padding: 5px 1em;
-	border-radius: 5px;
+	color: #666;
 }
 
 section h1 {
 	font-size: 38px;
-	margin: 1em 0 0.3em 0;
+	margin: 1em 0 1.5em 0;
 	color: #222;
-	font-family: 'Lato', sans-serif;
+	text-align: center;
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 }
 h2,h3,h4,h5,h6 {
 	line-height: normal;
@@ -139,7 +122,7 @@ h2,h3,h4,h5,h6 {
 	color:#704826;
 	color: #222;
 }
-section h2, .teaser h3 {
+section h2 {
 	font-family: 'Open Sans Condensed', Helvetica, Arial, Tahoma, sans-serif;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -147,7 +130,7 @@ section h2, .teaser h3 {
 	line-height: 1em;	
 }
 section h2 {
-	border-bottom: 1px solid #aaa;
+	border-bottom: 1px solid #ccc;
 	margin-top: 2em;
 	padding: 0.25em 0;
 }
@@ -209,8 +192,6 @@ pre {
 	padding: 5px 0 0 0;
 	margin: 0 0;
 	font-weight: 300;
-}
-.teaser h3 {
 }
 
 section > p, .main > p {
@@ -283,19 +264,18 @@ li small {
 footer {
 	clear: both;
 	color: #666;
-	padding-bottom: 10px;
-	background-color: #EFEFEF;
 	border-top: 1px solid #CECECE;
-	padding: 30px 0;
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	padding-bottom: 50px;
 }
 footer p {
+	text-align: right;
 	margin: 0;
 	padding: 0;
 	font-size: small;
 }
 footer a {
 	text-decoration: none;
-	padding: 0 1em;
 }
 
 a.javadoc, a.source {
@@ -327,26 +307,130 @@ pre code.java a.javadoc, a.javadoc.method, pre code.java a.source {
 	color: inherit;
 }
 
-a.next {
-	display: block;
-	text-align: center;	
-	margin: 1em;
-	padding: 0.4em 2em;
-	font-weight: bold;
-	text-decoration: none;
-	font-family: 'Source Code Pro', sans-serif;
-	border-radius: 3px;
-	border: 1px solid LightSlateGray;
-	color: white  ;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-	background-color: CornflowerBlue;
-}
-a.next:hover {
+a.book, a.next, sequence a {
+	text-align: left !important;
+	text-indent: 0;
+	width: 100px;
+	height: 115px;
+	padding: 25px 5px 5px 10px;
 	color: white;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-	background-color: RoyalBlue;
-}
-section p a.next {
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 	display: inline-block;
-	margin-left: 50%;
+	text-decoration: none;
+	font-size: 120%;
+	font-weight: bold;
+	margin-right: 20px;
+	background-color: #888;
+	background: linear-gradient(45deg, #888 0%,#666 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #888 0%,#666 100%);
+	box-shadow: 4px 4px 3px #ddd;
+}
+a.book {
+	background-color: #2291a9;
+	background: linear-gradient(45deg, #2291a9 0%,#208493 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #2291a9 0%,#208493 100%);
+}
+a.book:HOVER, a.next, sequence a:HOVER {
+	background-color: #444 !important;	
+	background: linear-gradient(45deg, #444 0%,#222 100%) !important; /* W3C */
+	background: -webkit-linear-gradient(-45deg, #444 0%,#222 100%) !important;
+}
+a.book + a.book {
+	background-color: #80b23c;	
+	background: linear-gradient(45deg, #80b23c 0%,#78a839 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #80b23c 0%,#78a839 100%);
+}
+a.book + a.book + a.book {
+	background-color: #5f57ca;	
+	background: linear-gradient(45deg, #5f57ca 0%,#4f48a8 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #5f57ca 0%,#4f48a8 100%);
+}
+a.book + a.book + a.book + a.book {
+	background-color: #cc372b;	
+	background: linear-gradient(45deg, #cc372b 0%,#b33026 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #cc372b 0%,#b33026 100%);
+}
+a.book + a.book + a.book + a.book + a.book {
+	background-color: #ffc800;	
+	background: linear-gradient(45deg, #ffc800 0%,#d9aa00 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #ffc800 0%,#d9aa00 100%);
+}
+a.book > span, a.next > span, sequence > a > span {
+	position: absolute;
+	margin-top: 80px;
+	font-weight: normal;
+	font-size: 160%;
+}
+a.next {
+	clear: left;
+	color: MediumOrchid;
+	font-size: 100%;
+	letter-spacing: -1px;
+	float: right;
+	margin: 20px 15px;
+}
+a.next + a.next {
+	margin-right: 0;	
+}
+a.next span {
+	color:white;	
+}
+a.next:HOVER {
+	color: #e8b035;	
+}
+
+sequence {
+	clear: both;
+	display: block;
+}
+sequence a {
+	margin: 3px;
+	font-size: 100%;
+}
+
+tour {
+	counter-reset: tour; 
+	position: absolute;
+	top: 85px;
+	background-color:rgba(1,1,51,0.8);
+	color: white;
+	width: 150px;
+	min-height: 200px;
+	display: block;
+	padding: 15px;
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	font-weight: bold;
+	font-size: 110%;
+	line-height: 1.5em;
+	text-align: center;
+	box-shadow: 4px 4px 3px #ddd;
+}
+tour a {
+	display: block;
+	text-align: left;
+	text-decoration: none;
+	color: #e8b035;
+}
+tour em {
+	color: #e8b035;
+	font-style: italic;
+}
+tour a:HOVER {
+	color: white;
+}
+tour a:before {
+  counter-increment: tour;
+  content: counter(tour) ". ";
+  font-weight: normal;
+}
+brief {
+	display: block;
+	clear: both;
+	
+}
+brief h3 {
+	text-align: center;
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	background-color: #ddd;
+	padding: 3px 0;
 }
