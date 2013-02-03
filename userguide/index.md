@@ -5,7 +5,8 @@ title: User Guide
 
 # User Guide
 To get a good overview about Silk you should start reading the <a href="intro.html">introduction</a>.
-In case you know the _google guice_ DI framework a lot of the concepts should be quite familiar for you. You could directly start reading about the different <a href="binds.html">bindings</a>. 
+In case you know the _google guice_ DI framework a lot of the concepts should be quite familiar for you. 
+You could directly start reading about the different <a href="binds.html">bindings</a>. 
 Notice that Silk has a more advanced modularization concepts so you should have a look to the <a href="modularity.html">modularity page</a> as well. 
 
 ## Tour
@@ -27,7 +28,7 @@ Scopes in Silk are very flexible. Learn about the scopes existing and how custom
 <hr/>
 <a href="/userguide/services.html" class="book list c-docs"><span>5.</span> Services</a>
 Silk's service concept comes close to what is sometimes called _micro-services_. They allow to turn 
-a usual java method into a first class service object that use a general interface. This decouples
+a usual java method into a first class service object that uses a general interface. This decouples
 implementation and usage. In contrast to most equivalent approaches Silk's services do not require
 to explicitly wire them. Wiring is automatic and refactoring safe since method names and parameter 
 order are irrelevant. The wiring is determined from types.

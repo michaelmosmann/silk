@@ -71,4 +71,4 @@ For a user of Silk this means: You don't have to care at all about the structure
 
 ## Injection Strategies
 
- <a class='next' href="data.html">Continue with Data-Types...</a>
+ <a class='next' href="data.html"><span class="icon-chevron-right"></span>Data <br/>Types</a>

@@ -71,4 +71,4 @@ Thats it! We are done!
 While you need to use `Dependency` for the root instance of your application of cause no further `Dependency` has to be created manually further on. 
 All the dependencies will just be injected as you told Silk with the `Module`s and `Bundle`s. 
 
- <a class='next' href="intro.html">Continue with the Introduction...</a>
+ <a class='next' href="intro.html"><span class="icon-chevron-right"></span>Introduction</a>

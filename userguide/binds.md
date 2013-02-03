@@ -386,4 +386,4 @@ Through this it is possible to integrate _legacy_ code from a previously used fr
 smoothly bit by bit while new code can benefit from Silk directly. So a migration from Guice or Spring 
 does not require doing a lot of changes up-front. 
  
- <a class='next' href="scopes.html">Continue with Scopes...</a>
+ <a class='next' href="scopes.html"><span class="icon-chevron-right"></span>Scopes</a>

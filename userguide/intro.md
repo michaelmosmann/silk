@@ -14,14 +14,9 @@ title : Introduction
 	<tr><th>#<a href="#customise">Customization</a></th><td></td></tr>
 </table>
 
-The introduction will give you an overview about the concepts of the Silk framework deep enough to use it well. 
-Each concept is further described in detail on a separate page.
-Those can be read as a tour starting with <a href="binds.html">bindings</a> and finishing with Silk's <a href="data.html">data types</a>.
-All pages of the tour are linked to the next tour page at the bottom of the page. You can also use the above menu bar _User Guide_ to navigate through the tour. 
-I recommend to read about the details in the sequence given and skip the pages explaining concepts that are familiar to you. 
-
-This introduction will explain the general features and concepts. The details and more advanced features will be described later on.
-There are a lot of noteworthy characteristics - like Silks general immutability - that will not be mentioned here since this introduction 
+This introduction will explain the general features and concepts deep enough to use it well. 
+The details and more advanced features will be described later on.
+There are a lot of noteworthy characteristics - like Silks general immutability - that will not be discussed here since this introduction 
 tries to give you a good overview in the usage of Silk. With a deeper understanding you'll get into the implications of all it's characteristics bit by bit.    
 
 **Note!**
@@ -531,4 +526,4 @@ class AnnoationServiceStrategy implements ServiceStrategy {
 #### Note
 While the above examples show how to bring back annotations I highly recommend to just see this as a way to switch the framework an change smothly to an annotation free implementation.
 
-<a class='next' href="binds.html">Start the tour with Bindings...</a>
+<a class='next' href="binds.html"><span class="icon-chevron-right"></span>Bindings</a>

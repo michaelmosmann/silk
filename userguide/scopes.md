@@ -74,5 +74,5 @@ public interface Repository {
 {% endhighlight %}
 
 
- <a class='next' href="services.html">Continue with Services...</a>
+ <a class='next' href="services.html"><span class="icon-chevron-right"></span>Services</a>
  
