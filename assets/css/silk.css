@@ -326,49 +326,53 @@ a.book, a.next {
 	box-shadow: 4px 4px 3px #ddd;
 }
 a.book:HOVER, a.next {
+	color: #e8b035;
 	background-color: #444 !important;	
 	background: linear-gradient(45deg, #444 0%,#222 100%) !important; /* W3C */
 	background: -webkit-linear-gradient(-45deg, #444 0%,#222 100%) !important;
 }
 .c-docs {
-	border-color: #2291a9;
+	border-color: #6a88ac;
 }
 a.c-docs {
-	background-color: #2291a9;
-	background: linear-gradient(45deg, #2291a9 0%,#208493 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #2291a9 0%,#208493 100%);
+	background-color: #6a88ac;
+	background: linear-gradient(45deg, #6a88ac 0%,#5a7391 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #6a88ac 0%,#5a7391 100%);
+	color: #2c2b29;
 }
 .c-downloads {
-	border-color: #80b23c;	
+	border-color: #2d8a51;	
 }
 a.c-downloads {
-	background-color: #80b23c;	
-	background: linear-gradient(45deg, #80b23c 0%,#78a839 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #80b23c 0%,#78a839 100%);
+	background-color: #2d8a51;	
+	background: linear-gradient(45deg, #2d8a51 0%,#257042 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #2d8a51 0%,#257042 100%);
 }
 .c-javadocs {
-	border-color: #5f57ca;	
+	border-color: #644d7b;	
 }
 a.c-javadocs {
-	background-color: #5f57ca;	
-	background: linear-gradient(45deg, #5f57ca 0%,#4f48a8 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #5f57ca 0%,#4f48a8 100%);
+	color: #c9449d;
+	background-color: #644d7b;	
+	background: linear-gradient(45deg, #644d7b 0%,#534066 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #644d7b 0%,#534066 100%);
 }
 .c-help {
-	border-color: #cc372b;	
+	border-color: #b43639;	
 }
 a.c-help {
-	background-color: #cc372b;	
-	background: linear-gradient(45deg, #cc372b 0%,#b33026 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #cc372b 0%,#b33026 100%);
+	background-color: #b43639;	
+	background: linear-gradient(45deg, #b43639 0%,#992e30 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #b43639 0%,#992e30 100%);
 }
 .c-license {
-	border-color: #ffc800;
+	border-color: #ffe804;
 }
 a.c-license {
-	background-color: #ffc800;	
-	background: linear-gradient(45deg, #ffc800 0%,#d9aa00 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #ffc800 0%,#d9aa00 100%);
+	background-color: #ffe804;	
+	background: linear-gradient(45deg, #ffe804 0%,#e6d104 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #ffe804 0%,#e6d104 100%);
+	color: #80701c;
 }
 a.book > span, a.next > span {
 	position: absolute;
