@@ -402,11 +402,18 @@ a.list {
 	margin-right: 15px;
 	margin-bottom: 10px;
 	width: 70px;
-	height: 85px;
-	padding-top: 15px;
+	height: 88px;
+	padding-top: 10px;
 }
 a.list > span {
-	margin-top: 50px;
+	margin-top: 60px;
+}
+a.list > em {
+	display: block;
+	font-style: normal;
+	line-height: 1em;	
+	color: #E8B035;
+	font-weight: bold;
 }
 
 tour {
@@ -454,4 +461,9 @@ brief h3 {
 	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 	background-color: #ddd;
 	padding: 3px 0;
+}
+abstract {
+	margin: 0 10%;
+	display: block;
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 }
