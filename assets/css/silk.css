@@ -137,7 +137,7 @@ section h2 {
 section .main h2 {
 	margin-top: 1em;	
 }
-section .main h3 {
+.main h3 {
 	padding-top: 0.6em;
 	font-weight: normal;
 	color: #CC372B;
@@ -171,23 +171,16 @@ pre {
 }
 
 .teaser {
-	width: 50%;
-	display: inline-block;
-	float: right;
-	margin-right:-56%;
-	clear: both;
-	margin-bottom: 1em;
+	width: 300px;
+	margin-left: 600px;
+	top: 250px; 
+	display: block;
+	position: absolute;
 	font-family: 'Lato';
 	font-size: 90%;
 }
 .teaser a { 
 	text-decoration: none;	
-}
-.teaser + * {
-	width: 67%;
-	float: right;
-	margin-left: 2em;
-	overflow: hidden;	
 }
 
 .teaser p {
@@ -245,10 +238,6 @@ table.toc td {
 .teaser ul {
 	margin-left: 20px;
 	padding: 0px;
-}
-.teaser > div {
-	padding: 5px 1em 1px 1em;
-	margin-bottom: 1em;
 }
 
 .main {
@@ -324,6 +313,9 @@ a.book, a.next {
 	background: linear-gradient(45deg, #888 0%,#666 100%); /* W3C */
 	background: -webkit-linear-gradient(-45deg, #888 0%,#666 100%);
 	box-shadow: 4px 4px 3px #ddd;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;	
 }
 a.book:HOVER, a.next {
 	color: #e8b035;
@@ -458,13 +450,14 @@ tour a:before {
 brief {
 	display: block;
 	clear: both;
-	
 }
-brief h3 {
+brief > h3 {
 	text-align: center;
 	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
-	background-color: #ddd;
 	padding: 3px 0;
+	color: #80701c !important;
+	font-weight: bold;
+	font-size: 120%;
 }
 abstract {
 	margin: 0 10%;

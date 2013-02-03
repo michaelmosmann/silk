@@ -16,9 +16,6 @@ layout : teaser
 		</ul>
 	</brief>
 
-<a href="userguide/intro.html" class="next"><span class="icon-chevron-right"> </span> Read the introduction</a>
-<a class="next" href="userguide/snippets.html"><span class="icon-reorder"> </span> Show me some code</a>
-
 	<brief>
 	<h3>Less "Magic"</h3>
 	<p>Silk avoids techniques that are hard to understand, debug or maintain.</p>
@@ -73,6 +70,11 @@ layout : teaser
 	</brief>
 </div>
 
+With **Silk** your code is no longer cluttered by <s>`@annotations`</s> to guide the dependency injection. 
+Everything is described in external pure Java declarations provided through a fluent interface.
+
+<a class="next" href="userguide/snippets.html"><span class="icon-reorder"> </span> Show me some code</a>
+
 {% highlight java %}
 protected void bootstrap() {
 	install( Silk.class );
@@ -83,10 +85,8 @@ protected void declare() {
 {% endhighlight %}
 
 
-With **Silk** your code is no longer cluttered by <s>`@annotations`</s> to guide the dependency injection. 
-Everything is described in external pure Java declarations provided through a fluent interface.
-
 ##Highlights
+<a href="userguide/intro.html" class="next"><span class="icon-chevron-right"> </span> Read the introduction</a>
 
 ### Application code stays independent 
 Silk absolutely prevents your application code from getting dependent on the DI-framework and 
