@@ -1,5 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
 
 html,body {
 	margin: 0;
@@ -20,6 +19,8 @@ hr {
 	border-top: 1px solid #ddd;
 	margin: 4px 0;
 	padding: 0;
+	clear: both;
+	display: block;
 }
 .wrapper {
 	width: 900px;
@@ -123,8 +124,7 @@ h2,h3,h4,h5,h6 {
 	color: #222;
 }
 section h2 {
-	font-family: 'Open Sans Condensed', Helvetica, Arial, Tahoma, sans-serif;
-	text-transform: uppercase;
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 	font-weight: bold;
 	font-size: 1.4em;
 	line-height: 1em;	
@@ -138,7 +138,9 @@ section .main h2 {
 	margin-top: 1em;	
 }
 section .main h3 {
-	padding-top: 0.6em;	
+	padding-top: 0.6em;
+	font-weight: normal;
+	color: #CC372B;
 }
 
 h3 {
@@ -189,6 +191,7 @@ pre {
 }
 
 .teaser p {
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 	padding: 5px 0 0 0;
 	margin: 0 0;
 	font-weight: 300;
@@ -220,7 +223,6 @@ table.toc {
 	border-collapse: collapse;
 }
 table.toc th {
-	border-right: 1px solid CornflowerBlue;
 	text-align: right;
 	padding-right: 1em;
 	width: 50%;
@@ -228,11 +230,8 @@ table.toc th {
 table.toc th, table.toc td {
 	padding-top: 0.2em;
 }
-table.toc tr:FIRST-CHILD th {
-	border-top: 1px solid CornflowerBlue;
-}
 table.toc th:FIRST-LETTER {
-	color: CornflowerBlue;
+	color: #ccc;
 }
 table.toc th a {
 	color: blue;
@@ -255,6 +254,7 @@ table.toc td {
 .main {
 	margin-right: 34%;
 	padding-right: 2%;
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;	
 }
 
 li small {
@@ -307,7 +307,7 @@ pre code.java a.javadoc, a.javadoc.method, pre code.java a.source {
 	color: inherit;
 }
 
-a.book, a.next, sequence a {
+a.book, a.next {
 	text-align: left !important;
 	text-indent: 0;
 	width: 100px;
@@ -325,37 +325,52 @@ a.book, a.next, sequence a {
 	background: -webkit-linear-gradient(-45deg, #888 0%,#666 100%);
 	box-shadow: 4px 4px 3px #ddd;
 }
-a.book {
-	background-color: #2291a9;
-	background: linear-gradient(45deg, #2291a9 0%,#208493 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #2291a9 0%,#208493 100%);
-}
-a.book:HOVER, a.next, sequence a:HOVER {
+a.book:HOVER, a.next {
 	background-color: #444 !important;	
 	background: linear-gradient(45deg, #444 0%,#222 100%) !important; /* W3C */
 	background: -webkit-linear-gradient(-45deg, #444 0%,#222 100%) !important;
 }
-a.book + a.book {
+.c-docs {
+	border-color: #2291a9;
+}
+a.c-docs {
+	background-color: #2291a9;
+	background: linear-gradient(45deg, #2291a9 0%,#208493 100%); /* W3C */
+	background: -webkit-linear-gradient(-45deg, #2291a9 0%,#208493 100%);
+}
+.c-downloads {
+	border-color: #80b23c;	
+}
+a.c-downloads {
 	background-color: #80b23c;	
 	background: linear-gradient(45deg, #80b23c 0%,#78a839 100%); /* W3C */
 	background: -webkit-linear-gradient(-45deg, #80b23c 0%,#78a839 100%);
 }
-a.book + a.book + a.book {
+.c-javadocs {
+	border-color: #5f57ca;	
+}
+a.c-javadocs {
 	background-color: #5f57ca;	
 	background: linear-gradient(45deg, #5f57ca 0%,#4f48a8 100%); /* W3C */
 	background: -webkit-linear-gradient(-45deg, #5f57ca 0%,#4f48a8 100%);
 }
-a.book + a.book + a.book + a.book {
+.c-help {
+	border-color: #cc372b;	
+}
+a.c-help {
 	background-color: #cc372b;	
 	background: linear-gradient(45deg, #cc372b 0%,#b33026 100%); /* W3C */
 	background: -webkit-linear-gradient(-45deg, #cc372b 0%,#b33026 100%);
 }
-a.book + a.book + a.book + a.book + a.book {
+.c-license {
+	border-color: #ffc800;
+}
+a.c-license {
 	background-color: #ffc800;	
 	background: linear-gradient(45deg, #ffc800 0%,#d9aa00 100%); /* W3C */
 	background: -webkit-linear-gradient(-45deg, #ffc800 0%,#d9aa00 100%);
 }
-a.book > span, a.next > span, sequence > a > span {
+a.book > span, a.next > span {
 	position: absolute;
 	margin-top: 80px;
 	font-weight: normal;
@@ -379,21 +394,27 @@ a.next:HOVER {
 	color: #e8b035;	
 }
 
-sequence {
-	clear: both;
-	display: block;
+a.list {
+	float: left;
+	font-size: 80%;
+	clear: left;
+	margin: 0;
+	margin-right: 15px;
+	margin-bottom: 10px;
+	width: 70px;
+	height: 85px;
+	padding-top: 15px;
 }
-sequence a {
-	margin: 3px;
-	font-size: 100%;
+a.list > span {
+	margin-top: 50px;
 }
 
 tour {
 	counter-reset: tour; 
 	position: absolute;
 	top: 85px;
-	background-color:rgba(1,1,51,0.8);
-	color: white;
+	/* background-color:rgba(1,1,51,0.8); */
+	color: #666;
 	width: 150px;
 	min-height: 200px;
 	display: block;
@@ -403,20 +424,20 @@ tour {
 	font-size: 110%;
 	line-height: 1.5em;
 	text-align: center;
-	box-shadow: 4px 4px 3px #ddd;
+	border-right: 5px solid white;
 }
 tour a {
 	display: block;
 	text-align: left;
 	text-decoration: none;
-	color: #e8b035;
+	color: black;
 }
 tour em {
 	color: #e8b035;
 	font-style: italic;
 }
 tour a:HOVER {
-	color: white;
+	color: #e8b035;
 }
 tour a:before {
   counter-increment: tour;

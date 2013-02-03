@@ -5,6 +5,10 @@ title: Downloads
 
 # Downloads
 
+## <i class="icon-tag"></i> Upcoming Release
+
+Soon there will be release of version <i>0.4</i> including several fixes and the new `Inspector` API.
+
 ## <i class="icon-tag"></i> Current Release
 
 The latest release of Silk is version <i>0.3</i>, released on 3rd December 2012.
