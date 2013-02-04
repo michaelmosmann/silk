@@ -18,7 +18,7 @@ hr {
 	height: 0;
 	border-width: 0;
 	border-top: 1px solid #ddd;
-	margin: 4px 0;
+	margin: 1em 0;
 	padding: 0;
 	clear: both;
 	display: block;
@@ -478,10 +478,12 @@ abstract {
 }
 .bullet:BEFORE {
 	content: "* ";
+	font-family: FontAwesome;
+	font-weight: bold;
 }
 b.bullet {
 	width: auto;
-	margin-left: 215px;	
+	margin-left: 215px;
 }
 b.bullet:BEFORE {
 	display: none;
