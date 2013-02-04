@@ -1,77 +1,14 @@
 ---
-layout : teaser
+layout : default
 ---
 <tour>
 &nbsp;<br/>Silk DI<br/><em>a lightweight</em> <br/>Java<br/><em>Dependency Injection</em></br> tool
 </tour>
 
-<div class="teaser">
-	<brief>
-		<h3>100% Independence</h3></th>
-		<p>Silk allows DI without making your application depend on the DI framework!</p>
-		<ul>
-		<li>Configuration by pure Java code</li>
-		<li>Separated from your application code</li>
-		<li>No further runtime dependencies</li>
-		</ul>
-	</brief>
-
-	<brief>
-	<h3>Less "Magic"</h3>
-	<p>Silk avoids techniques that are hard to understand, debug or maintain.</p>
-	<ul>
-	<li><b>No</b> XML</li>
-	<li><b>No</b> AOP</li>
-	<li><b>No</b> proxy magic</li>
-	<li><b>No</b> annotations</li>
-	<li><b>No</b> overrides</li>
-	<li><b>No</b> dependency cycles</li>
-	<li><b>No</b> accessible mutable state</li>
-	<li><b>No</b> code generation</li>
-	</ul>
-	</brief>
-	
-	<brief>
-	<h3>if-less Modularity</h3>
-	<p>Silk provides few concepts to customize your application in a predictable and maintainable way.</p>
-	<ul>
-	<li>Sequence of declarations is irrelevant</li> 
-	<li>Each part can be considered in isolation</li>
-	<li>Simple predictable configuration concepts</li>
-	<li>It is easy to remove what you don't like</li>
-	</ul>
-	</brief>
-
-	<brief>
-	<h3>Robust</h3>
-	<p>Silk is designed in a way that allows to forget about it during development without breaking your application.</p>
-	<ul>
-	<li><b>No</b> importance to sequence of definition</li>
-	<li><b>No</b> string matching!</li>
-	<li>Largely Type-safe</li>
-	<li>Excellent Unit-testability </li>
-	<li>Pushes for immutability</li>
-	<li><a href="userguide/data.html">Data driven</a> with Value Objects</li>
-	<li>A configuration never changes at runtime</li>
-	</ul>
-	</brief>
-
-	<brief>
-	<h3>Further Features</h3>
-	<ul>
-	<li><a href="userguide/binds.html">Declarative dependency/injection descriptions</a> <a href="userguide/binds.html#binder">(fluent interface)</a></li>
-	<li><a href="userguide/binds.html#multi">Multi-binds</a></li>
-	<li>Generic support</li>
-	<li>Easy to utilise or extend</li>
-	<li>Fast bootstrap</li>
-	<li>Lightweight: less than 120 KB jar archive</li>
-	<li>Safe renaming (e.g. classes or instance names)</li>
-	</ul>
-	</brief>
-</div>
-
+<abstract>
 With **Silk** your code is no longer cluttered by <s>`@annotations`</s> to guide the dependency injection. 
 Everything is described in external pure Java declarations provided through a fluent interface.
+</abstract>
 
 <a class="next" href="userguide/snippets.html"><span class="icon-reorder"> </span> Show me some code</a>
 
@@ -84,37 +21,76 @@ protected void declare() {
 }
 {% endhighlight %}
 
+----
 
-##Highlights
-<a href="userguide/intro.html" class="next"><span class="icon-chevron-right"> </span> Read the introduction</a>
+<div>
+<a href="highlights.html" class="icon"><span class="icon-lightbulb"></span>Highlights</a>
+<span class="bullet">Lightweight</span>
+<span class="bullet">Pure Java</span>
+<span class="bullet">Application code stays independent</span>
+<span class="bullet">Says NO to magic and pain</span>
+<span class="bullet">Sequence of declaration is irrelevant</span>
+<span class="bullet">No dependency cycles by concept</span>
+<span class="bullet">Injectrons</span>
+<span class="bullet">Cross-functional programming</span>
+</div>
 
-### Application code stays independent 
-Silk absolutely prevents your application code from getting dependent on the DI-framework and 
-vigorously encourages the use of constructor injection so that your code works just as well autonomously. 
-As a result an application design is driven that can be tested nicely selfcontained by unit tests without the complexity of a DI framework.
+----
+<b class="bullet">Silk allows DI without making your application depend on the DI framework!</b>
+<div>
+<a class="icon"><span class="icon-plus"></span>100% Independent</a>
+<span class="bullet">Configuration by pure Java code</span>
+<span class="bullet">Separated from your application code</span>
+<span class="bullet">No further runtime dependencies</span>
+</div>
 
-### Pure Java
-Silks is a small flexible core that is easy to utilise and extend. 
-It helps to decouple your application with elegance by providing a well-considered handful of 
-techniques to modularise and configure your programs without conditional declarations with solely pure Java code. 
+----
+<b class="bullet">Silk avoids techniques that are hard to understand, debug or maintain.</b>
+<div>
+<a class="icon"><span class="icon-ban-circle"></span>Less "Magic"</a>
+<span class="bullet"> <b>No</b> XML</span>
+<span class="bullet"> <b>No</b> AOP</span>
+<span class="bullet"> <b>No</b> proxy magic</span>
+<span class="bullet"> <b>No</b> annotations</span>
+<span class="bullet"> <b>No</b> overrides</span>
+<span class="bullet"> <b>No</b> dependency cycles</span>
+<span class="bullet"> <b>No</b> accessible mutable state</span>
+<span class="bullet"> <b>No</b> code generation</span>
+</div>
 
-### Sequence of declaration is irrelevant
-Together with Silk's immutability the absence of conditions brings a functional nature to Silk wherein the sequence of declarations becomes irrelevant!
- This is a huge simplification when considering the composition of an application. 
+----
+<b class="bullet">Silk provides few concepts to customize your application in a predictable and maintainable way.</b>
+<div>
+<a class="icon"><span class="icon-sitemap"></span>if-less Modularity</a>
+<span class="bullet">Sequence of declarations is irrelevant</span> 
+<span class="bullet">Each part can be considered in isolation</span>
+<span class="bullet">Simple predictable configuration concepts</span>
+<span class="bullet">It is easy to remove what you don't like</span>
+</div>
 
-### Says NO to magic and pain
-Most of all Silk aims to allow easy long term development that comes with no surprises so it vehemently avoids any kind of _\*magic\*_ and guides you with helpful error messages.
-Above all it allows to consider small components separately whereby even large, highly configurable systems become manageable without pain. 
+----
+<b class="bullet">Silk is designed in a way that allows to forget about it during development without breaking your application.</b>
+<div>
+<a class="icon"><span class="icon-umbrella"></span>Robust</a>
+<span class="bullet"><b>No</b> importance to sequence of definition</span>
+<span class="bullet"><b>No</b> string matching!</span>
+<span class="bullet">Largely Type-safe</span>
+<span class="bullet">Excellent Unit-testability </span>
+<span class="bullet">Pushes for immutability</span>
+<span class="bullet"><a href="userguide/data.html">Data driven</a> with Value Objects</span>
+<span class="bullet">A configuration never changes at runtime</span>
+</div>
 
-### Lightweight
-The absence of any further runtime dependencies and its slim footprint of less than 120K makes Silk a fine 
-choice for small projects although at heart Silk is especially designed to scale in the large.
-
-### No dependency cycles by concept + cross-functional programming
-Through its revolutionary <a href="userguide/services.html">service</a> concept Silk decouples the application and prevents dependency cycles by concept. 
-Further it allows to tackle cross-functional concerns with pure Java what avoids the complexity of conventional meta programming approaches.
-
-### Injectrons
-Silk invented the `Injectron`, a _first class_ access object abstraction of a _singleton's_ `Resource` within an `Injector` context. 
-This implies they can be injected like the _resources_ themselves what allows to pre-resolve dependencies within extensions (on top of the core) like the service concept.  
-
+----
+<div>
+<a class="icon"><span class="icon-gift"></span>Further Features</a>
+<span class="bullet"><a href="userguide/binds.html">Declarative</a> <a href="userguide/binds.html#binder">(fluent interface)</a></span>
+<span class="bullet"><a href="userguide/binds.html#multi">Multi-binds</a></span>
+<span class="bullet">Generic support</span>
+<span class="bullet">Easy to utilise or extend</span>
+<span class="bullet">Fast bootstrap</span>
+<span class="bullet">Lightweight: less than 120 KB jar archive</span>
+<span class="bullet">Safe renaming (e.g. class or instance names)</span>
+</div>
+<br/>
+<br/>

@@ -12,6 +12,7 @@ body {
 	font-size: 11pt;
 	line-height: 1.45em;
 	word-spacing: 0.17em;
+	padding-bottom: 20px;
 }
 hr {
 	height: 0;
@@ -308,7 +309,7 @@ a.book, a.next {
 	text-decoration: none;
 	font-size: 120%;
 	font-weight: bold;
-	margin-right: 20px;
+	margin-right: 15px;
 	background-color: #888;
 	background: linear-gradient(45deg, #888 0%,#666 100%); /* W3C */
 	background: -webkit-linear-gradient(-45deg, #888 0%,#666 100%);
@@ -447,20 +448,41 @@ tour a:before {
   content: counter(tour) ". ";
   font-weight: normal;
 }
-brief {
-	display: block;
-	clear: both;
-}
-brief > h3 {
-	text-align: center;
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
-	padding: 3px 0;
-	color: #80701c !important;
-	font-weight: bold;
-	font-size: 120%;
-}
 abstract {
-	margin: 0 10%;
+	margin: 15px 10% 3em 10%;
 	display: block;
 	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	text-indent: 0;
+	text-align: center;
+}
+.icon, .icon:VISITED {
+	text-decoration: none;
+	vertical-align: top;
+	font-weight: bold;
+	float: left;
+	margin-right: 1em;
+	margin-bottom: 5px;
+	min-width: 200px;
+	color: black;
+}
+.icon span[class^="icon-"], .icon span[class*=" icon-"]:BEFORE {
+	font-size: 60px;
+	font-weight: normal;
+	margin-right: 20px;
+}
+.bullet {
+	width: 320px;
+	display: inline-block;
+	text-align: left;
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+}
+.bullet:BEFORE {
+	content: "* ";
+}
+b.bullet {
+	width: auto;
+	margin-left: 215px;	
+}
+b.bullet:BEFORE {
+	display: none;
 }
