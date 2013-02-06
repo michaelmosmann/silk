@@ -64,13 +64,13 @@ protected void declare() {
 - Each part can be considered in isolation
 - Simple predictable configuration concepts
 - It is easy to <a href="userguide/modularity.html#uninstall">remove</a> what you don't like
-
+- Fast bootstrap
 
 <b class="bullet">Silk is designed for easy development where refactoring does not break an application.</b>
 <div class="icon"><span class="icon-umbrella"></span>Robust</div>
 
 - <b>No</b> importance to sequence of definition
-- <b>No</b> string matching!
+- Safe renaming
 - Largely Type-safe
 - Excellent Unit-testability 
 - Pushes for immutability
@@ -84,8 +84,8 @@ protected void declare() {
 - <a href="userguide/binds.html#multi">Multi-binds</a></span>
 - Generic support
 - Easy to utilise or extend
-- Fast bootstrap
-- Lightweight: less than 120 KB jar archive
-- Safe renaming
+- <a href="userguide/scopes.html">Scopes</a>
+- <a href="userguide/services.html">Services</a>
+- Custom Inspection
 <br/>
 <br/>
