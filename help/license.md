@@ -5,7 +5,7 @@ title: License
 
 # Project License
 
-Silk is released under the Apache License 2.0 that is shown below. 
+Silk is open source software released under the Apache License 2.0 that is shown below.
 
 <pre>
 

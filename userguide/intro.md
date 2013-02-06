@@ -4,6 +4,13 @@ title : Introduction
 ---
 # Introduction
 
+<abstract>
+This introduction will explain the general features and concepts deep enough to use it well. 
+The details and more advanced features will be described later on.
+There are a lot of noteworthy characteristics - like Silks general immutability - that will not be discussed here since this introduction 
+tries to give you a good overview in the usage of Silk. With a deeper understanding you'll get into the implications of all it's characteristics bit by bit.    
+</abstract>
+
 <table class='toc'>
 	<tr><th>#<a href="#binds">Bindings</a></th><td></td></tr>
 	<tr><th>#<a href="#inject">Injection</a></th><td></td></tr>
@@ -14,10 +21,6 @@ title : Introduction
 	<tr><th>#<a href="#customise">Customization</a></th><td></td></tr>
 </table>
 
-This introduction will explain the general features and concepts deep enough to use it well. 
-The details and more advanced features will be described later on.
-There are a lot of noteworthy characteristics - like Silks general immutability - that will not be discussed here since this introduction 
-tries to give you a good overview in the usage of Silk. With a deeper understanding you'll get into the implications of all it's characteristics bit by bit.    
 
 **Note!**
 The examples given will make use of the `BinderModule` and `BootstrapperBundle` base classes for `Module`s and `Bundle`s. 

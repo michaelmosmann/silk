@@ -5,8 +5,10 @@ categories : [general]
 ---
 # About
 
-## The Silk Framework
-The name Silk is chosen because this lines are elegant, lightweight, thin and transparent but still reliable and robust. So silk as a material matches what we are looking for when connecting software components like we do with DI.
+<abstract>
+The name _Silk_ is chosen because its strings are elegant, lightweight, thin and transparent but still reliable and robust. 
+So silk as a material matches what we are looking for when connecting software components like we do with DI.
+</abstract>
 
 ## The Author  
 It is a one man show. I coded all the Java and did the website, logo and everything else connected to the project during my spare time in the last couple of month.

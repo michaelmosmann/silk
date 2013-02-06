@@ -5,12 +5,14 @@ title: Installation
 
 # Installation
 
+<abstract>
+Since there are no further dependencies the installation of Silk is really simple.
+</abstract>
+
 <table class='toc'>
 	<tr><th>#<a href="#get">Get It</a></th><td>How to integrate the library in a build</td></tr>
 	<tr><th>#<a href="#use">Use It</a></th><td>How to include the library in a project</td></tr>
 </table>
-
-Since there are no further dependencies the installation of Silk is really simple.
 
 ## <a id="get"></a>Get It
 ### Manually (Download)
