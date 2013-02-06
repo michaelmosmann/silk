@@ -37,15 +37,15 @@ protected void declare() {
 ----
 
 <b class="bullet">Silk allows DI without making your application depend on the DI framework!</b>
-<div class="icon"><span class="icon-resize-full"></span>100%<br/>Independent</div>
+<div class="icon"><span class="icon-cog"></span>100%<br/>Independent</div>
 
-- Configuration by pure Java code
+- Configuration by **pure Java** code
 - Separated from your application code
 - No further runtime dependencies
-
+- **No annotations** in your code
 
 <b class="bullet">Silk avoids techniques that are hard to understand, debug or maintain.</b>
-<div class="icon"><span class="icon-ban-circle"></span>Less "Magic"</div>
+<div class="icon"><span class="icon-magic"></span><span class="icon-ban-circle" style="font-size:50px; padding:5px; color: #b43639;"></span>No "Magic"</div>
 
 -  <b>No</b> XML
 -  <b>No</b> AOP
@@ -58,12 +58,12 @@ protected void declare() {
 
 
 <b class="bullet">Silk provides few concepts to configure an app in a predictable and maintainable way.</b>
-<div class="icon"><span class="icon-sitemap"></span>if-less<br/>Modularity</div>
+<div class="icon"><span class="icon-th-large"></span>if-less<br/><a href="userguide/modularity.html">Modularity</a></div>
 
 - Sequence of declarations is irrelevant 
 - Each part can be considered in isolation
 - Simple predictable configuration concepts
-- It is easy to remove what you don't like
+- It is easy to <a href="userguide/modularity.html#uninstall">remove</a> what you don't like
 
 
 <b class="bullet">Silk is designed for easy development where refactoring does not break an application.</b>
@@ -78,9 +78,9 @@ protected void declare() {
 - A configuration never changes at runtime
 
 
-<div class="icon"><span class="icon-gift"></span>Further<br/>Features</div>
+<div class="icon"><span class="icon-gift"></span>Feature-Rich</div>
 
-- <a href="userguide/binds.html">Declarative</a> <a href="userguide/binds.html#binder">(fluent interface)</a></span>
+- <a href="userguide/binds.html">Declarative</a>, <a href="userguide/binds.html#binder">fluent interface</a></span>
 - <a href="userguide/binds.html#multi">Multi-binds</a></span>
 - Generic support
 - Easy to utilise or extend

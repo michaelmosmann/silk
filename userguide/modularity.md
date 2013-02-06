@@ -26,7 +26,7 @@ protected void bootstrap() {
 All `Bundle`-trees need a single root node that is the entrance point for the `Bootstrapper` when visiting 
 the tree structure. 
 
-### Uninstalling Bundles and Modules
+### <a id="uninstall"></a> Uninstalling Bundles and Modules
 Overrides are hard to understand and maintain. Therefore there are no overrides at all. 
 You cannot override bindings, bundles or modules because this soon or later ends up in a mess.
 
