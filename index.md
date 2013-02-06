@@ -78,6 +78,7 @@ protected void declare() {
 - A configuration never changes at runtime
 
 
+<b class="bullet">Silk has all the features that often require additional libs in other frameworks.</b>
 <div class="icon"><span class="icon-gift"></span>Feature-Rich</div>
 
 - <a href="userguide/binds.html">Declarative</a>, <a href="userguide/binds.html#binder">fluent interface</a></span>

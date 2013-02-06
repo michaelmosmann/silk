@@ -467,6 +467,7 @@ font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 	font-style: italic;
 	font-size: 110%;
 	color: #555;
+	padding-top: 1em;
 }
 .doc {
 	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
