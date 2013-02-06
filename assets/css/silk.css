@@ -483,16 +483,19 @@ abstract {
 	width: 630px;
 	margin: 0;
 	padding: 0;
+	margin-bottom: 1em;
 }
 .icon + ul li {
 	width: 310px;
 	display: inline-block;
+font-family: "Times Modern", Georgia, 'Times New Roman', serif;	
 }
 .icon + ul li:BEFORE {
-	content: "\f00c";
+	content: "";
 	font-weight: bold;
 	font-family: FontAwesome;
 	margin-right: 5px;
+	color: #e8b035;
 }
 .bullet {
 	display: block;
