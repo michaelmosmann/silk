@@ -50,3 +50,4 @@ becomes a nearly functional behaviour. The state manages by scopes is the only e
 
 <hr/>
 <a class="next list" href="snippets.html"><span class="icon-reorder"></span> Show me some code...</a>
+Some prefer to just see some code. Here you go...

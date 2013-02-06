@@ -135,14 +135,6 @@ section h2 {
 	margin-top: 2em;
 	padding: 0.25em 0;
 }
-section .main h2 {
-	margin-top: 1em;	
-}
-.main h3 {
-	padding-top: 0.6em;
-	font-weight: normal;
-	color: #CC372B;
-}
 
 h3 {
 	font-size: 1.15em;
@@ -171,31 +163,12 @@ pre {
 	display: block; 
 }
 
-.teaser {
-	width: 300px;
-	margin-left: 600px;
-	top: 250px; 
-	display: block;
-	position: absolute;
-	font-family: 'Lato';
-	font-size: 90%;
-}
-.teaser a { 
-	text-decoration: none;	
-}
 
-.teaser p {
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
-	padding: 5px 0 0 0;
-	margin: 0 0;
-	font-weight: 300;
-}
-
-section > p, .main > p {
+section > p {
 	text-align: justify;
 }
 
-section > p + p, .main > p + p {
+section > p + p {
 	text-indent: 1em;
 }
 
@@ -234,17 +207,6 @@ table.toc th a {
 }
 table.toc td {
 	padding-left: 1em;	
-}
-
-.teaser ul {
-	margin-left: 20px;
-	padding: 0px;
-}
-
-.main {
-	margin-right: 34%;
-	padding-right: 2%;
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;	
 }
 
 li small {
@@ -505,4 +467,7 @@ font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 	font-style: italic;
 	font-size: 110%;
 	color: #555;
+}
+.doc {
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 }

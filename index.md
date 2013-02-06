@@ -49,7 +49,7 @@ protected void declare() {
 
 -  <b>No</b> XML
 -  <b>No</b> AOP
--  <b>No</b> proxy magic
+-  <b>No</b> proxies
 -  <b>No</b> annotations
 -  <b>No</b> overrides
 -  <b>No</b> dependency cycles
