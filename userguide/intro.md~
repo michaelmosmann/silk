@@ -43,7 +43,7 @@ bind( Interger.class ).to( 42 ); // a constant
 bind( Number.class ).to( Float.class ); // as a link to a sub-type that is bound itself to something
 Constructor<MyClass> constructor = //... from whatever
 bind( MyClass.class).to( constructor );
-bind( MyOtherClass.class).toConstructor(); // that is chosen by Silk's Inspector
+bind( MyOtherClass.class).toConstructor(); // that is chosen by Silk
 {% endhighlight %}
 The majority of bindings should make use of _linked_ bindings and the `toConstructor()` method so that you benefit from all of Silk's features.
 Therefore you can describe in more detail what instances you want to be passed to a constructor by adding `Parameter`s to the `toConstructor` method:

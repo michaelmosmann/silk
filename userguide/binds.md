@@ -367,23 +367,23 @@ when using the fluent binder interface.
 The `Inspector` interface is the abstraction for such a tool. It allows to use custom strategies that 
 _derive_ the constructor to use or the methods that act as _factory methods_ (like guice's `@Provides` annotation).
 
-The `Inspected` `Inspector` that comes with Silk offers different common ways to select 
+The `Inspect` `Inspector` that comes with Silk offers different common ways to select 
 `Constructor`s or `Method`s that can be combined using a own fluent interface. In general inspection
  binds have the form
  
-    bind(Inspector).in(Class)
+    bind(Inspector).in(Class...)
    
 where `Class` can be one or more implementation classes.
 
 {% highlight java %}
 protected void declare() {
-	//TODO
+	bind( all().methods().annotatedWith( Factory.class ).in( Implementor.class );
 }
 {% endhighlight %}
 See `TestInspectorBinds` for more examples.
 
 Through this it is possible to integrate _legacy_ code from a previously used framework changing it
 smoothly bit by bit while new code can benefit from Silk directly. So a migration from Guice or Spring 
-does not require doing a lot of changes up-front. 
+does not require doing all changes up-front. 
  
  <a class='next' href="scopes.html"><span class="icon-chevron-right"></span>Scopes</a>
