@@ -23,18 +23,18 @@ Since there are no further dependencies the installation of Silk is really simpl
  	<dependency>
 		<groupId>se.jbee</groupId>
 		<artifactId>silk-di</artifactId>
-		<version>0.3</version>
+		<version>0.4</version>
 	</dependency>
 {% endhighlight %}
 
 ### Ivy
 {% highlight xml %}
-	<dependency org="se.jbee" name="silk-di" rev="0.3"/>
+	<dependency org="se.jbee" name="silk-di" rev="0.4"/>
 {% endhighlight %}
 
 ### Gradle
 {% highlight java %}
-	'se.jbee:silk-di:0.3'
+	'se.jbee:silk-di:0.4'
 {% endhighlight %}
 
 

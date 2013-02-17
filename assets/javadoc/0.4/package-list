@@ -1,0 +1,6 @@
+se.jbee.inject
+se.jbee.inject.bind
+se.jbee.inject.bootstrap
+se.jbee.inject.config
+se.jbee.inject.service
+se.jbee.inject.util

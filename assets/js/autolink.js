@@ -4,6 +4,7 @@ var constantURLs = [];
 var githubRootURL = "https://github.com/jbee/silk/tree/master/";
 var ambigous = "-AMBIGIOUS-";
 var java = "_java_";
+var javadocRootURL = "/assets/javadoc/0.4/";
 
 function wrapCode() {
 	var name = $(this).text();
@@ -27,10 +28,10 @@ function wrapCode() {
 }
   
 $(document).ready(function() {
-		$.getJSON('/assets/javadoc/types.json', function(data) {
+		$.getJSON(javadocRootURL+'types.json', function(data) {
 			$.each(data['types'], function(index, value) { 
 			if (value != null) {
-					typeURLs[java+value.name]={type: value.kind,url: "/assets/javadoc/"+value['package'].replace(/\./g, '/')+"/"+value.fullName+".html"};
+					typeURLs[java+value.name]={type: value.kind,url: javadocRootURL+value['package'].replace(/\./g, '/')+"/"+value.fullName+".html"};
 			}
 			});
 			var methodNames = [];
