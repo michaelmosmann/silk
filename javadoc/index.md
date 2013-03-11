@@ -6,6 +6,7 @@ title : Javadoc
   Javadoc
   <a href="/assets/javadoc/0.4/">v0.4 Overview</a>
   <a href="/assets/javadoc/0.3/">v0.3 Overview</a>
+  <br/>
   See Also
   <a href="https://github.com/jbee/silk">Sources</a>
   <a href="https://github.com/jbee/silk/issues">Issues</a>
@@ -22,6 +23,6 @@ Silk communicates through types making concepts explicit. Therefore it is often 
 <a href="/assets/javadoc/0.4/" class="icon-coffee"> v0.4 Javadoc Overview</a><br/>
 <a href="/assets/javadoc/0.3/" class="icon-coffee"> v0.3 Javadoc Overview</a>
 
-## See Also
+## <i class="icon-asterisk"></i> See Also
 <a href="https://github.com/jbee/silk" class="book"><span class="icon-github"></span><code>Sources</code></a>
 <a href="https://github.com/jbee/silk/issues" class="book"><span class="icon-github"></span>Issues</a>

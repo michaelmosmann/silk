@@ -21,6 +21,10 @@ protected void declare() {
 }
 {% endhighlight %}
 
+<div style="font-size: 20px; text-align: center;" >
+<span class="icon-signal"></span> <a href="help/comparison.html">Compare</a> Silk to other DI frameworks
+</div>
+
 ----
 
 <div class="icon"><span class="icon-lightbulb"></span><a href="highlights.html">Highlights</a></div>

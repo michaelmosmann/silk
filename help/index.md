@@ -7,6 +7,7 @@ Help
 <a href="license.html">License</a>
 <a href="about.html">About</a>
 <a href="motivation.html">Motivation</a>
+<a href="comparison.html">Comparision</a>
 </tour>
 # Help
 
