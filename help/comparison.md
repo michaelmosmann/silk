@@ -8,10 +8,31 @@ title : Motivation
 In the below tables the features of 4 different frameworks are compared with each other. The features are judged by their influence of the application and development process as seen by the author of Silk. A good influence is indicated green, a fair one yellow and a bad one red. Neutral information is kept gray.
 </abstract>
 
-## Concept
+## Library
 <table class="compare">
 <tr>
 	<th>Feature</th><th><a href="http://www.springsource.org/">Spring</a></th><th><a href="http://code.google.com/p/google-guice/">Guice</a></th><th><a href="http://picocontainer.com/">pico-container</a></th><th>Silk</th>
+</tr>
+<tr>
+	<th>Size</th> 
+	<td class="bad">too big</td>	
+	<td class="fair">&gt; 650KB <i>+ plug-ins</i></td>
+	<td class="good">&gt; 300KB <i>+ gems</i></td>
+	<td class="good">160KB</td>
+</tr>
+<tr>
+	<th>Further dependencies</th> 
+	<td class="bad">too many</td>	
+	<td class="fair">few</td>
+	<td class="fair">few</td>
+	<td class="good"><b>none</b></td>
+</tr>
+</table>
+
+## Concept
+<table class="compare">
+<tr>
+	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
 </tr>
 <tr>
 	<th>Container model</th> 
@@ -42,7 +63,7 @@ In the below tables the features of 4 different frameworks are compared with eac
 	<td class="good"><b>yes</b> <i>pure fluent interface</i></td>
 </tr>
 <tr>
-	<th><i>"External"</i> code handling</th>
+	<th>"External" code handling</th>
 	<td class="fair">limited <i>(name/type wiring only)</i></td>	
 	<td class="fair">indirect <i>requires <tt>Provider</tt></i></td>
 	<td class="fair">limited <i>(not all features)</i></td>
@@ -106,14 +127,14 @@ In the below tables the features of 4 different frameworks are compared with eac
 	<td class="good"><b>idiomatic</b> <i>fluent interface</i><i>many options<i></td>
 </tr>
 <tr>
-	<th>Field injection<i>(considered harmful)</i></th>
+	<th>Field injection<i class="harmful">(considered harmful)</i></th>
 	<td class="fair">yes <i>annotations</i></td>	
 	<td class="fair"><b>idiomatic</b> <i>annotations</i></td>
 	<td class="fair">yes <i>named or annotations</i></td>
 	<td class="good"><b>no</b></td>
 </tr>
 <tr>
-	<th>Setter injection<i>(considered harmful)</i></th>
+	<th>Setter injection<i class="harmful">(considered harmful)</i></th>
 	<td class="fair"><b>idiomatic</b><i>named, annotations or XML</i></td>	
 	<td class="fair">yes <i>annotations</i></td>
 	<td class="fair">yes <i>name or type</i></td>
@@ -121,13 +142,13 @@ In the below tables the features of 4 different frameworks are compared with eac
 </tr>
 <tr>
 	<th>Factory methods</th>
-	<td class="fair">yes <i>named XML, annotations<i></td>	
-	<td class="fair">yes <i>annotations</i></td>
+	<td class="fair">yes <i class="harmful">named XML, annotations<i></td>	
+	<td class="fair">yes <i class="harmful">annotations</i></td>
 	<td class="good">yes <i>convention, programmatic</i></td>
 	<td class="good">yes <i>fluent interface<i></td>
 </tr>
 <tr>
-	<th>Static injection<i>(considered harmful)</i></th>
+	<th>Static injection<i class="harmful">(considered harmful)</i></th>
 	<td class="fair">yes <i>named XML + annotations</i></td>	
 	<td class="fair">yes <i>annotations</i></td>
 	<td class="good">no?</td>
@@ -135,27 +156,27 @@ In the below tables the features of 4 different frameworks are compared with eac
 </tr>
 <tr>
 	<th>Method interception<i>technique</i></th>
-	<td class="bad">yes <i>aspects<i></td>	
-	<td class="bad">yes <i>aspects<i></td>
+	<td class="bad">yes <i class="harmful">aspects<i></td>	
+	<td class="bad">yes <i class="harmful">aspects<i></td>
 	<td class="good">yes <i>programmatic<i></td>
 	<td class="good">services <i>programmatic<i></td>
 </tr>
 <tr>
 	<th>Providers <i>(lazy indirection)</i></th>
 	<td class="fair">yes</td>	
-	<td class="fair"><b>idiomatic</b> <i>annotation</i></td>
+	<td class="fair"><b>idiomatic</b> <i>annotations</i></td>
 	<td class="good">no</td>
 	<td class="good">optional <i>bridge via fluent interface</i></td>
 </tr>
 <tr>
-	<th>Reinection<i>(considered harmful)</i></th>
+	<th>Reinection<i class="harmful">(considered harmful)</i></th>
 	<td class="bad">yes <i>setters</i></td>	
 	<td class="good">no <i>use <tt>Provider</tt>s</i></td>
 	<td class="fair">explicit call-side <i>programmatic</i></td>
 	<td class="good"><b>no</b></td>
 </tr>
 <tr>
-	<th>Optional injection<i>(considered harmful)</i></th>
+	<th>Optional injection<i class="harmful">(considered harmful)</i></th>
 	<td class="good">no?</td>	
 	<td class="bad">yes <i>annotations</i></td>
 	<td class="good">no?</td>
@@ -163,16 +184,67 @@ In the below tables the features of 4 different frameworks are compared with eac
 </tr>
 </table>
 
+
+## Applicability Restrictiveness
+<table class="compare">
+<tr>
+	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
+</tr>
+<tr>
+	<th>Principle</th>
+	<td class="bad">local per file</td>
+	<td class="bad">local modules</td>
+	<td class="fair">programmatic filters<i class="harmful">per case</i></td>
+	<td class="good">type hierarchy<br/>+ package-sets</br>+ injection hierarchy</td>
+</tr>
+<tr>
+	<th>Specific package (set)<i>(with or without sub-packages)</i></th>
+	<td class="bad">no</td>
+	<td class="bad">no</td>
+	<td class="fair">possible<i>not build in</i></td>
+	<td class="good">yes<i>fluent-interface</i></td>
+</tr>
+<tr>
+	<th>Specific class<i>also with wild-card types</i></th>
+	<td class="bad">no</td>
+	<td class="bad">no</td>
+	<td class="good">yes<i>gems filter util</i></td>
+	<td class="good">yes<i>fluent-interface</i></td>
+</tr>
+<tr>
+	<th>Specific interface<i>incl. all implementations</i></th>
+	<td class="bad">no</td>
+	<td class="bad">no</td>
+	<td class="good">yes<i>gems filter util</i></td>
+	<td class="good">yes<i>fluent-interface</i></td>
+</tr>
+<tr>
+	<th>Specific parent instance<i>also specific grandparents</i></th>
+	<td class="bad">no</td>
+	<td class="bad">no</td>
+	<td class="bad">no</td>
+	<td class="good">yes<i>fluent-interface</i></td>
+</tr>
+</table>
+
+
 ## Modularity
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
 </tr>
 <tr>
+	<th>Arrays</th>
+	<td class="bad">no</td>
+	<td class="bad">no</td>
+	<td class="good"><b>idiomatic</b><i>implicit available</i></td>
+	<td class="good"><b>idiomatic</b><i>implicit available</i></td>
+</tr>
+<tr>
 	<th>Collections <i>List/Sets/Maps<i></th>
-	<td class="bad">explicit <code>java.util</code><i> XML</i></td>	
-	<td class="fair">plugin-in <code>java.util</code><i> fluent interface</i></td>
-	<td>?</td>
+	<td class="bad"><code>java.util</code><i>explicit in XML</i></td>	
+	<td class="fair"><code>java.util</code> <i>(via plugin-in)</i><i>fluent interface</i></td>
+	<td class="fair"><code>java.util</code><i>explicit programmatic</i></td>
 	<td class="good"><b>any</b>(via bridge)<i>fluent interface</i></td>
 </tr>
 <tr>
@@ -183,7 +255,7 @@ In the below tables the features of 4 different frameworks are compared with eac
 	<td class="good">automatic, loose coupled <i>fluent interface</i></td>
 </tr>
 <tr>
-	<th>Re-configuration<i>perspective</i><i>composition</i><i>usage</i></th>
+	<th>Variants<i>perspective</i><i>composition</i><i>usage</i></th>
 	<td class="bad">overrides<i>combined</i><i>not combinable</i><i>XML files</i></td>
 	<td class="bad">overrides<i>combined</i><i>not combinable</i><i>Modules</i></td>
 	<td>?</td>
@@ -230,7 +302,7 @@ In the below tables the features of 4 different frameworks are compared with eac
 	<td class="fair">yes <i>setter only</i></td>
 	<td class="bad">yes <i>proxies</i></td>
 	<td class="good">no?</td>
-	<td class="good">no</td>
+	<td class="good"><b>no</b></td>
 </tr>
 <tr>
 	<th>Cyclic dependencies error</th>
@@ -238,5 +310,12 @@ In the below tables the features of 4 different frameworks are compared with eac
 	<td>-</td>
 	<td>?</td>
 	<td>runtime</td>
+</tr>
+<tr>
+	<th>Ambiguous binding error</th>
+	<td class="good">eager</td>
+	<td class="fair">lazy</td>
+	<td class="fair">lazy</td>
+	<td class="good">eager</td>
 </tr>
 </table>
