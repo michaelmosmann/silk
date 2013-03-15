@@ -2,6 +2,10 @@
 layout : doc
 title : Motivation
 ---
+<tour class="c-help">
+See Also
+<a href="comparison.html">Comparision</a>
+</tour>
 # Motivation
 
 ## Why DI / IoC ?

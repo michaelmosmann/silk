@@ -2,7 +2,11 @@
 layout : doc
 title : Motivation
 ---
-# Comparison
+<tour class="c-help">
+See Also
+<a href="motivation.html">Motivation</a>
+</tour>
+# <span class="icon-adjust"></span> Comparison
 
 <abstract>
 In the below tables the features of 4 different frameworks are compared with each other. 
