@@ -5,7 +5,9 @@ title : Motivation
 # Comparison
 
 <abstract>
-In the below tables the features of 4 different frameworks are compared with each other. The features are judged by their influence of the application and development process as seen by the author of Silk. A good influence is indicated green, a fair one yellow and a bad one red. Neutral information is kept gray.
+In the below tables the features of 4 different frameworks are compared with each other. 
+The features are judged by their influence of the application design and development process as seen by the author of Silk. 
+A good influence is indicated green, a fair one yellow and a bad one red. Neutral information is kept gray. Concepts or techniques that are considered <span class="harmful">harmful</span> have dark red text as well. 
 </abstract>
 
 ## Library
@@ -92,31 +94,38 @@ In the below tables the features of 4 different frameworks are compared with eac
 </tr>
 </table>
 
-## Generics
+## Types
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
 </tr>
 <tr>
-	<th>generics support</th>
+	<th>Generics support<i>(Consider same type with different generic to be different)</i></th>
 	<td class="bad">no</td>
 	<td class="fair">yes <i>each a literal class!</i></td>
 	<td class="bad">case-related</td>
 	<td class="good"><b>yes</b> <i><code>Type</code> instance</i></td>
 </tr>
 <tr>
-	<th>generic type safty</th>
+	<th>Generic type safty</th>
 	<td>-</td>	
 	<td class="good">compile time</td>
 	<td>-</td>
 	<td class="fair">largely compile time<i>full at runtime</i></td>
 </tr>
 <tr>
-	<th>wildcard generics</th> 
+	<th>Wildcard generics</th> 
 	<td>-</td>	
 	<td class="bad">no</td>
 	<td>-</td>
-	<td class="good">yes</td>
+	<td class="good"><b>yes</b></td>
+</tr>
+<tr>
+	<th>Primitive types handling</th> 
+	<td>?</td>	
+	<td>?</td>
+	<td>?</td>
+	<td class="good">primitive == wrapper</td>
 </tr>
 </table>
 
@@ -135,22 +144,22 @@ In the below tables the features of 4 different frameworks are compared with eac
 </tr>
 <tr>
 	<th>Constructor injection</th>
-	<td class="fair">yes <i>annotactions or XML<i></td>	
-	<td class="bad">yes <i>requires annotations</i></td>
+	<td class="fair">yes <i class="harmful">annotations or XML<i></td>	
+	<td class="bad">yes <i class="harmful">requires annotations</i></td>
 	<td class="good"><b>idiomatic</b> <i>most to few args</i></td>
 	<td class="good"><b>idiomatic</b> <i>fluent interface</i><i>many options<i></td>
 </tr>
 <tr>
 	<th>Field injection<i class="harmful">(considered harmful)</i></th>
-	<td class="fair">yes <i>annotations</i></td>	
-	<td class="fair"><b>idiomatic</b> <i>annotations</i></td>
-	<td class="fair">yes <i>named or annotations</i></td>
+	<td class="fair">yes <i class="harmful">annotations</i></td>	
+	<td class="fair"><b>idiomatic</b> <i class="harmful">annotations</i></td>
+	<td class="fair">yes <i>named or <span class="harmful">annotations</span></i></td>
 	<td class="good"><b>no</b></td>
 </tr>
 <tr>
 	<th>Setter injection<i class="harmful">(considered harmful)</i></th>
 	<td class="fair"><b>idiomatic</b><i>named, annotations or XML</i></td>	
-	<td class="fair">yes <i>annotations</i></td>
+	<td class="fair">yes <i class="harmful">annotations</i></td>
 	<td class="fair">yes <i>name or type</i></td>
 	<td class="good"><b>no</b></td>
 </tr>
@@ -159,12 +168,12 @@ In the below tables the features of 4 different frameworks are compared with eac
 	<td class="fair">yes <i class="harmful">named XML, annotations<i></td>	
 	<td class="fair">yes <i class="harmful">annotations</i></td>
 	<td class="good">yes <i>convention, programmatic</i></td>
-	<td class="good">yes <i>fluent interface<i></td>
+	<td class="good"><b>yes</b> <i>fluent interface<i></td>
 </tr>
 <tr>
 	<th>Static injection<i class="harmful">(considered harmful)</i></th>
-	<td class="fair">yes <i>named XML + annotations</i></td>	
-	<td class="fair">yes <i>annotations</i></td>
+	<td class="fair">yes <i class="harmful">named XML + annotations</i></td>	
+	<td class="fair">yes <i class="harmful">annotations</i></td>
 	<td class="good">no?</td>
 	<td class="good"><b>no</b></td>
 </tr>
@@ -178,9 +187,9 @@ In the below tables the features of 4 different frameworks are compared with eac
 <tr>
 	<th>Providers <i>(lazy indirection)</i></th>
 	<td class="fair">yes</td>	
-	<td class="fair"><b>idiomatic</b> <i>annotations</i></td>
+	<td class="fair"><b>idiomatic</b> <i class="harmful">annotations</i></td>
 	<td class="good">no</td>
-	<td class="good">optional <i>bridge via fluent interface</i></td>
+	<td class="good"><b>optional</b> <i>bridge via fluent interface</i></td>
 </tr>
 <tr>
 	<th>Reinection<i class="harmful">(considered harmful)</i></th>
@@ -192,7 +201,7 @@ In the below tables the features of 4 different frameworks are compared with eac
 <tr>
 	<th>Optional injection<i class="harmful">(considered harmful)</i></th>
 	<td class="good">no?</td>	
-	<td class="bad">yes <i>annotations</i></td>
+	<td class="bad">yes <i class="harmful">annotations</i></td>
 	<td class="good">no?</td>
 	<td class="good"><b>no</b></td>
 </tr>
@@ -234,7 +243,7 @@ In the below tables the features of 4 different frameworks are compared with eac
 	<td class="good">install/uninstall<i>isolated</i><i>combinable</i><i>fluent interface</i></td>
 </tr>
 <tr>
-	<th>Declaration sequence</th> 
+	<th>Sequence of declarations</th> 
 	<td class="bad">crucial</td>	
 	<td class="bad">crucial</td>
 	<td class="bad">crucial</td>
@@ -349,3 +358,4 @@ In the below tables the features of 4 different frameworks are compared with eac
 	<td class="good">eager</td>
 </tr>
 </table>
+

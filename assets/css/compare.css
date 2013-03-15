@@ -32,6 +32,6 @@ table.compare td i, table.compare th i {
 table.compare td i code {
 	font-style: normal;
 }
-table.compare .harmful {
+.harmful {
 	color: #800000;
 }
