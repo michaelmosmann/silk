@@ -23,12 +23,12 @@ protected void declare() {
 
 ----
 
-<div class="icon"><span class="icon-bar-chart"></span><a href="help/comparison.html">Comparison</a></div>
+<div class="icon"><span class="icon-adjust"></span><a href="help/comparison.html">Comparison</a></div>
 
-- Spring
-- Guice
-- Pico container
-- Silk
+- Silk DI
+- vs. Spring Ioc
+- vs. Google Guice
+- vs. Pico container
 
 ----
 
