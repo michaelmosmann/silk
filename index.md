@@ -21,9 +21,14 @@ protected void declare() {
 }
 {% endhighlight %}
 
-<div style="font-size: 20px; text-align: center;" >
-<span class="icon-signal"></span> <a href="help/comparison.html">Compare</a> Silk to other DI frameworks
-</div>
+----
+
+<div class="icon"><span class="icon-bar-chart"></span><a href="help/comparison.html">Comparison</a></div>
+
+- Spring
+- Guice
+- Pico container
+- Silk
 
 ----
 
