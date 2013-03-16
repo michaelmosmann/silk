@@ -1,6 +1,6 @@
 ---
 layout : doc
-title : Motivation
+title : Comparison
 ---
 <tour class="c-help">
 See Also
@@ -106,7 +106,7 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 <tr>
 	<th>Generics support<i>(Consider same type with different generic to be different)</i></th>
 	<td class="bad">no</td>
-	<td class="fair">yes <i>each a literal class!</i></td>
+	<td class="fair">yes <i class="harmful">each a literal class!</i></td>
 	<td class="bad">case-related</td>
 	<td class="good"><b>yes</b> <i><code>Type</code> instance</i></td>
 </tr>
@@ -122,14 +122,28 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 	<td>-</td>	
 	<td class="bad">no</td>
 	<td>-</td>
-	<td class="good"><b>yes</b></td>
+	<td class="good"><a href="/userguide/binds.html#star"><b>yes</b></a></td>
 </tr>
 <tr>
 	<th>Primitive types handling</th> 
 	<td>?</td>	
-	<td>?</td>
+	<td class="good">primitive == wrapper</td>
 	<td>?</td>
 	<td class="good">primitive == wrapper</td>
+</tr>
+<tr>
+	<th>Bind to all (generic) supertypes</th> 
+	<td class="bad">no</td>	
+	<td class="bad">no</td>
+	<td class="bad">no</td>
+	<td class="good"><a href="/userguide/binds.html#auto"><b>yes</b></a></td>
+</tr>
+<tr>
+	<th>Type links</th> 
+	<td class="bad">no</td>	
+	<td class="good">yes</td>
+	<td class="bad">no</td>
+	<td class="good"><a href="/userguide/binds.html#basics"><b>yes</b></a></td>
 </tr>
 </table>
 
@@ -151,7 +165,7 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 	<td class="fair">yes <i class="harmful">annotations or XML<i></td>	
 	<td class="bad">yes <i class="harmful">requires annotations</i></td>
 	<td class="good"><b>idiomatic</b> <i>most to few args</i></td>
-	<td class="good"><b>idiomatic</b> <i>fluent interface</i><i>many options<i></td>
+	<td class="good"><b>idiomatic</b> <i>fluent interface</i><i><a href="/userguide/binds.html#parameters">many options</a><i></td>
 </tr>
 <tr>
 	<th>Field injection<i class="harmful">(considered harmful)</i></th>
@@ -274,28 +288,28 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 	<td class="bad">no</td>
 	<td class="bad">no</td>
 	<td class="fair">possible<i>not build in</i></td>
-	<td class="good">yes<i>fluent-interface</i></td>
+	<td class="good"><a href="/userguide/binds.html#targeting">yes</a><i>fluent-interface</i></td>
 </tr>
 <tr>
 	<th>Specific class<i>also with wild-card types</i></th>
 	<td class="bad">no</td>
 	<td class="bad">no</td>
 	<td class="good">yes<i>gems filter util</i></td>
-	<td class="good">yes<i>fluent-interface</i></td>
+	<td class="good"><a href="/userguide/binds.html#targeting">yes</a><i>fluent-interface</i></td>
 </tr>
 <tr>
 	<th>Specific interface<i>incl. all implementations</i></th>
 	<td class="bad">no</td>
 	<td class="bad">no</td>
 	<td class="good">yes<i>gems filter util</i></td>
-	<td class="good">yes<i>fluent-interface</i></td>
+	<td class="good"><a href="/userguide/binds.html#targeting">yes</a><i>fluent-interface</i></td>
 </tr>
 <tr>
 	<th>Specific parent instance<i>also specific grandparents</i></th>
 	<td class="bad">no</td>
 	<td class="bad">no</td>
 	<td class="bad">no</td>
-	<td class="good">yes<i>fluent-interface</i></td>
+	<td class="good"><a href="/userguide/binds.html#targeting">yes</a><i>fluent-interface</i></td>
 </tr>
 </table>
 

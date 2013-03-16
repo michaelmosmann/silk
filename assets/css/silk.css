@@ -293,6 +293,9 @@ a.c-docs {
 	background-color: #6a88ac;
 	background: linear-gradient(45deg, #6a88ac 0%,#5a7391 100%); /* W3C */
 	background: -webkit-linear-gradient(-45deg, #6a88ac 0%,#5a7391 100%);
+	color: #E8B035;
+}
+a.c-docs * {
 	color: #2c2b29;
 }
 .c-downloads {
@@ -371,7 +374,7 @@ a.list > em {
 	display: block;
 	font-style: normal;
 	line-height: 1em;	
-	color: #E8B035;
+	color: #eee;
 	font-weight: bold;
 }
 

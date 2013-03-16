@@ -89,7 +89,7 @@ protected void declare() {
 }
 {% endhighlight %}
 
-### Adding Constructor Parameter Descriptions
+### <a id="parameters"></a>Adding Constructor Parameter Descriptions
 Usually we don't (need to) provide any additional information how Silk should construct an instance.
 The bootstrapper will ask the `ConstructionStrategy` to pick the `Constructor` to use for our `Implementation`.
 All dependencies needed to instanciate it are resolved in the same way.
