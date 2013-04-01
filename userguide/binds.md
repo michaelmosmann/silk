@@ -405,10 +405,10 @@ So it is a indirection step like a _switch_ to multiple actual implementations c
 other bound instance's actual value. To determine the current instance a `Name` is derived from the
 current control value using a `Naming` strategy. 
 
-The example uses the enum `ValidationStrength` as _controlling_ instance. With the `on`-method 
-it is described what implementation is associated with a specific value. Through the `onOther` method
-a default can be given that is used for e.g. `null` values or in case no bind has been made for
-the current actual value.
+The example uses the enum `ValidationStrength` as _controlling_ instance (but it could be any `Instance` 
+used, there is just a simpler short-cut for enums). With the `on`-method it is described what 
+implementation is associated with a specific value. Through the `onOther` method a default can be 
+given that is used for e.g. `null` values or in case no bind has been made for the current actual value.
 
 {% highlight java %}
 protected void declare() {
