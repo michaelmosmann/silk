@@ -39,7 +39,7 @@ There will be **no `@annotations`** within your code to guide the dependency inj
 ### Supplying instances (the `to` clause)
 Out of the box there are a handful of different ways to use the `to` clause.
 {% highlight java %}
-bind( Interger.class ).to( 42 ); // a constant
+bind( Integer.class ).to( 42 ); // a constant
 bind( Number.class ).to( Float.class ); // as a link to a sub-type that is bound itself to something
 Constructor<MyClass> constructor = //... from whatever
 bind( MyClass.class).to( constructor );

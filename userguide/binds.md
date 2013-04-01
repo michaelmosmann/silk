@@ -13,6 +13,7 @@ title : Bindings
 	<tr><th>#<a href="#targeting">Targeting</a></th><td>How to make binds just apply in some (special) cases.</td></tr>
 	<tr><th>#<a href="#binder">Binder API</a></th><td>General concepts of the fluent binder interface.</td></tr>
 	<tr><th>#<a href="#inspect">Semi-Automate Bindings</a></th><td>How to advice the binder to inspect classes and derive binds from it semi-automatically.</td></tr>
+	<tr><th>#<a href="#config">Config-Bindings</a></th><td>How to use bindings to dynamically inject different instances dependent on a configuration value that changes during runtime.</td></tr>
 </table>
 
 ## A\. Concept
@@ -91,7 +92,7 @@ protected void declare() {
 
 ### <a id="parameters"></a>Adding Constructor Parameter Descriptions
 Usually we don't (need to) provide any additional information how Silk should construct an instance.
-The bootstrapper will ask the `ConstructionStrategy` to pick the `Constructor` to use for our `Implementation`.
+The bootstrapper will ask the `Inspector` to pick the `Constructor` to use for our `Implementation`.
 All dependencies needed to instanciate it are resolved in the same way.
 
 In some cases we want a special instance injected into the constructor selected. Therefore we can add additional 
@@ -122,7 +123,7 @@ Than the first parameter is used for the first matching, the second for the seco
 See also `TestConstructorParameterBinds` and `TestDependencyParameterBinds` for more detailed examples.
 
 ### The `to`-Clause / Suppliers
-We have already see a few different `to`-clauses in the above examples. The `TypedBinder` has about a dozen of different ones.
+We have already seen a few different `to`-clauses in the above examples. The `TypedBinder` has about a dozen of different ones.
 The most common are:
 
 - Binding to a `Class` or `Instance` (link or create to an instance of it)
@@ -217,7 +218,7 @@ that builds the _bridge_ to the type provided by it. The declaration in the `Pro
 
 {% highlight java %}
 protected void declare() {
-	per( DEPENDENCY_TYPE ).starbind( Provider.class ).to( SuppliedBy.PROVIDER_BRIDGE );
+	per( DEPENDENCY ).starbind( Provider.class ).to( SuppliedBy.PROVIDER_BRIDGE );
 }
 {% endhighlight %}
 
@@ -377,7 +378,7 @@ where `Class` can be one or more implementation classes.
 
 {% highlight java %}
 protected void declare() {
-	bind( all().methods().annotatedWith( Factory.class ).in( Implementor.class );
+	bind( all().methods().annotatedWith( Factory.class ) ).in( Implementor.class );
 }
 {% endhighlight %}
 See `TestInspectorBinds` for more examples.
@@ -385,5 +386,56 @@ See `TestInspectorBinds` for more examples.
 Through this it is possible to integrate _legacy_ code from a previously used framework changing it
 smoothly bit by bit while new code can benefit from Silk directly. So a migration from Guice or Spring 
 does not require doing all changes up-front. 
- 
+
+
+## <a id="config"></a>8\. Config-Bindings
+### What is Configuration Dependent Implementation Injection (CDI²)
+Dependency Injection is used to decouple a _function consumer_ from the _function provider_. 
+Such a _function_ is a _behavioural_ part of an application. Often applications allow to 
+change its _behaviour_ during runtime by changing a setting or configuration. 
+As a consequence the _behaviour_ needs to change, in OOP this means the implementation class needs to
+be different one. CDI² is a way to solve this problem without writing error prone `if-else` code but
+leave this task also to the DI tool.
+
+### How does it work ?
+Actually CDI² isn't as complicated as it seams in the first observation. It is a _linked_ binding
+where the _link_ (usually from a super-type to a subtype or specific instance) is not hard wired but
+instead resolved differently depending on the current value of the `Configuring` instance. 
+So it is a indirection step like a _switch_ to multiple actual implementations controlled by whatever
+other bound instance's actual value. To determine the current instance a `Name` is derived from the
+current control value using a `Naming` strategy. 
+
+The example uses the enum `ValidationStrength` as _controlling_ instance. With the `on`-method 
+it is described what implementation is associated with a specific value. Through the `onOther` method
+a default can be given that is used for e.g. `null` values or in case no bind has been made for
+the current actual value.
+
+{% highlight java %}
+protected void declare() {
+	configbind( Validator.class ).on( ValidationStrength.PERMISSIVE ).to( Permissive.class );
+	configbind( Validator.class ).on( ValidationStrength.STRICT ).to( Strict.class );
+	configbind( Validator.class ).onOther( ValidationStrength.class ).to( Permissive.class );
+}
+{% endhighlight %}
+
+When using configuration dependent binds it is important to understand that the `Instance` used
+as the configuring one (here it is the default instance of `ValidationStrength` class) also has to be bound.
+To allow it to change during runtime it is required to ***not use the singleton** `Scope` for the
+controlling instance. As an example the bind makes use of the `Inspector` to bind against a 
+method defined in the `Configuration` object. 
+
+{% highlight java %}
+protected void declare() {
+	per( Scoped.INJECTION ).bind( methodsReturn( raw( ValidationStrength.class ) ) ).in(Configuration.class );
+}
+{% endhighlight %}
+
+Now whenever the method returning the current `ValidationStrength` value is changed and a injection of the
+`Validator` occurs the implementation associated with the current value will be injected. To use this at
+a place when no further injection takes place a `Provider<Validator>` allows to access the changing instance as well.  
+
+See `TestConfigurationDependentBinds` for different complete examples including the use of a `Provider` to 
+directly work with a dynamically changing implementation controlled by another bound value.
+
+
  <a class='next' href="scopes.html"><span class="icon-chevron-right"></span>Scopes</a>
