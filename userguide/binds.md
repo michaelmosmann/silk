@@ -420,7 +420,7 @@ protected void declare() {
 
 When using configuration dependent binds it is important to understand that the `Instance` used
 as the configuring one (here it is the default instance of `ValidationStrength` class) also has to be bound.
-To allow it to change during runtime it is required to ***not use the singleton** `Scope` for the
+To allow it to change during runtime it is required to **not use the singleton** `Scope` for the
 controlling instance. As an example the bind makes use of the `Inspector` to bind against a 
 method defined in the `Configuration` object. 
 
