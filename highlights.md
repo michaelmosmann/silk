@@ -35,3 +35,5 @@ Further it allows to tackle cross-functional concerns with pure Java what avoids
 Silk invented the `Injectron`, a _first class_ access object abstraction of a _singleton's_ `Resource` within an `Injector` context. 
 This implies they can be injected like the _resources_ themselves what allows to pre-resolve dependencies within extensions (on top of the core) like the service concept.  
 
+ <a class='next' href="/userguide/intro.html"><span class="icon-chevron-right"></span>Introduction</a>
+

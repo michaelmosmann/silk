@@ -65,7 +65,7 @@ For a user of Silk this means: You don't have to care at all about the structure
 
 # Configuration
 
-## Constants
+## Globals
 
 # Customisation
 

@@ -231,17 +231,17 @@ You will notice this when maintaining a larger project. While _overrides_ requir
 
 ### Adapt an Application to slightly Different Setups/Configurations
 Often the same application is sold to customers in slightly different configurations depending on the customer's needs. 
-Sometimes there is a fix set of _editions_ a customer could chose from. Such kind of requirements we can model with ease using `Editon`s.
+Sometimes there is a fix set of _editions_ a customer could chose from. Such kind of requirements we can model with ease using `Edition`s.
 
 They allow to decide on a _per class_ base what `Bundle`s and `Module`s to include in an edition. 
 The bundles itself do not contain any conditions like `if-else` blocks or such. 
 Instead the `Edition` is passed as an argument to the bootstrapping process:
 {% highlight java %}
-Injector injector = Bootstrap.injector( RootBundle.class, edition );
+Injector injector = Bootstrap.injector( RootBundle.class, Globals.STANDARD.edition( edition ) );
 {% endhighlight %}
 A simple edition that _contains_ the core of your application based on the packages could look like this:
 {% highlight java %}
-Edition core = Bootstrap.edition(Packages.packageAndSubPackagesOf(CoreBundle.class));
+Edition core = Globals.edition(Packages.packageAndSubPackagesOf(CoreBundle.class));
 Injector injector = Bootstrap.injector( RootBundle.class, core );
 {% endhighlight %}
 The conditions that control if you want an edition or not are in one place where you bootstrap your `Injector`.
@@ -253,32 +253,32 @@ You could model this with editions but they do not really fit the problem. Silk 
 They utilize a `enum` to model the set of available features with the enum constants. Each constant is a separate feature.
 When bootstrapping you decide what features to include:
 {% highlight java %}
-Edition edition = Bootstrap.edition( MyFeature.BAR, MyFeature.BAZ )
-Injector injector = Bootstrap.injector( RootBundle.class, edition );
+Edition edition = Globals.edition( MyFeature.BAR, MyFeature.BAZ )
+Injector injector = Bootstrap.injector( RootBundle.class, Globals.STANDARD.edition( edition ) );
 {% endhighlight %}
 The `edition` method creates an `Edition` from the chosen features `BAR` and `BAZ` of your `Feature`-`enum` `MyFeature`.
 
 The test `TestEditionFeatureBinds` shows how to create your own feature annotation so you could annotate `Module`s and `Bundle` with the features they represent. 
 But this is just one way. You can implement other strategies to determine the features in a few lines of code. 
 
-### Run different Modes like PROD or DEV
+### Run different Modes <small>(like PROD or DEV)</small>
 Beside the economically driven slices there is a hole bunch of technical configurations. 
 While this can be modeled with the above techniques it might not fit well to use them since they are another dimension beside the one of editions or features.
 Most likely you want to have a _DEV_ mode for all _editions_ or _features_ and a lot of other switches that can be summed up as a applications configuration.
 
-Silk helps you modeling this using configuration `Constants` that are passed to the bootstrapping as well:
+Silk helps you modeling this using configuration `Options` that are passed to the bootstrapping as well:
 {% highlight java %}
-Injector injector = Bootstrap.injector( RootBundle.class, Edition.FULL, constants );       
+Injector injector = Bootstrap.injector( RootBundle.class, Globals.STANDARD.options( options ) );       
 {% endhighlight %}
-They are named _constants_ since once defined they are immutable and cannot change over runtime.
-Each constant property is again modeled by an `enum` to make sure all possible values can be covered when deciding what should be installed.
+`Options` are _constant_ immutables that cannot be mutated during bootstrapping.
+Each option property is again modeled by an `enum` to make sure all possible values can be covered when deciding what should be installed.
 {% highlight java %}
-Constants constants = Constants.NONE.def( RunMode.PROD );
+Options options = Options STANDARD.chosen( RunMode.PROD );
 // define more...
 {% endhighlight %}
 First we define the current value `PROD` of the property `RunMode`. 
-The `constants` are later passed to the `Bootstrap.injector` as seen above.
-When working with `Constants` we use them together with `ModularBundle`s. 
+The `options` are later passed to the `Bootstrap.injector` as seen above as part of the `Globals`.
+When working with `Options` we use them together with `ModularBundle`s. 
 Those allow to `install` other bundles and modules dependent on constant values. So we define:
 {% highlight java %}
 private static class RunModeDependentBundle extends ModularBootstrapperBundle<RunMode> {
@@ -481,46 +481,24 @@ The `Instance` value object models this combination of `Type` and `Name`. When b
 Out of the box Silk uses simple robust strategies to draw the connection between bindings and the application classes.
 
 ### Customise Object Creation
-A `ConstructionStrategy` is used to decide which `Constructor` is used to create instances of a type and what `Method` implements a particular `Factory` method.
-Espeially when changing to Silk from e.g. an annotation based DI framework it could be useful to customise this strategies. 
-All that needs to be done is to create a own implementation of the `ConstructionStrategy` as in this example:
+A `Inspector` is used to decide which `Constructor` is used to create instances of a type and what `Method` implements a particular `Factory` method.
+Espeially when changing to Silk from e.g. an annotation based DI framework it could be useful to use a custom `Inspector`. 
+All that needs to be done is to create a own implementation or use the existing util class `Inspect` and pass such a instance to the bootstrapping process:
 {% highlight java %}
-public class AnnotationConstructionStrategy implements ConstructionStrategy {
-
-	@Override
-	public <T> Constructor<T> constructorFor( Class<T> type ) {
-		for (Constructor<?> c : type.getDeclaredConstructors()) { 
-			if (c.isAnnotationPresent( MyConstructorAnnotation.class )) {
-				return (Constructor<T>) c;
-			}
-		}
-		return TypeReflector.defaultConstructor( type );
-	}
-
-}   
-{% endhighlight %}
-The `TypeReflector` util can be used to have a _fallback_ to Silks own behaviour in case the annoations have been removed. 
-That way a smoth change becomes possible. Once created the customer strategy is passed to the bootstrapping process as an additional argument:
-{% highlight java %}
-ConstructionStrategy strategy = new AnnotationConstructionStrategy();
-Injector injector = Bootstrap.injector( RootBundle.class, Edition.FULL,	Constants.NONE, strategy );
+Inspector inspector = Inspect.all().constructors().annotatedWith( Inject.class );
+Injector injector = Bootstrap.injector( RootBundle.class, inspector, Globals.STANDARD );
 {% endhighlight %}
 
 ### Customise Service Method Selection
-The second strategy that can be customerised is the `ServiceStrategy`. It is responsible for selecting the methods that implement `ServiceMethod`s.
+`ServiceMethod`s are chosen by a special `Inspector` as well that is given by `ServiceModule.SERVICE_INSPECTOR`.
+This default bind can be replaced in any `ServiceModule` using the `bindServiceInspectorTo` method:
 The below example shows how to utilise annoations to do the job:
 {% highlight java %}
-class AnnoationServiceStrategy implements ServiceStrategy {
+class ServiceInspectorModule extends ServiceModule {
 
 	@Override
-	public Method[] serviceMethodsIn( Class<?> serviceClass ) {
-		List<Method> serviceMethods = new ArrayList<Method>();
-		for (Method m : serviceClass.getDeclaredMethods()) {
-			if (m.isAnnotationPresent( MyServiceAnnotation.class )) {
-				serviceMethods.add( m );
-			}
-		}
-		return serviceMethods.toArray( new Method[0] );
+	protected void declare() {
+		bindServiceInspectorTo( Inspect.all().methods().annotatedWith( MyServiceAnnotation.class ) );
 	}
 
 }
