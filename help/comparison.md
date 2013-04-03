@@ -20,11 +20,18 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 	<th>Feature</th><th><a href="http://www.springsource.org/">Spring</a></th><th><a href="http://code.google.com/p/google-guice/">Guice</a></th><th><a href="http://picocontainer.com/">pico-container</a></th><th>Silk</th>
 </tr>
 <tr>
+	<th>Version</th> 
+	<td>3.x</td>	
+	<td>2.x</td>
+	<td>2.14.x</td>
+	<td>0.5</td>
+</tr>
+<tr>
 	<th>Archive Size</th> 
 	<td class="bad">too big</td>	
 	<td class="fair">&gt; 650KB <i>+ plug-ins</i></td>
 	<td class="good">&gt; 300KB <i>+ gems</i></td>
-	<td class="good">160KB</td>
+	<td class="good">170KB</td>
 </tr>
 <tr>
 	<th>Further dependencies</th> 
@@ -120,7 +127,7 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 <tr>
 	<th>Wildcard generics</th> 
 	<td>-</td>	
-	<td class="bad">no</td>
+	<td class="fair">yes<i>explicit via literal</i></td>
 	<td>-</td>
 	<td class="good"><a href="/userguide/binds.html#star"><b>yes</b></a></td>
 </tr>
@@ -211,7 +218,7 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 </tr>
 <tr>
 	<th>Reinection<i class="harmful">(considered harmful)</i></th>
-	<td class="bad">yes <i>setters</i></td>	
+	<td class="bad">yes <i class="harmful">setters</i></td>	
 	<td class="good"><b>no</b> <i>use indirection</i></td>
 	<td class="fair">explicit call-side <i>programmatic</i></td>
 	<td class="good"><b>no</b> <i>use indirection</i></td>
@@ -249,29 +256,53 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 <tr>
 	<th>Multibinds</th>
 	<td class="bad">manual, explicit <i>XML tags</i></td>	
-	<td class="fair">semi-automatic, explicit, loose coupled <i>fluent interface</i></td>
+	<td class="fair">manual, explicit,<br/> loose coupled <i>fluent interface</i></td>
 	<td class="bad">manual, explicit <i>programmatic</i></td>
-	<td class="good">automatic, loose coupled <i>fluent interface</i></td>
-</tr>
-<tr>
-	<th>Variants<i>perspective</i><i>composition</i><i>usage</i></th>
-	<td class="bad">overrides<i>combined</i><i>not combinable</i><i>XML files</i></td>
-	<td class="bad">overrides<i>combined</i><i>not combinable</i><i>Modules</i></td>
-	<td>?</td>
-	<td class="good">install/uninstall<i>isolated</i><i>combinable</i><i>fluent interface</i></td>
+	<td class="good"><b>autom., implicit</b>,<br/> loose coupled <i>fluent interface</i></td>
 </tr>
 <tr>
 	<th>Sequence of declarations</th> 
 	<td class="bad">crucial</td>	
 	<td class="bad">crucial</td>
 	<td class="bad">crucial</td>
-	<td class="good">irrelevant</td>
+	<td class="good"><b>irrelevant</b></td>
+</tr>
+</table>
+
+## Variants (Module Combinability)
+A _variant_ should be understand as a slightly different _form_ of the _module structure_, a permutation of the application configuration/composition.
+How can those be build, viewed, understand, and combined with other _variants_ ?
+<table class="compare">
+<tr>
+	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
+</tr>
+<tr>
+	<th>Creation technique<i>Usage</i></th>
+	<td class="bad">overrides<i class="harmful">XML files</i><i>annotated config classes</i></td>
+	<td class="bad">overrides<i>Module classes</i></td>
+	<td>?</td>
+	<td class="good">install/uninstall<i>fluent interface</i></td>
+</tr>
+<tr>
+	<th>Perspective</th> 
+	<td class="bad">combined</td>	
+	<td class="bad">combined</td>
+	<td>?</td>
+	<td class="good"><b>isolated</b></td>
+</tr>
+<tr>
+	<th>Composition</th> 
+	<td class="bad">not combinable</td>	
+	<td class="bad">not combinable</td>
+	<td>?</td>
+	<td class="good"><b>combinable</b></td>
 </tr>
 </table>
 
 
 
 ## Applicability Restrictiveness
+In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -293,7 +324,7 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 <tr>
 	<th>Specific class<i>also with wild-card types</i></th>
 	<td class="bad">no</td>
-	<td class="bad">no</td>
+	<td class="good">yes<i>explicit via literal</i></td>
 	<td class="good">yes<i>gems filter util</i></td>
 	<td class="good"><a href="/userguide/binds.html#targeting">yes</a><i>fluent-interface</i></td>
 </tr>
@@ -376,4 +407,9 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 	<td class="good">eager</td>
 </tr>
 </table>
+
+## Noteworthy
+
+- With Silk **all binds** are defined by just using the fluent `Binder` interface within `Bundle` and `Module` classes. There are no exceptions to this, no _overrides_ or annonymous classes needed, no error prone visiblity _exports_ or similar hard to maintain techniques. 
+
 
