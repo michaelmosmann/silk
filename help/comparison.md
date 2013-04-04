@@ -352,10 +352,10 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 </tr>
 <tr>
 	<th>Default scope</th>
-	<td class="good">singleton</td>
-	<td class="fair">injection</td>
-	<td class="good">singleton</td>
-	<td class="good">singleton</td>
+	<td>singleton</td>
+	<td>injection</td>
+	<td>singleton</td>
+	<td>singleton</td>
 </tr>
 <tr>
 	<th>Custom scopes<i>difficulty</i></th>

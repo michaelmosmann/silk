@@ -167,14 +167,65 @@ If your application has different setups the bootstrapping gets additional argum
 
 ### Make Classes Constructible 
 Silk is focused on constructor injection since this keeps your code independent and testable as well as it asserts a final injection state for all injected objects.
-The `Constructor` used (if not specified) is automatically picked by a `ConstructionStrategy` that selects one constructor to use for each `Class`. You can customize this to use your own strategy. 
-By default the constructor with no parameters is selected (if available) or the 1st (in sequence of definition within the class) with any parameters.
+The `Constructor` used (if not specified) is automatically picked by a `Inspector` that selects one constructor to use for each `Class`. You can customize it to use your own strategy. By default the constructor with no parameters is selected (if available) or the 1st (in sequence of definition within the class) with any parameters.
 
 There is no build in support for field injection since this is considered harmful as internal state could be changed unforeseeable. 
 If fields have a dynamic nature this should be made explicit by using e.g. a `Provider` or any other _indirection_. 
 This makes it much more obvious that state is about to change during execution. There are ways to add field injection but I highly recommend to not dig into this.
 
-Anyway if you don't see a way to make a class _constructible_ you always have the option to construct it yourself during the bootstrapping process or use a custom `Supplier` that takes care of the construction. 
+Anyway if you don't see a way to make a class _constructible_ you always have the option to construct it yourself during the bootstrapping process or use a custom `Supplier` that takes care of the construction. Another option are factory methods described below.
+
+#### Hint Constructor Arguments
+Silk has a very powerful way to make it understand what instances should be used as arguments to a constructor. They are passed to the `toConstructor` clause.
+The example shows how to pass special `named` instances or a special implementation type as the `asType` as occuring in the constructor signature.
+
+{% highlight java %}
+protected void declare() {
+	bind( Foo.class ).toConstructor( 
+		instance( named( "other", raw( Bar.class ) ), 
+		asType(Subtype.class, Supertype.class) );
+}
+{% endhighlight %}
+
+These kind of hints do not have to be complete nor correctly sorted compared to the constructors parameters. 
+If they are unambigious Silk will understand what should go where. In cases of multiple matching parameters the sequence of hints will be kept.
+
+See also `TestConstructorParameterBinds` for complete examples.
+
+### Use Methods as Instance Factories
+Normally this is not needed with Silk to construct the _durable_ instances but some like to also use DI as a more general factory for the _transient_ objects.
+You can turn any method into such a factory by letting the `Inspector` pick it up. Therefore a bind with such a inspector is done in a `Module`. All parameters of the methods used will be injected automatically. 
+
+{% highlight java %}
+protected void declare() {
+	bind( all().methods() ).inModule();
+	bind( all().methods() ).in( new MyFactoryImplementation.class );
+}
+{% endhighlight %}
+
+The methods can also appear `inModule` that declares the `bind`. This makes sense for wiring support instances that arn't part of your application.
+
+The inspection can be fully customized by implementing a _own_ `Inspector`. The build-in one `Inspect` allows to narrow down the selection further more in several ways. To give a few examples:
+
+{% highlight java %}
+protected void declare() {
+	bind( all().methods().returnTypeAssignableTo( raw( Marker.class ) ) ).in( MyImpl.class);
+	bind( all().methods().annotatedWith( Factory.class ).namedBy( NameIs.class ) ).in( MyImpl.class );
+}
+{% endhighlight %}
+
+The above shows a way that utilizes _your_ annotations to determine what methods to pick and derive the `Name` of the instance(s) produced if it should be a special `Instance`.
+
+You can also hint `Parameters` when using factory methods:
+
+{% highlight java %}
+protected void declare() {
+	bind( all().methods() ).in( MyImpl.class, instance(named("foo", raw(String.class)) );
+}
+{% endhighlight %}
+
+See also `TestInspectorBinds` for more examples.
+
 
 ### Inject _dynamic_ into _static_
 A _provider_ is an indirect access to an injected instance that is e.g. used to be able to inject a _reference_ to a dynamically changing object into more statically ones that can _fetch_ the current value for each call. 
@@ -273,7 +324,7 @@ Injector injector = Bootstrap.injector( RootBundle.class, Globals.STANDARD.optio
 `Options` are _constant_ immutables that cannot be mutated during bootstrapping.
 Each option property is again modeled by an `enum` to make sure all possible values can be covered when deciding what should be installed.
 {% highlight java %}
-Options options = Options STANDARD.chosen( RunMode.PROD );
+Options options = Options.STANDARD.chosen( RunMode.PROD );
 // define more...
 {% endhighlight %}
 First we define the current value `PROD` of the property `RunMode`. 
