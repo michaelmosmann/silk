@@ -22,7 +22,7 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 <tr>
 	<th>Version</th> 
 	<td>3.x</td>	
-	<td>2.x</td>
+	<td>3.x</td>
 	<td>2.14.x</td>
 	<td>0.5</td>
 </tr>
