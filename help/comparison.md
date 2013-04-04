@@ -170,7 +170,7 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 <tr>
 	<th>Constructor injection</th>
 	<td class="fair">yes <i class="harmful">annotations or XML<i></td>	
-	<td class="bad">yes <i class="harmful">requires annotations</i></td>
+	<td class="fair">yes <i class="harmful">requires annotations</i></td>
 	<td class="good"><b>idiomatic</b> <i>most to few args</i></td>
 	<td class="good"><b>idiomatic</b> <i>fluent interface</i><i><a href="/userguide/binds.html#parameters">many options</a><i></td>
 </tr>
