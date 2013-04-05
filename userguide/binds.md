@@ -265,7 +265,9 @@ Note that `autobind` will also bind parameterized super-types like `Compareable<
 One task of dependency injection is to _connect_ loosely coupled modules of an application (**OBS!** this is not about Silk `Module`s!). 
 Typically an application has _core_ modules and _extension_ modules. Often there are different _extension_ modules but neither should the core module _know_ what module will be connected nor should the _extension_ _know_ where exactly it should incorporate within the _core_ module(s). 
 For the (technical) reason that a service _provider_ and a service _consumer_ need to have a common _contract_ those get coupled together.
-Plugin-bindings allow to keep this coupling as loose as possible. Therefore a resource and take one of two roles:
+Plugin-bindings allow to keep this coupling as loose as possible. 
+
+A resource can take one of two roles:
 
 - As a service provider it communicates that it is able to `provide` functionality.
 - As a service consumer is communicates that it `require`s functionality (a certain `Type`).
