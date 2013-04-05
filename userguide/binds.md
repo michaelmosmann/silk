@@ -13,7 +13,7 @@ title : Bindings
 	<tr><th>#<a href="#require">Plugin-Bindings</a></th><td>Loosely connect service consumer (<code>require</code>) with a service provider (<code>provide</code>) like plug-ins.</td></tr>
 	<tr><th>#<a href="#targeting">Targeting</a></th><td>How to make binds just apply in some (special) cases.</td></tr>
 	<tr><th>#<a href="#binder">Binder API</a></th><td>General concepts of the fluent binder interface.</td></tr>
-	<tr><th>#<a href="#inspect">Semi-Automate Bindings</a></th><td>How to advice the binder to inspect classes and derive binds from it semi-automatically.</td></tr>
+	<tr><th>#<a href="#inspect">Semi-Automate Bindings<br/>or Instance Factory-Bindings</a></th><td>How to advice the binder to inspect classes and derive binds from it semi-automatically.</td></tr>
 	<tr><th>#<a href="#config">Config-Bindings</a></th><td>How to use bindings to dynamically inject different instances dependent on a configuration value that changes during runtime.</td></tr>
 </table>
 
@@ -438,6 +438,15 @@ Through this it is possible to integrate _legacy_ code from a previously used fr
 smoothly bit by bit while new code can benefit from Silk directly. So a migration from Guice or Spring 
 does not require doing all changes up-front. 
 
+### Bind Methods as Instance Factories
+When DI is also used to create  _throw away_ instances from factory methods the `Inspector` can be used
+to bind usual methods as such factories. 
+{% highlight java %}
+protected void declare() {
+	per( Scoped.INJECTION ).bind( all().methods() ).in( Implementor.class );
+}
+{% endhighlight %}
+It is important to use the `INJECTION` scope so that the method will be called for each injection. 
 
 ## <a id="config"></a>10\. Config-Bindings
 ### What is Configuration Dependent Implementation Injection (CDI²)
