@@ -8,8 +8,9 @@ title : Bindings
 	<tr><th>#<a href="#basics">Basics</a></th><td>The basics of <code>bind(...)</code> and <code>to(...)</code>.</td></tr>
 	<tr><th>#<a href="#array">Array-Bindings</a></th><td>The role of array types and how to bind arrays and elements.</td></tr>
 	<tr><th>#<a href="#multi">Multi-Bindings</a></th><td>How to create collections of instances with the same base-type.</td></tr>
-	<tr><th>#<a href="#auto">Auto-Bindings</a></th><td>Binding all implemented types of a class automatically.</td></tr>
 	<tr><th>#<a href="#star">Star-Bindings</a></th><td>Wildcard binds and what they are good for.</td></tr>
+	<tr><th>#<a href="#auto">Auto-Bindings</a></th><td>Binding all implemented types of a class automatically.</td></tr>
+	<tr><th>#<a href="#require">Plugin-Bindings</a></th><td>Loosely connect service consumer (<code>require</code>) with a service provider (<code>provide</code>) like plug-ins.</td></tr>
 	<tr><th>#<a href="#targeting">Targeting</a></th><td>How to make binds just apply in some (special) cases.</td></tr>
 	<tr><th>#<a href="#binder">Binder API</a></th><td>General concepts of the fluent binder interface.</td></tr>
 	<tr><th>#<a href="#inspect">Semi-Automate Bindings</a></th><td>How to advice the binder to inspect classes and derive binds from it semi-automatically.</td></tr>
@@ -38,7 +39,7 @@ So a `Binding` is noting more than a 4-tuple consisting of
 Again: all the different bindings described below just result in such a 4-tuple. Some will create 
 more than one but in a simplified inspection it is correct to expect a 1:1 correlation.
 
-### Precision of Bindings
+### <a id="precision"></a> Precision of Bindings
 When the `Injector` has to decide which binding should be taken there might be several known that fit the case.
 If so the binding that is most specific will be used preferential to satisfy a `Dependency`. 
 But what does it mean to be more or most specific or precise ? Generally speaking it could be said, 
@@ -257,10 +258,53 @@ protected void declare() {
 In some cases this could become quite messy. Therefore the `autobind` is 
 provided even though it might be useful quite seldom. 
 
-Note that `autobind` will also bind parametized supertypes like `Compareable<Integer>` for `Integer`.
+Note that `autobind` will also bind parameterized super-types like `Compareable<Integer>` for `Integer`.
 
 
-## <a id="targeting"></a>6\. Targeting Bindings
+## <a id="require"></a>6\. Plugin-Bindings
+One task of dependency injection is to _connect_ loosely coupled modules of an application (OBS! this is not about Silk `Module`s!). 
+Typically an application has _core_ modules and _extension_ modules. Often there are different _extension_ modules but neither should the core module _know_ what module will be connected nor should the _extension_ _know_ where exactly it should incorporate within the _core_ module(s). 
+For the (technical) reason that a service _provider_ and a service _consumer_ need to have a common _contract_ those get coupled together.
+Plugin-bindings allow to keep this coupling as loose as possible. Therefore a resource and take one of two roles:
+
+- As a service provider it communicates that it is able to `provide` functionality.
+- As a service consumer is communicates that it `require`s functionality (a certain `Type`).
+
+The connection is than draws automatically by the `Injector` context. 
+
+{% highlight java %}
+protected void declare() { // in the core module
+	require( SomeServiceInterface.class );
+}
+
+protected void declare() { // in a plugin module
+	provide( SomeServicImpl.class );
+}
+
+class SomeServicImpl implements SomeServiceInterface, ...
+{% endhighlight %}
+The two modules do not have to _know_ each other or specific specifically how they want to _connect_.
+In this example there is just the possibility that the `SomeServicImpl` is used for the required `SomeServiceInterface` but a providing class could be used for many different `require`ments. 
+
+### How _collisions_ are resolved
+While plugin-bindings allow for a loose form of coupling there is a good chance that there is more than one matching _provider_ for a _requirement_ because the overall composition of the application could be seen as chaotic (modules don't know about each other). Therefore **none** of the _providers_ is used (for that particular requirement), as soon as there are two or more that could serve an implementation. They are said to be _nullified_. There are two options to handle this:
+
+- No define a default what results in a eager bootstrapping exception because of missing requirement. The developer can notice that a particular configuration clashes and resolve it by redefining composition or add more precise binds to one of the involved modules. 
+- A default bind can be made using `asDefault()` so that whenever _providers_ collide for a _requirement_ the default is used.  
+{% highlight java %}
+protected void declare() { // in the requiring module
+	require( SomeServiceInterface.class );	
+	asDefault().bind( SomeServiceInterface.class ).to( DefaultServicImpl.class );
+}
+{% endhighlight %}
+<small style="color:red">(this does not work correctly in v0.5 since `DEFAULT` was considered less precise than `PROVIDED` - it can be worked around by using `autobind` instead)</small>
+In general it is important to think of the <a href="#precision">precision of binds</a> when working with plugin-bindings. 
+All explicit made `bind`s will replace a possible `provide`d implementation. So providing will never cause trouble for usual binds. 
+
+### Where is the difference to autobind ?
+In contrast to an <a href="#auto">autobind</a> all bindings resulting from a `provide` that are not needed to fulfill a requirement will be removed **before** the `Injector` is created. So they do not clutter the context with unneeded bindings, while `autobind` would keep at least those type-bindings that are not bound by a more precise binding. 
+
+## <a id="targeting"></a>7\. Targeting Bindings
 All of the above forms of bindings can be made more specific by describing the `Target` it should be used for.
 This narrows the cases in which it matches a dependency but also makes it more suitable. 
 
@@ -328,7 +372,7 @@ Especially don't follow this example and use it with something that generic and 
 
 See also `TestTargetedBinds` for another example.   
 
-## <a id="binder"></a>7\. Fluent-Binder-Interface
+## <a id="binder"></a>8\. Fluent-Binder-Interface
 In Silk almost everything tends to be immutable. The binder itself is another example. 
 When using the fluent interface we can always assign an intermediate partial declaration to a 
 variable and finish it with different ends. Here is a simple example:
@@ -357,7 +401,7 @@ protected void declare() {
  - `Target` (`Instance` + `Packages`) : _any_ instance in all packages  
  
  
-## <a id="inspect"></a>7\. Semi-Automate Bindings through Inspections
+## <a id="inspect"></a>9\. Semi-Automate Bindings through Inspections
 Silk encourages making bindings explicit using the different options described above. But in some
 cases (most of all allowing to shift progressive from an annotation based DI framework) it might make 
 sense to partially automate the binding process. But there have to be limits otherwise automation 
@@ -388,7 +432,7 @@ smoothly bit by bit while new code can benefit from Silk directly. So a migratio
 does not require doing all changes up-front. 
 
 
-## <a id="config"></a>8\. Config-Bindings
+## <a id="config"></a>10\. Config-Bindings
 ### What is Configuration Dependent Implementation Injection (CDI²)
 Dependency Injection is used to decouple a _function consumer_ from the _function provider_. 
 Such a _function_ is a _behavioural_ part of an application. Often applications allow to 
