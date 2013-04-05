@@ -323,7 +323,7 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 </tr>
 <tr>
 	<th>Specific class<i>also with wild-card types</i></th>
-	<td class="bad">no</td>
+	<td class="fair">nearly</td>
 	<td class="good">yes<i>explicit via literal</i></td>
 	<td class="good">yes<i>gems filter util</i></td>
 	<td class="good"><a href="/userguide/binds.html#targeting">yes</a><i>fluent-interface</i></td>
@@ -383,14 +383,14 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 	<td class="fair">viable <i><span class="harmful">setter</span> only</i></td>
 	<td class="bad">viable <i class="harmful">proxies</i></td>
 	<td class="fair">viable <i>for interface</i></td>
-	<td class="good"><b>no</b></td>
+	<td class="good"><b>illegal</b></td>
 </tr>
 <tr>
 	<th>Detection of a cyclic dependencies error</th>
-	<td class="fair">runtime</td>
+	<td class="fair">runtime<i>(bootstrapping)</i></td>
 	<td class="good">-</td>
 	<td>?</td>
-	<td class="fair">runtime</td>
+	<td class="fair">runtime<i>(bootstrapping)</i></td>
 </tr>
 <tr>
 	<th>Scope faults<i>(e.g. injecting request scoped into a singleton)</th>
