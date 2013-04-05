@@ -28,16 +28,16 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 </tr>
 <tr>
 	<th>Archive Size</th> 
-	<td class="bad">too big</td>	
+	<td class="bad">several MB</td>	
 	<td class="fair">&gt; 650KB <i>+ plug-ins</i></td>
 	<td class="good">&gt; 300KB <i>+ gems</i></td>
 	<td class="good">170KB</td>
 </tr>
 <tr>
 	<th>Further dependencies</th> 
-	<td class="bad">too many</td>	
+	<td class="bad">good dozen</td>	
 	<td class="fair">few</td>
-	<td class="fair">few</td>
+	<td class="good"><b>none</b></td>
 	<td class="good"><b>none</b></td>
 </tr>
 </table>
@@ -52,7 +52,7 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 	<td class="bad">20+</td>
 	<td class="bad">20+</td> 
 	<td class="fair">14</td> 
-	<td class="good"><a href="/assets/javadoc/0.4/se/jbee/inject/Injector.html"><b>1</b></a><i>having 1 argument</i></td>
+	<td class="good"><a href="/assets/javadoc/0.4/se/jbee/inject/Injector.html"><b>1</b></a> (<a href="/userguide/intro.html#inject">example</a>)<i>having 1 argument</i></td>
 </tr>
 </table>
 
@@ -65,39 +65,39 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 	<th>Container model</th> 
 	<td class="bad">flat instances</td>
 	<td class="bad">flat instances</td> 
-	<td class="fair">hierarchical instances <i>explicit modelled<i></td> 
+	<td class="fair">hierarchical instances <i>explicit modeled<i></td> 
 	<td class="good">hierarchical instances <i>"production rules"</i></td>
 </tr>
 <tr>
 	<th>Configuration style</th> 
 	<td class="fair">static <i><b>XML</b>, annotation</i></td> 
 	<td class="good">static + programmatic <i><b>annotation</b> + <nobr>fluent interface</nobr></i></td>
-	<td class="fair">static + programmatic <i><b>composition</b> + annotation</i></td>
-	<td class="good">programmatic <i><b>fluent interface</b></i></td>
+	<td class="fair">static + programmatic <i><b>composition</b> + fluent interface + annotation</i></td>
+	<td class="good">programmatic declarative<i><b>fluent interface</b></i></td>
 </tr>
 <tr>
 	<th>Wiring style</th>
-	<td class="bad">automatic <i>by name <b>or</b> type</i></td>	
+	<td class="bad">automatic "scan" <i>by name <b>or</b> type</i></td>	
 	<td class="fair">explicit <i>by name <b>and</b> type</i></td>
 	<td class="fair">explicit <i>by name <b>and</b> type</td>
 	<td class="good">explicit <i>name + type + hierarchy<i/></td>
 </tr>
 <tr>
-	<th>Wiring Independence</th> 
-	<td class="fair">yes <i>with XML only!</i></td>	
+	<th>Wiring Transparency / Independence</th> 
+	<td class="good">yes <i>XML <b>or</b> config-classes</i></td>	
 	<td class="bad">no <i>annotations required</i></td>
-	<td class="fair">yes <i>(not annotation features)</i></td>
+	<td class="good">yes <i>(except annotation feat.)</i></td>
 	<td class="good"><b>yes</b> <i>pure fluent interface</i></td>
 </tr>
 <tr>
-	<th>"External" code handling</th>
+	<th>"External" code handling<i>e.g. a external lib or JRE type</i></th>
 	<td class="fair">limited <i>(name/type wiring only)</i></td>	
 	<td class="fair">indirect <i>requires <tt>Provider</tt></i></td>
-	<td class="fair">limited <i>(not all features)</i></td>
+	<td class="fair">limited <i>(to some features)</i></td>
 	<td class="good"><b>as own</b><i>uniform</i></td>
 </tr>
 <tr>
-	<th>Coupling style</th> 
+	<th>Coupling style<i>How interface/impl. is brought together</i></th> 
 	<td class="fair">referenceable</td>	
 	<td class="good">loose</td>
 	<td class="fair">referenceable</td>
@@ -380,13 +380,13 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 </tr>
 <tr>
 	<th>Dependency cycles</th>
-	<td class="fair">yes <i>setter only</i></td>
-	<td class="bad">yes <i>proxies</i></td>
-	<td class="good">no?</td>
+	<td class="fair">viable <i><span class="harmful">setter</span> only</i></td>
+	<td class="bad">viable <i class="harmful">proxies</i></td>
+	<td class="fair">viable <i>for interface</i></td>
 	<td class="good"><b>no</b></td>
 </tr>
 <tr>
-	<th>Cyclic dependencies error</th>
+	<th>Detection of a cyclic dependencies error</th>
 	<td class="fair">runtime</td>
 	<td class="good">-</td>
 	<td>?</td>
