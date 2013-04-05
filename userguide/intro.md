@@ -178,7 +178,7 @@ Anyway if you don't see a way to make a class _constructible_ you always have th
 
 #### Hint Constructor Arguments
 Silk has a very powerful way to make it understand what instances should be used as arguments to a constructor. They are passed to the `toConstructor` clause.
-The example shows how to pass special `named` instances or a special implementation type as the `asType` as occuring in the constructor signature.
+The example shows how to pass special `named` instances or a special implementation type as the `asType` as occurring in the constructor signature.
 
 {% highlight java %}
 protected void declare() {
@@ -189,7 +189,7 @@ protected void declare() {
 {% endhighlight %}
 
 These kind of hints do not have to be complete nor correctly sorted compared to the constructors parameters. 
-If they are unambigious Silk will understand what should go where. In cases of multiple matching parameters the sequence of hints will be kept.
+If they are unambiguous Silk will understand what should go where. In cases of multiple matching parameters the sequence of hints will be kept.
 
 See also `TestConstructorParameterBinds` for complete examples.
 
@@ -344,7 +344,7 @@ private static class RunModeDependentBundle extends ModularBootstrapperBundle<Ru
 }
 {% endhighlight %}
 Now we have build a switch so that `ProductionBundle` is installed when our property `RunMode` has the value `PROD` and another bundle `DevelopmentBundle` when it is `DEV`.
-And we have defined that `ProductionBundle` is also used as fallback when the property has no value, hence it is `null`. Have a look to `TestConstantModularBinds` for another example.
+And we have defined that `ProductionBundle` is also used as fall-back when the property has no value, hence it is `null`. Have a look to `TestConstantModularBinds` for another example.
 
 Of cause `ModularBundle`s can also be used without `Constants`. The `BuildinBundle` is an example of this kind of usage. 
 There we have different options a user could pick from. We have seen such a installation before when adding `List`s or `Provider`s.
@@ -367,7 +367,7 @@ The 2nd line is somewhat the opposite of the 1st. One instance per injection cre
 
 ### _Session_ Or _Request_ Scopes (and others)
 All the `Scope`s shipped with Silk are contained in the `Scoped` utility class and can be used like that. 
-You'll not find the very common _REQUEST_ and _SESSION_ scopes since such scopes are directly dependent on the servlet container and frontend framework used.
+You'll not find the very common _REQUEST_ and _SESSION_ scopes since such scopes are directly dependent on the servlet container and fronted framework used.
 This is not a problem at all since it is very simple to write such scopes yourself in several lines of code.
 
 Silk is much easier to extend with new scopes than other DI frameworks through clear separation of concerns.
@@ -404,8 +404,8 @@ This trouble has an end. You snapshot both of these _asynchronous_ scopes into y
 {% endhighlight %}
 The above creates a scope that _synchonizes_ the _FILE_ scope into the _REQUEST_ scope. Instead of your `MyScopes.FILE` scope you'll just use the snapshot version in the `per(...)` clause.
 
-### Arrange Object Lifecycles Among Each Other
-With the power of different lifecycles (scopes) comes the burden of possible misconfiguration when instances with a shorter lifecycle are injected into more durable ones. 
+### Arrange Object Life-cycles Among Each Other
+With the power of different life-cycles (scopes) comes the burden of possible misconfiguration when instances with a shorter lifecycle are injected into more durable ones. 
 A common mistake when using _google guice_ is such a case where a _session_ or _request_ scoped instance is injected into an _application singleton_. The worst is,
 that such a mistake doesn't show up as a problem until the referenced shorter living object actually is expired. In _guice_ this is overcome by using a _provider_ 
 so that the actual instance worked with is updating as it changes. But this just helps when the problem has been detected  - and it clutters your code with DI problem solutions. 
@@ -516,8 +516,8 @@ Type.raw( Number.class ).asLowerBound(); // corresponds to Class<? extends Numbe
 Type.raw( List.class ).parametized( Number.class ); // corresponds to Class<List<Number>>
 Type.raw( List.class ).parametized( Number.class ).parametizedAsLowerBounds() // Class<List<? extends Number>>
 {% endhighlight %}
-Due to limitations in java generics the `Type` instance itself will not reflect the type parametrisation so ot becomes _visible_ for the compiler. 
-But the `Typecast` util allows to create full reflected types for severeal common parametized types like `List`, `Set`, `Collection`, `Factory`, `Injectron`, `Provider`:  
+Due to limitations in java generics the `Type` instance itself will not reflect the type parameterization so it becomes _visible_ for the compiler. 
+But the `Typecast` utility allows to create full reflected types for several common parametized types like `List`, `Set`, `Collection`, `Factory`, `Injectron`, `Provider`:  
 {% highlight java %}
 Type<List> raw = Type.raw( List.class ).parametized( Number.class );
 Type<? extends List<Number>> parametized = Typecast.listTypeOf( Number.class );
