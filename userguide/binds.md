@@ -293,7 +293,7 @@ While plugin-bindings allow for a loose form of coupling there is a good chance 
 
 Therefore **none** of the _providers_ is used (for that particular requirement), as soon as there are two or more that could serve an implementation. They are said to be _nullified_. There are two options to handle this:
 
-- No define a default what results in a eager bootstrapping exception because of missing requirement. The developer can notice that a particular configuration clashes and resolve it by redefining composition or add more precise binds to one of the involved modules. 
+- Not define a default, what results in an eager bootstrapping exception because of a missing requirement. Thereby the developer can directly notice that a particular configuration clashes and resolve it by redefining composition or add more precise binds to one of the involved modules. 
 - A default bind can be made using `asDefault()` so that whenever _providers_ collide for a _requirement_ the default is used.  
 {% highlight java %}
 protected void declare() { // in the requiring module
@@ -304,7 +304,9 @@ protected void declare() { // in the requiring module
 <small style="color:red">(this does not work correctly in v0.5 since `DEFAULT` was considered less precise than `PROVIDED` - it can be worked around by using `autobind` instead)</small>
 
 In general it is important to think of the <a href="#precision">precision of binds</a> when working with plugin-bindings. 
-All explicit made `bind`s will replace a possible `provide`d implementation. So providing will never cause trouble for usual binds. 
+All explicit made `bind`s will replace a possible `provide`d implementation. So providing will never cause trouble for usual binds but at the same time it also cannot replace them.
+
+**OBS!** Plugin-bindings should just be used to connect the most abstract level of application modules. They are not a autowiring supertool. Used like that they most likely will cause a lot of headache and pain as soon as the application has grown to a certain size. 
 
 ### Where is the difference to autobind ?
 In contrast to an <a href="#auto">autobind</a> all bindings resulting from a `provide` that are not needed to fulfill a requirement will be removed **before** the `Injector` is created. So they do not clutter the context with unneeded bindings, while `autobind` would keep at least those type-bindings that are not bound by a more precise binding. 
