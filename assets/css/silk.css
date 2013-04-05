@@ -83,13 +83,15 @@ header h1 {
 	color: #666;
 	line-height: normal;
 	margin: 15px 0 0 0;
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 	line-height: 40px;
 	font-weight: 300;
 	font-size: 24px;
 	height: 55px;
 	border-bottom: 1px solid #ccc;
 	
+}
+.serif, header h1 {
+	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 }
 header h1:FIRST-LETTER {
 	font-size: 150%;
