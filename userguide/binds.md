@@ -262,7 +262,7 @@ Note that `autobind` will also bind parameterized super-types like `Compareable<
 
 
 ## <a id="require"></a>6\. Plugin-Bindings
-One task of dependency injection is to _connect_ loosely coupled modules of an application (OBS! this is not about Silk `Module`s!). 
+One task of dependency injection is to _connect_ loosely coupled modules of an application (**OBS!** this is not about Silk `Module`s!). 
 Typically an application has _core_ modules and _extension_ modules. Often there are different _extension_ modules but neither should the core module _know_ what module will be connected nor should the _extension_ _know_ where exactly it should incorporate within the _core_ module(s). 
 For the (technical) reason that a service _provider_ and a service _consumer_ need to have a common _contract_ those get coupled together.
 Plugin-bindings allow to keep this coupling as loose as possible. Therefore a resource and take one of two roles:
@@ -287,7 +287,9 @@ The two modules do not have to _know_ each other or specific specifically how th
 In this example there is just the possibility that the `SomeServicImpl` is used for the required `SomeServiceInterface` but a providing class could be used for many different `require`ments. 
 
 ### How _collisions_ are resolved
-While plugin-bindings allow for a loose form of coupling there is a good chance that there is more than one matching _provider_ for a _requirement_ because the overall composition of the application could be seen as chaotic (modules don't know about each other). Therefore **none** of the _providers_ is used (for that particular requirement), as soon as there are two or more that could serve an implementation. They are said to be _nullified_. There are two options to handle this:
+While plugin-bindings allow for a loose form of coupling there is a good chance that there is more than one matching _provider_ for a _requirement_ because the overall composition of the application could be seen as chaotic (modules don't know about each other). 
+
+Therefore **none** of the _providers_ is used (for that particular requirement), as soon as there are two or more that could serve an implementation. They are said to be _nullified_. There are two options to handle this:
 
 - No define a default what results in a eager bootstrapping exception because of missing requirement. The developer can notice that a particular configuration clashes and resolve it by redefining composition or add more precise binds to one of the involved modules. 
 - A default bind can be made using `asDefault()` so that whenever _providers_ collide for a _requirement_ the default is used.  
@@ -298,6 +300,7 @@ protected void declare() { // in the requiring module
 }
 {% endhighlight %}
 <small style="color:red">(this does not work correctly in v0.5 since `DEFAULT` was considered less precise than `PROVIDED` - it can be worked around by using `autobind` instead)</small>
+
 In general it is important to think of the <a href="#precision">precision of binds</a> when working with plugin-bindings. 
 All explicit made `bind`s will replace a possible `provide`d implementation. So providing will never cause trouble for usual binds. 
 
