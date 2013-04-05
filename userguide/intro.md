@@ -167,7 +167,8 @@ If your application has different setups the bootstrapping gets additional argum
 
 ### Make Classes Constructible 
 Silk is focused on constructor injection since this keeps your code independent and testable as well as it asserts a final injection state for all injected objects.
-The `Constructor` used (if not specified) is automatically picked by a `Inspector` that selects one constructor to use for each `Class`. You can customize it to use your own strategy. By default the constructor with no parameters is selected (if available) or the 1st (in sequence of definition within the class) with any parameters.
+The `Constructor` used (if not specified) is automatically picked by a `Inspector` that selects one constructor to use for each `Class`. You can customize it to use your own strategy. 
+By default the constructor with no parameters is selected (if available) or the 1st with any parameters (this turned out to be error prone and will be changed!).
 
 There is no build in support for field injection since this is considered harmful as internal state could be changed unforeseeable. 
 If fields have a dynamic nature this should be made explicit by using e.g. a `Provider` or any other _indirection_. 
