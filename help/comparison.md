@@ -4,6 +4,7 @@ title : Comparison
 ---
 <tour class="c-help">
 See Also
+<a href="harmful.html"><span class="icon-ban-circle"></span> Considered Harmful</a>
 <a href="motivation.html">Motivation</a>
 </tour>
 # <span class="icon-adjust"></span> Comparison
@@ -11,7 +12,7 @@ See Also
 <abstract>
 In the below tables the features of 4 different frameworks are compared with each other. 
 The features are judged by their influence of the application design and development process as seen by the author of Silk. 
-A <span class="good">good</span> influence is indicated green, a <span class="fair">fair</span> one yellow and a <span class="bad">bad</span> one red. Neutral information is kept gray. This <a onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> <span style="color:blue; cursor: pointer;">table highlighting</span></a> is turned **off** by default.<br/><br/>Concepts or techniques that are considered <span class="harmful">harmful</span> have dark red text as well. Missing or unsure information is indicated by a `'?'`.
+A <span class="good">good</span> influence is indicated green, a <span class="fair">fair</span> one yellow and a <span class="bad">bad</span> one red. Neutral information is kept gray. This <a onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> <span style="color:blue; cursor: pointer;">table highlighting</span></a> is turned **off** by default.<br/><br/>Concepts or techniques that are <a href="harmful.html" class="harmful">considered harmful</a> have dark red text as well. Missing or unsure information is indicated by a `'?'`.
 </abstract>
 
 
