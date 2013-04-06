@@ -11,10 +11,12 @@ See Also
 <abstract>
 In the below tables the features of 4 different frameworks are compared with each other. 
 The features are judged by their influence of the application design and development process as seen by the author of Silk. 
-A good influence is indicated green, a fair one yellow and a bad one red. Neutral information is kept gray. Concepts or techniques that are considered <span class="harmful">harmful</span> have dark red text as well. 
+A <span class="good">good</span> influence is indicated green, a <span class="fair">fair</span> one yellow and a <span class="bad">bad</span> one red. Neutral information is kept gray. This <a onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> <span style="color:blue; cursor: pointer;">table highlighting</span></a> is turned **off** by default.<br/><br/>Concepts or techniques that are considered <span class="harmful">harmful</span> have dark red text as well. Missing or unsure information is indicated by a `'?'`.
 </abstract>
 
+
 ## Library
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 <table class="compare">
 <tr>
 	<th>Feature</th><th><a href="http://www.springsource.org/">Spring</a></th><th><a href="http://code.google.com/p/google-guice/">Guice</a></th><th><a href="http://picocontainer.com/">pico-container</a></th><th>Silk</th>
@@ -42,7 +44,9 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 </tr>
 </table>
 
-## API
+
+## API 
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -56,7 +60,9 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 </tr>
 </table>
 
+
 ## Concept
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -105,7 +111,9 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 </tr>
 </table>
 
+
 ## Types
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -156,6 +164,7 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 
 
 ## Injection
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -233,8 +242,8 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 </table>
 
 
-
 ## Modularity
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -269,7 +278,9 @@ A good influence is indicated green, a fair one yellow and a bad one red. Neutra
 </tr>
 </table>
 
+
 ## Variants (Module Combinability)
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 A _variant_ should be understand as a slightly different _form_ of the _module structure_, a permutation of the application configuration/composition.
 How can those be build, viewed, understand, and combined with other _variants_ ?
 <table class="compare">
@@ -300,8 +311,8 @@ How can those be build, viewed, understand, and combined with other _variants_ ?
 </table>
 
 
-
 ## Applicability Restrictiveness
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 <table class="compare">
 <tr>
@@ -346,6 +357,7 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 
 
 ## Scopes
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -373,7 +385,9 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 </tr>
 </table>
 
+
 ## Error Behaviour
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>

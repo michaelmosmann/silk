@@ -10,18 +10,20 @@ The name _Silk_ is chosen because its strings are elegant, lightweight, thin and
 So silk as a material matches what we are looking for when connecting software components like we do with DI.
 </abstract>
 
-## The Author  
-It is a one man show. I coded all the Java and did the website, logo and everything else connected to the project during my spare time in the last couple of month.
+## Me <small style="font-weight:normal;">(the author)</small>
+I am a software developer living in Växjö, Sweden. I coded the Java, did the website, logo and everything else connected to the project during my spare time in the last couple of month.
 
 ## This Website
-This site is hosted on <a href="http://pages.github.com/">githup pages</a>. It uses <a href="http://jekyllbootstrap.com/">Jekyll</a> that is building static HTML pages on every commit.
-For development a local Jekyll is used. Here is the `_config.yaml`:
+This site is hosted on <a href="http://pages.github.com/">githup pages</a>. It uses <a href="http://jekyllbootstrap.com/">Jekyll</a> that is building static HTML pages from <a href="http://daringfireball.net/projects/markdown/">markdown</a> files on every <a href="http://git-scm.com/">git</a> push I do. All <span class="icon-eye-open"></span> icons are inserted using the <a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a> font.
+
+For development a local Jekyll is used having this `_config.yaml` (mostly stated for me):
 
 	source:      .
 	destination: ./_site
 	auto:        true
 	server:      true
-	baseurl:     /silk/
+	baseurl:     /
+
 	markdown:    rdiscount
 	pygments:    true
 

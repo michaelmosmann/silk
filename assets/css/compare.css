@@ -16,13 +16,13 @@ table.compare td {
 	border-right: 1px solid #ddd;
 	text-align: center;
 }
-table.compare td.good {
+table.compare.highlighted td.good, abstract span.good {
 	background-color: PaleGreen;
 }
-table.compare td.fair {
+table.compare.highlighted td.fair, abstract span.fair {
 	background-color: LemonChiffon;
 }
-table.compare td.bad {
+table.compare.highlighted td.bad, abstract span.bad {
 	background-color: PeachPuff;
 }
 table.compare td i, table.compare th i {
@@ -34,4 +34,14 @@ table.compare td i code {
 }
 .harmful {
 	color: #800000;
+}
+.highlight-toggle {
+	text-decoration: none;
+	color: blue;
+	cursor: pointer;
+	float: right;
+	margin-top: -40px;
+}
+.highlight-toggle span {
+	color: black;
 }

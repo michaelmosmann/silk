@@ -19,5 +19,9 @@ If you have any question whatsoever please use my [github profile](https://githu
 ## Motivation
 Read about my <a href="motivation.html">Motivation</a> to create Silk DI.
 
-## Comparison
+## <span class="icon-adjust"></span> Comparison
 See Silk <a href="comparison.html">compared to Spring IoC, Googe Guice and pico container</a>.
+
+## <span class="icon-comments"></span> Discuss or Ask Questions
+Join the <a href="https://groups.google.com/group/silk-di">mailing list/user group</a>.
+
