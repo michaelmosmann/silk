@@ -9,7 +9,7 @@ layout : default
 
 <abstract>
 With **Silk** your code is no longer cluttered by <s>`@annotations`</s> to guide the dependency injection. 
-Everything is described in external pure Java declarations provided through a fluent interface.
+Everything is described in external pure Java declarations provided through a <a href="/userguide/binds.html#binder">fluent interface</a>.
 </abstract>
 
 <a class="next" href="userguide/snippets.html"><span class="icon-reorder"> </span> Show me some code</a>
@@ -39,9 +39,9 @@ protected void declare() {
 - Lightweight
 - Pure Java
 - Application code stays independent
-- Says NO to magic and pain
+- <a href="/help/harmful.html">Says NO</a> to magic and pain
 - Sequence of declaration is irrelevant
-- No dependency cycles by concept
+- Pushes for constructor injection
 - Injectrons
 - Cross-functional programming
 
@@ -68,6 +68,18 @@ protected void declare() {
 -  <b>No</b> code generation
 
 
+<b class="bullet">Silk has all the features that often require additional libs in other frameworks.</b>
+<div class="icon"><span class="icon-gift"></span>Feature-Rich</div>
+
+- <a href="userguide/binds.html">Declarative</a>, <a href="userguide/binds.html#binder">fluent interface</a></span>
+- <a href="userguide/binds.html#multi">Multi-binds</a></span>
+- <a href="userguide/intro.html#data">Uniform Generic support</a>
+- Easy to utilise or extend
+- <a href="userguide/scopes.html">Scopes</a>
+- <a href="userguide/services.html">Services</a>
+- <a href="userguide/binds.html#inspect">Custom Inspection</a>
+
+
 <b class="bullet">Silk provides few concepts to configure an app in a predictable and maintainable way.</b>
 <div class="icon"><span class="icon-th-large"></span>if-less<br/><a href="userguide/modularity.html">Modularity</a></div>
 
@@ -89,15 +101,5 @@ protected void declare() {
 - A configuration never changes at runtime
 
 
-<b class="bullet">Silk has all the features that often require additional libs in other frameworks.</b>
-<div class="icon"><span class="icon-gift"></span>Feature-Rich</div>
-
-- <a href="userguide/binds.html">Declarative</a>, <a href="userguide/binds.html#binder">fluent interface</a></span>
-- <a href="userguide/binds.html#multi">Multi-binds</a></span>
-- Generic support
-- Easy to utilise or extend
-- <a href="userguide/scopes.html">Scopes</a>
-- <a href="userguide/services.html">Services</a>
-- Custom Inspection
 <br/>
 <br/>
