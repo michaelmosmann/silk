@@ -1,5 +1,5 @@
 ---
-layout : userguide
+layout : tour
 title: User Guide
 ---
 
@@ -17,23 +17,17 @@ How to get and use the Silk framework.
 
 <hr/>
 <a href="/userguide/intro.html" class="book list c-docs"><span class="icon-lightbulb"></span><em>2.</em> Intro-duction</a>
-A briefly introduction into all concepts of the Silk framework. 
+A (not any longer that) briefly introduction into all concepts of the Silk framework. 
+This outlines all parts in short that subsequently get a seperate page each.
 
 <hr/>
 <a href="/userguide/binds.html" class="book list c-docs"><span class="icon-random"></span><em>3.</em> Bindings</a>
-The different types of bindings discussed in detail.
+The different types of bindings discussed in detail. 
+This documents the most important part of the API as it will be used from a usual user perspective.
 
 <hr/>
 <a href="/userguide/scopes.html" class="book list c-docs"><span class="icon-eye-open"></span><em>4.</em> Scopes</a>
 Scopes in Silk are very flexible. Learn about the scopes existing and how custom scopes can be done. 
-
-<hr/>
-<a href="/userguide/services.html" class="book list c-docs"><span class="icon-briefcase"></span><em>5.</em> Services</a>
-Silk's service concept comes close to what is sometimes called _micro-services_. They allow to turn 
-a usual java method into a first class service object that uses a general interface. This decouples
-implementation and usage. In contrast to most equivalent approaches Silk's services do not require
-to explicitly wire them. Wiring is automatic and refactoring safe since method names and parameter 
-order are irrelevant. The wiring is determined from types.
 
 <hr/>
 <a href="/userguide/modularity.html" class="book list c-docs"><span class="icon-th-large"></span><em>6.</em> Modularity</a>
@@ -41,6 +35,10 @@ Silk is designed to scale from tiny to very large. A application configuration i
 Modules describe the bindings, bundles describe a composition of modules and other bundles.
 The special characteristic of Silk is that all conditions kept outside of these bundles and modules. 
 They become input arguments to the bootstrapping process.
+
+<hr/>
+<a href="/userguide/services.html" class="book list c-docs"><span class="icon-briefcase"></span><em>5.</em> Services</a>
+Silk's service concept comes close to what is sometimes called _micro-services_. 
 
 <hr/>
 <a href="/userguide/data.html" class="book list c-docs"><span class="icon-exchange"></span><em>7.</em> Data<br/>Types</a>

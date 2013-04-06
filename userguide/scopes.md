@@ -74,5 +74,4 @@ public interface Repository {
 {% endhighlight %}
 
 
- <a class='next' href="services.html"><span class="icon-chevron-right"></span>Services</a>
- 
+<a class='next' href="modularity.html"><span class="icon-chevron-right"></span>Modularity</a> 

@@ -15,6 +15,7 @@ Help
 
 ----
 
+<b class="bullet">Behind the curtains...</b>
 <div class="icon"><span class="icon-beaker"></span>Background</div>
 
 - My <a href="motivation.html">Motivation</a> to create Silk DI.
@@ -24,6 +25,7 @@ Help
 
 ----
 
+<b class="bullet">Get involved...</b>
 <div class="icon"><span class="icon-comments"></span>Contact</div>
 
 - Join the <a href="https://groups.google.com/group/silk-di">user group / mailing list</a>

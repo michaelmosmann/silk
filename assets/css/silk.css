@@ -363,7 +363,8 @@ a.list {
 	font-size: 80%;
 	clear: left;
 	margin: 0;
-	margin-right: 15px;
+	margin-right: 35px;
+	margin-left: 55px;
 	margin-bottom: 10px;
 	width: 70px;
 	height: 88px;
@@ -376,8 +377,12 @@ a.list > em {
 	display: block;
 	font-style: normal;
 	line-height: 1em;	
-	color: #eee;
+	color: #444;
 	font-weight: bold;
+	position: absolute;
+	font-size: 42px;
+	margin-left: -55px;
+	margin-top: 10px;
 }
 
 tour {
@@ -476,4 +481,11 @@ font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 }
 .doc {
 	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+}
+.tour {
+	width: 80%;
+	margin: 0 auto;
+}
+.tour p {
+	margin-right: 5%;
 }
