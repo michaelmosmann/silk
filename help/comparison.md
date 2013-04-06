@@ -17,7 +17,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Library
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th><a href="http://www.springsource.org/">Spring</a></th><th><a href="http://code.google.com/p/google-guice/">Guice</a></th><th><a href="http://picocontainer.com/">pico-container</a></th><th>Silk</th>
@@ -47,7 +47,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## API 
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -63,7 +63,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Concept
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -114,7 +114,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Types
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -165,13 +165,13 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Injection
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
 </tr>
 <tr>
-	<th>Annotation guidance</th>
+	<th>Annotation guidance <i class="harmful">(considered harmful)</i></th>
 	<td class="fair">required <i>XML alternative</i></td>	
 	<td class="bad">required</td>
 	<td class="good">less important alternative</td>
@@ -185,7 +185,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 	<td class="good"><b>idiomatic</b> <i>fluent interface</i><i><a href="/userguide/binds.html#parameters">many options</a><i></td>
 </tr>
 <tr>
-	<th>Field injection<i class="harmful">(considered harmful)</i></th>
+	<th>Field injection<i><span class="harmful">(considered harmful)</span> <a href="harmful.html#field_injection">Why?</a></i></th>
 	<td class="fair">yes <i class="harmful">annotations</i></td>	
 	<td class="fair"><b>idiomatic</b> <i class="harmful">annotations</i></td>
 	<td class="fair">yes <i>named or <span class="harmful">annotations</span></i></td>
@@ -206,7 +206,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 	<td class="good"><b>yes</b> <i>fluent interface<i></td>
 </tr>
 <tr>
-	<th>Static injection<i class="harmful">(considered harmful)</i></th>
+	<th>Static injection<i><span class="harmful">(considered harmful)</span> <a href="harmful.html#static_injection">Why?</a></i></th>
 	<td class="fair">yes <i class="harmful">named XML + annotations</i></td>	
 	<td class="fair">yes <i class="harmful">annotations</i></td>
 	<td class="good">no?</td>
@@ -258,7 +258,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Modularity
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -295,7 +295,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Variants (Module Combinability)
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 A _variant_ should be understand as a slightly different _form_ of the _module structure_, a permutation of the application configuration/composition.
 How can those be build, viewed, understand, and combined with other _variants_ ?
 <table class="compare">
@@ -327,7 +327,7 @@ How can those be build, viewed, understand, and combined with other _variants_ ?
 
 
 ## Applicability Restrictiveness
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 <table class="compare">
 <tr>
@@ -372,7 +372,7 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 
 
 ## Scopes
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -402,7 +402,7 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 
 
 ## Performance
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 There seamed to be no actual numbers on performance. I had no time to do proper tests including all 4 frameworks yet but I would like to get these numbers if available somewhere or by myself if needed. Until than I can just give indications based on older measurements I found and personal experience gained in years of usage (not pico-container) or expectation (pico). 
 
 <table class="compare">
@@ -427,7 +427,7 @@ There seamed to be no actual numbers on performance. I had no time to do proper 
 
 
 ## Error Behaviour
-<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
