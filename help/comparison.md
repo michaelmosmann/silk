@@ -171,7 +171,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
 </tr>
 <tr>
-	<th>Annotation guidance <i class="harmful">(considered harmful)</i></th>
+	<th>Annotation guidance <i><span class="harmful">(considered harmful)</span> <a href="harmful.html#annotations">Why?</a></i></th>
 	<td class="fair">required <i>XML alternative</i></td>	
 	<td class="bad">required</td>
 	<td class="good">less important alternative</td>
@@ -192,7 +192,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 	<td class="good"><b>no</b></td>
 </tr>
 <tr>
-	<th>Setter injection<i class="harmful">(considered harmful)</i></th>
+	<th>Setter injection <i><span class="harmful">(considered harmful)</span> <a href="harmful.html#setter_injection">Why?</a></i></th>
 	<td class="fair"><b>idiomatic</b><i>named, annotations or XML</i></td>	
 	<td class="fair">yes <i class="harmful">annotations</i></td>
 	<td class="fair">yes <i>name or type</i></td>
@@ -227,7 +227,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 	<td class="good"><b>optional</b> <i>bridge via fluent interface</i></td>
 </tr>
 <tr>
-	<th>Reinection<i class="harmful">(considered harmful)</i></th>
+	<th>Reinection<i><span class="harmful">(considered harmful)</span> <a href="harmful.html#reinjection">Why?</a></i></th>
 	<td class="bad">yes <i class="harmful">setters</i></td>	
 	<td class="good"><b>no</b> <i>use indirection</i></td>
 	<td class="fair">explicit call-side <i>programmatic</i></td>
