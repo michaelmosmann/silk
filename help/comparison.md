@@ -239,6 +239,20 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 	<td class="good">no?</td>
 	<td class="good"><b>no</b></td>
 </tr>
+<tr>
+	<th>Mixed injection<i>(assisted injection)</i></th>
+	<td>no?</td>	
+	<td>yes <i class="harmful">annotations</i></td>
+	<td>no?</td>
+	<td><a href="/userguide/services.html">services</a></td>
+</tr>
+<tr>
+	<th>Post-construction hook</th>
+	<td>yes <i class="harmful">annotations?</i></td>	
+	<td>yes <i class="harmful">annotations?</i></td>
+	<td>yes<i>(lifecycles)</i></td>
+	<td>through custom <code>Supplier</code> only</td>
+</tr>
 </table>
 
 
@@ -386,6 +400,31 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 </table>
 
 
+## Performance
+<a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
+There seamed to be no actual numbers on performance. I had no time to do proper tests including all 4 frameworks yet but I would like to get these numbers if available somewhere or by myself if needed. Until than I can just give indications based on older measurements I found and personal experience gained in years of usage (not pico-container) or expectation (pico). 
+
+<table class="compare">
+<tr>
+	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
+</tr>
+<tr>
+	<th>Bootstrapping</th>
+	<td class="fair"><em>slower</em> than guice</td>
+	<td class="good">stated that it is <em>fast</em></td>
+	<td class="good">about as guice?</td>
+	<td class="good">about as guice?</td>
+</tr>
+<tr>
+	<th>Object Creation</th>
+	<td class="fair">stated that it is <em>slower</em> than guice</td>
+	<td class="good">stated that it is <em>fast</em></td>
+	<td class="good">about as guice?</td>
+	<td class="good">about as guice?</td>
+</tr>
+</table>
+
+
 ## Error Behaviour
 <a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a>
 <table class="compare">
@@ -419,6 +458,20 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 	<td class="fair">lazy</td>
 	<td class="fair">lazy</td>
 	<td class="good">eager</td>
+</tr>
+</table>
+
+## Summing Up
+<table class="compare">
+<tr>
+	<th></th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
+</tr>
+<tr>
+	<th>Best to use for</th>
+	<td>...</td>
+	<td>...</td>
+	<td>...</td>
+	<td>...</td>
 </tr>
 </table>
 
