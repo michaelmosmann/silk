@@ -402,7 +402,7 @@ tour {
 	font-size: 110%;
 	line-height: 1.5em;
 	text-align: center;
-	border-right: 5px solid white;
+	border-right: 1px solid #ccc !important;
 }
 tour a {
 	display: block;
