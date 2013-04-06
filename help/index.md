@@ -9,19 +9,26 @@ Help
 <a href="about.html">About</a>
 <a href="motivation.html">Motivation</a>
 <a href="comparison.html">Comparision</a>
+<a href="harmful.html">Considered Harmful</a>
 </tour>
 # Help
 
-<abstract>
-If you have any question whatsoever please use my [github profile](https://github.com/jbee) to contact me or use the <a href="https://groups.google.com/group/silk-di">user group</a>.
-</abstract>
+----
 
-## Motivation
-Read about my <a href="motivation.html">Motivation</a> to create Silk DI.
+<div class="icon"><span class="icon-beaker"></span>Background</div>
 
-## <span class="icon-adjust"></span> Comparison
-See Silk <a href="comparison.html">compared to Spring IoC, Googe Guice and pico container</a>.
+- My <a href="motivation.html">Motivation</a> to create Silk DI.
+- Silk <a href="comparison.html">compared to other DI containers</a>.
+- <a href="about.html">About me</a>, this site and everything else
+- What I <a href="harmful.html">consider harmful</a>, and why
 
-## <span class="icon-comments"></span> Discuss or Ask Questions
-Join the <a href="https://groups.google.com/group/silk-di">mailing list/user group</a>.
+----
+
+<div class="icon"><span class="icon-comments"></span>Contact</div>
+
+- Join the <a href="https://groups.google.com/group/silk-di">user group / mailing list</a>
+- contact me through my [github profile](https://github.com/jbee)
+- Report an <a href="https://github.com/jbee/silk/issues">issue</a>
+
+----
 
