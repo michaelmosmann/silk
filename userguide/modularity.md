@@ -59,16 +59,4 @@ For a user of Silk this means: You don't have to care at all about the structure
 
 ## Modules
 
-## Editions
-
-## Features
-
-# Configuration
-
-## Globals
-
-# Customisation
-
-## Injection Strategies
-
-<a class='next' href="services.html"><span class="icon-chevron-right"></span>Services</a>
+<a class='next' href="config.html"><span class="icon-chevron-right"></span>Configuration</a>

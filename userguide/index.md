@@ -30,18 +30,23 @@ This documents the most important part of the API as it will be used from a usua
 Scopes in Silk are very flexible. Learn about the scopes existing and how custom scopes can be done. 
 
 <hr/>
-<a href="/userguide/modularity.html" class="book list c-docs"><span class="icon-th-large"></span><em>6.</em> Modularity</a>
+<a href="/userguide/modularity.html" class="book list c-docs"><span class="icon-th-large"></span><em>5.</em> Modularity</a>
 Silk is designed to scale from tiny to very large. A application configuration is described on 2 levels. 
 Modules describe the bindings, bundles describe a composition of modules and other bundles.
 The special characteristic of Silk is that all conditions kept outside of these bundles and modules. 
 They become input arguments to the bootstrapping process.
 
 <hr/>
-<a href="/userguide/services.html" class="book list c-docs"><span class="icon-briefcase"></span><em>5.</em> Services</a>
+<a href="/userguide/config.html" class="book list c-docs"><span class="icon-wrench"></span><em>6.</em> Config-uration</a>
+The configuration is part of the advanced modularisation concepts and customisation of selection of 
+constructors and factory methods.
+
+<hr/>
+<a href="/userguide/services.html" class="book list c-docs"><span class="icon-briefcase"></span><em>7.</em> Services</a>
 Silk's service concept comes close to what is sometimes called _micro-services_. 
 
 <hr/>
-<a href="/userguide/data.html" class="book list c-docs"><span class="icon-exchange"></span><em>7.</em> Data<br/>Types</a>
+<a href="/userguide/data.html" class="book list c-docs"><span class="icon-exchange"></span><em>8.</em> Data<br/>Types</a>
 Another unique feature of Silk is its general immutability. The functional parts are connected with immutable data types.
 Beside them any injection context (injector) is immutable as well after it has been bootstrapped. Thereby Silk
 becomes a nearly functional behaviour. The state manages by scopes is the only exception to this. 
