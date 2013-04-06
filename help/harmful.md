@@ -16,27 +16,27 @@ The philosophy of Silk is to think about the prize of possible features. Often w
 
 <table class="toc">
 <tr>
-	<th>#<a href="field_injection">A. Instance Field Injection</a></th>
+	<th>#<a href="#field_injection">A. Instance Field Injection</a></th>
 	<td></td>
 </tr>
 <tr>
-	<th>#<a href="static_injection">B. Static Field Injection</a></th>
+	<th>#<a href="#static_injection">B. Static Field Injection</a></th>
 	<td></td>
 </tr>
 <tr>
-	<th>#<a href="setter_injection">C. Setter Injection</a></th>
+	<th>#<a href="#setter_injection">C. Setter Injection</a></th>
 	<td></td>
 </tr>
 <tr>
-	<th>#<a href="reinjection">D. Reinjection</a></th>
+	<th>#<a href="#reinjection">D. Reinjection</a></th>
 	<td></td>
 </tr>
 <tr>
-	<th>#<a href="annotations">E. Annotation Injection Guidance</a></th>
+	<th>#<a href="#annotations">E. Annotation Injection Guidance</a></th>
 	<td></td>
 </tr>
 <tr>
-	<th>#<a href="aspects">F. Aspects &amp; Proxies</a></th>
+	<th>#<a href="#aspects">F. Aspects &amp; Proxies</a></th>
 	<td></td>
 </tr>
 </table>
