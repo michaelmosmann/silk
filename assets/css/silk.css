@@ -372,13 +372,15 @@ a.list {
 }
 a.list > span {
 	margin-top: 60px;
+	color: white;
+	font-weight: normal;
 }
 a.list > em {
 	display: block;
 	font-style: normal;
 	line-height: 1em;	
-	color: #444;
-	font-weight: bold;
+	color: #666;
+	font-weight: normal;
 	position: absolute;
 	font-size: 42px;
 	margin-left: -55px;

@@ -13,11 +13,11 @@ Notice that Silk has a more advanced modularization concepts so you should have 
 
 ## Tour
 <a href="/userguide/install.html" class="book list c-docs"><span class="icon-save"></span><em>1.</em> Installation</a>
-How to get and use the Silk framework.
+How to get and use the Silk DI container.
 
 <hr/>
 <a href="/userguide/intro.html" class="book list c-docs"><span class="icon-lightbulb"></span><em>2.</em> Intro-duction</a>
-A (not any longer that) briefly introduction into all concepts of the Silk framework. 
+A (not any longer that) briefly introduction into all concepts of the Silk DI container. 
 This outlines all parts in short that subsequently get a seperate page each.
 
 <hr/>
