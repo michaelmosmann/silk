@@ -92,6 +92,7 @@ For this example both `install` calls will another value than the `chosen` one w
 not installed. 
 
 The test `TestModularBinds` shows a complete example of this form of usage. 
+Multiple choices are made in `TestMultipleOptionChoicesBinds` test.
 
 ### Hard-coded Selective Installation
 One or more children of a `ModulearBundle` are installed by referring to their specific `enum` constants.
