@@ -5,10 +5,10 @@ title : Configuration
 # Configuration
 
 ## A\. Concept
-Silk configuration is an important part of its `if`-_less_ modularization concept. 
+Silk's configuration is an important part of its `if`-_less_ <a href="modularity.html">modularization</a> concept. 
 The configuration objects are the data that controls the composition of `Module`s and `Bundle`s instead of 
-adding control flow code in those. Hence the composition is not hard-coded but data-driven. 
-This is more flexible since the same tree can be interpreted different depending on **data**
+adding control flow code within those. Hence the composition is not hard-coded but data-driven. 
+This is more flexible since the same composition tree can be interpreted different depending on **data**
 and it is easier to understand since all _conditions_ will be in one place directly before the bootstrapping.
 
 ## 1\. Globals

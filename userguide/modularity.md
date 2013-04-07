@@ -55,8 +55,67 @@ Bundles can (e.g.):
 
 For a user of Silk this means: You don't have to care at all about the structure (graph) of bundles. There will be no problem with it!
 
-### Modular Bundles
+## Modular Bundles
+A `ModularBundle` is a bundle where each child `Bundle` is associated with a specific configuration value.
+This values are `enum` constants. Within the modulear bundle they are passed as argument to the `install` call (here `Machine`) to express their assiciation:
+{% highlight java %}
+class MachineBundle extends ModularBootstrapperBundle<Machine> {
+	protected void bootstrap() {
+		install( GenericMachineBundle.class, null );
+		install( LocalhostBundle.class, Machine.LOCALHOST );
+		install( Worker1Bundle.class, Machine.WORKER_1 );
+	}
+}
+{% endhighlight %}
+Which of the associated `Bundle`s actually will be installed depends on the choice that can be made
+in different ways (described below). With modular bundles structure is separated from the descision 
+which subtree should be expanded in a specific configuration. 
+The use of an `enum` and the possibility to specify a _default_ for the case no such option has been chosen grants high stability. 
+
+From within a usual `Bundle` there are 2 ways to use a `ModularBundle` that are described below. 
+
+### Conditional Installation with Options
+The `ModulearBundle` is installed by refering to its `enum` `.class` instance.
+{% highlight java %}
+protected void bootstrap() {
+	install( MachineBundle.class, Machine.class );
+}
+{% endhighlight %}
+Now all `chosen` modular bundles will be installed. In this case the `Options` for the type 
+`Marchine` is used as a single choice. In the `Globals` setup before the bootstrapping one marchine 
+will be specified (or not = `null`) to control the actually installed `Bundle`s specified above.
+{% highlight java %}
+Options options = Options.STANDARD.chosen( Machine.LOCALHOST );
+Injector injector = Bootstrap.injector( RootBundle.class, Globals.STANDARD.options( options ) );
+{% endhighlight %}
+For this example both `install` calls will another value than the `chosen` one will be ignored and
+not installed. 
+
+The test `TestModularBinds` shows a complete example of this form of usage. 
+
+### Hard-coded Selective Installation
+One or more children of a `ModulearBundle` are installed by refering to their specific `enum` constants.
+{% highlight java %}
+protected void bootstrap() {
+	install( MachineBundle.class, Machine.LOCALHOST );
+}
+{% endhighlight %}
+This can also be used with multiple constants:
+{% highlight java %}
+protected void bootstrap() {
+	install( BuildinBundle.LIST, BuildinBundle.COLLECTION );  
+}
+{% endhighlight %}
+This will (independently from the `Options`) install just the chosen parts of the modular bundle. 
+The `BuildinBundle` used in this example is Silk's _repository_ for general functionality that the 
+user can pick from like thown above. This shows that `ModularBundle`s can also be used to decouple
+a subtree of the composition from the need of knowing the exact `Bundle` class that should be installed. 
+Those can be hidden behind a _concept_ represented by the `enum` constant.   
+
+The test `TestEditionFeatureBinds` shows the use of modular bundles for install bundles _feature dependent_.
 
 ## Modules
+
+### Preset Modules
 
 <a class='next' href="config.html"><span class="icon-chevron-right"></span>Configuration</a>
