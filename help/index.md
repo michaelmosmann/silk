@@ -8,7 +8,8 @@ Help
 <a href="https://groups.google.com/group/silk-di">User Group</a>
 <a href="about.html">About</a>
 <a href="motivation.html">Motivation</a>
-<a href="comparison.html">Comparision</a>
+<a href="philosophy.html">Philosophy</a>
+<a href="comparison.html">Comparison</a>
 <a href="harmful.html">Considered Harmful</a>
 </tour>
 # Help
