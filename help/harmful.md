@@ -11,7 +11,7 @@ See Also
 # <span class="icon-ban-circle"></span> Considered Harmful
 
 <abstract>
-The <a href="philosophy.html">philosophy</a> of Silk is to think about the prize of possible features. Often we tend to see just what we _get_ and not what it will _bring_ or _mean_ as a consequence as well. Therefore Silk breaks with a lot of popular techniques and considers them to be harmful. Of cause this deserves an explanation based on facts and objective arguments. I will try to let you participate in my thoughts about different concepts that Silk avoids - not because they would be hard to implement but **because of the prize** that we would pay. 
+The <a href="philosophy.html">philosophy</a> of Silk is to think about the price of possible features. Often we tend to see just what we _get_ and not what it will _bring_ or _mean_ as a consequence as well. Therefore Silk breaks with a lot of popular techniques and considers them to be harmful. Of cause this deserves an explanation based on facts and objective arguments. I will try to let you participate in my thoughts about different concepts that Silk avoids - not because they would be hard to implement but **because of the price** that we would pay. 
 </abstract>
 
 <table class="toc">
