@@ -4,6 +4,7 @@ title : Javadoc
 ---
 <tour class="c-javadocs">
   Javadoc
+  <a href="/assets/javadoc/0.6/">v0.6 Overview</a>
   <a href="/assets/javadoc/0.5/">v0.5 Overview</a>
   <a href="/assets/javadoc/0.4/">v0.4 Overview</a>
   <a href="/assets/javadoc/0.3/">v0.3 Overview</a>
