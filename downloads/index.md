@@ -18,14 +18,14 @@ Note that Silk is in the maven central repository. So in case you are using a bu
 that works with that you can just follow the <a href="/userguide/install.html">installation instructions</a>.
 </abstract>
 
-## <a id="current" class="icon-tag"></a> Current Release v0.5
+## <a id="current" class="icon-tag"></a> Current Release v0.6
 
-The latest release of Silk is version <i>0.5</i>, released on 2nd April 2013.
+The latest release of Silk is version <i>0.6</i>, released on 9th July 2013.
 
 <ul>
-	<li>171KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.5/silk-di-0.5.jar">silk-di-0.5.jar</a> (binaries only)</li>
-	<li>537KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.5/silk-di-0.5-javadoc.jar">silk-di-0.5-javadoc.jar</a> (javadoc only)</li>
-	<li>88KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.5/silk-di-0.5-sources.jar">silk-di-0.5-sources.jar</a> (sources only)</li>
+	<li>188KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.6/silk-di-0.6.jar">silk-di-0.6.jar</a> (binaries only)</li>
+	<li>578KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.6/silk-di-0.6-javadoc.jar">silk-di-0.6-javadoc.jar</a> (javadoc only)</li>
+	<li>96KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.6/silk-di-0.6-sources.jar">silk-di-0.6-sources.jar</a> (sources only)</li>
 </ul>
 
 _Release notes_ will hopefull follow soon. 
@@ -40,6 +40,14 @@ You can also download `zip` files from the relase <a href="https://github.com/jb
 
 
 ## <a id="previous" class="icon-tag"></a> Previous Releases
+
+### v0.5
+Silk version <i>0.5</i>, released on 2nd April 2013.
+<ul>
+	<li>171KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.5/silk-di-0.5.jar">silk-di-0.5.jar</a> (binaries only)</li>
+	<li>537KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.5/silk-di-0.5-javadoc.jar">silk-di-0.5-javadoc.jar</a> (javadoc only)</li>
+	<li>88KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.5/silk-di-0.5-sources.jar">silk-di-0.5-sources.jar</a> (sources only)</li>
+</ul>
 
 ### v0.4
 Silk version <i>0.4</i>, released on 17th February 2013.
