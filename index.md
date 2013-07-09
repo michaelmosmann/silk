@@ -1,7 +1,7 @@
 ---
 layout : default
 ---
-<a href="/downloads/" style="text-decoration: none; position: absolute; top: 10px; margin-left: 600px;"><span class="icon-certificate" style="color: #ffe804; font-size: 48px; text-align: right;"><b style="font-size: 13px; color: black; position: relative; display: block; margin-top: -30px; padding-right: 5px;">v0.5</b></span> NEW Release on April 2nd 2013</a>
+<a href="/downloads/" style="text-decoration: none; position: absolute; top: 10px; margin-left: 600px;"><span class="icon-certificate" style="color: #ffe804; font-size: 48px; text-align: right;"><b style="font-size: 13px; color: black; position: relative; display: block; margin-top: -30px; padding-right: 5px;">v0.6</b></span> NEW Release on July 9th 2013</a>
 
 <tour>
 &nbsp;<br/>Silk DI<br/><em>a lightweight</em> <br/>Java<br/><em>Dependency Injection</em></br> tool
