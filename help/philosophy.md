@@ -38,7 +38,8 @@ As a consequence the DI container should have 2 important chracteristics:
    small fragment level so that just those parts that solved better with the container need to use it.
    That includes that the container should _drive_ a style of coding that is as if there is no 
    container and that more and more fragments can smothly regain manual setup code.
-   
+3. The DI container should not be coupled to more concepts 
+
 ...to be continued
 
 

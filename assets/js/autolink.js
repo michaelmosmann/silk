@@ -4,7 +4,7 @@ var constantURLs = [];
 var githubRootURL = "https://github.com/jbee/silk/tree/master/";
 var ambigous = "-AMBIGIOUS-";
 var java = "_java_";
-var javadocRootURL = "/assets/javadoc/0.5/";
+var javadocRootURL = "/assets/javadoc/0.6/";
 
 function wrapCode() {
 	var name = $(this).text();
