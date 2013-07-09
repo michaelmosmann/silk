@@ -13,7 +13,7 @@ Other Downloads
 # Downloads
 
 <abstract>
-The simplest way to use Silk is to download the <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.5/silk-di-0.5.jar">binaries</a> and add them to your classpath. 
+The simplest way to use Silk is to download the <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.6/silk-di-0.6.jar">binaries</a> and add them to your classpath. 
 Note that Silk is in the maven central repository. So in case you are using a build tool
 that works with that you can just follow the <a href="/userguide/install.html">installation instructions</a>.
 </abstract>
