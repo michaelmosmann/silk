@@ -72,7 +72,7 @@ All problems of <a href="#reinjection">D.&nbsp;Reinjection</a> apply to accessib
 #### Constant Fields
 Constant fields are **constant** - using reflection (via DI or not) to change that violates the expectations of the programmer looking at the code. 
 This removes the predictability that is connected to the concept of `static` values (_globals_). When predictability is already lost on the _global_ level
-it is of cause not possible any longer to have good predictability in the overall application at runtime. Thereby it does not matter if DI just replaces the constant once since tha actual value still is not what the programmer sees in the code wherefore he will be wrong about his expectations. 
+it is of course not possible any longer to have good predictability in the overall application at runtime. Thereby it does not matter if DI just replaces the constant once since tha actual value still is not what the programmer sees in the code wherefore he will be wrong about his expectations. 
 
 #### Class Fields
 That are non-`final` but `static` fields. Such a field is de-facto a JVM wide singleton. Manipulation that from within a DI container is violating the hole purpose of having such a container in order to be able to have _singletons_ that not _collide_ when you have 2 processes running the same application. The fact that the container should change the value of the field must mean that the used value is a managed context instance. This can just work for one context when there are two _working_ with the same class field. 

@@ -30,7 +30,6 @@ Help
 <div class="icon"><span class="icon-comments"></span>Contact</div>
 
 - Join the <a href="https://groups.google.com/group/silk-di">user group / mailing list</a>
-- contact me through my [github profile](https://github.com/jbee)
 - Report an <a href="https://github.com/jbee/silk/issues">issue</a>
 
 ----

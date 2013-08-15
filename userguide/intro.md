@@ -108,7 +108,7 @@ Here `multibind` can be used to define the members of the collection we get inje
 multibind( Fruit.class ).to( Apple.class );
 multibind( Fruit.class ).to( Orange.class );
 {% endhighlight %}
-The `multibind` calls can of cause appear in different `Module`s or in the same. 
+The `multibind` calls can of course appear in different `Module`s or in the same. 
 The constructor of a class dependent on _fruits_ could look like this:
 {% highlight java %}
 public Mixer(Fruit[] fruits) {

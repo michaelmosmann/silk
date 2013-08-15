@@ -7,7 +7,7 @@ title : Show me some code!
 When you are familiar with DI as a concept and the _google guice_ library as an example the following code snippets will give you a good idea how Silk is used.
 
 **Note:** Code is shown together but doesn't appear in a single source in a real implementation! 
-Also `injector.resolve` is used to show what would be injected but of cause this call is not done manually except for the root instance of an application.
+Also `injector.resolve` is used to show what would be injected but of course this call is not done manually except for the root instance of an application.
 
 <a href="intro.html" class="next"><span class="icon-chevron-right"> </span> Read the introduction</a>
 
