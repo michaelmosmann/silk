@@ -22,7 +22,8 @@ Silk communicates through types making concepts explicit. Therefore it is often 
 </abstract>
 
 ## <i class="icon-tag"></i> Releases
-<a href="/assets/javadoc/0.5/" class="icon-coffee"> v0.5 Javadoc Overview</a> (this is linked from within the docs)<br/>
+<a href="/assets/javadoc/0.6/" class="icon-coffee"> v0.6 Javadoc Overview</a> (this is linked from within the docs)<br/>
+<a href="/assets/javadoc/0.5/" class="icon-coffee"> v0.5 Javadoc Overview</a><br/>
 <a href="/assets/javadoc/0.4/" class="icon-coffee"> v0.4 Javadoc Overview</a><br/>
 <a href="/assets/javadoc/0.3/" class="icon-coffee"> v0.3 Javadoc Overview</a>
 

@@ -125,7 +125,7 @@ and/or
 {% endhighlight %}
 and/or you install your own _bridge_ that makes _your collection_ type work as well:
 {% highlight java %}
-per( Scoped.DEPENDENCY_TYPE ).starbind( MyList.class ).to( MyListSupplier.class );
+per( Scoped.DEPENDENCY ).starbind( MyList.class ).to( MyListSupplier.class );
 {% endhighlight %}
 Here we meet the `Supplier` again. Such a _bridge_ is very simple to add by extending the `ArrayBridgeSupplier`:
 {% highlight java %}
@@ -168,7 +168,9 @@ If your application has different setups the bootstrapping gets additional argum
 ### Make Classes Constructible 
 Silk is focused on constructor injection since this keeps your code independent and testable as well as it asserts a final injection state for all injected objects.
 The `Constructor` used (if not specified) is automatically picked by a `Inspector` that selects one constructor to use for each `Class`. You can customize it to use your own strategy. 
-By default the constructor with no parameters is selected (if available) or the 1st with any parameters (this turned out to be error prone and will be changed!).
+By default the constructor with the most parameters is selected. 
+If there are multiple constuctors having the same amount of arguments there is no reliable prediction which one will be picked.
+If you need to have such a case customize the `Inspector` so the `Constructor` you want gets picked up!
 
 There is no build in support for field injection since this is considered harmful as internal state could be changed unforeseeable. 
 If fields have a dynamic nature this should be made explicit by using e.g. a `Provider` or any other _indirection_. 
@@ -238,7 +240,7 @@ public interface Provider<T> {
 }
 {% endhighlight %}
 The more important difference is, that _providers_ are no core concept in Silk. By default you cannot ask for a `Provider` of the instances you have bound.
-This has a very simple reason: Providers usually appear within your application code what would make your code depend on the DI framework what is exactly what Silk aims to avoid. 
+This has a very simple reason: Providers usually appear within your application code what would make your code depend on the DI library what is exactly what Silk aims to avoid. 
 So if you really need _providers_ (services are an alternative) you should use your own interface so the dependency goes in the right direction. 
 You can easily add it in less than 10 lines of code. Have a look at Silk's own `Provider` implementation as a template. 
 Another alternative is to just wrap Silk's `Provider` within our own. Therefore you install it using:
@@ -333,7 +335,7 @@ The `options` are later passed to the `Bootstrap.injector` as seen above as part
 When working with `Options` we use them together with `ModularBundle`s. 
 Those allow to `install` other bundles and modules dependent on constant values. So we define:
 {% highlight java %}
-private static class RunModeDependentBundle extends ModularBootstrapperBundle<RunMode> {
+class RunModeDependentBundle extends ModularBootstrapperBundle<RunMode> {
 
 	@Override
 	protected void bootstrap() {
@@ -466,7 +468,7 @@ Note that the `Service` interface mentioned here is not defined by Silk (this wo
 It is an application interface that gets connected to Silk's low level representation `ServiceMethod` with a adapter bind. 
 The test `TestServiceBinds` shows how to do it for an interface just like in this example.
 
-### Say Goodbye to Dependency Cycles  
+### No Further Dependency Cycles  
 
 Effectively all dependencies point to the chosen service interface and the record classes that act as parameter container. 
 Thereby services can be wired in any network without causing any dependency cycles whatsoever. 
@@ -488,7 +490,7 @@ Through this all dependencies become directly visible and coupling is reduced.
 The `UserServices` itself don't need to have any field for dependencies. All comes with the service method.
 That makes it much simpler to determine all the code that has to be removed when a system function (service method) is no longer needed.
 
-### Say Goodbye to Scope Issues
+### No Longer Scoping Issues
 When dependencies are injected directly in the service method the problems arising from different `Scope`s just disappear since 
 all dependency instances are just used for the single invocation. Another invocation might use other instances because of scopes
 but the implementation doesn't have to care at all about that. It becomes transparent.
@@ -506,7 +508,7 @@ The test `TestServiceInvocationBinds` shows a complete example.
 
 
 ## <a id="data"></a>Data Types
-Silk is a data driven framework. All data is modeled as immutable value objects. 
+Silk is a data driven library. All data is modeled as immutable value objects. 
 
 ### Represent Any Type Uniform
 The most important one is `Type` that is a generic form of `Class`. It is used to construct all type descriptions. Here some examples:
