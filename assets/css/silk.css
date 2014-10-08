@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 
 html,body {
 	margin: 0;
@@ -8,7 +9,7 @@ html,body {
 }
 
 body {
-	font-family: 'Lato', serif;
+	font-family: 'Lora', serif;
 	font-size: 11pt;
 	line-height: 1.45em;
 	word-spacing: 0.17em;
@@ -80,7 +81,6 @@ header {
 	padding-bottom: 50px;
 }
 header h1 {
-	color: #666;
 	line-height: normal;
 	margin: 15px 0 0 0;
 	line-height: 40px;
@@ -88,10 +88,9 @@ header h1 {
 	font-size: 24px;
 	height: 55px;
 	border-bottom: 1px solid #ccc;
-	
 }
 .serif, header h1 {
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	font-family: Lora, serif;
 }
 header h1:FIRST-LETTER {
 	font-size: 150%;
@@ -108,7 +107,7 @@ header h1 em {
 	font-weight: bold;	
 }
 header h1 a, header h1 a:VISITED {
-	color: #666;
+	color: black;
 }
 
 section h1 {
@@ -116,7 +115,7 @@ section h1 {
 	margin: 1em 0 1.5em 0;
 	color: #222;
 	text-align: center;
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	font-family: Lora, serif;
 }
 h2,h3,h4,h5,h6 {
 	line-height: normal;
@@ -127,7 +126,7 @@ h2,h3,h4,h5,h6 {
 	color: #222;
 }
 section h2 {
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	font-family: Lora, serif;
 	font-weight: bold;
 	font-size: 1.4em;
 	line-height: 1em;	
@@ -219,7 +218,7 @@ footer {
 	clear: both;
 	color: #666;
 	border-top: 1px solid #CECECE;
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	font-family: Lora, serif;
 	padding-bottom: 50px;
 }
 footer p {
@@ -268,7 +267,7 @@ a.book, a.next {
 	height: 115px;
 	padding: 25px 5px 5px 10px;
 	color: white;
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	font-family: Lora, serif;
 	display: inline-block;
 	text-decoration: none;
 	font-size: 120%;
@@ -397,7 +396,7 @@ tour {
 	min-height: 200px;
 	display: block;
 	padding: 15px;
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	font-family: Lora, serif;
 	font-weight: bold;
 	font-size: 110%;
 	line-height: 1.5em;
@@ -423,9 +422,9 @@ tour a:before {
   font-weight: normal;
 }
 abstract {
-	margin: 15px 10% 3em 10%;
+	margin: 25px 8% 3em 8%;
 	display: block;
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	font-family: Lora, serif;
 	text-indent: 0;
 	text-align: center;
 }
@@ -462,7 +461,7 @@ abstract {
 .icon + ul li {
 	width: 310px;
 	display: inline-block;
-font-family: "Times Modern", Georgia, 'Times New Roman', serif;	
+font-family: Lora, serif;	
 }
 .icon + ul li:BEFORE {
 	content: "";
@@ -474,7 +473,7 @@ font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 .bullet {
 	display: block;
 	padding-left: 200px;
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	font-family: Lora, serif;
 	font-weight: normal;
 	font-style: italic;
 	font-size: 110%;
@@ -482,7 +481,7 @@ font-family: "Times Modern", Georgia, 'Times New Roman', serif;
 	padding-top: 1em;
 }
 .doc {
-	font-family: "Times Modern", Georgia, 'Times New Roman', serif;
+	font-family: Lora, serif;
 }
 .tour {
 	width: 80%;
