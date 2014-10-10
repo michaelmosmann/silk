@@ -25,7 +25,7 @@ hr {
 	display: block;
 }
 .wrapper {
-	width: 900px;
+	width: 740px;
 	margin: 0 auto;
 	padding: 0 20px;
 }
@@ -54,7 +54,6 @@ section:before {
 
 nav {
 	padding: 15px 0;
-	border-bottom: 1px solid #ccc;
 	margin-left: 200px;
 }
 .menu a, .menu a:VISITED {
@@ -89,23 +88,6 @@ header h1 {
 	height: 55px;
 	border-bottom: 1px solid #ccc;
 }
-.serif, header h1 {
-	font-family: Lora, serif;
-}
-header h1:FIRST-LETTER {
-	font-size: 150%;
-}	
-header h1 b {
-	color: black;
-	font-size: 30px;
-	letter-spacing: 2px;
-}
-header h1 em {
-	color: black;
-	font-size: 120%;
-	font-style: normal;
-	font-weight: bold;	
-}
 header h1 a, header h1 a:VISITED {
 	color: black;
 }
@@ -115,7 +97,6 @@ section h1 {
 	margin: 1em 0 1.5em 0;
 	color: #222;
 	text-align: center;
-	font-family: Lora, serif;
 }
 h2,h3,h4,h5,h6 {
 	line-height: normal;
@@ -126,7 +107,6 @@ h2,h3,h4,h5,h6 {
 	color: #222;
 }
 section h2 {
-	font-family: Lora, serif;
 	font-weight: bold;
 	font-size: 1.4em;
 	line-height: 1em;	
@@ -218,7 +198,6 @@ footer {
 	clear: both;
 	color: #666;
 	border-top: 1px solid #CECECE;
-	font-family: Lora, serif;
 	padding-bottom: 50px;
 }
 footer p {
@@ -266,16 +245,13 @@ a.book, a.next {
 	width: 100px;
 	height: 115px;
 	padding: 25px 5px 5px 10px;
-	color: white;
-	font-family: Lora, serif;
+	color: #eee;
 	display: inline-block;
 	text-decoration: none;
 	font-size: 120%;
 	font-weight: bold;
 	margin-right: 15px;
 	background-color: #888;
-	background: linear-gradient(45deg, #888 0%,#666 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #888 0%,#666 100%);
 	box-shadow: 4px 4px 3px #ddd;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -288,49 +264,34 @@ a.book:HOVER, a.next {
 	background: -webkit-linear-gradient(-45deg, #444 0%,#222 100%) !important;
 }
 .c-docs {
-	border-color: #6a88ac;
+	border-color: #5e9ec1;
 }
 a.c-docs {
-	background-color: #6a88ac;
-	background: linear-gradient(45deg, #6a88ac 0%,#5a7391 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #6a88ac 0%,#5a7391 100%);
-	color: #E8B035;
-}
-a.c-docs * {
-	color: #2c2b29;
+	background-color: #5e9ec1;
 }
 .c-downloads {
-	border-color: #2d8a51;	
+	border-color: #99c459;	
 }
 a.c-downloads {
-	background-color: #2d8a51;	
-	background: linear-gradient(45deg, #2d8a51 0%,#257042 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #2d8a51 0%,#257042 100%);
+	background-color: #99c459;	
 }
 .c-javadocs {
-	border-color: #644d7b;	
+	border-color: #9f7cb6;	
 }
 a.c-javadocs {
-	color: #c9449d;
-	background-color: #644d7b;	
-	background: linear-gradient(45deg, #644d7b 0%,#534066 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #644d7b 0%,#534066 100%);
+	background-color: #9f7cb6;	
 }
 .c-help {
-	border-color: #b43639;	
+	border-color: #ac505b;	
 }
 a.c-help {
-	background-color: #b43639;	
-	background: linear-gradient(45deg, #b43639 0%,#992e30 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #b43639 0%,#992e30 100%);
+	background-color: #ac505b;	
 }
 .c-license {
 	border-color: #ffe804;
 }
 a.c-license {
 	background-color: #ffe804;	
-	background: linear-gradient(45deg, #ffe804 0%,#e6d104 100%); /* W3C */
-	background: -webkit-linear-gradient(-45deg, #ffe804 0%,#e6d104 100%);
 	color: #80701c;
 }
 a.book > span, a.next > span {
@@ -371,7 +332,7 @@ a.list {
 }
 a.list > span {
 	margin-top: 60px;
-	color: white;
+	color: #444;
 	font-weight: normal;
 }
 a.list > em {
@@ -390,18 +351,15 @@ tour {
 	counter-reset: tour; 
 	position: absolute;
 	top: 85px;
-	/* background-color:rgba(1,1,51,0.8); */
 	color: #666;
 	width: 150px;
 	min-height: 200px;
 	display: block;
 	padding: 15px;
-	font-family: Lora, serif;
 	font-weight: bold;
 	font-size: 110%;
 	line-height: 1.5em;
 	text-align: center;
-	border-right: 1px solid #ccc !important;
 }
 tour a {
 	display: block;
@@ -424,7 +382,6 @@ tour a:before {
 abstract {
 	margin: 25px 8% 3em 8%;
 	display: block;
-	font-family: Lora, serif;
 	text-indent: 0;
 	text-align: center;
 }
@@ -435,7 +392,7 @@ abstract {
 	margin-bottom: 5px;
 	color: black;
 	display: inline-block;
-	width: 130px;
+	width: 110px;
 	margin-left: 70px;
 	clear: both;
 }
@@ -453,38 +410,35 @@ abstract {
 }
 .icon + ul {
 	display: inline-block;
-	width: 630px;
+	width: 530px;
 	margin: 0;
 	padding: 0;
 	margin-bottom: 1em;
 }
 .icon + ul li {
-	width: 310px;
+	width: 240px;
 	display: inline-block;
-font-family: Lora, serif;	
+	padding-left: 15px;
 }
 .icon + ul li:BEFORE {
-	content: "";
+	content: "\f105";
 	font-weight: bold;
 	font-family: FontAwesome;
 	margin-right: 5px;
 	color: #e8b035;
+	margin-left: -15px;
 }
 .bullet {
 	display: block;
 	padding-left: 200px;
-	font-family: Lora, serif;
 	font-weight: normal;
 	font-style: italic;
 	font-size: 110%;
 	color: #555;
 	padding-top: 1em;
 }
-.doc {
-	font-family: Lora, serif;
-}
 .tour {
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 }
 .tour p {

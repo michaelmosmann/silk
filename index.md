@@ -3,7 +3,7 @@ layout : default
 ---
 
 <tour>
-&nbsp;<br/>Silk DI<br/><em>a lightweight</em> <br/>Java<br/><em>Dependency Injection</em></br> tool
+<em>a pure<br/>Java<br/>dependency injection</br> library</em>
 </tour>
 
 <abstract>
@@ -24,6 +24,19 @@ protected void declare() {
 
 ----
 
+<div class="icon"><span class="icon-lightbulb"></span><a href="highlights.html">Highlights</a></div>
+
+- Lightweight
+- Pure Java
+- Injectrons
+- <a href="/help/harmful.html">Says NO</a> to magic and pain
+- Just constructor injection
+- Cross-functional programming
+- Sequence of declaration is irrelevant
+- Application code stays independent
+
+----
+
 <div class="icon"><span class="icon-adjust"></span><a href="help/comparison.html">Comparison</a></div>
 
 - Silk DI
@@ -33,26 +46,13 @@ protected void declare() {
 
 ----
 
-<div class="icon"><span class="icon-lightbulb"></span><a href="highlights.html">Highlights</a></div>
-
-- Lightweight
-- Pure Java
-- Application code stays independent
-- <a href="/help/harmful.html">Says NO</a> to magic and pain
-- Sequence of declaration is irrelevant
-- Pushes for constructor injection
-- Injectrons
-- Cross-functional programming
-
-----
-
 <b class="bullet">Silk allows DI without making your application depend on the DI framework!</b>
 <div class="icon"><span class="icon-cog"></span>100%<br/>Independent</div>
 
-- Configuration by **pure Java** code
-- Separated from your application code
-- No further runtime dependencies
+- Configuration by **pure Java**
+- No further dependencies
 - **No annotations** in your code
+- Separated from your application code
 
 <b class="bullet">Silk avoids techniques that are hard to understand, debug or maintain.</b>
 <div class="icon"><span class="icon-magic"></span><span class="icon-ban-circle" style="font-size:50px; padding:5px; color: #b43639;"></span>No "Magic"</div>
@@ -82,21 +82,21 @@ protected void declare() {
 <b class="bullet">Silk provides few concepts to configure an app in a predictable and maintainable way.</b>
 <div class="icon"><span class="icon-th-large"></span>if-less<br/><a href="userguide/modularity.html">Modularity</a></div>
 
+- Fast bootstrap
 - Sequence of declarations is irrelevant 
 - Each part can be considered in isolation
 - Simple predictable configuration concepts
 - It is easy to <a href="userguide/modularity.html#uninstall">remove</a> what you don't like
-- Fast bootstrap
 
 <b class="bullet">Silk is designed for easy development where refactoring does not break an application.</b>
 <div class="icon"><span class="icon-umbrella"></span>Robust</div>
 
-- <b>No</b> importance to sequence of definition
 - Safe renaming
 - Largely Type-safe
 - Excellent Unit-testability 
 - Pushes for immutability
 - <a href="userguide/data.html">Data driven</a> with Value Objects
+- <b>No</b> importance to sequence of definition
 - A configuration never changes at runtime
 
 

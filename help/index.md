@@ -21,7 +21,7 @@ Help
 
 - My <a href="motivation.html">Motivation</a> to create Silk DI.
 - Silk <a href="comparison.html">compared to other DI containers</a>.
-- <a href="about.html">About me</a>, this site and everything else
+- <a href="about.html">About</a> me, this site and everything else
 - What I <a href="harmful.html">consider harmful</a>, and why
 
 ----
