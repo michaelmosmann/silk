@@ -14,8 +14,6 @@ Help
 </tour>
 # Help
 
-----
-
 <b class="bullet">Behind the curtains...</b>
 <div class="icon"><span class="icon-beaker"></span>Background</div>
 
@@ -32,5 +30,4 @@ Help
 - Join the <a href="https://groups.google.com/group/silk-di">user group / mailing list</a>
 - Report an <a href="https://github.com/jbee/silk/issues">issue</a>
 
-----
 

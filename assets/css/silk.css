@@ -86,7 +86,6 @@ header h1 {
 	font-weight: 300;
 	font-size: 24px;
 	height: 55px;
-	border-bottom: 1px solid #ccc;
 }
 header h1 a, header h1 a:VISITED {
 	color: black;
@@ -94,9 +93,10 @@ header h1 a, header h1 a:VISITED {
 
 section h1 {
 	font-size: 38px;
-	margin: 1em 0 1.5em 0;
 	color: #222;
 	text-align: center;
+	border-bottom: 5px solid #222;
+	line-height: 1.5em;
 }
 h2,h3,h4,h5,h6 {
 	line-height: normal;
@@ -178,9 +178,6 @@ table.toc th {
 table.toc th, table.toc td {
 	padding-top: 0.2em;
 }
-table.toc th:FIRST-LETTER {
-	color: #ccc;
-}
 table.toc th a {
 	color: blue;
 	font-weight: normal;
@@ -197,7 +194,7 @@ li small {
 footer {
 	clear: both;
 	color: #666;
-	border-top: 1px solid #CECECE;
+	border-top: 2px solid #444;
 	padding-bottom: 50px;
 }
 footer p {
@@ -383,7 +380,8 @@ abstract {
 	margin: 25px 8% 3em 8%;
 	display: block;
 	text-indent: 0;
-	text-align: center;
+	text-align: justify;
+	font-size: 90%;
 }
 .icon {
 	text-decoration: none;
