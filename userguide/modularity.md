@@ -74,7 +74,7 @@ The use of an `enum` and the possibility to specify a _default_ for the case no 
 
 From within a usual `Bundle` there are 2 ways to use a `ModularBundle` that are described below. 
 
-### Conditional Installation with Options
+### <a id="options"></a>Conditional Installation with Options
 The `ModulearBundle` is installed by referring to its `enum` `.class` instance.
 {% highlight java %}
 protected void bootstrap() {
@@ -179,7 +179,7 @@ class MyScopedBinder extends ScopedBinder { }
 {% endhighlight %}
 
 
-### Preset Modules
+### <a id="presets"></a>Preset Modules
 A `PresetModule` is used whenever bindings depend upon program arguments.
 Instead of passing them along donw the `Bundle` and `Module` hierarchy such
 values are setup using `Presets` _globals_ that are passed to the bootstrapping.

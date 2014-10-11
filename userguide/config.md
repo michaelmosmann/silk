@@ -58,10 +58,10 @@ Globals globals = Globals.STANDARD.edition( MyFeatures.A, MyFeatures.C, MyFeatur
 A full example is given in `TestEditionFeatureBinds`.
 
 ## 3\. Options
-...
+(see [Modularisaion: Conditional Installation](modularity.html#options))
 
 ## 4\. Presets
-...
+(see [Modularisaion: Preset Modules](modularity.html#presets))
 
 
 <a class='next' href="services.html"><span class="fa fa-chevron-right"></span>Services</a>
