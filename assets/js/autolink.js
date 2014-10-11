@@ -13,8 +13,13 @@ function wrapCode() {
 		if (type) { 
     		return "<a href='"+type.url+"' class='javadoc "+type.type+"' target='_blank'></a>"; 
 		}  
-	if (name.match("^Test") && name.match("Binds$")) {
-		return "<a href='"+githubRootURL+"src/test/se/jbee/inject/bind/"+name+".java' class='test source C' target='_blank'></a>"; 
+	if (name.match("^Test")) {
+		if (name.match("Service")) {
+			return "<a href='"+githubRootURL+"src/test/se/jbee/inject/service/"+name+".java' class='test source C' target='_blank'></a>"; 
+		}		
+		if (name.match("Binds$")) {
+			return "<a href='"+githubRootURL+"src/test/se/jbee/inject/bind/"+name+".java' class='test source C' target='_blank'></a>"; 
+		}
 	}
 	var method = methodURLs[jname];
 	if (method) {

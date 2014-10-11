@@ -37,15 +37,6 @@ protected void declare() {
 
 ----
 
-<div class="icon"><span class="fa fa-tachometer"></span><a href="help/comparison.html">Comparison</a></div>
-
-- Silk DI
-- vs. Spring Ioc
-- vs. Google Guice
-- vs. Pico container
-
-----
-
 <b class="bullet">Silk allows DI without making your application depend on the DI framework!</b>
 <div class="icon"><span class="fa fa-check"></span>100%<br/>Independent</div>
 
@@ -98,6 +89,15 @@ protected void declare() {
 - <a href="userguide/data.html">Data driven</a> with Value Objects
 - <b>No</b> importance to sequence of definition
 - A configuration never changes at runtime
+
+----
+
+<div class="icon"><span class="fa fa-tachometer"></span><a href="help/comparison.html">Comparison</a></div>
+
+- Silk DI
+- vs. Spring Ioc
+- vs. Google Guice
+- vs. Pico container
 
 
 <br/>

@@ -58,8 +58,14 @@ In most cases all of the bindings in a `Module` are in the same scope. Here it i
 But the explicit constructor is just necessary in case another scope than `Scoped``.APPLICATION` should be used.
 
 ## Expiry of Scopes
+The expiry describes how frequent an instance created by a `Supplier` expires,
+that is to say it cannot be used any longer. Application singletons have `Expiry.NEVER`.
+All other usual values have an expiry more frequent than that. 
+This information is used to tell when a more unstable object is wrongly injected 
+into a more stable one, what would require an indirection to work correctly. 
 
 ## Snapshots
+(see summary in the [intro](/userguide/intro.html#scopes))
 
 ## Repositories
 A `Repository` contains and manages the already created instances. 

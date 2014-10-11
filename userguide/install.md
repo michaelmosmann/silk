@@ -6,7 +6,7 @@ title: Installation
 # Installation
 
 <abstract>
-Since there are no further dependencies the installation of Silk is really simple.
+Since there are no further dependencies the installation of silk is really simple.
 </abstract>
 
 <table class='toc'>
@@ -21,8 +21,10 @@ their mess a big and messy one. So all I have to say is: _Luke, go with with
 the source - or you'll end up on the dark side._
 
 ### Manually 
-<a href="/downloads/">Download</a> the latest `jar`-file and add it to your 
-project's classpath.
+<a href="/downloads/">Download</a> the latest `jar`-file(if available) and add 
+it to your project's classpath.
+Otherwise download the release [source](https://github.com/jbee/silk/releases/tag/v0.7)
+and build the jar using `ant jar` before adding it to your project's classpath. 
 
 ### Maven(s)
 {% highlight xml %}

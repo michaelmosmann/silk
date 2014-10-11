@@ -180,5 +180,33 @@ class MyScopedBinder extends ScopedBinder { }
 
 
 ### Preset Modules
+A `PresetModule` is used whenever bindings depend upon program arguments.
+Instead of passing them along donw the `Bundle` and `Module` hierarchy such
+values are setup using `Presets` _globals_ that are passed to the bootstrapping.
+
+{% highlight java %}
+Presets presets = Presets.EMPTY.preset( Properties.class, myProperties() );
+Bootstrap.injector( MyRootBundle.class, Globals.STANDARD.presets( presets ) );
+{% endhighlight %}
+
+The module that wants to bind to one of the properties preset above declares 
+its dependency on the `Properties` instance as a type parameter for a `BinderModuleWith`:
+
+{% highlight java %}
+class MyPresetModule extends BinderModuleWith<Properties> {
+
+	@Override
+	protected void declare( Properties preset ) {
+		bind( named( "foo" ), String.class ).to( preset.getProperty( "foo.text" ) );
+	}
+}
+{% endhighlight %}
+
+For a complete example have a look at the `TestPresetModuleBinds`.
+
+Presets are limited to a single value per exact type. For this reason _primitives_
+should not be used as presets directly but collected in some form of _settings_
+object.
+
 
 <a class='next' href="config.html"><span class="fa fa-chevron-right"></span>Configuration</a>

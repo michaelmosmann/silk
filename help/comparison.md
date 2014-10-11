@@ -10,9 +10,15 @@ See Also
 # Comparison
 
 <abstract>
-In the below tables the features of 4 different frameworks are compared with each other. 
-The features are judged by their influence of the application design and development process as seen by the author of Silk. 
-A <span class="good">good</span> influence is indicated green, a <span class="fair">fair</span> one yellow and a <span class="bad">bad</span> one red. Neutral information is kept gray. This <a onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> <span style="color:blue; cursor: pointer;">table highlighting</span></a> is turned **off** by default.<br/><br/>Concepts or techniques that are <a href="harmful.html" class="harmful">considered harmful</a> have dark red text as well. Missing or unsure information is indicated by a `'?'`.
+In the below tables the features of 4 frameworks are compared with each other. 
+This is a by no means a fair comparison as it builds upon the opinions of the author of silk. 
+Features are judged by their influence on application design and the development process. 
+An influence considered <span class="good">good</span> is indicated green, 
+a <span class="fair">fair</span> one yellow and a <span class="bad">bad</span> one red. 
+Neutral information is kept gray. 
+This <a onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> <span style="color:blue; cursor: pointer;">table highlighting</span></a> is turned **off** by default.<br/><br/>Concepts or techniques that are 
+<a href="harmful.html" class="harmful">considered harmful</a> have dark red text as well. 
+Missing or unsure information is indicated by a `'?'`.
 </abstract>
 
 
@@ -27,14 +33,14 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 	<td>3.x</td>	
 	<td>3.x</td>
 	<td>2.14.x</td>
-	<td>0.5</td>
+	<td>0.7</td>
 </tr>
 <tr>
 	<th>Archive Size</th> 
 	<td class="bad">several MB</td>	
 	<td class="fair">&gt; 650KB <i>+ plug-ins</i></td>
 	<td class="good">&gt; 300KB <i>+ gems</i></td>
-	<td class="good">170KB</td>
+	<td class="good">189KB</td>
 </tr>
 <tr>
 	<th>Further dependencies</th> 
@@ -459,20 +465,6 @@ There seamed to be no actual numbers on performance. I had no time to do proper 
 	<td class="fair">lazy</td>
 	<td class="fair">lazy</td>
 	<td class="good">eager</td>
-</tr>
-</table>
-
-## Summing Up
-<table class="compare">
-<tr>
-	<th></th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
-</tr>
-<tr>
-	<th>Best to use for</th>
-	<td>...</td>
-	<td>...</td>
-	<td>...</td>
-	<td>...</td>
 </tr>
 </table>
 

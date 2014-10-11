@@ -6,7 +6,7 @@ title : Considered Harmful
 See Also
 <a href="comparison.html"><span class="icon-adjust"></span> Comparison</a>
 </tour>
-<a href="https://groups.google.com/group/silk-di" class="serif" style="text-decoration: none; position: absolute; top: 10px; margin-left: 660px; color:black;"><span class="icon-comments" style="font-size: 48px; text-align: right;"></span> <span style="display:inline-block;"><i>Join the Discussion</i><br/>in the <b>User Group</b></span></a>
+<a href="https://groups.google.com/group/silk-di" class="serif" style="text-decoration: none; position: absolute; top: 10px; margin-left: 540px; color:black;"><span class="fa fa-comments-o" style="font-size: 48px; text-align: right;"></span> <span style="display:inline-block;"><i>Join the Discussion</i><br/>in the <b>User Group</b></span></a>
 
 # <span class="icon-ban-circle"></span> Considered Harmful
 
@@ -85,9 +85,9 @@ The concerns with setter injection are not about the technique itself but about 
 
 Further setters deny any initialization logic (like what to do in `null` argument case) or make it very cumbersome and error prone since the sequence of setter invocations can't be enforced but other values might play a role in the logic. When using constructor injection this is again very simple, straight forward and stable. 
 
-As <a href="field_injection">A.&nbsp;Instance Field Injection</a> setters are sometimes seen as _good_ solution when dealing with many dependencies. Especially when some are so called _optional_ dependencies. Again it must be said that many dependencies are a design flaw that is more persistent than solved using setters (this was discussed in more detail at <a href="field_injection">A.</a>). 
+As <a href="#field_injection">A.&nbsp;Instance Field Injection</a> setters are sometimes seen as _good_ solution when dealing with many dependencies. Especially when some are so called _optional_ dependencies. Again it must be said that many dependencies are a design flaw that is more persistent than solved using setters (this was discussed in more detail at <a href="#field_injection">A.</a>). 
 
-Beyond that setters deny the usage of `final` state, whereby all problems of mutable accessible state and in particular <a href="reinjection">D.&nbsp;Reinjection</a> apply orthogonal to the problems described above what causes a multiplication of complexity whereby it becomes hard or impossible to understand or predict the actual behavior of the type instance and the application using it in all occurring cases.
+Beyond that setters deny the usage of `final` state, whereby all problems of mutable accessible state and in particular <a href="#reinjection">D.&nbsp;Reinjection</a> apply orthogonal to the problems described above what causes a multiplication of complexity whereby it becomes hard or impossible to understand or predict the actual behavior of the type instance and the application using it in all occurring cases.
 
 Last but not least to argue that setter injections allows dependency cycles without proxies is to argue that dependency cycles are a desirable characteristic or _unresolvable_.
 Both arguments are easy to prove wrong. 

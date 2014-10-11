@@ -7,8 +7,8 @@ title : Introduction
 <abstract>
 This introduction will explain the general features and concepts deep enough to use it well. 
 The details and more advanced features will be described later on.
-There are a lot of noteworthy characteristics - like Silks general immutability - that will not be discussed here since this introduction 
-tries to give you a good overview in the **usage of Silk**. With a deeper understanding you'll get into the implications of all it's characteristics bit by bit.    
+There are a lot of noteworthy characteristics - like silks general immutability - that will not be discussed here since this introduction 
+tries to give you a good overview in the **usage of silk**. With a deeper understanding you'll get into the implications of all it's characteristics bit by bit.    
 </abstract>
 
 <table class='toc'>
@@ -34,7 +34,7 @@ These _bindings_ are defined using a fluent interface, the `Binder`. A basic bin
 {% endhighlight %}
 For both, the `bind` and the `to` clause different arguments can be used to vary meaning and behaviour.   
 All bindings are declared separated from your application code in so called `Module` classes (see modularity below).
-There will be **no `@annotations`** within your code to guide the dependency injection! This is a key concept in Silk that makes it very different from other frameworks.
+There will be **no `@annotations`** within your code to guide the dependency injection! This is a key concept in silk that makes it very different from other frameworks.
 
 ### Supplying instances (the `to` clause)
 Out of the box there are a handful of different ways to use the `to` clause.
@@ -43,9 +43,9 @@ bind( Integer.class ).to( 42 ); // a constant
 bind( Number.class ).to( Float.class ); // as a link to a sub-type that is bound itself to something
 Constructor<MyClass> constructor = //... from whatever
 bind( MyClass.class).to( constructor );
-bind( MyOtherClass.class).toConstructor(); // that is chosen by Silk's Inspector
+bind( MyOtherClass.class).toConstructor(); // that is chosen by silk's Inspector
 {% endhighlight %}
-The majority of bindings should make use of _linked_ bindings and the `toConstructor()` method so that you benefit from all of Silk's features.
+The majority of bindings should make use of _linked_ bindings and the `toConstructor()` method so that you benefit from all of silk's features.
 Therefore you can describe in more detail what instances you want to be passed to a constructor by adding `Parameter`s to the `toConstructor` method:
 {% highlight java %}
 bind( Car.class ).toConstructor( Type.raw( ElectricEngine.class ) );
@@ -53,12 +53,12 @@ bind( Car.class ).toConstructor( Type.raw( ElectricEngine.class ) );
 Now an instance of `ElectricEngine` will be injected as `Engine` into the `Car` object. 
 There are more advanced _hints_ possible that will be explained <a href="binds.html#basics">later during the tour</a>.
 But is important to understand that those additional informations **do not describe the constructor's signature!** 
-They are just added in exception cases when special specific instances are needed to make Silk understand what you want. 
+They are just added in exception cases when special specific instances are needed to make silk understand what you want. 
 The usual case is to **not** add `Parameter` _hints_.   
 
 #### Supply dynamic instances
 In a few cases the instance itself is yield somewhat dynamically. It is produced or chosen by a custom strategy. 
-Silk offers three different abstractions on different levels of details that can be used:  
+silk offers three different abstractions on different levels of details that can be used:  
 {% highlight java %}
 bind( Bar.class ).to( new BarProvider() ); // using a Provider
 bind( Float.class ).to( new FloatFactory() ); // using a Factory
@@ -71,7 +71,7 @@ But it is easy to add the _provider_ behavior known from _google guice_ as well 
 
 ### Handle multiple instances 
 #### ...of the same type
-When there are multiple instances of the same type you can `Name` them, and _tell_ Silk which one it should take when injecting into another instance:   
+When there are multiple instances of the same type you can `Name` them, and _tell_ silk which one it should take when injecting into another instance:   
 {% highlight java %}bind( named("pi"), float.class ).to( 3.1415f );
 bind( named("e"), float.class ).to( 2.7182f );
 injectingInto( RadiusCalculation.class ).bind( float.class ).to( named("pi"), float.class );
@@ -191,12 +191,12 @@ protected void declare() {
 {% endhighlight %}
 
 These kind of hints do not have to be complete nor correctly sorted compared to the constructors parameters. 
-If they are unambiguous Silk will understand what should go where. In cases of multiple matching parameters the sequence of hints will be kept.
+If they are unambiguous silk will understand what should go where. In cases of multiple matching parameters the sequence of hints will be kept.
 
 See also `TestConstructorParameterBinds` for complete examples.
 
 ### Use Methods as Instance Factories
-Normally this is not needed with Silk to construct the _durable_ instances but some like to also use DI as a more general factory for the _transient_ objects.
+Normally this is not needed with silk to construct the _durable_ instances but some like to also use DI as a more general factory for the _transient_ objects.
 You can turn any method into such a factory by letting the `Inspector` pick it up. Therefore a bind with such a inspector is done in a `Module`. All parameters of the methods used will be injected automatically. 
 
 {% highlight java %}
@@ -239,11 +239,11 @@ public interface Provider<T> {
 	T provide();
 }
 {% endhighlight %}
-The more important difference is, that _providers_ are no core concept in Silk. By default you cannot ask for a `Provider` of the instances you have bound.
-This has a very simple reason: Providers usually appear within your application code what would make your code depend on the DI library what is exactly what Silk aims to avoid. 
+The more important difference is, that _providers_ are no core concept in silk. By default you cannot ask for a `Provider` of the instances you have bound.
+This has a very simple reason: Providers usually appear within your application code what would make your code depend on the DI library what is exactly what silk aims to avoid. 
 So if you really need _providers_ (services are an alternative) you should use your own interface so the dependency goes in the right direction. 
-You can easily add it in less than 10 lines of code. Have a look at Silk's own `Provider` implementation as a template. 
-Another alternative is to just wrap Silk's `Provider` within our own. Therefore you install it using:
+You can easily add it in less than 10 lines of code. Have a look at silk's own `Provider` implementation as a template. 
+Another alternative is to just wrap silk's `Provider` within our own. Therefore you install it using:
 {% highlight java %}
 install( BuildinBundle.PROVIDER );
 {% endhighlight %}
@@ -259,7 +259,7 @@ The composition of an application is composed on 2 levels:
 * `Bundle`s: The composite. It bundles other `Bundle`s and `Module`s as a unit. They are `install`ed within.
 * `Module`s: The leafs. They do the `Bindings` using one or more `bind`-`to` expressions.
 
-So _grouping_ and _binding_ is strictly separated in Silk. 
+So _grouping_ and _binding_ is strictly separated in silk. 
 While _modules_ can be constructed by the user (e.g. `new ...`) the construction of _bundles_ is dedicated to the `Bootstrapper`.
 To `install` a `Bundle` it is stated by its `.class`, a `Module` is installed by an instance. 
 Often _modules_ are also installed using the `.class` reference what is a convenience way to let the 
@@ -346,7 +346,7 @@ class RunModeDependentBundle extends ModularBootstrapperBundle<RunMode> {
 }
 {% endhighlight %}
 Now we have build a switch so that `ProductionBundle` is installed when our property `RunMode` has the value `PROD` and another bundle `DevelopmentBundle` when it is `DEV`.
-And we have defined that `ProductionBundle` is also used as fall-back when the property has no value, hence it is `null`. Have a look to `TestConstantModularBinds` for another example.
+And we have defined that `ProductionBundle` is also used as fall-back when the property has no value, hence it is `null`. Have a look to `TestModularBinds` for another example.
 
 Of cause `ModularBundle`s can also be used without `Constants`. The `BuildinBundle` is an example of this kind of usage. 
 There we have different options a user could pick from. We have seen such a installation before when adding `List`s or `Provider`s.
@@ -363,12 +363,12 @@ The instances involved in a `bind` can be scoped by starting with the `per` clau
 per( Scoped.APPLICATION ).bind( Foo.class ).to( ... );
 per( Scoped.INJECTION ).bind( Bar.class ).to( ... );
 {% endhighlight %}
-The 1st line _tells_ Silk to create a _application singleton_ which means there will be just one instance throughout the application (or more precise within one `Injector`) what is also the default behavior if the `per` clause is omitted.
+The 1st line _tells_ silk to create a _application singleton_ which means there will be just one instance throughout the application (or more precise within one `Injector`) what is also the default behavior if the `per` clause is omitted.
 
 The 2nd line is somewhat the opposite of the 1st. One instance per injection creates a new instance whenever one is injected into another object. So effectively all objects will have their very own `Bar` instance.
 
 ### _Session_ Or _Request_ Scopes (and others)
-All the `Scope`s shipped with Silk are contained in the `Scoped` utility class and can be used like that. 
+All the `Scope`s shipped with silk are contained in the `Scoped` utility class and can be used like that. 
 You'll not find the very common _REQUEST_ and _SESSION_ scopes since such scopes are directly dependent on the servlet container and fronted framework used.
 This is not a problem at all since it is very simple to write such scopes yourself in several lines of code.
 
@@ -381,7 +381,7 @@ public interface Repository {
 	<T> T serve( Demand<T> demand, Injectable<T> injectable );
 }       
 {% endhighlight %}
-We had a closer look into this to understand that scopes are very flexible in Silk. 
+We had a closer look into this to understand that scopes are very flexible in silk. 
 There are 2 such flexible `Scope`s that are not possible to build in other DI frameworks at all:
 
 * `Scoped.DEPENDENCY_TYPE` : creates one instance for each full generic `Type` of a `Dependency` (the type of the instance to inject into an object). 
@@ -391,7 +391,7 @@ There are 2 such flexible `Scope`s that are not possible to build in other DI fr
 	This allows to easily get the correct `Logger` injected into each class or solve problems like the _robot two legs problem_ where you have quite similar compounds with just a few differences.       
 
 ### Achieving Consistency with Snapshot Scopes
-Another unique feature of Silk are snapshot scopes. 
+Another unique feature of silk are snapshot scopes. 
 They deliver a consistent _view of the world_ kept in a snapshot while the reality changes asynchronous to the _observer_.
 This sounds very theoretical so lets have a look to an example. 
 
@@ -413,11 +413,11 @@ that such a mistake doesn't show up as a problem until the referenced shorter li
 so that the actual instance worked with is updating as it changes. But this just helps when the problem has been detected  - and it clutters your code with DI problem solutions. 
 
 Silk will throw a `MoreFrequentExpiryException` in the moment you try to inject a shorter living object into a longer living one and point out that this will not work out later on.
-This is achieved by assigning an `Expiry` to each `Scope` during setup. During the injection Silk is aware of the different expires combined so it can encounter problems directly.    
+This is achieved by assigning an `Expiry` to each `Scope` during setup. During the injection silk is aware of the different expires combined so it can encounter problems directly.    
 
 
 ## <a id="services"></a>Services
-While _services_ are very common pattern Silk's services are radically different. 
+While _services_ are very common pattern silk's services are radically different. 
 The core idea is that every service function can be described in a uniform way with an interface having a single parameter and return type as generic: `Service<Parameter,Result>`.
 Of cause real life services have more than one input value. Silk turns this into an advantage by making it explicit. 
 All arguments are passed as a record containing all values. Hence we create one class per service that is this record. 
@@ -441,7 +441,7 @@ class UserServices {
   // more service methods
 }
 {% endhighlight %}
-Now we tell Silk that when looking for service methods it will find some in `UserServices` by creating a `ServiceModule`
+Now we tell silk that when looking for service methods it will find some in `UserServices` by creating a `ServiceModule`
 {% highlight java %}
 private static class MyServicesModule extends ServiceModule {
 
@@ -452,7 +452,7 @@ private static class MyServicesModule extends ServiceModule {
 	}
 }
 {% endhighlight %}
-Which methods are `ServiceMethod`s (Silk's internal abstraction) is customizable through the `ServiceStrategy`.
+Which methods are `ServiceMethod`s (silk's internal abstraction) is customizable through the `ServiceStrategy`.
 
 When using the login the `UserServices` are not exposed completely. Instead the `Service` abstraction is used for the one function needed here. 
 For example the UI login form has to delegate the request to the service. Therefore we inject the service.
@@ -464,8 +464,8 @@ class LoginForm {
 	}
 }
 {% endhighlight %}
-Note that the `Service` interface mentioned here is not defined by Silk (this would make your code depend on it). 
-It is an application interface that gets connected to Silk's low level representation `ServiceMethod` with a adapter bind. 
+Note that the `Service` interface mentioned here is not defined by silk (this would make your code depend on it). 
+It is an application interface that gets connected to silk's low level representation `ServiceMethod` with a adapter bind. 
 The test `TestServiceBinds` shows how to do it for an interface just like in this example.
 
 ### No Further Dependency Cycles  
@@ -527,16 +527,16 @@ Type<? extends List<Number>> parametized = Typecast.listTypeOf( Number.class );
 Thereby the nessessary cast is kept in one place. This type-system workaround can be adapted to also have the same convenience for application specific generic types.
 
 ### Describe Instances
-Dependency injection is instance based in Silk. Hence multiple instances of the same `Type` (full generic) are distinguished by their `Name` as well.
+Dependency injection is instance based in silk. Hence multiple instances of the same `Type` (full generic) are distinguished by their `Name` as well.
 The `Instance` value object models this combination of `Type` and `Name`. When binding the _name_ can be omitted but internally this uses the `Name.DEFAULT` for those binds.
 
 
 ## <a id="customise"></a>Customise the Binding Process
-Out of the box Silk uses simple robust strategies to draw the connection between bindings and the application classes.
+Out of the box silk uses simple robust strategies to draw the connection between bindings and the application classes.
 
 ### Customise Object Creation
 A `Inspector` is used to decide which `Constructor` is used to create instances of a type and what `Method` implements a particular `Factory` method.
-Espeially when changing to Silk from e.g. an annotation based DI framework it could be useful to use a custom `Inspector`. 
+Espeially when changing to silk from e.g. an annotation based DI framework it could be useful to use a custom `Inspector`. 
 All that needs to be done is to create a own implementation or use the existing util class `Inspect` and pass such a instance to the bootstrapping process:
 {% highlight java %}
 Inspector inspector = Inspect.all().constructors().annotatedWith( Inject.class );
@@ -552,9 +552,9 @@ class ServiceInspectorModule extends ServiceModule {
 
 	@Override
 	protected void declare() {
-		bindServiceInspectorTo( Inspect.all().methods().annotatedWith( MyServiceAnnotation.class ) );
+		bindServiceInspectorTo( 
+			Inspect.all().methods().annotatedWith( MyServiceAnnotation.class ) );
 	}
-
 }
 {% endhighlight %}
 
