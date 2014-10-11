@@ -70,4 +70,4 @@ A is a generic variant of a `Class`. Hence it has type parameters that themselve
 ## <a id="Source"></a>Source
 ## <a id="Suppliable"></a>Suppliable
 
- <a class='next' href="/userguide/"><span class="icon-cogs"></span>Overview</a>
+ <a class='next' href="/userguide/"><span class="fa fa-cogs"></span>Overview</a>

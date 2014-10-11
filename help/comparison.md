@@ -4,20 +4,20 @@ title : Comparison
 ---
 <tour class="c-help">
 See Also
-<a href="harmful.html"><span class="icon-ban-circle"></span> Considered Harmful</a>
+<a href="harmful.html">Considered Harmful</a>
 <a href="motivation.html">Motivation</a>
 </tour>
-# <span class="icon-adjust"></span> Comparison
+# Comparison
 
 <abstract>
 In the below tables the features of 4 different frameworks are compared with each other. 
 The features are judged by their influence of the application design and development process as seen by the author of Silk. 
-A <span class="good">good</span> influence is indicated green, a <span class="fair">fair</span> one yellow and a <span class="bad">bad</span> one red. Neutral information is kept gray. This <a onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> <span style="color:blue; cursor: pointer;">table highlighting</span></a> is turned **off** by default.<br/><br/>Concepts or techniques that are <a href="harmful.html" class="harmful">considered harmful</a> have dark red text as well. Missing or unsure information is indicated by a `'?'`.
+A <span class="good">good</span> influence is indicated green, a <span class="fair">fair</span> one yellow and a <span class="bad">bad</span> one red. Neutral information is kept gray. This <a onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> <span style="color:blue; cursor: pointer;">table highlighting</span></a> is turned **off** by default.<br/><br/>Concepts or techniques that are <a href="harmful.html" class="harmful">considered harmful</a> have dark red text as well. Missing or unsure information is indicated by a `'?'`.
 </abstract>
 
 
 ## Library
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th><a href="http://www.springsource.org/">Spring</a></th><th><a href="http://code.google.com/p/google-guice/">Guice</a></th><th><a href="http://picocontainer.com/">pico-container</a></th><th>Silk</th>
@@ -47,7 +47,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## API 
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -63,7 +63,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Concept
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -114,7 +114,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Types
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -165,7 +165,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Injection
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -258,7 +258,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Modularity
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -295,7 +295,7 @@ A <span class="good">good</span> influence is indicated green, a <span class="fa
 
 
 ## Variants (Module Combinability)
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 A _variant_ should be understand as a slightly different _form_ of the _module structure_, a permutation of the application configuration/composition.
 How can those be build, viewed, understand, and combined with other _variants_ ?
 <table class="compare">
@@ -327,7 +327,7 @@ How can those be build, viewed, understand, and combined with other _variants_ ?
 
 
 ## Applicability Restrictiveness
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 <table class="compare">
 <tr>
@@ -372,7 +372,7 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 
 
 ## Scopes
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>
@@ -402,7 +402,7 @@ In what ways can _binds_ be limited, how exact or _narrow_ are they ?
 
 
 ## Performance
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 There seamed to be no actual numbers on performance. I had no time to do proper tests including all 4 frameworks yet but I would like to get these numbers if available somewhere or by myself if needed. Until than I can just give indications based on older measurements I found and personal experience gained in years of usage (not pico-container) or expectation (pico). 
 
 <table class="compare">
@@ -427,7 +427,7 @@ There seamed to be no actual numbers on performance. I had no time to do proper 
 
 
 ## Error Behaviour
-<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="icon-th"></span> Highlight on/off</a></div>
+<div><a class="highlight-toggle" onclick="javascript:$('table.compare').toggleClass('highlighted');"><span class="fa fa-th"></span> Highlight on/off</a></div>
 <table class="compare">
 <tr>
 	<th>Feature</th><th>Spring</th><th>Guice</th><th>pico-container</th><th>Silk</th>

@@ -14,20 +14,23 @@ Help
 </tour>
 # Help
 
-<b class="bullet">Behind the curtains...</b>
-<div class="icon"><span class="icon-beaker"></span>Background</div>
+<b class="bullet">Get involved...</b>
+<div class="icon"><span class="fa fa-comments-o"></span>Contact</div>
 
-- My <a href="motivation.html">Motivation</a> to create Silk DI.
-- Silk <a href="comparison.html">compared to other DI containers</a>.
-- <a href="about.html">About</a> me, this site and everything else
-- What I <a href="harmful.html">consider harmful</a>, and why
+- Join the [user group / mailing list](https://groups.google.com/group/silk-di)
 
 ----
 
-<b class="bullet">Get involved...</b>
-<div class="icon"><span class="icon-comments"></span>Contact</div>
-
-- Join the <a href="https://groups.google.com/group/silk-di">user group / mailing list</a>
-- Report an <a href="https://github.com/jbee/silk/issues">issue</a>
+<div class="icon"><span class="fa fa-bug"></span>Defects</div>
+- Report an [issue](https://github.com/jbee/silk/issues)
 
 
+----
+
+<b class="bullet">Behind the curtains...</b>
+<div class="icon"><span class="fa fa-rocket"></span>Background</div>
+
+- My [Motivation](motivation.html) to create silk DI.
+- Silk [compared to other DI containers](comparison.html)
+- [About](about.html) me, this site and everything else
+- What I [consider harmful](harmful.html), and why

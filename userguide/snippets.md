@@ -9,7 +9,7 @@ When you are familiar with DI as a concept and the _google guice_ library as an 
 **Note:** Code is shown together but doesn't appear in a single source in a real implementation! 
 Also `injector.resolve` is used to show what would be injected but of course this call is not done manually except for the root instance of an application.
 
-<a href="intro.html" class="next"><span class="icon-chevron-right"> </span> Read the introduction</a>
+<a href="intro.html" class="next"><span class="fa fa-chevron-right"> </span> Read the introduction</a>
 
 {% highlight java %}
 

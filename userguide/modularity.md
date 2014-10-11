@@ -181,4 +181,4 @@ class MyScopedBinder extends ScopedBinder { }
 
 ### Preset Modules
 
-<a class='next' href="config.html"><span class="icon-chevron-right"></span>Configuration</a>
+<a class='next' href="config.html"><span class="fa fa-chevron-right"></span>Configuration</a>

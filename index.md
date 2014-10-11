@@ -11,7 +11,7 @@ With **Silk** your code is no longer cluttered by <s>`@annotations`</s> to guide
 Everything is described in external pure Java declarations provided through a <a href="/userguide/binds.html#binder">fluent interface</a>.
 </abstract>
 
-<a class="next" href="userguide/snippets.html"><span class="icon-reorder"> </span> Show me some code</a>
+<a class="next" href="userguide/snippets.html"><span class="fa fa-reorder"> </span> Show me some code</a>
 
 {% highlight java %}
 protected void bootstrap() {
@@ -24,7 +24,7 @@ protected void declare() {
 
 ----
 
-<div class="icon"><span class="icon-lightbulb"></span><a href="highlights.html">Highlights</a></div>
+<div class="icon"><span class="fa fa-lightbulb-o"></span><a href="highlights.html">Highlights</a></div>
 
 - Lightweight
 - Pure Java
@@ -37,7 +37,7 @@ protected void declare() {
 
 ----
 
-<div class="icon"><span class="icon-adjust"></span><a href="help/comparison.html">Comparison</a></div>
+<div class="icon"><span class="fa fa-tachometer"></span><a href="help/comparison.html">Comparison</a></div>
 
 - Silk DI
 - vs. Spring Ioc
@@ -47,7 +47,7 @@ protected void declare() {
 ----
 
 <b class="bullet">Silk allows DI without making your application depend on the DI framework!</b>
-<div class="icon"><span class="icon-cog"></span>100%<br/>Independent</div>
+<div class="icon"><span class="fa fa-check"></span>100%<br/>Independent</div>
 
 - Configuration by **pure Java**
 - No further dependencies
@@ -55,7 +55,7 @@ protected void declare() {
 - Separated from your application code
 
 <b class="bullet">Silk avoids techniques that are hard to understand, debug or maintain.</b>
-<div class="icon"><span class="icon-magic"></span><span class="icon-ban-circle" style="font-size:50px; padding:5px; color: #b43639;"></span>No "Magic"</div>
+<div class="icon"><span class="fa fa-magic"></span><span class="fa fa-ban" style="font-size:42px; color: #b43639;"></span>No "Magic"</div>
 
 -  <b>No</b> XML
 -  <b>No</b> AOP
@@ -68,7 +68,7 @@ protected void declare() {
 
 
 <b class="bullet">Silk has all the features that often require additional libs in other frameworks.</b>
-<div class="icon"><span class="icon-gift"></span>Feature-Rich</div>
+<div class="icon"><span class="fa fa-gift"></span>Feature-Rich</div>
 
 - <a href="userguide/binds.html">Declarative</a>, <a href="userguide/binds.html#binder">fluent interface</a></span>
 - <a href="userguide/binds.html#multi">Multi-binds</a></span>
@@ -80,7 +80,7 @@ protected void declare() {
 
 
 <b class="bullet">Silk provides few concepts to configure an app in a predictable and maintainable way.</b>
-<div class="icon"><span class="icon-th-large"></span>if-less<br/><a href="userguide/modularity.html">Modularity</a></div>
+<div class="icon"><span class="fa fa-th-large"></span>if-less<br/><a href="userguide/modularity.html">Modularity</a></div>
 
 - Fast bootstrap
 - Sequence of declarations is irrelevant 
@@ -89,7 +89,7 @@ protected void declare() {
 - It is easy to <a href="userguide/modularity.html#uninstall">remove</a> what you don't like
 
 <b class="bullet">Silk is designed for easy development where refactoring does not break an application.</b>
-<div class="icon"><span class="icon-umbrella"></span>Robust</div>
+<div class="icon"><span class="fa fa-life-saver"></span>Robust</div>
 
 - Safe renaming
 - Largely Type-safe

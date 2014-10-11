@@ -393,18 +393,20 @@ abstract {
 	width: 110px;
 	margin-left: 70px;
 	clear: both;
+	min-height: 60px;
 }
 .icon a, .icon a:VISITED {
 	vertical-align: top;
 	text-decoration: none;
 	display: inline;
 }
-.icon span[class^="icon-"], .icon span[class*=" icon-"]:BEFORE {
+.icon span[class^="fa-"], .icon span[class*=" fa-"]:BEFORE {
 	margin-left: -70px;
 	font-size: 60px;
 	font-weight: normal;
 	margin-right: 10px;
 	position: absolute;
+	margin-top: -10px;
 }
 .icon + ul {
 	display: inline-block;

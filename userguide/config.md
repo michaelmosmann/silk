@@ -64,4 +64,4 @@ A full example is given in `TestEditionFeatureBinds`.
 ...
 
 
-<a class='next' href="services.html"><span class="icon-chevron-right"></span>Services</a>
+<a class='next' href="services.html"><span class="fa fa-chevron-right"></span>Services</a>

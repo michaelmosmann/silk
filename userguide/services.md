@@ -12,4 +12,4 @@ do not require to explicitly wire them. Wiring is automatic and refactoring safe
 and parameter order are irrelevant. The wiring is determined from types.
 </abstract>
 
-<a class='next' href="data.html"><span class="icon-chevron-right"></span>Data <br/>Types</a>
+<a class='next' href="data.html"><span class="fa fa-chevron-right"></span>Data <br/>Types</a>

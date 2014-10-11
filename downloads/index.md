@@ -4,42 +4,37 @@ title: Downloads
 ---
 <tour class="c-downloads">
 Release
+<a href="#github" ><i class="fa fa-github-alt"></i> Github</a>
 <a href="#current">Current </a>
 <a href="#previous">Previous</a>
-Other Downloads
-<a href="#github">Github</a>
 </tour>
 
 # Downloads
 
-<abstract>
-The simplest way to use Silk is to download the <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.6/silk-di-0.6.jar">binaries</a> and add them to your classpath. 
-Note that Silk is in the maven central repository. So in case you are using a build tool
-that works with that you can just follow the <a href="/userguide/install.html">installation instructions</a>.
-</abstract>
+## <a id="github" class="fa fa-github-alt"></a> Download from GitHub
+The [newest release(s)](https://github.com/jbee/silk/releases/tag/v0.7) can always be found on the project's [release overview](https://github.com/jbee/silk/releases) on GitHub.
 
-## <a id="current" class="icon-tag"></a> Current Release v0.6
+## <a id="current" class="fa fa-tag"></a> Current Release v0.7
 
-The latest release of Silk is version <i>0.6</i>, released on 9th July 2013.
+The latest release of Silk is version <i>0.7</i>, released on 10th October 2014.
 
+* 189KB binaries build from [source](https://github.com/jbee/silk/releases/tag/v0.7) via `ant jar`
+
+Releasing to maven central became a troublesome process that I do not spend my time with any longer.
+Grab the source, run `ant jar` and that'll be it. Should there be trouble with 
+this please [file an issue](https://github.com/jbee/silk/issues) and I'll fix it.
+It shouldn't be more complicated than that.
+
+
+## <a id="previous" class="fa fa-tag"></a> Previous Releases
+
+### v0.6
+Silk version <i>0.6</i>, released on 9th July 2013.
 <ul>
 	<li>188KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.6/silk-di-0.6.jar">silk-di-0.6.jar</a> (binaries only)</li>
 	<li>578KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.6/silk-di-0.6-javadoc.jar">silk-di-0.6-javadoc.jar</a> (javadoc only)</li>
 	<li>96KB <a href="http://search.maven.org/remotecontent?filepath=se/jbee/silk-di/0.6/silk-di-0.6-sources.jar">silk-di-0.6-sources.jar</a> (sources only)</li>
 </ul>
-
-_Release notes_ will hopefull follow soon. 
-
-There is no `zip`-file containing binaries, sources and javadoc since github has closed the _downloads_ section. If someone knows a good hoster for such files please <a href="mailto:jan@jbee.se">conatct me</a>.
-
-
-
-## <a id="github" class="icon-github"></a> Download from GitHub
-You can also download `zip` files from the relase <a href="https://github.com/jbee/silk/tags">tags overview</a> at GitHub.
-
-
-
-## <a id="previous" class="icon-tag"></a> Previous Releases
 
 ### v0.5
 Silk version <i>0.5</i>, released on 2nd April 2013.

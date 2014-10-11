@@ -15,10 +15,16 @@ Since there are no further dependencies the installation of Silk is really simpl
 </table>
 
 ## <a id="get"></a>Get It
-### Manually (Download)
-<a href="/downloads/">Download</a> the latest `jar`-file and add it to your project's classpath.
+I know, maven and co are quite popular... but all I can observe is people 
+creating messes as big as they can manage and maven will surely make
+their mess a big and messy one. So all I have to say is: _Luke, go with with 
+the source - or you'll end up on the dark side._
 
-### Maven
+### Manually 
+<a href="/downloads/">Download</a> the latest `jar`-file and add it to your 
+project's classpath.
+
+### Maven(s)
 {% highlight xml %}
  	<dependency>
 		<groupId>se.jbee</groupId>
@@ -27,12 +33,12 @@ Since there are no further dependencies the installation of Silk is really simpl
 	</dependency>
 {% endhighlight %}
 
-### Ivy
+Ivy
 {% highlight xml %}
 	<dependency org="se.jbee" name="silk-di" rev="0.6"/>
 {% endhighlight %}
 
-### Gradle
+Gradle
 {% highlight java %}
 	'se.jbee:silk-di:0.6'
 {% endhighlight %}
@@ -73,4 +79,4 @@ Thats it! We are done!
 While you need to use `Dependency` for the root instance of your application of course no further `Dependency` has to be created manually further on. 
 All the dependencies will just be injected as you told Silk with the `Module`s and `Bundle`s. 
 
- <a class='next' href="intro.html"><span class="icon-chevron-right"></span>Introduction</a>
+ <a class='next' href="intro.html"><span class="fa fa-chevron-right"></span>Introduction</a>

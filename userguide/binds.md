@@ -498,4 +498,4 @@ See `TestConfigurationDependentBinds` for different complete examples including 
 directly work with a dynamically changing implementation controlled by another bound value.
 
 
- <a class='next' href="scopes.html"><span class="icon-chevron-right"></span>Scopes</a>
+ <a class='next' href="scopes.html"><span class="fa fa-chevron-right"></span>Scopes</a>

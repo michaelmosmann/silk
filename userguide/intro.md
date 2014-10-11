@@ -561,4 +561,4 @@ class ServiceInspectorModule extends ServiceModule {
 #### Note
 While the above examples show how to bring back annotations I highly recommend to just see this as a way to switch the framework an change smothly to an annotation free implementation.
 
-<a class='next' href="binds.html"><span class="icon-chevron-right"></span>Bindings</a>
+<a class='next' href="binds.html"><span class="fa fa-chevron-right"></span>Bindings</a>
