@@ -6,6 +6,7 @@ html,body {
 	padding: 0;
 	height: 100%;
 	min-height: 100%;
+	background-color: #f4f2e6;
 }
 
 body {
@@ -133,12 +134,12 @@ i,em {
 	font-weight: 300;
 }
 pre {
-	background-color: #eeeeee;
+	background-color: #fff;
 	font-size: 14px;
 	padding: 2px;
 }
 .lineno {
-	background-color: #e6e6e6;	
+	background-color: #eee;	
 }
 .clearfix {
 	display: block; 
