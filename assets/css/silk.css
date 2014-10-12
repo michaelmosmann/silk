@@ -158,8 +158,8 @@ section code {
 	padding: 0 0.4em;	
 	font-family: 'Source Code Pro', monospace;
 }
-section p > code, section li > code {
-	background-color: #eee;	
+section p > code, section li > code, section p > a.method code, section li > a.method code {
+	background-color: #fff;	
 }
 section pre code {
 	padding: 0;
@@ -230,7 +230,10 @@ a.source {
 a.source.test {
 	background-image: url("../img/test.gif");
 }
-pre code.java a.javadoc, a.javadoc.method, pre code.java a.source {
+a.javadoc.method {
+	background-image: url("../img/public_co.gif");
+}
+pre code.java a.javadoc, pre code.java a.source {
 	background-image: none;
 	margin: 0;
 	padding: 0;

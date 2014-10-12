@@ -76,6 +76,28 @@ of a service method. In principle this could be used directly but as it causes
 dependencies in the wrong direction the extra indirection of an adapter should 
 be preferred.
 
+### Custom Selection of Service Methods
+By default all methods in a class bound through `bindServiceMethodsIn` will be 
+candidates for service methods. When searching for a method that has parameter 
+and return type of a service in question they will be considered.
+But there has to be just one method matching otherwise this is a error. 
+Therefore it might be useful to customise the selection process so that the
+class containing some service methods also may container _usual_ code not
+considered during service resolution. This is done by binding a custom 
+service inspector with `bindServiceInspectorTo` as shown below.
+
+{% highlight java %}
+protected void declare() {
+	bindServiceInspectorTo( 
+		Inspect.all().methods().annotatedWith( Resource.class ) );
+}
+{% endhighlight %}
+
+Such a bind will change the selection of service methods container wide so
+it only has to be done once somewhere. The test `TestServiceInspectorBinds`
+shows the full example where service methods are annotated with `@Resource`
+(this annotation has just been chosen because it already existed in the JRE).
+
 ## Using Services
 Once services have been bound as described above it becomes very easy to use 
 them. Instead of directly calling the function implementing a service (like 
@@ -123,10 +145,20 @@ a new functionality will not cascade out to the users of services as the wiring
 is not explicitly defined but given through the types. The container will take
 care of such changes and it will just work. 
 
+Furthermore the ad-hoc like nature of injection for service calls also gets rid
+of scoping issues, that is to inject more unstable objects into more stable ones
+what usually requires an indirection like a provider. With services this is no
+longer a problem as the injection happens with the method call. The injected 
+instances are used for the call, another call might inject different actual 
+instances due to scoping or other dynamics. Yet there is very little overhead
+paid for this as the injection is split into two parts, a) resolution of the
+responsible _resource_, and b) yielding the actual instance. The `Injectron`
+abstraction makes this possible. 
+
 Last but not least the service pattern naturally makes the service functions
-nicely decoupled well testable code close to the idea of a pure function.
+nicely decoupled, well testable code close to the idea of a pure function.
 In tests all _dependencies_ of the computation are passed directly to the function.
-All that goes in and out is simple to control for a test so that it can be
+All that goes in and out is in control of the caller so that it can be
 implemented with a stub or checked for results/calls/changes without requiring
 a DI container or mocking framework for testing.
 
