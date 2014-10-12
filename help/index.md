@@ -27,7 +27,7 @@ Help
 ----
 
 <div class="icon"><span class="fa fa-legal"></span>License</div>
-- Silk is released under the Apache License 2.0 [license](license.html).
+- Silk is released under the [Apache License 2.0](license.html).
 
 ----
 
