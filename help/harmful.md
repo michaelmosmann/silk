@@ -135,9 +135,9 @@ injection as the receiver already is in need of deciding what specific thing
 it is that is received. 
 This is what a receiver shouldn't need to know or care about. 
 
-So annotations make a receiver point out what should be received and this can
-only be one thing. By concept this means the code can only be used in **a** 
-particular situation, another one will require ridiculous tricks like overriding
+Annotations make a receiver point out what should be received and this can
+only be one thing. By concept the code can only be used in **a** particular 
+situation, another one will require ridiculous _tricks_, like overriding
 just to add another annotation asking for something else. Such code is surely not
 decoupled. In order to work as intended by the programmer it is more tightly 
 coupled as it would have been without a DI container and manual wiring.
