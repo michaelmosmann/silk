@@ -71,7 +71,7 @@ protected void declare() {
 
 
 <b class="bullet">Silk provides few concepts to configure an app in a predictable and maintainable way.</b>
-<div class="icon"><span class="fa fa-th-large"></span>if-less<br/><a href="userguide/modularity.html">Modularity</a></div>
+<div class="icon"><span class="fa fa-cubes"></span>if-less<br/><a href="userguide/modularity.html">Modularity</a></div>
 
 - Fast bootstrap
 - Sequence of declarations is irrelevant 

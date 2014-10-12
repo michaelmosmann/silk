@@ -24,6 +24,10 @@ Help
 <div class="icon"><span class="fa fa-bug"></span>Defects</div>
 - Report an [issue](https://github.com/jbee/silk/issues)
 
+----
+
+<div class="icon"><span class="fa fa-legal"></span>License</div>
+- Silk is released under the Apache License 2.0 [license](license.html).
 
 ----
 

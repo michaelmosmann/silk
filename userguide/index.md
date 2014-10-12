@@ -30,7 +30,7 @@ This documents the most important part of the API as it will be used from a usua
 Scopes in Silk are very flexible. Learn about the scopes existing and how custom scopes can be done. 
 
 <hr/>
-<a href="/userguide/modularity.html" class="book list c-docs"><span class="fa fa-th-large"></span><em>5.</em> Modularity</a>
+<a href="/userguide/modularity.html" class="book list c-docs"><span class="fa fa-cubes"></span><em>5.</em> Modularity</a>
 Silk is designed to scale from tiny to very large. A application configuration is described on 2 levels. 
 Modules describe the bindings, bundles describe a composition of modules and other bundles.
 The special characteristic of Silk is that all conditions kept outside of these bundles and modules. 

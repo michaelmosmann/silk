@@ -4,14 +4,14 @@ title: Downloads
 ---
 <tour class="c-downloads">
 Release
-<a href="#github" ><i class="fa fa-github-alt"></i> Github</a>
+<a href="#github" >Github</a>
 <a href="#current">Current </a>
 <a href="#previous">Previous</a>
 </tour>
 
 # Downloads
 
-## <a id="github" class="fa fa-github-alt"></a> Download from GitHub
+## <a id="github" class="fa fa-github"></a> Download from GitHub
 The [newest release(s)](https://github.com/jbee/silk/releases/tag/v0.7) can always be found on the project's [release overview](https://github.com/jbee/silk/releases) on GitHub.
 
 ## <a id="current" class="fa fa-tag"></a> Current Release v0.7
