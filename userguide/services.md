@@ -6,7 +6,7 @@ title : Services
 
 <abstract>
 The service concept comes close to what is sometimes called micro-services. 
-Usual java method become a first class service object with a generic interface. 
+Usual java methods become a first class service object with a generic interface. 
 It decouples implementation and usage wiring by type. Thereby wiring is automatic 
 and refactoring-safe since method names or parameter order are irrelevant.
 </abstract>
@@ -104,14 +104,14 @@ them. Instead of directly calling the function implementing a service (like
 `login`) and thereby becoming dependent upon the implementing class (and code
 artefact it is contained within) the service abstraction created (here 
 `Service`) is used. Continuing the above example a user of the _login_ service
-asks for a `Service<Status,LoginCredentials`. This can be a constructor parameter
+asks for a `Service<LoginCredentials,Status`. This can be a constructor parameter
 or in the case of another service also a parameter of another service method.
 
 A user of the login service could look like this:
 {% highlight java %}
 class LoginController {
 
-	private Service<Status,LoginCredentials> loginService;
+	private Service<LoginCredentials,Status> loginService;
 	/* constructor etc. */
 	void login(/* ... */) {
 		Status s = loginService.exec(new LoginCredentials(user, password));
@@ -129,7 +129,7 @@ depend upon business logic implementation code.
 Services can naturally also be used with other service methods. 
 
 {% highlight java %}
-Users teenagers(TeenagerRange r, Service<Users, UserProperties> users) {
+Users teenagers(TeenagerRange r, Service<UserProperties,Users> users) {
 	// use users to filter teenagers in the given range
 }
 {% endhighlight %}
