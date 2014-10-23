@@ -15,7 +15,7 @@ import se.jbee.inject.Dependency;
 import se.jbee.inject.Injector;
 import se.jbee.inject.Instance;
 import se.jbee.inject.Name;
-import se.jbee.inject.bind.BasicBinder.ScopedBasicBinder;
+//import se.jbee.inject.bind.BasicBinder.ScopedBasicBinder;
 import se.jbee.inject.bootstrap.Bootstrap;
 
 /**

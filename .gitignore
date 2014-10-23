@@ -3,4 +3,6 @@ target/
 dist/
 src/doc/
 lib/
-pom.*
+# pom.*
+*~
+
