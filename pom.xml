@@ -12,7 +12,7 @@
     <artifactId>silk-di</artifactId>
     <name>Silk DI</name>
     <description>Silk Java dependency injection framework</description>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.7-SNAPSHOT</version>
   <url>http://www.silkdi.com</url>
   <licenses>
     <license>
